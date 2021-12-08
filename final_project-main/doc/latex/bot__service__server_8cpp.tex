@@ -1,0 +1,77 @@
+\hypertarget{bot__service__server_8cpp}{}\section{src/bot\+\_\+service\+\_\+server.cpp File Reference}
+\label{bot__service__server_8cpp}\index{src/bot\+\_\+service\+\_\+server.\+cpp@{src/bot\+\_\+service\+\_\+server.\+cpp}}
+{\ttfamily \#include $<$ros/ros.\+h$>$}\newline
+{\ttfamily \#include $<$image\+\_\+transport/image\+\_\+transport.\+h$>$}\newline
+{\ttfamily \#include $<$cv\+\_\+bridge/cv\+\_\+bridge.\+h$>$}\newline
+{\ttfamily \#include $<$sensor\+\_\+msgs/image\+\_\+encodings.\+h$>$}\newline
+{\ttfamily \#include $<$opencv2/imgproc/imgproc.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/highgui/highgui.\+hpp$>$}\newline
+{\ttfamily \#include \char`\"{}bot\+\_\+msgs/\+Snap\+Picture.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$sensor\+\_\+msgs/\+Image.\+h$>$}\newline
+Include dependency graph for bot\+\_\+service\+\_\+server.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bot__service__server_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{bot__service__server_8cpp_a25800f5f9021e14ca862ffa7f01f9020}{snap\+\_\+picture\+\_\+service\+\_\+callback} (bot\+\_\+msgs\+::\+Snap\+Picture\+::\+Request \&request, bot\+\_\+msgs\+::\+Snap\+Picture\+::\+Response \&response)
+\item 
+void \hyperlink{bot__service__server_8cpp_aad738bad1c37a6d5f963820243c43cf6}{camera\+\_\+image\+\_\+topic\+\_\+callback} (const sensor\+\_\+msgs\+::\+Image\+::\+Const\+Ptr \&img\+\_\+msg)
+\item 
+int \hyperlink{bot__service__server_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+cv\+\_\+bridge\+::\+Cv\+Image\+Ptr \hyperlink{bot__service__server_8cpp_a46a054ab4fc737d95a4b5555d51a761c}{cv\+\_\+ptr}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{bot__service__server_8cpp_aad738bad1c37a6d5f963820243c43cf6}\label{bot__service__server_8cpp_aad738bad1c37a6d5f963820243c43cf6}} 
+\index{bot\+\_\+service\+\_\+server.\+cpp@{bot\+\_\+service\+\_\+server.\+cpp}!camera\+\_\+image\+\_\+topic\+\_\+callback@{camera\+\_\+image\+\_\+topic\+\_\+callback}}
+\index{camera\+\_\+image\+\_\+topic\+\_\+callback@{camera\+\_\+image\+\_\+topic\+\_\+callback}!bot\+\_\+service\+\_\+server.\+cpp@{bot\+\_\+service\+\_\+server.\+cpp}}
+\subsubsection{\texorpdfstring{camera\+\_\+image\+\_\+topic\+\_\+callback()}{camera\_image\_topic\_callback()}}
+{\footnotesize\ttfamily void camera\+\_\+image\+\_\+topic\+\_\+callback (\begin{DoxyParamCaption}\item[{const sensor\+\_\+msgs\+::\+Image\+::\+Const\+Ptr \&}]{img\+\_\+msg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 30 of file bot\+\_\+service\+\_\+server.\+cpp.
+
+\mbox{\Hypertarget{bot__service__server_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{bot__service__server_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{bot\+\_\+service\+\_\+server.\+cpp@{bot\+\_\+service\+\_\+server.\+cpp}!main@{main}}
+\index{main@{main}!bot\+\_\+service\+\_\+server.\+cpp@{bot\+\_\+service\+\_\+server.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Definition at line 43 of file bot\+\_\+service\+\_\+server.\+cpp.
+
+\mbox{\Hypertarget{bot__service__server_8cpp_a25800f5f9021e14ca862ffa7f01f9020}\label{bot__service__server_8cpp_a25800f5f9021e14ca862ffa7f01f9020}} 
+\index{bot\+\_\+service\+\_\+server.\+cpp@{bot\+\_\+service\+\_\+server.\+cpp}!snap\+\_\+picture\+\_\+service\+\_\+callback@{snap\+\_\+picture\+\_\+service\+\_\+callback}}
+\index{snap\+\_\+picture\+\_\+service\+\_\+callback@{snap\+\_\+picture\+\_\+service\+\_\+callback}!bot\+\_\+service\+\_\+server.\+cpp@{bot\+\_\+service\+\_\+server.\+cpp}}
+\subsubsection{\texorpdfstring{snap\+\_\+picture\+\_\+service\+\_\+callback()}{snap\_picture\_service\_callback()}}
+{\footnotesize\ttfamily bool snap\+\_\+picture\+\_\+service\+\_\+callback (\begin{DoxyParamCaption}\item[{bot\+\_\+msgs\+::\+Snap\+Picture\+::\+Request \&}]{request,  }\item[{bot\+\_\+msgs\+::\+Snap\+Picture\+::\+Response \&}]{response }\end{DoxyParamCaption})}
+
+
+
+Definition at line 13 of file bot\+\_\+service\+\_\+server.\+cpp.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{bot__service__server_8cpp_a46a054ab4fc737d95a4b5555d51a761c}\label{bot__service__server_8cpp_a46a054ab4fc737d95a4b5555d51a761c}} 
+\index{bot\+\_\+service\+\_\+server.\+cpp@{bot\+\_\+service\+\_\+server.\+cpp}!cv\+\_\+ptr@{cv\+\_\+ptr}}
+\index{cv\+\_\+ptr@{cv\+\_\+ptr}!bot\+\_\+service\+\_\+server.\+cpp@{bot\+\_\+service\+\_\+server.\+cpp}}
+\subsubsection{\texorpdfstring{cv\+\_\+ptr}{cv\_ptr}}
+{\footnotesize\ttfamily cv\+\_\+bridge\+::\+Cv\+Image\+Ptr cv\+\_\+ptr}
+
+
+
+Definition at line 11 of file bot\+\_\+service\+\_\+server.\+cpp.
+
