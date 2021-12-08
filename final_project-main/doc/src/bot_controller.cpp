@@ -63,7 +63,7 @@ void Bot_Controller::m_pose_callback(const nav_msgs::Odometry::ConstPtr& odom_ms
     m_location.second = odom_msg->pose.pose.position.y;
     m_orientation = odom_msg->pose.pose.orientation;
 
-    bot_msgs::BotStatus bot_status_msg;
+    bot_msgs::BotStatus bot_status_msg; //SLide 19 task 3.4
     bot_status_msg.robot_name = m_robot_name;
     bot_status_msg.pose_data = odom_msg->pose.pose;
     bot_status_msg.twist_data = odom_msg->twist.twist;

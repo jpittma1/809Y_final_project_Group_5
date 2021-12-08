@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(final_project)
+project(bot_controller)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -11,11 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   nav_msgs
   roscpp
-  actionlib
-  tf
-  tf2_ros
-  move_base_msgs
-  fiducial_msgs
+  sensor_msgs
   bot_msgs
   sensor_msgs
   image_transport
@@ -81,7 +77,7 @@ find_package(Boost REQUIRED COMPONENTS system thread)
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   geometry_msgs#   nav_msgs
+#   geometry_msgs#   nav_msgs#   scan_msgs
 # )
 
 ################################################
@@ -133,7 +129,7 @@ include
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/final_project.cpp
+#   src/${PROJECT_NAME}/bot_controller.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -144,8 +140,12 @@ include
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable( ${PROJECT_NAME}_node src/main.cpp src/main_bot.cpp src/bot_controller.cpp)
-
+add_executable( ${PROJECT_NAME}_exe src/main.cpp src/bot_controller.cpp)
+add_executable(service_server_exe src/bot_service_server.cpp)
+add_executable(service_client_exe src/bot_service_client.cpp)
+add_executable(action_server_exe src/bot_action_server.cpp)
+add_executable(action_client_exe src/bot_action_client.cpp)
+                                              
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -157,10 +157,24 @@ add_executable( ${PROJECT_NAME}_node src/main.cpp src/main_bot.cpp src/bot_contr
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(${PROJECT_NAME}_node
+target_link_libraries(${PROJECT_NAME}_exe
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(service_server_exe
   ${catkin_LIBRARIES}
 )
 
+target_link_libraries(service_client_exe
+  ${catkin_LIBRARIES}
+)
+
+target_link_libraries(action_server_exe
+  ${catkin_LIBRARIES}
+)
+
+target_link_libraries(action_client_exe
+  ${catkin_LIBRARIES}
+)
 #############
 ## Install ##
 #############
@@ -208,7 +222,7 @@ target_link_libraries(${PROJECT_NAME}_node
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_final_project.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_bot_controller.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
