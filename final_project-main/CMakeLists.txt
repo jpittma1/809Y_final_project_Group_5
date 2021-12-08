@@ -16,11 +16,16 @@ find_package(catkin REQUIRED COMPONENTS
   tf2_ros
   move_base_msgs
   fiducial_msgs
+  # bot_msgs
   sensor_msgs
+  image_transport
+  cv_bridge
+  actionlib_msgs
+  actionlib
 )
 
 ## System dependencies are found with CMake's conventions
-# find_package(Boost REQUIRED COMPONENTS system)
+find_package(Boost REQUIRED COMPONENTS system thread)
 
 
 ## Uncomment this if the package has a setup.py. This macro ensures
@@ -110,8 +115,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES final_project
-#  CATKIN_DEPENDS geometry_msgs nav_msgs roscpp tf
+#  LIBRARIES bot_controller
+ CATKIN_DEPENDS actionlib_msgs
 #  DEPENDS system_lib
 )
 
@@ -122,7 +127,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+include
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -139,7 +144,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable(${PROJECT_NAME}_node src/main.cpp src/bot_controller.cpp)
+add_executable( ${PROJECT_NAME}_node src/main.cpp src/main_bot.cpp src/bot_controller.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
