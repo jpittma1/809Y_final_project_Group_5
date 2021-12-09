@@ -41,9 +41,8 @@ public:
     }
 
 protected: //for inheritance
-    ros::NodeHandle m_nh; // we will need this, to pass between main() and constructor
+    ros::NodeHandle m_nh;
 
-    // these will be set up within the class constructor, hiding these ugly details
     ros::Subscriber m_pose_subscriber;
     ros::Subscriber m_scan_subscriber;
     ros::Subscriber m_fiducial_subscriber;

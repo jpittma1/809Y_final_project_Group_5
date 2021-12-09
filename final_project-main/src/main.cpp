@@ -11,6 +11,7 @@
 #include <array>
 #include <iostream>
 #include <algorithm>
+#include <utility>
 
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
@@ -65,7 +66,9 @@ int main(int argc, char** argv)
 
   //An array to store marker locations from explorer
   //4 ID arrays with ID, x, y, and orientation stored in each array
-  std::array<std::array<int, 4>, 4> markers{};
+  std::pair <int, double, double, double> p_marker;
+  std::array<std::pair <int, double, double, double>, 4> markers{};
+  
 
   ros::init(argc, argv, "simple_navigation_goals");
   ros::NodeHandle nh;
@@ -212,9 +215,13 @@ int main(int argc, char** argv)
     // }
 
     //---See and store Marker Locations--
-    markers.at(marker).at(0)=m_fiducial_subscriber; //Fiducial ID
-    markers.at(marker).at(2)=m_orientation;  //orientation
+    // std::array<int, 1>  id;
+    // std::array<double, 3> posit{};
+    // std::pair <int, double, double, double> p_marker;
+    // std::array<std::pair <int, double, double, double>, 4> markers{};
     try {
+        int counter=0;
+
         transformStamped = tfBuffer.lookupTransform("map", "marker_frame",
         ,→ ros::Time(0));
         ROS_INFO_STREAM("marker in /map frame: ["
@@ -223,9 +230,17 @@ int main(int argc, char** argv)
           << transformStamped.transform.translation.z << "]"
         );
         //!!NEED TO DEFINE "marker"!!!!
-        markers.at(marker).at(1) =transformStamped.transform.translation.x;  //x
-        markers.at(marker).at(2)=transformStamped.transform.translation.y;  //y
+        // id=transformStamped.fid; //Fiducial ID
+        // markers.at(i).at(1) =transformStamped.transform.translation.x;  //x
+        // markers.at(i).at(2)=transformStamped.transform.translation.y;  //y
+        // markers.at(i).at(3)=m_orientation;  //orientation
 
+        p_marker = std::make_pair(transformStamped.fid, transformStamped.transform.translation.x
+        , transformStamped.transform.translation.y, m_orientation);
+
+        markers.at(i)=p_marker;
+
+        counter++;
       }
       catch (tf2::TransformException& ex) {
           ROS_WARN("%s", ex.what());
@@ -247,9 +262,9 @@ int main(int argc, char** argv)
     //---STEP 02. Send Follower to IDs O through 3 ---//
     for (int i=0;i<4;i++) {
       //--Set Goal for next ID--//
-      fiducial_id=array.at(i).at(0);
-      goal_x=array.at(i).at(1);
-      goal_y=array.at(i).at(2);
+      fiducial_id=markers.at(i).at(0);
+      goal_x=markers.at(i).at(1);
+      goal_y=markers.at(i).at(2);
       
       if (motion_type == "h")
         follower.stop();
