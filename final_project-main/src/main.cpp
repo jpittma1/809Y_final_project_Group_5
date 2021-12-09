@@ -190,6 +190,8 @@ int main(int argc, char** argv)
   tf2_ros::TransformListener tfListener(tfBuffer);
   ros::Rate loop_rate(10);
 
+  static double final_angle{ 0 };
+
   while (ros::ok()) {
     //*****EXPLORER*****//
     if (!explorer_goal_sent)     {
@@ -211,7 +213,7 @@ int main(int argc, char** argv)
 
     //---See and store Marker Locations--
     markers.at(marker).at(0)=m_fiducial_subscriber; //Fiducial ID
-    markers.at(marker).at(2)=m_orientation;    //orientation
+    markers.at(marker).at(2)=m_orientation;  //orientation
     try {
         transformStamped = tfBuffer.lookupTransform("map", "marker_frame",
         ,→ ros::Time(0));
@@ -271,7 +273,7 @@ int main(int argc, char** argv)
 
     broadcast();
     listen(tfBuffer);
-    ros::spinOnce(); //uncomment this if you have subscribers in your code
+    ros::spinOnce();
     loop_rate.sleep();
 
     //---STEP 03. Send Follower to Start Position (-4,3.5) ---//
