@@ -46,6 +46,7 @@ protected: //for inheritance
     // these will be set up within the class constructor, hiding these ugly details
     ros::Subscriber m_pose_subscriber;
     ros::Subscriber m_scan_subscriber;
+    ros::Subscriber m_fiducial_subscriber;
     ros::Publisher m_velocity_publisher;
     ros::Publisher m_bot_status_publisher; //slide 19 task
 
@@ -64,7 +65,8 @@ protected: //for inheritance
     double m_yaw;                                                      //rad
     void m_pose_callback(const nav_msgs::Odometry::ConstPtr &msg);     // prototype for callback of example subscriber
     void m_scan_callback(const sensor_msgs::LaserScan::ConstPtr &msg); // prototype for callback of example subscriber
-    
+    void m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg);
+
     void m_initialize_subscribers();
     void m_initialize_publishers();
     double m_compute_distance(const std::pair<double, double> &a, const std::pair<double, double> &b);

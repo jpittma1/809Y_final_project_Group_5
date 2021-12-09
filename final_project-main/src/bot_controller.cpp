@@ -48,7 +48,8 @@ void Bot_Controller::m_initialize_publishers() {
 void Bot_Controller::m_initialize_subscribers() {
     ROS_INFO("Initializing Subscribers");
     m_pose_subscriber = m_nh.subscribe("/odom", 1000, &Bot_Controller::m_pose_callback, this);
-    // m_scan_subscriber = m_nh.subscribe("/scan", 1000, &Bot_Controller::m_scan_callback, this);
+    m_scan_subscriber = m_nh.subscribe("/scan", 1000, &Bot_Controller::m_scan_callback, this);
+    m_fiducial_subscriber = m_nh.subscribe("/fiducial_transforms", 1000, &Bot_Controller::m_fiducial_callback, this);
     //add more subscribers as needed
 }
 
@@ -75,6 +76,22 @@ void Bot_Controller::m_scan_callback(const sensor_msgs::LaserScan::ConstPtr& msg
     ROS_INFO_STREAM("Front: " << msg->ranges[0]);
     ROS_INFO_STREAM("Left: " << msg->ranges[90]);
     ROS_INFO_STREAM("Right: " << msg->ranges[270]);
+}
+
+void Bot_Controller::m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg) {
+    if (!msg->transforms.empty()) {//check marker is detected
+        //broadcaster object
+        static tf2_ros::TransformBroadcaster br;
+        geometry_msgs::TransformStamped transformStamped;
+        //broadcast the new frame to /tf Topic
+        transformStamped.header.stamp = ros::Time::now();
+        transformStamped.header.frame_id = "explorer_tf/camera_rgb_optical_frame";
+        transformStamped.child_frame_id = "marker_frame";
+        transformStamped.transform.translation.x =
+        ,→ msg->transforms[0].transform.translation.x;
+        /*write the remaining code here*/
+        br.sendTransform(transformStamped);
+    }
 }
 
 double Bot_Controller::m_compute_distance(const std::pair<double, double>& a, const std::pair<double, double>& b) {

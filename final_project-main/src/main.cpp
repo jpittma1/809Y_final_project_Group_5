@@ -62,8 +62,8 @@ int main(int argc, char** argv)
   bool follower_goal_sent = false;
 
   //An array to store marker locations from explorer
-  //4 ID arrays with ID, x,and y stored in each array
-  std::array<std::array<int, 3>, 4> markers{};
+  //4 ID arrays with ID, x, y, and orientation stored in each array
+  std::array<std::array<int, 4>, 4> markers{};
 
   ros::init(argc, argv, "simple_navigation_goals");
   ros::NodeHandle nh;
@@ -170,7 +170,7 @@ int main(int argc, char** argv)
   int fiducial_id;
   double goal_x;
   double goal_y;
-  
+
   // if (motion_type == "g")
   // {
   //   if (!nh.hasParam("goal_x"))
@@ -206,17 +206,25 @@ int main(int argc, char** argv)
     // if (follower_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
     //   ROS_INFO("Hooray, robot reached goal");
     // }
+
+    //---Store Marker Locations--
+    markers.at(marker).at(0)=m_fiducial_subscriber; //Fiducial ID
+    markers.at(marker).at(1) =m_location.first  //x
+    markers.at(marker).at(2)=m_location.second  //y
+    markers.at(marker).at(2)=m_orientation    //orientation
+    
+    
     
     //*****FOLLOWER*******//
-    //---STEP 01a. Sort/organize std::array to got 0->4--//
-    for (int j=0;j<4;j++) {
-      std::cout <<"Pre-sort Array " << i << "is" << markers.at(j)<<"\n";
+    //---STEP 01a. Sort/organize std::array to go IDs 0->4
+    for (int h=0;h<4;h++) {
+      std::cout <<"Pre-sort Array " << h << "is" << markers.at(h)<<"\n";
     }
     std::sort(markers.begin(), markers.end());
     ROS_INFO("Array sorted by IDs");
     //Print to test array sorted correctly
     for (int j=0;j<4;j++) {
-      std::cout <<"Post-sort Array " << i << "is" << markers.at(j)<<"\n";
+      std::cout <<"Post-sort Array " << j << "is" << markers.at(j)<<"\n";
     }
 
     //---STEP 02. Send Follower to IDs O through 3 ---//

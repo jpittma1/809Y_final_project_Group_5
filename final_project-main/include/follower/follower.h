@@ -13,7 +13,7 @@
 
 
 /**
- * @brief Public Inheritance Child class of Bot_controller 
+ * @brief Public Inheritance Child class of Bot_controller Class
  * to go to ArUco markers found by
  * Explorer child
  * 
