@@ -29,8 +29,10 @@ class Explorer : public Bot_Controller {
         virtual double compute_yaw_deg() override;
         virtual double compute_yaw_rad() override;
         virtual double convert_rad_to_deg(double angle) override;
-        std::array<std::array<int,3>,4> goal_list;
 
+        Node exp_node;
+        std::array<std::array<int,3>,4> goal_list;
+        std::array<int,3> start_place;
 
         //--Accessors--
         const double get_current_x(){
@@ -40,7 +42,7 @@ class Explorer : public Bot_Controller {
         const double get_current_y(){
             return m_location.second;
         }
-        std::array<int,2> get_start_loc(){
+        std::array<int,3> get_start_loc(){
             std::array<int,3> start_loc;
             start_loc[0] = get_current_x();
             start_loc[1] = get_current_y();
@@ -49,6 +51,8 @@ class Explorer : public Bot_Controller {
         };
 
         void move_to_next_goal(std::array<int,3> goal_loc){};
+
+        void get_goals(){};
 
         // friend std::ostream& operator << (std::ostream& output, const Follower& follower) {
         // output << "--------------------------\n";
