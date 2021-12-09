@@ -207,13 +207,26 @@ int main(int argc, char** argv)
     //   ROS_INFO("Hooray, robot reached goal");
     // }
 
-    //---Store Marker Locations--
+    //---See and store Marker Locations--
     markers.at(marker).at(0)=m_fiducial_subscriber; //Fiducial ID
-    markers.at(marker).at(1) =m_location.first  //x
-    markers.at(marker).at(2)=m_location.second  //y
-    markers.at(marker).at(2)=m_orientation    //orientation
-    
-    
+    markers.at(marker).at(2)=m_orientation;    //orientation
+    try {
+        transformStamped = tfBuffer.lookupTransform("map", "marker_frame",
+        ,→ ros::Time(0));
+        ROS_INFO_STREAM("marker in /map frame: ["
+          << transformStamped.transform.translation.x << ","
+          << transformStamped.transform.translation.y << ","
+          << transformStamped.transform.translation.z << "]"
+        );
+        //!!NEED TO DEFINE "marker"!!!!
+        markers.at(marker).at(1) =transformStamped.transform.translation.x;  //x
+        markers.at(marker).at(2)=transformStamped.transform.translation.y;  //y
+
+      }
+      catch (tf2::TransformException& ex) {
+          ROS_WARN("%s", ex.what());
+          ros::Duration(1.0).sleep();
+      }
     
     //*****FOLLOWER*******//
     //---STEP 01a. Sort/organize std::array to go IDs 0->4
