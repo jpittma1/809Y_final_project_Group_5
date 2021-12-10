@@ -16,6 +16,15 @@
 
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
+// forward declaration
+void print_usage(std::string error = "");
+
+void print_usage(std::string error)
+{
+  if (!error.empty())  // if not empty string
+    ROS_ERROR_STREAM(error << "\n");
+  ros::shutdown();
+}
 
 void broadcast() {
   //for broadcaster
@@ -295,7 +304,7 @@ int main(int argc, char** argv)
         else if (motion_type == "g")
         {
           ROS_INFO("Sending follower to goal for");
-          std::cout << "\nFiducial ID: "<< fiducual_id;
+          std::cout << "\nFiducial ID: "<< fiducial_id;
           std::cout << "\nLocated at: ("<< goal_x << ", "<<goal_y<<")";
           follower.go_to_goal(goal_x, goal_y);
           ROS_INFO("Hooray, follower reached goal");
