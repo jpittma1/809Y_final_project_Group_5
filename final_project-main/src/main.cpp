@@ -64,10 +64,11 @@ int main(int argc, char** argv)
   bool explorer_goal_sent = false;
   bool follower_goal_sent = false;
 
-  //An array to store marker locations from explorer
-  //4 ID arrays with ID, x, y, and orientation stored in each array
-  std::pair <int, double, double, double> p_marker;
-  std::array<std::pair <int, double, double, double>, 4> markers{};
+  //An array to store marker IDs
+  std::array<int, 4> markers{};
+  //An unsorted and sorted array for storing marker locations from explorer
+  std::array<std::array<double, 2>, 4> posit{};
+  std::array<std::array<double, 2>, 4> posit_new{};
   
 
   ros::init(argc, argv, "simple_navigation_goals");
@@ -84,6 +85,7 @@ int main(int argc, char** argv)
     print_usage("missing argument: _robot_name:= <name>");
   }
   
+  //Initialize Follower
   Follower follower(&nh, "follower");
 
   // tell the action client that we want to spin a thread by default
@@ -229,16 +231,10 @@ int main(int argc, char** argv)
           << transformStamped.transform.translation.y << ","
           << transformStamped.transform.translation.z << "]"
         );
-        //!!NEED TO DEFINE "marker"!!!!
-        // id=transformStamped.fid; //Fiducial ID
-        // markers.at(i).at(1) =transformStamped.transform.translation.x;  //x
-        // markers.at(i).at(2)=transformStamped.transform.translation.y;  //y
-        // markers.at(i).at(3)=m_orientation;  //orientation
-
-        p_marker = std::make_pair(transformStamped.fid, transformStamped.transform.translation.x
-        , transformStamped.transform.translation.y, m_orientation);
-
-        markers.at(i)=p_marker;
+        
+        posit.at(counter).at(0) = transformStamped.transform.translation.x;
+        posit.at(counter).at(1)=transformStamped.transform.translation.y;
+        markers.at(counter)=transformStamped.fid;
 
         counter++;
       }
@@ -247,44 +243,64 @@ int main(int argc, char** argv)
           ros::Duration(1.0).sleep();
       }
     
-    //*****FOLLOWER*******//
-    //---STEP 01a. Sort/organize std::array to go IDs 0->4
-    for (int h=0;h<4;h++) {
-      std::cout <<"Pre-sort Array " << h << "is" << markers.at(h)<<"\n";
-    }
-    std::sort(markers.begin(), markers.end());
-    ROS_INFO("Array sorted by IDs");
-    //Print to test array sorted correctly
-    for (int j=0;j<4;j++) {
-      std::cout <<"Post-sort Array " << j << "is" << markers.at(j)<<"\n";
-    }
-
-    //---STEP 02. Send Follower to IDs O through 3 ---//
-    for (int i=0;i<4;i++) {
-      //--Set Goal for next ID--//
-      fiducial_id=markers.at(i).at(0);
-      goal_x=markers.at(i).at(1);
-      goal_y=markers.at(i).at(2);
+      //*****FOLLOWER*******//
+      //---STEP 01a. Sort/organize posit_new to go IDs 0->4
+      for (int h=0;h<4;h++) {
+        std::cout <<"\nPre-sort Array marker " << h << " is " << markers.at(h)<<"\n";
+        std::cout <<"Pre-sort Array Posit " << h << " is " << posit.at(h).at(0)<<
+        " " << posit.at(h).at(1)<<"\n";
       
-      if (motion_type == "h")
-        follower.stop();
-      else if (motion_type == "s")
-        follower.drive_straight(drive_value, direction_b);
-      else if (motion_type == "r")
-      {
-        if (final_angle == 0)
-          final_angle = follower.compute_expected_final_yaw(direction_b, drive_value);
-        follower.rotate(drive_value, direction_b, final_angle);
+        if (markers.at(h)==0){
+          posit_new.at(0)=posit.at(h);
+          
+          }else if(markers.at(h)==1){
+              posit_new.at(1)=posit.at(h);
+
+          } else if (markers.at(h)==2) {
+              posit_new.at(2)=posit.at(h);
+              
+          }else {
+              posit_new.at(3)=posit.at(h);
+          }
+          
       }
-      else if (motion_type == "g")
-      {
-        ROS_INFO("Sending follower to goal for");
-        std::cout << "\nFiducial ID: "<< fiducual_id;
-        std::cout << "\nLocated at: ("<< goal_x << ", "<<goal_y<<")";
-        follower.go_to_goal(goal_x, goal_y);
-        ROS_INFO("Hooray, follower reached goal");
+
+      std::sort(markers.begin(), markers.end());
+      ROS_INFO("Positions of Markers sorted by Fiducial IDs");
+      
+      //Print to test array sorted correctly
+      for (int j=0;j<4;j++) {
+        std::cout <<"\nPost-sort Array markers " << j << " is " << markers.at(j)<<"\n";
+        std::cout <<"Post-sort Array Posit " << j << " is " << posit_new.at(j).at(0)<<
+        " " << posit_new.at(j).at(1)<<"\n";
       }
-    }
+
+      //---STEP 02. Send Follower to IDs O through 3 ---//
+      for (int i=0;i<4;i++) {
+        //--Set Goal for next ID--//
+        fiducial_id=markers.at(i);
+        goal_x=posit_new.at(i).at(0);
+        goal_y=posit_new.at(i).at(1);
+        
+        if (motion_type == "h")
+          follower.stop();
+        else if (motion_type == "s")
+          follower.drive_straight(drive_value, direction_b);
+        else if (motion_type == "r")
+        {
+          if (final_angle == 0)
+            final_angle = follower.compute_expected_final_yaw(direction_b, drive_value);
+          follower.rotate(drive_value, direction_b, final_angle);
+        }
+        else if (motion_type == "g")
+        {
+          ROS_INFO("Sending follower to goal for");
+          std::cout << "\nFiducial ID: "<< fiducual_id;
+          std::cout << "\nLocated at: ("<< goal_x << ", "<<goal_y<<")";
+          follower.go_to_goal(goal_x, goal_y);
+          ROS_INFO("Hooray, follower reached goal");
+        }
+      }
 
     broadcast();
     listen(tfBuffer);
