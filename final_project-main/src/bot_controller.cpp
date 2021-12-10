@@ -87,21 +87,14 @@ void Bot_Controller::m_fiducial_callback(const fiducial_msgs::FiducialTransformA
         transformStamped.header.stamp = ros::Time::now();
         transformStamped.header.frame_id = "explorer_tf/camera_rgb_optical_frame";
         transformStamped.child_frame_id = "marker_frame";
-        transformStamped.transform.translation.x =
-        ,→ msg->transforms[0].transform.translation.x;
-        transformStamped.transform.translation.y =
-        ,→ msg->transforms[1].transform.translation.y;
-        transformStamped.transform.translation.z =
-        ,→ msg->transforms[2].transform.translation.z;
+        transformStamped.transform.translation.x =→ msg->transforms[0].transform.translation.x;
+        transformStamped.transform.translation.y =→ msg->transforms[1].transform.translation.y;
+        transformStamped.transform.translation.z =→ msg->transforms[2].transform.translation.z;
         
-        transformStamped.transform.rotation.x =
-        ,→ msg->transforms[0].transform.rotation.x;
-        transformStamped.transform.rotation.y =
-        ,→ msg->transforms[1].transform.rotation.y;
-        transformStamped.transform.rotation.z =
-        ,→ msg->transforms[2].transform.rotation.z;
-        transformStamped.transform.rotation.w =
-        ,→ msg->transforms[3].transform.rotation.w;
+        transformStamped.transform.rotation.x =→ msg->transforms[0].transform.rotation.x;
+        transformStamped.transform.rotation.y =→ msg->transforms[1].transform.rotation.y;
+        transformStamped.transform.rotation.z =→ msg->transforms[2].transform.rotation.z;
+        transformStamped.transform.rotation.w =→ msg->transforms[3].transform.rotation.w;
         
         transformStamped.fid=->msg->transforms[0].fiducial_id;
 
