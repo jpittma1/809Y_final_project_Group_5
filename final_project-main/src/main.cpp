@@ -1,5 +1,6 @@
-#include "..include/bot_controller/bot_controller.h"
-#include "..include/follower/follower.h"
+#include "../include/bot_controller/bot_controller.h"
+#include "../include/follower/follower.h"
+#include "../include/explorer/explorer.h"
 #include <actionlib/client/simple_action_client.h>
 #include <fiducial_msgs/FiducialTransformArray.h>
 #include <geometry_msgs/Twist.h>  //for geometry_msgs::Twist
