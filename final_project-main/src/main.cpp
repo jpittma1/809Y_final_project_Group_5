@@ -83,6 +83,7 @@ int main(int argc, char** argv)
 
   ros::init(argc, argv, "simple_navigation_goals");
   ros::NodeHandle nh;
+  geometry_msgs::TransformStamped transformStamped;
 
   ros::init(argc, argv, "follower_bot");
   
