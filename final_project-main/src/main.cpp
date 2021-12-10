@@ -225,8 +225,7 @@ int main(int argc, char** argv)
     try {
         int counter=0;
 
-        transformStamped = tfBuffer.lookupTransform("map", "marker_frame",
-        ,→ ros::Time(0));
+        transformStamped = tfBuffer.lookupTransform("map", "marker_frame",→ ros::Time(0));
         ROS_INFO_STREAM("marker in /map frame: ["
           << transformStamped.transform.translation.x << ","
           << transformStamped.transform.translation.y << ","
