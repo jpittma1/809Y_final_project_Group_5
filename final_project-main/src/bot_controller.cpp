@@ -50,7 +50,7 @@ void Bot_Controller::m_initialize_subscribers() {
     m_pose_subscriber = m_nh.subscribe("/odom", 1000, &Bot_Controller::m_pose_callback, this);
     m_scan_subscriber = m_nh.subscribe("/scan", 1000, &Bot_Controller::m_scan_callback, this);
     m_fiducial_subscriber = m_nh.subscribe("/fiducial_transforms", 1000, &Bot_Controller::m_fiducial_callback, this);
-    //add more subscribers as needed
+   
 }
 
 double Bot_Controller::convert_rad_to_deg(double angle) {
@@ -70,19 +70,12 @@ void Bot_Controller::m_pose_callback(const nav_msgs::Odometry::ConstPtr& odom_ms
     m_bot_status_publisher.publish(bot_status_msg);
 }
 
-
-void Bot_Controller::m_scan_callback(const sensor_msgs::LaserScan::ConstPtr& msg) {
-    ROS_INFO_STREAM("-------------------------");
-    ROS_INFO_STREAM("Front: " << msg->ranges[0]);
-    ROS_INFO_STREAM("Left: " << msg->ranges[90]);
-    ROS_INFO_STREAM("Right: " << msg->ranges[270]);
-}
-
 void Bot_Controller::m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg) {
     if (!msg->transforms.empty()) {//check marker is detected
         //broadcaster object
         static tf2_ros::TransformBroadcaster br;
         geometry_msgs::TransformStamped transformStamped;
+
         //broadcast the new frame to /tf Topic
         transformStamped.header.stamp = ros::Time::now();
         transformStamped.header.frame_id = "explorer_tf/camera_rgb_optical_frame";
@@ -95,11 +88,16 @@ void Bot_Controller::m_fiducial_callback(const fiducial_msgs::FiducialTransformA
         transformStamped.transform.rotation.y =→ msg->transforms[1].transform.rotation.y;
         transformStamped.transform.rotation.z =→ msg->transforms[2].transform.rotation.z;
         transformStamped.transform.rotation.w =→ msg->transforms[3].transform.rotation.w;
-        
-        follower.set_fid=->msg->transforms[0].fiducial_id;
 
         br.sendTransform(transformStamped);
     }
+}
+
+void Bot_Controller::m_scan_callback(const sensor_msgs::LaserScan::ConstPtr& msg) {
+    ROS_INFO_STREAM("-------------------------");
+    ROS_INFO_STREAM("Front: " << msg->ranges[0]);
+    ROS_INFO_STREAM("Left: " << msg->ranges[90]);
+    ROS_INFO_STREAM("Right: " << msg->ranges[270]);
 }
 
 double Bot_Controller::m_compute_distance(const std::pair<double, double>& a, const std::pair<double, double>& b) {

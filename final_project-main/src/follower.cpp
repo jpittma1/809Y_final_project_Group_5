@@ -1,4 +1,5 @@
 #include "../include/follower/follower.h"
+#include "..include/bot_controller/bot_controller.h"
 
 Follower::Follower(ros::NodeHandle* nodehandle, const std::string& robot_name) :
     Bot_Controller(nodehandle, robot_name)
@@ -6,6 +7,14 @@ Follower::Follower(ros::NodeHandle* nodehandle, const std::string& robot_name) :
     ROS_INFO("Follower Constructor called");
     m_initialize_subscribers();
     m_initialize_publishers();
+}
+
+void Follower::m_initialize_subscribers() {
+    ROS_INFO("Initializing Subscribers");
+    m_pose_subscriber = m_nh.subscribe("/odom", 1000, &Bot_Controller::m_pose_callback, this);
+    m_scan_subscriber = m_nh.subscribe("/scan", 1000, &Bot_Controller::m_scan_callback, this);
+    m_fiducial_subscriber = m_nh.subscribe("/fiducial_transforms", 1000, &Follower::m_fiducial_callback, this);
+    //add more subscribers as needed
 }
 
 void Follower::m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg) {

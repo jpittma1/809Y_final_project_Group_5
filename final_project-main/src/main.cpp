@@ -72,7 +72,7 @@ void listen(tf2_ros::Buffer& tfBuffer) {
 int main(int argc, char** argv)
 {
   bool explorer_goal_sent = false;
-  bool follower_goal_sent = false;
+  // bool follower_goal_sent = false;
 
   //An array to store marker IDs
   std::array<int, 4> markers{};
@@ -129,11 +129,11 @@ int main(int argc, char** argv)
   explorer_goal.target_pose.pose.orientation.w = 1.0;
 
   //Build goal for follower
-  follower_goal.target_pose.header.frame_id = "map";
-  follower_goal.target_pose.header.stamp = ros::Time::now();
-  follower_goal.target_pose.pose.position.x = -0.289296;//
-  follower_goal.target_pose.pose.position.y = -1.282680;//
-  follower_goal.target_pose.pose.orientation.w = 1.0;
+  // follower_goal.target_pose.header.frame_id = "map";
+  // follower_goal.target_pose.header.stamp = ros::Time::now();
+  // follower_goal.target_pose.pose.position.x = -0.289296;//
+  // follower_goal.target_pose.pose.position.y = -1.282680;//
+  // follower_goal.target_pose.pose.orientation.w = 1.0;
 
 
   // explorer_client.waitForResult();
@@ -218,20 +218,7 @@ int main(int argc, char** argv)
     if (explorer_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
       ROS_INFO("Hooray, robot reached goal");
     }
-    // if (!follower_goal_sent) {
-    //   ROS_INFO("Sending goal for follower");
-    //   follower_client.sendGoal(follower_goal);//this should be sent only once
-    //   follower_goal_sent = true;
-    // }
-    // if (follower_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
-    //   ROS_INFO("Hooray, robot reached goal");
-    // }
 
-    //---See and store Marker Locations--
-    // std::array<int, 1>  id;
-    // std::array<double, 3> posit{};
-    // std::pair <int, double, double, double> p_marker;
-    // std::array<std::pair <int, double, double, double>, 4> markers{};
     try {
         int counter=0;
 
@@ -244,8 +231,8 @@ int main(int argc, char** argv)
         
         posit.at(counter).at(0) = transformStamped.transform.translation.x;
         posit.at(counter).at(1)=transformStamped.transform.translation.y;
-        markers=follower.get_fid;
-        // markers.at(counter)=follower.get_fid;
+        markers=follower.get_fid(counter);
+        // markers.at(counter)=follower.get_fid();
 
         counter++;
       }

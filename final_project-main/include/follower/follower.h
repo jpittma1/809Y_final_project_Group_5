@@ -42,20 +42,21 @@ class Follower : public Bot_Controller {
         }
         
         //accessor
-        const std::array& get_fid() const {
-            return m_fid;
+        const std::array& get_fid(int location) const {
+            return m_fid.at(location);
         }
        
         //mutator
         void set_fid(int id, int location) {
-            m_fid[location] = id;
+            m_fid.at(location) = id;
         }
 
     private:
         std::Array <int, 4> m_fid{};
 
         void m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg);
-
+        
+        void m_initialize_subscribers();
 };
 
 #endif
