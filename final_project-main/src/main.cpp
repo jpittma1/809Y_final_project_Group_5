@@ -244,7 +244,8 @@ int main(int argc, char** argv)
         
         posit.at(counter).at(0) = transformStamped.transform.translation.x;
         posit.at(counter).at(1)=transformStamped.transform.translation.y;
-        markers.at(counter)=transformStamped.fid;
+        markers=follower.get_fid;
+        // markers.at(counter)=follower.get_fid;
 
         counter++;
       }

@@ -32,7 +32,7 @@ class Follower : public Bot_Controller {
         virtual double compute_yaw_rad() override;
         virtual double convert_rad_to_deg(double angle) override;
 
-        //--Accessors--
+        //--Bot Controller Accessors--
         const double get_current_x(){
             return m_location.first;
         }
@@ -40,15 +40,22 @@ class Follower : public Bot_Controller {
         const double get_current_y(){
             return m_location.second;
         }
+        
+        //accessor
+        const std::array& get_fid() const {
+            return m_fid;
+        }
+       
+        //mutator
+        void set_fid(int id, int location) {
+            m_fid[location] = id;
+        }
 
-        // friend std::ostream& operator << (std::ostream& output, const Follower& follower) {
-        // output << "--------------------------\n";
-        // output << "Next Fiducial ID: " << follower.m_fiducial_id << '\n';
-        // output << "ID location (x, y, z): (" << follower.m_x << ", ";
-        // output << follower.m_y << ", " follower.m_z <<")\n";
-        // output << "\n--------------------------";
-        // return output;
-        // }
+    private:
+        std::Array <int, 4> m_fid{};
+
+        void m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg);
+
 };
 
 #endif
