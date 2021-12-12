@@ -1,9 +1,8 @@
 /**
  * @file main.cpp
-  * @author Jerry Pittman, Jr., Nicholas Novak, Orlandis Smith
+ * @author Jerry Pittman, Jr., Nicholas Novak, Orlandis Smith
  *  (jpittma1@umd.edu, nnovak@umd.edu, osmith15@umd.edu)
- * Group 5
- * @brief ENPM809Y Final Project
+ * @brief ENPM809Y Final Project Group 5
  * @version 0.1
  * @date 2021-12-11
  * 
@@ -102,6 +101,7 @@ int main(int argc, char** argv)
   geometry_msgs::TransformStamped transformStamped;
 
   ros::init(argc, argv, "follower_bot");
+  ros::init(argc, argv, "explorer_bot");
   
   std::string robot_name;
   if (nh.hasParam("robot_name")) {
@@ -133,17 +133,13 @@ int main(int argc, char** argv)
   move_base_msgs::MoveBaseGoal explorer_goal;
   move_base_msgs::MoveBaseGoal follower_goal;
 
-    // I suggest you create an std::array of size 4 and store each marker,
-    // based on its ID, inside this array. Marker with ID 0 will be stored at index 0 in the array, marker
-    // with ID 1 will be stored at index 1 in the array, and so on. The ID of the detected marker can be
-    // retrieved from the field fiducial_id from data published to the Topic /fiducial_transforms.
-  
+
   //Build goal for explorer
-  explorer_goal.target_pose.header.frame_id = "map";
-  explorer_goal.target_pose.header.stamp = ros::Time::now();
-  explorer_goal.target_pose.pose.position.x = 7.710214;//
-  explorer_goal.target_pose.pose.position.y = -1.716889;//
-  explorer_goal.target_pose.pose.orientation.w = 1.0;
+  // explorer_goal.target_pose.header.frame_id = "map";
+  // explorer_goal.target_pose.header.stamp = ros::Time::now();
+  // explorer_goal.target_pose.pose.position.x = 7.710214;
+  // explorer_goal.target_pose.pose.position.y = -1.716889;
+  // explorer_goal.target_pose.pose.orientation.w = 1.0;
 
   //Build goal for follower
   // follower_goal.target_pose.header.frame_id = "map";
