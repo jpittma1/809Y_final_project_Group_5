@@ -19,12 +19,13 @@ Explorer::Explorer(ros::NodeHandle* nodehandle, const std::string& robot_name) :
     // start_place = Explorer::get_start_loc();
     
 }
-std::array<double,2> get_start_loc(){
-    std::array<double,2> start_loc;
-    start_loc[0] = Explorer::get_current_x();
-    start_loc[1] = Explorer::get_current_y();
-    return start_loc;
-};
+// std::array<double,2> get_start_loc(){
+//     std::array<double,2> start_loc;
+//     start_loc[0] = get_current_x();
+//     start_loc[1] = get_current_y();
+//     return start_loc;
+// }
+
 std::array<std::array<double,2>,4> Explorer::get_goals(){
   ros::NodeHandle nh;
 

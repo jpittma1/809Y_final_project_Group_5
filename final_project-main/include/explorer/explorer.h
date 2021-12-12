@@ -42,9 +42,7 @@ class Explorer : public Bot_Controller {
         // const double get_current_y(){
         //     return m_location.second;
         // }
-        std::array<double,2> get_start_loc(){};
-
-        void move_next_loc(std::array<double,2> goal_loc){};
+        // std::array<double,2> get_start_loc(){};
 
         std::array<std::array<double,2>,4> get_goals(){}
 
