@@ -319,6 +319,7 @@ int main(int argc, char** argv)
 
   
         // Markers Hardcoded
+        // markers{0,3,1,2};
         markers.at(0)=0;
         markers.at(1)=3;
         markers.at(2)=1;
