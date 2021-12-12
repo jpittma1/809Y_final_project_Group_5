@@ -55,6 +55,11 @@ class Follower : public Bot_Controller {
     private:
         std::Array <int, 4> m_fid{};
 
+        /**
+         * @brief To store the locations of the fiducial IDs (waypoints) and the fiducial_ID number
+         * 
+         * @param msg 
+         */
         void m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg);
 
 };

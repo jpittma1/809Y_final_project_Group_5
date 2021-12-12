@@ -1,4 +1,15 @@
-
+/**
+ * @file explorer.cpp
+ * @author Jerry Pittman, Jr., Nicholas Novak, Orlandis Smith
+ *  (jpittma1@umd.edu, nnovak@umd.edu, osmith15@umd.edu)
+ * Group 5
+ * @brief 
+ * @version 0.1
+ * @date 2021-12-11
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
 
 #include "../include/bot_controller/bot_controller.h"
 #include "../include/explorer/explorer.h"
