@@ -11,8 +11,6 @@
 #include <geometry_msgs/Twist.h>   //for geometry_msgs::Twist
 #include "../include/bot_controller/bot_controller.h"
 
-
-
 /**
  * @brief A class that inherites from Bot_contreoller to control the explorer and exploration algorithm.
  * 
