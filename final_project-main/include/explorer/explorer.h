@@ -1,5 +1,5 @@
 #ifndef EXPLORER_H
-#define EPLORER_H
+#define EXPLORER_H
 
 // #include <bot_msgs/BotStatus.h>
 #include <geometry_msgs/Twist.h>   //for geometry_msgs::Twist
@@ -14,7 +14,7 @@
 
 
 /**
- * @brief A class that inherites from Bot_contreoller to control the explorer and exploration algorithm.
+ * @brief A class that inherits from Bot_contreoller to control the explorer and exploration algorithm.
  * 
  */
 class Explorer : public Bot_Controller {
