@@ -45,12 +45,12 @@ class Follower : public Bot_Controller {
             return m_location.second;
         }
         
-        //accessor
+        //Follower accessor
         const std::array& get_fid(int location) const {
             return m_fid.at(location);
         }
        
-        //mutator
+        //Follower mutator
         void set_fid(int id, int location) {
             m_fid.at(location) = id;
         }
