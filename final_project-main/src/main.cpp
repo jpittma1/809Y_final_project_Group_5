@@ -176,11 +176,11 @@ int main(int argc, char** argv)
   explorer_goal.target_pose.pose.orientation.w = 1.0;
 
   //Build goal for follower
-  // follower_goal.target_pose.header.frame_id = "map";
-  // follower_goal.target_pose.header.stamp = ros::Time::now();
-  // follower_goal.target_pose.pose.position.x = -0.289296;//
-  // follower_goal.target_pose.pose.position.y = -1.282680;//
-  // follower_goal.target_pose.pose.orientation.w = 1.0;
+  follower_goal.target_pose.header.frame_id = "map";
+  follower_goal.target_pose.header.stamp = ros::Time::now();
+  follower_goal.target_pose.pose.position.x = -0.289296;//
+  follower_goal.target_pose.pose.position.y = -1.282680;//
+  follower_goal.target_pose.pose.orientation.w = 1.0;
 
 
   // explorer_client.waitForResult();
@@ -254,7 +254,10 @@ int main(int argc, char** argv)
   ros::Rate loop_rate(10);
 
   static double final_angle{ 0 };
-
+  
+  std::array<double,2> start_loc = explorer.get_start_loc();
+  std::array<std::array<double,2>,4> goal_list = explorer.get_goals();
+ 
   while (ros::ok()) {
     //*****EXPLORER*****//
 
@@ -276,8 +279,8 @@ int main(int argc, char** argv)
       explorer.go_to_goal(explorer.goal_list[i][0],explorer.goal_list[i][1]);
       // i++;
       ros::Duration(0.5).sleep();
-      while(!msg->transforms.empty()){
-        explorer.rotate(0.01, true, 360);}
+//       while(!msg->transforms.empty()){
+//         explorer.rotate(0.01, true, 360);}
     
       if (explorer_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
         ROS_INFO("Hooray, robot reached goal");
@@ -291,7 +294,12 @@ int main(int argc, char** argv)
     // if (follower_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
     //   ROS_INFO("Hooray, robot reached goal");
     // }
-    
+
+    //---See and store Marker Locations--
+    // std::array<int, 1>  id;
+    // std::array<double, 3> posit{};
+    // std::pair <int, double, double, double> p_marker;
+    // std::array<std::pair <int, double, double, double>, 4> markers{};
     try {
         int counter=0;
 
