@@ -1,16 +1,16 @@
 /**
  * @file main.cpp
-  * @author Jerry Pittman, Jr., Nicholas Novak, Orlandis Smith
- *  (jpittma1@umd.edu, nnovak@umd.edu, osmith15@umd.edu)
- * Group 5
- * @brief ENPM809Y Final Project
+ * @author Jerry Pittman, Jr., Nicholas Novak, Orlandis Smith (jpittma1@umd.edu, nnovak@umd.edu, osmith15@umd.edu)
+ * @brief 
  * @version 0.1
- * @date 2021-12-11
+ * @date 2021-12-12
  * 
  * @copyright Copyright (c) 2021
  * 
  */
+
 #include "../include/bot_controller/bot_controller.h"
+#include "../include/bot_controller/bot_action_server.h"
 #include "../include/follower/follower.h"
 #include "../include/explorer/explorer.h"
 #include <actionlib/client/simple_action_client.h>
@@ -235,7 +235,9 @@ int main(int argc, char** argv)
         
         posit.at(counter).at(0) = transformStamped.transform.translation.x;
         posit.at(counter).at(1)=transformStamped.transform.translation.y;
-        markers=follower.get_fid(counter);
+        markers=nh.getParam("fiducial_id", fiducial_id);
+        // markers=m_nh.getParam("fiducial_id", fiducial_id);
+        // markers=follower.get_fid(counter);
         // markers.at(counter)=follower.get_fid();
 
         counter++;

@@ -51,8 +51,9 @@ void Follower::m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::
         transformStamped.transform.rotation.z =→ msg->transforms[2].transform.rotation.z;
         transformStamped.transform.rotation.w =→ msg->transforms[3].transform.rotation.w;
         
-        fiducial_id=->msg->transforms.fiducial_id;
-        set_fid(fiducial_id, count);
+        fiducial_id.at(count)= m_nh.setParam("fiducial_id",->msg->transforms.fiducial_id);.
+        m_fid.at(count)=fiducial_id.at(count);
+        // set_fid(fiducial_id, count);
         count++;
 
         br.sendTransform(transformStamped);

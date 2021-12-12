@@ -1,5 +1,5 @@
-#include "ros/ros.h"
-#include "bot_msgs/SnapPicture.h"
+#include <ros/ros.h>
+#include <bot_msgs/SnapPicture.h>
 #include <cstdlib>
 
 int main(int argc, char **argv)
