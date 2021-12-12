@@ -4,7 +4,7 @@
 #include <sensor_msgs/image_encodings.h>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
-#include "bot_msgs/SnapPicture.h"
+#include <bot_msgs/SnapPicture.h>
 #include <sensor_msgs/Image.h>
 
 //global variable which is updated in camera_image_topic_callback
