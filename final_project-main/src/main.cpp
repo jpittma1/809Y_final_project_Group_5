@@ -278,6 +278,7 @@ int main(int argc, char** argv)
 
         //Print to verify correct data added; delete after T/S complete
         std::cout <<"\nNew marker " << counter << " added is "<< markers.at(counter)<<"\n";
+        std::cout <<"\nNew marker " << counter << " added is "<<  markers.at(counter)<<"\n";
         std::cout <<"New Posit " << counter << " added is " << posit.at(counter).at(0);
         std::cout << " " << posit.at(counter).at(1)<<"\n";
         counter++;
