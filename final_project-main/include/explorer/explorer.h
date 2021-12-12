@@ -42,17 +42,11 @@ class Explorer : public Bot_Controller {
         const double get_current_y(){
             return m_location.second;
         }
-        std::array<int,3> get_start_loc(){
-            std::array<int,3> start_loc;
-            start_loc[0] = get_current_x();
-            start_loc[1] = get_current_y();
-            start_loc[2] = 0;
-            return start_loc;
-        };
+        std::array<double,2> get_start_loc(){};
 
-        void move_to_next_goal(std::array<int,3> goal_loc){};
+        void move_next_loc(std::array<double,2> goal_loc){};
 
-        void get_goals(){};
+        std::array<std::array<double,2>,4> get_goals(){}
 
         // friend std::ostream& operator << (std::ostream& output, const Follower& follower) {
         // output << "--------------------------\n";
