@@ -309,13 +309,20 @@ int main(int argc, char** argv)
         
         posit.at(counter).at(0) = transformStamped.transform.translation.x;
         posit.at(counter).at(1)=transformStamped.transform.translation.y;
-        markers.at(counter)=nh.getParam("fiducial_id", follower.get_fid(counter));
+        // markers.at(counter)=nh.getParam("fiducial_id", follower.m_fid(counter));
         // markers=m_nh.getParam("fiducial_id", fiducial_id);
         // markers=follower.get_fid(counter);
         // markers.at(counter)=follower.get_fid();
         // markers=follower.get_fid;
-        markers=follower.get_fid;
+        // markers=follower.get_fid(counter);
         // markers.at(counter)=follower.get_fid;
+
+  
+        // Markers Hardcoded
+        markers.at(0)=0;
+        markers.at(1)=3;
+        markers.at(2)=1;
+        markers.at(3)=2;
 
         counter++;
       }
