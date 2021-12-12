@@ -34,8 +34,6 @@ class Follower : public Bot_Controller {
         virtual double compute_yaw_rad() override;
         virtual double convert_rad_to_deg(double angle) override;
 
-        void m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg);
-
         //--Bot Controller Accessors--
         const double get_current_x(){
             return m_location.first;
