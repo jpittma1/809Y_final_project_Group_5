@@ -49,7 +49,7 @@ void Bot_Controller::m_initialize_subscribers() {
     ROS_INFO("Initializing Subscribers");
     m_pose_subscriber = m_nh.subscribe("/odom", 1000, &Bot_Controller::m_pose_callback, this);
     m_scan_subscriber = m_nh.subscribe("/scan", 1000, &Bot_Controller::m_scan_callback, this);
-    // m_fiducial_subscriber = m_nh.subscribe("/fiducial_transforms", 1000, &Bot_Controller::m_fiducial_callback, this);
+    m_fiducial_subscriber = m_nh.subscribe("/fiducial_transforms", 1000, &Bot_Controller::m_fiducial_callback, this);
    
 }
 
