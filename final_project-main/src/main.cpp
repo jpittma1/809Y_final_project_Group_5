@@ -72,14 +72,14 @@ void listen(tf2_ros::Buffer& tfBuffer) {
 int main(int argc, char** argv)
 {
   bool explorer_goal_sent = false;
-  bool follower_goal_sent = false;
+  // bool follower_goal_sent = false;
 
   //An array to store marker IDs
   std::array<int, 4> markers{};
+  
   //An unsorted and sorted array for storing marker locations from explorer
   std::array<std::array<double, 2>, 4> posit{};
   std::array<std::array<double, 2>, 4> posit_new{};
-  
 
   ros::init(argc, argv, "simple_navigation_goals");
   ros::NodeHandle nh;
@@ -116,11 +116,6 @@ int main(int argc, char** argv)
   move_base_msgs::MoveBaseGoal explorer_goal;
   move_base_msgs::MoveBaseGoal follower_goal;
 
-    // I suggest you create an std::array of size 4 and store each marker,
-    // based on its ID, inside this array. Marker with ID 0 will be stored at index 0 in the array, marker
-    // with ID 1 will be stored at index 1 in the array, and so on. The ID of the detected marker can be
-    // retrieved from the field fiducial_id from data published to the Topic /fiducial_transforms.
-  
   //Build goal for explorer
   explorer_goal.target_pose.header.frame_id = "map";
   explorer_goal.target_pose.header.stamp = ros::Time::now();
@@ -129,12 +124,11 @@ int main(int argc, char** argv)
   explorer_goal.target_pose.pose.orientation.w = 1.0;
 
   //Build goal for follower
-  follower_goal.target_pose.header.frame_id = "map";
-  follower_goal.target_pose.header.stamp = ros::Time::now();
-  follower_goal.target_pose.pose.position.x = -0.289296;//
-  follower_goal.target_pose.pose.position.y = -1.282680;//
-  follower_goal.target_pose.pose.orientation.w = 1.0;
-
+  // follower_goal.target_pose.header.frame_id = "map";
+  // follower_goal.target_pose.header.stamp = ros::Time::now();
+  // follower_goal.target_pose.pose.position.x = -0.289296;//
+  // follower_goal.target_pose.pose.position.y = -1.282680;//
+  // follower_goal.target_pose.pose.orientation.w = 1.0;
 
   // explorer_client.waitForResult();
 
@@ -184,23 +178,10 @@ int main(int argc, char** argv)
       print_usage("_direction:= <f/b>");
     }
   }
-  //---Data to pull from array "markers"
+  //---Data to pull from array "markers"----
   int fiducial_id;
   double goal_x;
   double goal_y;
-
-  // if (motion_type == "g")
-  // {
-  //   if (!nh.hasParam("goal_x"))
-  //     print_usage("missing argument: _goal_x:=<double>");
-  //   else
-  //     nh.getParam("goal_x", goal_x);
-
-  //   if (!nh.hasParam("goal_y"))
-  //     print_usage("missing argument: _goal_y:=<double>");
-  //   else
-  //     nh.getParam("goal_y", goal_y);
-  // }
 
   tf2_ros::Buffer tfBuffer;
   tf2_ros::TransformListener tfListener(tfBuffer);
@@ -227,11 +208,7 @@ int main(int argc, char** argv)
     //   ROS_INFO("Hooray, robot reached goal");
     // }
 
-    //---See and store Marker Locations--
-    // std::array<int, 1>  id;
-    // std::array<double, 3> posit{};
-    // std::pair <int, double, double, double> p_marker;
-    // std::array<std::pair <int, double, double, double>, 4> markers{};
+    
     try {
         int counter=0;
 
@@ -312,19 +289,23 @@ int main(int argc, char** argv)
           ROS_INFO("Hooray, follower reached goal");
         }
       }
+//---STEP 03. Send Follower to Start Position (-4,3.5) ---//
+      if(fiducial_id==3){ //At last marker, go home
+        ROS_INFO("Sending follower to Start Position");
+        goal_x=-4;
+        goal_y=3.5;
+        follower.go_to_goal(goal_x, goal_y);
+        ROS_INFO("Hooray, follower reached starting position");
+        ros::shutdown();
+      }
 
     broadcast();
     listen(tfBuffer);
     ros::spinOnce();
     loop_rate.sleep();
 
-    //---STEP 03. Send Follower to Start Position (-4,3.5) ---//
-    ROS_INFO("Sending follower to Start Position");
-    goal_x=-4;
-    goal_y=3.5;
-    follower.go_to_goal(goal_x, goal_y);
-    ROS_INFO("Hooray, follower reached starting position");
-    ros::shutdown();
+    
+    
   }
 
 
