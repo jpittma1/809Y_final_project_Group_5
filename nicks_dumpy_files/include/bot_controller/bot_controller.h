@@ -6,6 +6,9 @@
 #include <sensor_msgs/LaserScan.h> //for laser scans
 #include <ros/ros.h>
 #include <utility>
+#include <string>
+#include <array>
+#include <algorithm>
 #include <tf/transform_datatypes.h> //to manipulate quaternions
 
 

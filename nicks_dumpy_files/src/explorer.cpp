@@ -1,13 +1,13 @@
-// #include "bot_msgs/BotStatus.h"
-// #include <geometry_msgs/Twist.h>   //for geometry_msgs::Twist
-// #include <nav_msgs/Odometry.h>     //for nav_msgs::Odometry
-// #include <sensor_msgs/LaserScan.h> //for laser scans
-// #include <ros/ros.h>
-// #include <utility>
-// #include <tf/transform_datatypes.h> //to manipulate quaternions
-// #include <geometry_msgs/Twist.h>   //for geometry_msgs::Twist
-// #include <iostream>
-// #include "../param/aruco_lookup.yaml"
+/**
+ * @file explorer.cpp
+ * @author 809Y Final Project Group 5
+ * @brief Explorer Robot
+ * @version 0.1
+ * @date 2021-12-12
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
 #include "../include/bot_controller/bot_controller.h"
 #include "../include/explorer/explorer.h"
 

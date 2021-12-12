@@ -1,16 +1,7 @@
 #ifndef EXPLORER_H
 #define EXPLORER_H
 
-// #include <bot_msgs/BotStatus.h>
-#include <geometry_msgs/Twist.h>   //for geometry_msgs::Twist
-#include <nav_msgs/Odometry.h>     //for nav_msgs::Odometry
-#include <sensor_msgs/LaserScan.h> //for laser scans
-#include <ros/ros.h>
-#include <utility>
-#include <array>
-#include <algorithm>
-#include <tf/transform_datatypes.h> //to manipulate quaternions
-#include <geometry_msgs/Twist.h>   //for geometry_msgs::Twist
+
 #include "../include/bot_controller/bot_controller.h"
 
 
