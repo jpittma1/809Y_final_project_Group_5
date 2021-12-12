@@ -29,7 +29,7 @@ public:
     virtual double compute_yaw_rad() =0;
     virtual double convert_rad_to_deg(double angle) =0;
     
-    virtual ~Bot_Controller() {}
+    virtual ~Bot_Controller() {};
 
 
     const double get_current_x(){

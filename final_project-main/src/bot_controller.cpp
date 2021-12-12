@@ -1,8 +1,9 @@
-#include "..include/bot_controller/bot_controller.h"
+
 #include "bot_msgs/BotStatus.h"
 #include <geometry_msgs/Quaternion.h>
 #include <tf/transform_datatypes.h>
 #include <cmath>
+#include "../include/bot_controller/bot_controller.h"
 
 
 Bot_Controller::Bot_Controller(ros::NodeHandle* nodehandle, const std::string& robot_name) :
