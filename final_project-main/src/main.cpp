@@ -276,6 +276,10 @@ int main(int argc, char** argv)
         markers.at(2)=1;
         markers.at(3)=2;
 
+        //Print to verify correct data added; delete after T/S complete
+        std::cout <<"\nNew marker " << counter << " added is " markers.at(counter)<<"\n";
+        std::cout <<"New Posit " << counter << " added is " << posit.at(counter).at(0);
+        std::cout << " " << posit.at(counter).at(1)<<"\n";
         counter++;
       }
       catch (tf2::TransformException& ex) {
@@ -288,8 +292,8 @@ int main(int argc, char** argv)
       for (int h=0;h<4;h++) {
         //Print to verify correct data; delete after T/S complete
         std::cout <<"\nPre-sort Array marker " << h << " is " << markers.at(h)<<"\n";
-        std::cout <<"Pre-sort Array Posit " << h << " is " << posit.at(h).at(0)<<
-        " " << posit.at(h).at(1)<<"\n";
+        std::cout <<"Pre-sort Array Posit " << h << " is " << posit.at(h).at(0);
+        std::cout <<" " << posit.at(h).at(1)<<"\n";
       
         if (markers.at(h)==0){
           posit_new.at(0)=posit.at(h);
@@ -313,8 +317,8 @@ int main(int argc, char** argv)
       for (int j=0;j<4;j++) {
         //Print to verify correct data; delete after T/S complete
         std::cout <<"\nPost-sort Array markers " << j << " is " << markers.at(j)<<"\n";
-        std::cout <<"Post-sort Array Posit " << j << " is " << posit_new.at(j).at(0)<<
-        " " << posit_new.at(j).at(1)<<"\n";
+        std::cout <<"Post-sort Array Posit " << j << " is " << posit_new.at(j).at(0);
+        std::cout <<" " << posit_new.at(j).at(1)<<"\n";
       }
 
       //---STEP 02. Send Follower to IDs O through 3 ---//
