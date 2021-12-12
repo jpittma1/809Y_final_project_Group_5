@@ -11,7 +11,7 @@
 #include "../include/bot_controller/bot_controller.h"
 #include "../include/explorer/explorer.h"
 
-Explorer::Explorer(ros::NodeHandle* nodehandle const std::string& robot_name) : Bot_Controller(nodehandle, robot_name)
+Explorer::Explorer(ros::NodeHandle* nodehandle, const std::string& robot_name) : Bot_Controller(nodehandle, robot_name)
 {
     m_initialize_publishers();
     m_initialize_subscribers();
