@@ -1,9 +1,4 @@
-
-
-#include "../include/bot_controller/bot_controller.h"
-#include "../include/explorer/explorer.h"
-
-// #include <bot_msgs/BotStatus.h>
+// #include "bot_msgs/BotStatus.h"
 #include <geometry_msgs/Twist.h>   //for geometry_msgs::Twist
 #include <nav_msgs/Odometry.h>     //for nav_msgs::Odometry
 #include <sensor_msgs/LaserScan.h> //for laser scans
@@ -13,6 +8,8 @@
 #include <geometry_msgs/Twist.h>   //for geometry_msgs::Twist
 #include <iostream>
 #include "../param/aruco_lookup.yaml"
+#include "../include/bot_controller/bot_controller.h"
+#include "../include/explorer/explorer.h"
 
 Explorer::Explorer(ros::NodeHandle* nodehandle const std::string& robot_name) : Bot_Controller(nodehandle, robot_name)
 {
@@ -23,8 +20,8 @@ Explorer::Explorer(ros::NodeHandle* nodehandle const std::string& robot_name) : 
 }
 std::array<double,2> get_start_loc(){
     std::array<double,2> start_loc;
-    start_loc[0] = get_current_x();
-    start_loc[1] = get_current_y();
+    start_loc[0] = Explorer::get_current_x();
+    start_loc[1] = Explorer::get_current_y();
     return start_loc;
 };
 std::array<std::array<double,2>,4> Explorer::get_goals(){
