@@ -21,13 +21,13 @@ Follower::Follower(ros::NodeHandle* nodehandle, const std::string& robot_name) :
     m_initialize_publishers();
 }
 
-void Follower::m_initialize_subscribers() {
-    ROS_INFO("Initializing Subscribers");
-    m_pose_subscriber = nodehandle.subscribe("/odom", 1000, &Bot_Controller::m_pose_callback, this);
-    m_scan_subscriber = nodehandle.subscribe("/scan", 1000, &Bot_Controller::m_scan_callback, this);
-    // m_fiducial_subscriber = m_nh.subscribe("/fiducial_transforms", 1000, &Follower::m_fiducial_callback, this);
-    //add more subscribers as needed
-}
+// void Follower::m_initialize_subscribers() {
+//     ROS_INFO("Initializing Subscribers");
+//     m_pose_subscriber = nodehandle.subscribe("/odom", 1000, &Bot_Controller::m_pose_callback, this);
+//     m_scan_subscriber = nodehandle.subscribe("/scan", 1000, &Bot_Controller::m_scan_callback, this);
+//     // m_fiducial_subscriber = m_nh.subscribe("/fiducial_transforms", 1000, &Follower::m_fiducial_callback, this);
+//     //add more subscribers as needed
+// }
 
 // void Follower::m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg) {
 //     if (!msg->transforms.empty()) {//check marker is detected

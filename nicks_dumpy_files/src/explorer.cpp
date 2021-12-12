@@ -7,12 +7,12 @@
 // #include <tf/transform_datatypes.h> //to manipulate quaternions
 // #include <geometry_msgs/Twist.h>   //for geometry_msgs::Twist
 // #include <iostream>
-#include "../param/aruco_lookup.yaml"
+// #include "../param/aruco_lookup.yaml"
 #include "../include/bot_controller/bot_controller.h"
 #include "../include/explorer/explorer.h"
 
 Explorer::Explorer(ros::NodeHandle* nodehandle, const std::string& robot_name) :
-    Bot_Controller(nodehandle, robot_name){
+    Bot_Controller(nodehandle, robot_name)
 {
     m_initialize_publishers();
     m_initialize_subscribers();
