@@ -286,6 +286,7 @@ int main(int argc, char** argv)
       //*****FOLLOWER*******//
       //---STEP 01a. Sort/organize posit_new to go IDs 0->4
       for (int h=0;h<4;h++) {
+        //Print to verify correct data; delete after T/S complete
         std::cout <<"\nPre-sort Array marker " << h << " is " << markers.at(h)<<"\n";
         std::cout <<"Pre-sort Array Posit " << h << " is " << posit.at(h).at(0)<<
         " " << posit.at(h).at(1)<<"\n";
@@ -310,6 +311,7 @@ int main(int argc, char** argv)
       
       //Print to test array sorted correctly
       for (int j=0;j<4;j++) {
+        //Print to verify correct data; delete after T/S complete
         std::cout <<"\nPost-sort Array markers " << j << " is " << markers.at(j)<<"\n";
         std::cout <<"Post-sort Array Posit " << j << " is " << posit_new.at(j).at(0)<<
         " " << posit_new.at(j).at(1)<<"\n";
