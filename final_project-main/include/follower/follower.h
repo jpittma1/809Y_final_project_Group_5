@@ -1,7 +1,7 @@
 #ifndef FOLLOWER_H
 #define FOLLOWER_H
 
-#include "../include/bot_controller/bot_controller.h"
+
 #include <bot_msgs/BotStatus.h>
 #include <geometry_msgs/Twist.h>   //for geometry_msgs::Twist
 #include <nav_msgs/Odometry.h>     //for nav_msgs::Odometry
@@ -12,6 +12,7 @@
 #include <algorithm>
 #include <tf/transform_datatypes.h> //to manipulate quaternions
 #include <geometry_msgs/Twist.h>   //for geometry_msgs::Twist
+#include "../include/bot_controller/bot_controller.h"
 
 
 /**
@@ -33,6 +34,9 @@ class Follower : public Bot_Controller {
         virtual double compute_yaw_deg() override;
         virtual double compute_yaw_rad() override;
         virtual double convert_rad_to_deg(double angle) override;
+
+        virtual ~Follower();
+        // void m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg);
 
         //--Bot Controller Accessors--
         const double get_current_x(){
