@@ -8,6 +8,7 @@
 #include <sensor_msgs/LaserScan.h> //for laser scans
 #include <ros/ros.h>
 #include <utility>
+#include <array>
 #include <tf/transform_datatypes.h> //to manipulate quaternions
 #include <geometry_msgs/Twist.h>   //for geometry_msgs::Twist
 
@@ -54,6 +55,11 @@ class Follower : public Bot_Controller {
     private:
         std::Array <int, 4> m_fid{};
 
+        /**
+         * @brief To store the locations of the fiducial IDs (waypoints) and the fiducial_ID number
+         * 
+         * @param msg 
+         */
         void m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg);
         
         void m_initialize_subscribers();
