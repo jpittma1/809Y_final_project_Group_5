@@ -306,7 +306,7 @@ int main(int argc, char** argv)
         
         posit.at(counter).at(0) = transformStamped.transform.translation.x;
         posit.at(counter).at(1)=transformStamped.transform.translation.y;
-        markers=nh.getParam("fiducial_id", fiducial_id);
+        markers=nh.getParam("fiducial_id", fiducial_id(counter));
         // markers=m_nh.getParam("fiducial_id", fiducial_id);
         // markers=follower.get_fid(counter);
         // markers.at(counter)=follower.get_fid();
