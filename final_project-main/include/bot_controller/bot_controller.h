@@ -28,7 +28,7 @@ public:
     virtual double compute_yaw_deg() =0;
     virtual double compute_yaw_rad() =0;
     virtual double convert_rad_to_deg(double angle) =0;
-
+    
     virtual ~Bot_Controller() {}
 
 
@@ -65,7 +65,6 @@ protected: //for inheritance
     void m_pose_callback(const nav_msgs::Odometry::ConstPtr &msg);     // prototype for callback of example subscriber
     void m_scan_callback(const sensor_msgs::LaserScan::ConstPtr &msg); // prototype for callback of example subscriber
     void m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg);
-
     void m_initialize_subscribers();
     void m_initialize_publishers();
     double m_compute_distance(const std::pair<double, double> &a, const std::pair<double, double> &b);
