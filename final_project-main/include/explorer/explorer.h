@@ -1,7 +1,6 @@
 #ifndef EXPLORER_H
 #define EXPLORER_H
 
-// #include <bot_msgs/BotStatus.h>
 #include <geometry_msgs/Twist.h>   //for geometry_msgs::Twist
 #include <nav_msgs/Odometry.h>     //for nav_msgs::Odometry
 #include <sensor_msgs/LaserScan.h> //for laser scans

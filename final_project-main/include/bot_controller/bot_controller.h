@@ -6,6 +6,9 @@
 #include <sensor_msgs/LaserScan.h> //for laser scans
 #include <ros/ros.h>
 #include <utility>
+#include <string>
+#include <array>
+#include <algorithm>
 #include <tf/transform_datatypes.h> //to manipulate quaternions
 
 
@@ -29,7 +32,7 @@ public:
     virtual double compute_yaw_rad() =0;
     virtual double convert_rad_to_deg(double angle) =0;
     
-    virtual ~Bot_Controller() {};
+    virtual ~Bot_Controller() {}
 
 
     const double get_current_x(){
@@ -64,7 +67,13 @@ protected: //for inheritance
     double m_yaw;                                                      //rad
     void m_pose_callback(const nav_msgs::Odometry::ConstPtr &msg);     // prototype for callback of example subscriber
     void m_scan_callback(const sensor_msgs::LaserScan::ConstPtr &msg); // prototype for callback of example subscriber
-    // void m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr &msg);
+    
+    /**
+         * @brief To store the locations of the fiducial IDs (waypoints) and the fiducial_ID number
+         * 
+         * @param msg 
+         */
+    void m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr &msg);
         
     void m_initialize_subscribers();
     void m_initialize_publishers();
