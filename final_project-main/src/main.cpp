@@ -176,11 +176,11 @@ int main(int argc, char** argv)
   explorer_goal.target_pose.pose.orientation.w = 1.0;
 
   //Build goal for follower
-  follower_goal.target_pose.header.frame_id = "map";
-  follower_goal.target_pose.header.stamp = ros::Time::now();
-  follower_goal.target_pose.pose.position.x = -0.289296;//
-  follower_goal.target_pose.pose.position.y = -1.282680;//
-  follower_goal.target_pose.pose.orientation.w = 1.0;
+  // follower_goal.target_pose.header.frame_id = "map";
+  // follower_goal.target_pose.header.stamp = ros::Time::now();
+  // follower_goal.target_pose.pose.position.x = -0.289296;//
+  // follower_goal.target_pose.pose.position.y = -1.282680;//
+  // follower_goal.target_pose.pose.orientation.w = 1.0;
 
 
   // explorer_client.waitForResult();
