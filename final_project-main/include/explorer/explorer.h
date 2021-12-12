@@ -14,7 +14,7 @@
 
 
 /**
- * @brief A class that inherits from Bot_contreoller to control the explorer and exploration algorithm.
+ * @brief A class that inherites from Bot_contreoller to control the explorer and exploration algorithm.
  * 
  */
 class Explorer : public Bot_Controller {
