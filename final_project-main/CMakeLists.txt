@@ -147,7 +147,7 @@ include/explorer
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-add_executable( ${PROJECT_NAME}_node src/main.cpp src/follower.cpp src/explorer.cpp src/bot_controller.cpp)
+add_executable( ${PROJECT_NAME}_node src/main.cpp src/follower.cpp src/explorer.cpp src/bot_controller.cpp src/bot_action_client.cpp src/bot_action_server.cpp src/bot_service_client.cpp src/bot_service_service.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the

@@ -2,13 +2,14 @@
 #define FOLLOWER_H
 
 #include "../include/bot_controller/bot_controller.h"
-#include "bot_msgs/BotStatus.h"
+#include <bot_msgs/BotStatus.h>
 #include <geometry_msgs/Twist.h>   //for geometry_msgs::Twist
 #include <nav_msgs/Odometry.h>     //for nav_msgs::Odometry
 #include <sensor_msgs/LaserScan.h> //for laser scans
 #include <ros/ros.h>
 #include <utility>
 #include <array>
+#include <algorithm>
 #include <tf/transform_datatypes.h> //to manipulate quaternions
 #include <geometry_msgs/Twist.h>   //for geometry_msgs::Twist
 
@@ -33,6 +34,8 @@ class Follower : public Bot_Controller {
         virtual double compute_yaw_rad() override;
         virtual double convert_rad_to_deg(double angle) override;
 
+        void m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg);
+
         //--Bot Controller Accessors--
         const double get_current_x(){
             return m_location.first;
@@ -53,7 +56,7 @@ class Follower : public Bot_Controller {
         }
 
     private:
-        std::Array <int, 4> m_fid{};
+        std::array <int, 4> m_fid{};
 
         /**
          * @brief To store the locations of the fiducial IDs (waypoints) and the fiducial_ID number
