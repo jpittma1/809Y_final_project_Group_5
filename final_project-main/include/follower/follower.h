@@ -44,7 +44,7 @@ class Follower : public Bot_Controller {
         }
         
         //Follower accessor
-        const std::array& <int, 4> get_fid() {
+        const std::array <int, 4> get_fid() {
             return m_fid;
         }
         //  const std::array& get_fid(int location) {
