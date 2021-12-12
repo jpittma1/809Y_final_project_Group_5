@@ -8,7 +8,6 @@
  * @copyright Copyright (c) 2021
  * 
  */
-#include "../param/aruco_lookup.yaml"
 #include "../include/bot_controller/bot_controller.h"
 #include "../include/explorer/explorer.h"
 
