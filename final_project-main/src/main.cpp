@@ -1,6 +1,16 @@
-#include "../include/bot_controller/bot_controller.h"
-#include "../include/follower/follower.h"
-#include "../include/explorer/explorer.h"
+/**
+ * @file main.cpp
+  * @author Jerry Pittman, Jr., Nicholas Novak, Orlandis Smith
+ *  (jpittma1@umd.edu, nnovak@umd.edu, osmith15@umd.edu)
+ * Group 5
+ * @brief ENPM809Y Final Project
+ * @version 0.1
+ * @date 2021-12-11
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #include <actionlib/client/simple_action_client.h>
 #include <fiducial_msgs/FiducialTransformArray.h>
 #include <geometry_msgs/Twist.h>  //for geometry_msgs::Twist
@@ -13,6 +23,10 @@
 #include <iostream>
 #include <algorithm>
 #include <utility>
+
+#include "../include/bot_controller/bot_controller.h"
+#include "../include/follower/follower.h"
+#include "../include/explorer/explorer.h"
 
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
@@ -71,6 +85,8 @@ void listen(tf2_ros::Buffer& tfBuffer) {
 
 int main(int argc, char** argv)
 {
+  
+
   bool explorer_goal_sent = false;
   bool follower_goal_sent = false;
 
@@ -96,10 +112,9 @@ int main(int argc, char** argv)
     print_usage("missing argument: _robot_name:= <name>");
   }
   
- //Initialize Follower and Explorer class objects
+  //Initialize Follower and Explorer class objects
   Follower follower(&nh, "follower");
   Explorer explorer(&nh, "explorer");
-
 
   // tell the action client that we want to spin a thread by default
   MoveBaseClient explorer_client("/explorer/move_base", true);
@@ -131,11 +146,11 @@ int main(int argc, char** argv)
   explorer_goal.target_pose.pose.orientation.w = 1.0;
 
   //Build goal for follower
-//   follower_goal.target_pose.header.frame_id = "map";
-//   follower_goal.target_pose.header.stamp = ros::Time::now();
-//   follower_goal.target_pose.pose.position.x = -0.289296;//
-//   follower_goal.target_pose.pose.position.y = -1.282680;//
-//   follower_goal.target_pose.pose.orientation.w = 1.0;
+  // follower_goal.target_pose.header.frame_id = "map";
+  // follower_goal.target_pose.header.stamp = ros::Time::now();
+  // follower_goal.target_pose.pose.position.x = -0.289296;//
+  // follower_goal.target_pose.pose.position.y = -1.282680;//
+  // follower_goal.target_pose.pose.orientation.w = 1.0;
 
 
   // explorer_client.waitForResult();
@@ -208,15 +223,13 @@ int main(int argc, char** argv)
   tf2_ros::TransformListener tfListener(tfBuffer);
   ros::Rate loop_rate(10);
 
-  std::array<double,2> start_loc = explorer.get_start_loc();
+  static double final_angle{ 0 };
+  
   std::array<std::array<double,2>,4> goal_list = explorer.get_goals();
  
   while (ros::ok()) {
     //*****EXPLORER*****//
 
-    std::array<double,2> start_loc = explorer.get_start_loc();
-
-    double goal_x, goal_y;
     int i = 0;
     for(i = 0; i < 4; i++){
       if (!explorer_goal_sent){
@@ -232,22 +245,12 @@ int main(int argc, char** argv)
       explorer.go_to_goal(explorer.goal_list[i][0],explorer.goal_list[i][1]);
       // i++;
       ros::Duration(0.5).sleep();
-//       while(!msg->transforms.empty()){
-//         explorer.rotate(0.01, true, 360);}
+
     
       if (explorer_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
         ROS_INFO("Hooray, robot reached goal");
       }
     }
-    // if (!follower_goal_sent) {
-    //   ROS_INFO("Sending goal for follower");
-    //   follower_client.sendGoal(follower_goal);//this should be sent only once
-    //   follower_goal_sent = true;
-    // }
-    // if (follower_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
-    //   ROS_INFO("Hooray, robot reached goal");
-    // }
-
 
     try {
         int counter=0;
@@ -261,14 +264,15 @@ int main(int argc, char** argv)
         
         posit.at(counter).at(0) = transformStamped.transform.translation.x;
         posit.at(counter).at(1)=transformStamped.transform.translation.y;
-         // markers.at(counter)=nh.getParam("fiducial_id", follower.m_fid(counter));
+        // markers.at(counter)=nh.getParam("fiducial_id", follower.m_fid(counter));
         // markers=m_nh.getParam("fiducial_id", fiducial_id);
         // markers=follower.get_fid(counter);
         // markers.at(counter)=follower.get_fid();
         // markers=follower.get_fid;
         // markers=follower.get_fid(counter);
         // markers.at(counter)=follower.get_fid;
-        
+
+  
         // Markers Hardcoded
         // markers{0,3,1,2};
         markers.at(0)=0;

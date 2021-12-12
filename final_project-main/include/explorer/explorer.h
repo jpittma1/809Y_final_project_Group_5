@@ -7,6 +7,7 @@
 #include <sensor_msgs/LaserScan.h> //for laser scans
 #include <ros/ros.h>
 #include <utility>
+#include <array>
 #include <tf/transform_datatypes.h> //to manipulate quaternions
 #include <geometry_msgs/Twist.h>   //for geometry_msgs::Twist
 #include "../include/bot_controller/bot_controller.h"
@@ -29,6 +30,7 @@ class Explorer : public Bot_Controller {
         virtual double compute_yaw_rad() override;
         virtual double convert_rad_to_deg(double angle) override;
 
+        virtual ~Explorer();
 
         ros::NodeHandle exp_node;
         std::array<std::array<int,3>,4> goal_list;
