@@ -96,8 +96,10 @@ int main(int argc, char** argv)
     print_usage("missing argument: _robot_name:= <name>");
   }
   
-  //Initialize Follower
+ //Initialize Follower and Explorer class objects
   Follower follower(&nh, "follower");
+  Explorer explorer(&nh, "explorer");
+
 
   // tell the action client that we want to spin a thread by default
   MoveBaseClient explorer_client("/explorer/move_base", true);
