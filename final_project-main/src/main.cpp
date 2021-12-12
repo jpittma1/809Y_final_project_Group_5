@@ -229,11 +229,7 @@ int main(int argc, char** argv)
     //   ROS_INFO("Hooray, robot reached goal");
     // }
 
-    //---See and store Marker Locations--
-    // std::array<int, 1>  id;
-    // std::array<double, 3> posit{};
-    // std::pair <int, double, double, double> p_marker;
-    // std::array<std::pair <int, double, double, double>, 4> markers{};
+
     try {
         int counter=0;
 
