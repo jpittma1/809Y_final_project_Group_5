@@ -11,7 +11,8 @@
 #include "../include/bot_controller/bot_controller.h"
 #include "../include/explorer/explorer.h"
 
-Explorer::Explorer(ros::NodeHandle* nodehandle, const std::string& robot_name) : Bot_Controller(nodehandle, robot_name)
+Explorer::Explorer(ros::NodeHandle* nodehandle, const std::string& robot_name) :
+  Bot_Controller(nodehandle, robot_name)
 {
     m_initialize_publishers();
     m_initialize_subscribers();
@@ -27,28 +28,28 @@ std::array<double,2> get_start_loc(){
 std::array<std::array<double,2>,4> Explorer::get_goals(){
   ros::NodeHandle nh;
 
-  std::array<std::array<double,2>,4> exp_goals;
+  std::array<std::array<double,2>,4> exp_goal;
   XmlRpc::XmlRpcValue goal_list;
   nh.getParam("target_1", goal_list);
-  ROS_ASSERT(my_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
+  ROS_ASSERT(goal_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
   
   exp_goal[0][0] = goal_list[0];
   exp_goal[0][1] = goal_list[1];
 
   nh.getParam("target_2", goal_list);
-  ROS_ASSERT(my_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
+  ROS_ASSERT(goal_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
   
   exp_goal[1][0] = goal_list[0];
   exp_goal[1][1] = goal_list[1];
 
   nh.getParam("target_3", goal_list);
-  ROS_ASSERT(my_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
+  ROS_ASSERT(goal_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
   
   exp_goal[2][0] = goal_list[0];
   exp_goal[2][1] = goal_list[1];
 
   nh.getParam("target_4", goal_list);
-  ROS_ASSERT(my_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
+  ROS_ASSERT(goal_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
   
   exp_goal[3][0] = goal_list[0];
   exp_goal[3][1] = goal_list[1];
