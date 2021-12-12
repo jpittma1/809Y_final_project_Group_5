@@ -1,11 +1,9 @@
 /**
  * @file follower.cpp
-  * @author Jerry Pittman, Jr., Nicholas Novak, Orlandis Smith
- *  (jpittma1@umd.edu, nnovak@umd.edu, osmith15@umd.edu)
- * Group 5
- * @brief 
+ * @author 809Y Final Project Group 5
+ * @brief Follower Robot
  * @version 0.1
- * @date 2021-12-11
+ * @date 2021-12-12
  * 
  * @copyright Copyright (c) 2021
  * 

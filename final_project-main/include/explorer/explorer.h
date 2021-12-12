@@ -1,19 +1,10 @@
 #ifndef EXPLORER_H
 #define EXPLORER_H
 
-// #include <bot_msgs/BotStatus.h>
-#include <geometry_msgs/Twist.h>   //for geometry_msgs::Twist
-#include <nav_msgs/Odometry.h>     //for nav_msgs::Odometry
-#include <sensor_msgs/LaserScan.h> //for laser scans
-#include <ros/ros.h>
-#include <utility>
-#include <array>
-#include <tf/transform_datatypes.h> //to manipulate quaternions
-#include <geometry_msgs/Twist.h>   //for geometry_msgs::Twist
 #include "../include/bot_controller/bot_controller.h"
 
 /**
- * @brief A class that inherites from Bot_contreoller to control the explorer and exploration algorithm.
+ * @brief A class that inherits from Bot_contreoller to control the explorer and exploration algorithm.
  * 
  */
 class Explorer : public Bot_Controller {
@@ -30,32 +21,17 @@ class Explorer : public Bot_Controller {
         virtual double compute_yaw_rad() override;
         virtual double convert_rad_to_deg(double angle) override;
 
-        virtual ~Explorer();
 
         ros::NodeHandle exp_node;
-        std::array<std::array<int,3>,4> goal_list;
-        std::array<int,3> start_place;
+        std::array<std::array<int,3>,4> goal_list {};
+        std::array<int,3> start_place {};
 
-        //--Accessors--
-        // const double get_current_x(){
-        //     return m_location.first;
-        // }
 
-        // const double get_current_y(){
-        //     return m_location.second;
-        // }
-        // std::array<double,2> get_start_loc(){};
+        void move_next_loc(std::array<double,2> goal_loc){};
 
         std::array<std::array<double,2>,4> get_goals(){}
 
-        // friend std::ostream& operator << (std::ostream& output, const Follower& follower) {
-        // output << "--------------------------\n";
-        // output << "Next Fiducial ID: " << follower.m_fiducial_id << '\n';
-        // output << "ID location (x, y, z): (" << follower.m_x << ", ";
-        // output << follower.m_y << ", " follower.m_z <<")\n";
-        // output << "\n--------------------------";
-        // return output;
-        // }
+    
 };
 
 #endif
