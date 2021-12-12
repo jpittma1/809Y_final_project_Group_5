@@ -49,7 +49,7 @@ void Bot_Controller::m_initialize_subscribers() {
     ROS_INFO("Initializing Subscribers");
     m_pose_subscriber = m_nh.subscribe("/odom", 1000, &Bot_Controller::m_pose_callback, this);
     m_scan_subscriber = m_nh.subscribe("/scan", 1000, &Bot_Controller::m_scan_callback, this);
-    m_fiducial_subscriber = m_nh.subscribe("/fiducial_transforms", 1000, &Bot_Controller::m_fiducial_callback, this);
+    // m_fiducial_subscriber = m_nh.subscribe("/fiducial_transforms", 1000, &Bot_Controller::m_fiducial_callback, this);
    
 }
 
@@ -77,28 +77,28 @@ void Bot_Controller::m_scan_callback(const sensor_msgs::LaserScan::ConstPtr& msg
     ROS_INFO_STREAM("Right: " << msg->ranges[270]);
 }
 
-void Bot_Controller::m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg) {
-    if (!msg->transforms.empty()) {//check marker is detected
-        //broadcaster object
-        static tf2_ros::TransformBroadcaster br;
-        geometry_msgs::TransformStamped transformStamped;
+// void Bot_Controller::m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg) {
+//     if (!msg->transforms.empty()) {//check marker is detected
+//         //broadcaster object
+//         static tf2_ros::TransformBroadcaster br;
+//         geometry_msgs::TransformStamped transformStamped;
 
-        //broadcast the new frame to /tf Topic
-        transformStamped.header.stamp = ros::Time::now();
-        transformStamped.header.frame_id = "explorer_tf/camera_rgb_optical_frame";
-        transformStamped.child_frame_id = "marker_frame";
-        transformStamped.transform.translation.x =→ msg->transforms[0].transform.translation.x;
-        transformStamped.transform.translation.y =→ msg->transforms[1].transform.translation.y;
-        transformStamped.transform.translation.z =→ msg->transforms[2].transform.translation.z;
+//         //broadcast the new frame to /tf Topic
+//         transformStamped.header.stamp = ros::Time::now();
+//         transformStamped.header.frame_id = "explorer_tf/camera_rgb_optical_frame";
+//         transformStamped.child_frame_id = "marker_frame";
+//         transformStamped.transform.translation.x =→ msg->transforms[0].transform.translation.x;
+//         transformStamped.transform.translation.y =→ msg->transforms[1].transform.translation.y;
+//         transformStamped.transform.translation.z =→ msg->transforms[2].transform.translation.z;
         
-        transformStamped.transform.rotation.x =→ msg->transforms[0].transform.rotation.x;
-        transformStamped.transform.rotation.y =→ msg->transforms[1].transform.rotation.y;
-        transformStamped.transform.rotation.z =→ msg->transforms[2].transform.rotation.z;
-        transformStamped.transform.rotation.w =→ msg->transforms[3].transform.rotation.w;
+//         transformStamped.transform.rotation.x =→ msg->transforms[0].transform.rotation.x;
+//         transformStamped.transform.rotation.y =→ msg->transforms[1].transform.rotation.y;
+//         transformStamped.transform.rotation.z =→ msg->transforms[2].transform.rotation.z;
+//         transformStamped.transform.rotation.w =→ msg->transforms[3].transform.rotation.w;
 
-        br.sendTransform(transformStamped);
-    }
-}
+//         br.sendTransform(transformStamped);
+//     }
+// }
 
 double Bot_Controller::m_compute_distance(const std::pair<double, double>& a, const std::pair<double, double>& b) {
     return  sqrt(pow(b.first - a.first, 2) + pow(b.second - a.second, 2));
