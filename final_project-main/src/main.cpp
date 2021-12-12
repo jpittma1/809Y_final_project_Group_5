@@ -210,36 +210,15 @@ int main(int argc, char** argv)
 
   static double final_angle{ 0 };
 
-  std::array<double,2> start_loc = explorer.get_start_loc();
-  std::array<std::array<double,2>,4> goal_list = explorer.get_goals();
- 
   while (ros::ok()) {
     //*****EXPLORER*****//
-
-    std::array<double,2> start_loc = explorer.get_start_loc();
-
-    double goal_x, goal_y
-    int i = 0;
-    for(i = 0; i < 4; i++){
-      if (!explorer_goal_sent){
-        ROS_INFO("Sending goal for explorer");
-        explorer_client.sendGoal(explorer_goal);//this should be sent only once
-        explorer_goal_sent = true;
-      }
-      if (motion_type == "h")
-        explorer.stop();
-      else if (motion_type == "s")
-        explorer.drive_straight(drive_value, direction_b);
-
-      explorer.go_to_goal(explorer.goal_list[i][0],explorer.goal_list[i][1]);
-      // i++;
-      ros::Duration(0.5).sleep();
-//       while(!msg->transforms.empty()){
-//         explorer.rotate(0.01, true, 360);}
-    
-      if (explorer_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
-        ROS_INFO("Hooray, robot reached goal");
-      }
+    if (!explorer_goal_sent)     {
+      ROS_INFO("Sending goal for explorer");
+      explorer_client.sendGoal(explorer_goal);//this should be sent only once
+      explorer_goal_sent = true;
+    }
+    if (explorer_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
+      ROS_INFO("Hooray, robot reached goal");
     }
     // if (!follower_goal_sent) {
     //   ROS_INFO("Sending goal for follower");
@@ -263,7 +242,20 @@ int main(int argc, char** argv)
         
         posit.at(counter).at(0) = transformStamped.transform.translation.x;
         posit.at(counter).at(1)=transformStamped.transform.translation.y;
-        markers.at(counter)=transformStamped.fid;
+         // markers.at(counter)=nh.getParam("fiducial_id", follower.m_fid(counter));
+        // markers=m_nh.getParam("fiducial_id", fiducial_id);
+        // markers=follower.get_fid(counter);
+        // markers.at(counter)=follower.get_fid();
+        // markers=follower.get_fid;
+        // markers=follower.get_fid(counter);
+        // markers.at(counter)=follower.get_fid;
+        
+        // Markers Hardcoded
+        // markers{0,3,1,2};
+        markers.at(0)=0;
+        markers.at(1)=3;
+        markers.at(2)=1;
+        markers.at(3)=2;
 
         counter++;
       }
