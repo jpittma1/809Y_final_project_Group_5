@@ -1,6 +1,21 @@
 #ifndef EXPLORER_H
 #define EXPLORER_H
 
+#include <geometry_msgs/Twist.h>   //for geometry_msgs::Twist
+#include <nav_msgs/Odometry.h>     //for nav_msgs::Odometry
+#include <sensor_msgs/LaserScan.h> //for laser scans
+#include <fiducial_msgs/FiducialTransformArray.h>
+#include <geometry_msgs/TransformStamped.h>
+#include <tf2_ros/transform_broadcaster.h>
+#include <ros/ros.h>
+#include <utility>
+#include <string>
+#include <array>
+#include <algorithm>
+#include <tf/transform_datatypes.h> //to manipulate quaternions
+#include <geometry_msgs/Quaternion.h>
+#include <cmath>
+
 /**
  * @brief A class that inherits from Bot_contreoller to control the explorer and exploration algorithm.
  * 

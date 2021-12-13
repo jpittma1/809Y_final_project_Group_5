@@ -1,13 +1,4 @@
-/**
- * @file main.cpp
- * @author Jerry Pittman, Jr., Nicholas Novak, Orlandis Smith (jpittma1@umd.edu, nnovak@umd.edu, osmith15@umd.edu)
- * @brief ENPM809Y Final Project Group 5
- * @version 0.1
- * @date 2021-12-11
- * 
- * @copyright Copyright (c) 2021
- * 
- */
+
 
 #include <actionlib/client/simple_action_client.h>
 #include <fiducial_msgs/FiducialTransformArray.h>
@@ -21,6 +12,7 @@
 #include <iostream>
 #include <algorithm>
 #include <utility>
+#include <string>
 
 #include "../include/follower/follower.h"
 #include "../include/explorer/explorer.h"
