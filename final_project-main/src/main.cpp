@@ -115,9 +115,9 @@ int main(int argc, char** argv)
   // tell the action client that we want to spin a thread by default
   MoveBaseClient follower_client("/follower/move_base", true);
 
+
   move_base_msgs::MoveBaseGoal explorer_goal;
   move_base_msgs::MoveBaseGoal follower_goal;
-
 
   // wait for the action server to come up
   while (!explorer_client.waitForServer(ros::Duration(5.0))) {
@@ -127,7 +127,7 @@ int main(int argc, char** argv)
   while (!follower_client.waitForServer(ros::Duration(5.0))) {
     ROS_INFO("Waiting for the move_base action server to come up for follower");
   }
-
+  
   // move_base_msgs::MoveBaseGoal explorer_goal;
   // move_base_msgs::MoveBaseGoal follower_goal;
 
@@ -205,8 +205,14 @@ int main(int argc, char** argv)
 
     int i = 0;
     for(i = 0; i < 4; i++){
-      goal_list[i][0] = goal_x;
-      goal_list[i][1] = goal_y;
+      goal_x = goal_list[i][0];
+      goal_y = goal_list[i][1];
+
+      ROS_INFO_STREAM("Goal Explorer Pos: "
+          << goal_x
+          << goal_y
+          << '.');
+
       explorer_goal.target_pose.header.frame_id = "map";
       explorer_goal.target_pose.header.stamp = ros::Time::now();
       explorer_goal.target_pose.pose.position.x = goal_x;
@@ -252,7 +258,7 @@ int main(int argc, char** argv)
       //*****FOLLOWER*******//
       
      
-      if (explorer_goal.target_pose.pose.position.x == -4 && explorer_goal.target_pose.pose.position.y == 2.5){
+      if (explorer_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED){
       //---Send Follower to IDs O through 3 ---//
       for (int i=0;i<4;i++) {
         //--Set Goal for next ID--//
