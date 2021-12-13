@@ -1,4 +1,4 @@
-#include <bot_msgs/BotStatus.h>
+// #include <bot_msgs/BotStatus.h>
 #include <geometry_msgs/Quaternion.h>
 #include <tf/transform_datatypes.h>
 #include <cmath>

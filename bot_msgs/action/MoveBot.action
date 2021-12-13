@@ -1,9 +1,0 @@
-#goal
-float64 goal_x
-float64 goal_y
----
-#result
-string result
----
-#feedback
-string status
