@@ -13,16 +13,16 @@
 #include <array>
 #include <algorithm>
 #include <tf/transform_datatypes.h> //to manipulate quaternions
-
+#include <geometry_msgs/Quaternion.h>
+#include <cmath>
 
 /**
  * @brief Follower Class
  * Explorer
  * 
  */
-class Follower : {
+class Follower {
     public:
-        // main() will need to instantiate a ROS nodehandle, then pass it to the constructor
         Follower(ros::NodeHandle *nodehandle, const std::string &robot_name);
         void publish_velocities(const geometry_msgs::Twist &msg);
         void drive_straight(double distance, bool direction);
@@ -32,7 +32,7 @@ class Follower : {
         double compute_expected_final_yaw(bool direction, double angle_to_rotate);
         double compute_yaw_deg();
         double compute_yaw_rad() ;
-         double convert_rad_to_deg(double angle);
+        double convert_rad_to_deg(double angle);
 
         ~Follower() {}
 
