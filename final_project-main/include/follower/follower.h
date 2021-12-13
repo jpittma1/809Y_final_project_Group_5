@@ -38,7 +38,7 @@ class Follower : public Bot_Controller {
         }
 
     // private:
-        std::array <int, 4> m_fid {};
+        // std::array <int, 4> m_fid {};
 
 };
 

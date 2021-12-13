@@ -90,10 +90,10 @@ int main(int argc, char** argv)
   bool follower_goal_sent = false;
 
   //An array to store marker IDs
-  std::array<int, 4> markers{};
+  // std::array<int, 4> markers{};
   //An unsorted and sorted array for storing marker locations from explorer
-  std::array<std::array<double, 2>, 4> posit{};
-  std::array<std::array<double, 2>, 4> posit_new{};
+  // std::array<std::array<double, 2>, 4> posit{};
+  // std::array<std::array<double, 2>, 4> posit_new{};
   
 
   ros::init(argc, argv, "simple_navigation_goals");
@@ -197,7 +197,7 @@ int main(int argc, char** argv)
       print_usage("_direction:= <f/b>");
     }
   }
-  //---Data to pull from array "markers"
+  //---Data to pull from array "m_fid" and "m_posit"
   int fiducial_id;
   double goal_x;
   double goal_y;
@@ -249,17 +249,15 @@ int main(int argc, char** argv)
     }
 
     try {
-        int counter=0;
-
         transformStamped = tfBuffer.lookupTransform("map", "marker_frame", ros::Time(0));
-        ROS_INFO_STREAM("marker in /map frame: ["
+        ROS_INFO_STREAM("Position in /map frame: ["
           << transformStamped.transform.translation.x << ","
           << transformStamped.transform.translation.y << ","
           << transformStamped.transform.translation.z << "]"
         );
         
-        posit.at(counter).at(0) = transformStamped.transform.translation.x;
-        posit.at(counter).at(1)=transformStamped.transform.translation.y;
+        // posit.at(counter).at(0) = transformStamped.transform.translation.x;
+        // posit.at(counter).at(1)=transformStamped.transform.translation.y;
         // markers.at(counter)=nh.getParam("fiducial_id", follower.m_fid(counter));
         // markers=m_nh.getParam("fiducial_id", fiducial_id);
         // markers=follower.get_fid(counter);
@@ -269,19 +267,14 @@ int main(int argc, char** argv)
         // markers.at(counter)=follower.get_fid;
 
   
-        // Markers Hardcoded
+        // Markers Hardcoded based on initial testing
         // markers{0,3,1,2};
-        markers.at(0)=0;
-        markers.at(1)=3;
-        markers.at(2)=1;
-        markers.at(3)=2;
+        // markers.at(0)=0;
+        // markers.at(1)=3;
+        // markers.at(2)=1;
+        // markers.at(3)=2;
 
-        //Print to verify correct data added; delete after T/S complete
-        std::cout <<"\nNew marker " << counter << " added is "<< markers.at(counter)<<"\n";
-        std::cout <<"\nNew marker " << counter << " added is "<<  markers.at(counter)<<"\n";
-        std::cout <<"New Posit " << counter << " added is " << posit.at(counter).at(0);
-        std::cout << " " << posit.at(counter).at(1)<<"\n";
-        counter++;
+      
       }
       catch (tf2::TransformException& ex) {
           ROS_WARN("%s", ex.what());
@@ -289,45 +282,15 @@ int main(int argc, char** argv)
       }
     
       //*****FOLLOWER*******//
-      //---STEP 01a. Sort/organize posit_new to go IDs 0->4
-      for (int h=0;h<4;h++) {
-        //Print to verify correct data; delete after T/S complete
-        std::cout <<"\nPre-sort Array marker " << h << " is " << markers.at(h)<<"\n";
-        std::cout <<"Pre-sort Array Posit " << h << " is " << posit.at(h).at(0);
-        std::cout <<" " << posit.at(h).at(1)<<"\n";
       
-        if (markers.at(h)==0){
-          posit_new.at(0)=posit.at(h);
-          
-          }else if(markers.at(h)==1){
-              posit_new.at(1)=posit.at(h);
+     
 
-          } else if (markers.at(h)==2) {
-              posit_new.at(2)=posit.at(h);
-              
-          }else {
-              posit_new.at(3)=posit.at(h);
-          }
-          
-      }
-
-      std::sort(markers.begin(), markers.end());
-      ROS_INFO("Positions of Markers sorted by Fiducial IDs");
-      
-      //Print to test array sorted correctly
-      for (int j=0;j<4;j++) {
-        //Print to verify correct data; delete after T/S complete
-        std::cout <<"\nPost-sort Array markers " << j << " is " << markers.at(j)<<"\n";
-        std::cout <<"Post-sort Array Posit " << j << " is " << posit_new.at(j).at(0);
-        std::cout <<" " << posit_new.at(j).at(1)<<"\n";
-      }
-
-      //---STEP 02. Send Follower to IDs O through 3 ---//
+      //---Send Follower to IDs O through 3 ---//
       for (int i=0;i<4;i++) {
         //--Set Goal for next ID--//
-        fiducial_id=markers.at(i);
-        goal_x=posit_new.at(i).at(0);
-        goal_y=posit_new.at(i).at(1);
+        fiducial_id=follower.m_fid.at(i);
+        goal_x=follower.m_posit.at(i).at(0);
+        goal_y=follower.m_posit.at(i).at(1);
         
         if (motion_type == "h")
           follower.stop();
@@ -347,6 +310,17 @@ int main(int argc, char** argv)
           follower.go_to_goal(goal_x, goal_y);
           ROS_INFO("Hooray, follower reached goal");
         }
+
+        //---Send Follower to Start Position (-4,3.5) ---//
+        if (i==3) {
+          ROS_INFO("Sending follower to Start Position");
+          goal_x=-4;
+          goal_y=3.5;
+          follower.go_to_goal(goal_x, goal_y);
+          ROS_INFO("Hooray, follower reached starting position");
+          ros::shutdown();
+        }
+
       }
 
     broadcast();
@@ -354,13 +328,6 @@ int main(int argc, char** argv)
     ros::spinOnce();
     loop_rate.sleep();
 
-    //---STEP 03. Send Follower to Start Position (-4,3.5) ---//
-    ROS_INFO("Sending follower to Start Position");
-    goal_x=-4;
-    goal_y=3.5;
-    follower.go_to_goal(goal_x, goal_y);
-    ROS_INFO("Hooray, follower reached starting position");
-    ros::shutdown();
   }
 
 

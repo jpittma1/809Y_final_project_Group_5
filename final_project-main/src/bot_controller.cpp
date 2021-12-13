@@ -82,7 +82,7 @@ void Bot_Controller::m_fiducial_callback(const fiducial_msgs::FiducialTransformA
         //broadcaster object
         static tf2_ros::TransformBroadcaster br;
         geometry_msgs::TransformStamped transformStamped;
-        int count=0;
+        // int count=0;
         int fiducial_id;
 
         //broadcast the new frame to /tf Topic
@@ -97,12 +97,30 @@ void Bot_Controller::m_fiducial_callback(const fiducial_msgs::FiducialTransformA
         transformStamped.transform.rotation.y = msg->transforms[1].transform.rotation.y;
         transformStamped.transform.rotation.z = msg->transforms[2].transform.rotation.z;
         transformStamped.transform.rotation.w = msg->transforms[3].transform.rotation.w;
+
+        fiducial_id= msg->transforms.fiducial_id;
+
+        //Store location of fiducial IDs based on fiducial_ID detected
+        if (fiducial_ID==0){ 
+            m_fid.at(0)=fiducial_ID;
+            m_posit.at(0)={transformStamped.transform.translation.x, transformStamped.transform.translation.y};
+        } else if(fiducial_id==1) {
+             m_fid.at(1)=fiducial_ID;
+             m_posit.at(1)={transformStamped.transform.translation.x, transformStamped.transform.translation.y};
+        } else if (fiducial_id==2) {
+            m_fid.at(2)=fiducial_ID;
+            m_posit.at(2)={transformStamped.transform.translation.x, transformStamped.transform.translation.y};
+        } else {
+             m_fid.at(3)=fiducial_ID;
+             m_posit.at(3)={transformStamped.transform.translation.x, transformStamped.transform.translation.y};
+        }
         
-        // fiducial_id.at(count)= m_nh.setParam("fiducial_id",->msg->transforms.fiducial_id);.
-        // m_fid.at(count)=fiducial_id.at(count);
-        // set_fid(->msg->transforms.fiducial_id,count);
-        // set_fid(fiducial_id, count);
-        count++;
+        ROS_INFO("New Fiducial ID detected and location stored");
+
+        //Debug print
+        std::cout <<"\nNew marker " << fiducial_id << " added is "<<  markers.at(counter)<<"\n";
+        std::cout <<"New Posit (" <<  m_posit.at(fiducial_id).at(0);
+        std::cout << ", " << m_posit.at(fiducial_id).at(1)<<")\n";
 
         br.sendTransform(transformStamped);
     }
@@ -144,12 +162,6 @@ double Bot_Controller::compute_expected_final_yaw(bool direction, double angle_t
 }
 
 double Bot_Controller::compute_yaw_deg() {
-    // other method to compute yaw from quaternion
-    // double siny_cosp = 2 * (m_orientation.w * m_orientation.z + m_orientation.x * m_orientation.y);
-    // double cosy_cosp = 1 - 2 * (m_orientation.y * m_orientation.x + m_orientation.z * m_orientation.z);
-    // double yaw_rad = std::atan2(siny_cosp, cosy_cosp);
-    // yaw_rad = m_normalize_angle_positive(yaw_rad);
-    // double current_yaw_deg = yaw_rad * 180.0 / M_PI;
     double roll{};
     double pitch{};
     double yaw_rad{};
@@ -162,12 +174,6 @@ double Bot_Controller::compute_yaw_deg() {
 }
 
 double Bot_Controller::compute_yaw_rad() {
-    // other method to compute yaw from quaternion
-    // double siny_cosp = 2 * (m_orientation.w * m_orientation.z + m_orientation.x * m_orientation.y);
-    // double cosy_cosp = 1 - 2 * (m_orientation.y * m_orientation.x + m_orientation.z * m_orientation.z);
-    // double yaw_rad = std::atan2(siny_cosp, cosy_cosp);
-    // yaw_rad = m_normalize_angle_positive(yaw_rad);
-    // double current_yaw_deg = yaw_rad * 180.0 / M_PI;
     double roll{};
     double pitch{};
     double yaw_rad{};

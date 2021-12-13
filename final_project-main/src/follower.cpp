@@ -13,7 +13,7 @@
 
 Follower::Follower(ros::NodeHandle* nodehandle, const std::string& robot_name) :
     Bot_Controller(nodehandle, robot_name){
-    std::array <int, 4> m_fid{};
+    // std::array <int, 4> m_fid{};
     ROS_INFO("Follower Constructor called");
     m_initialize_subscribers();
     m_initialize_publishers();
