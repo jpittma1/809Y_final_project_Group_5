@@ -16,12 +16,10 @@ find_package(catkin REQUIRED COMPONENTS
   tf2_ros
   move_base_msgs
   fiducial_msgs
-  # bot_msgs
   sensor_msgs
   image_transport
   cv_bridge
   actionlib_msgs
-  actionlib
 )
 
 ## System dependencies are found with CMake's conventions
@@ -128,7 +126,6 @@ CATKIN_DEPENDS actionlib_msgs geometry_msgs message_generation message_runtime s
 ## Your package locations should be listed before other locations
 include_directories(
 include
-include/bot_controller
 include/follower
 include/explorer
   ${catkin_INCLUDE_DIRS}
