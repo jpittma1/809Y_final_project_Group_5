@@ -11,7 +11,6 @@
 // #include <geometry_msgs/Quaternion.h>
 // #include <tf/transform_datatypes.h>
 // #include <cmath>
-#include <bot_msgs/BotStatus.h>
 
 #include "../include/follower/follower.h"
 
@@ -52,7 +51,6 @@ double Follower::m_normalize_angle(double angle)
 void Follower::m_initialize_publishers() {
     ROS_INFO("Initializing Publishers");
     m_velocity_publisher = m_nh.advertise<geometry_msgs::Twist>("/cmd_vel", 100);
-    m_bot_status_publisher = m_nh.advertise<bot_msgs::BotStatus>("/robot_status", 100);
 }
 
 void Follower::m_initialize_subscribers() {
@@ -72,12 +70,6 @@ void Follower::m_pose_callback(const nav_msgs::Odometry::ConstPtr& odom_msg) {
     m_location.second = odom_msg->pose.pose.position.y;
     m_orientation = odom_msg->pose.pose.orientation;
 
-    bot_msgs::BotStatus bot_status_msg; //SLide 19 task 3.4
-    bot_status_msg.robot_name = m_robot_name;
-    bot_status_msg.pose_data = odom_msg->pose.pose;
-    bot_status_msg.twist_data = odom_msg->twist.twist;
-
-    m_bot_status_publisher.publish(bot_status_msg);
 }
 
 void Follower::m_scan_callback(const sensor_msgs::LaserScan::ConstPtr& msg) {
@@ -92,7 +84,7 @@ void Follower::m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::
         //broadcaster object
         static tf2_ros::TransformBroadcaster br;
         geometry_msgs::TransformStamped transformStamped;
-        // int count=0;
+
         int fiducial_id;
 
         //broadcast the new frame to /tf Topic
@@ -189,6 +181,7 @@ double Follower::compute_yaw_rad() {
     tf::Matrix3x3(tf_quat).getRPY(roll, pitch, yaw_rad);
     return yaw_rad;
 }
+
 
 
 void Follower::rotate(double angle_to_rotate, bool direction, double final_angle) {
