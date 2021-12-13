@@ -109,11 +109,14 @@ int main(int argc, char** argv)
   // else {
   //   print_usage("missing argument: _robot_name_explore:= <name>");
   // }
-  
+
   // tell the action client that we want to spin a thread by default
   MoveBaseClient explorer_client("/explorer/move_base", true);
   // tell the action client that we want to spin a thread by default
   MoveBaseClient follower_client("/follower/move_base", true);
+
+  move_base_msgs::MoveBaseGoal explorer_goal;
+  move_base_msgs::MoveBaseGoal follower_goal;
 
   // wait for the action server to come up
   while (!explorer_client.waitForServer(ros::Duration(5.0))) {
@@ -123,9 +126,6 @@ int main(int argc, char** argv)
   while (!follower_client.waitForServer(ros::Duration(5.0))) {
     ROS_INFO("Waiting for the move_base action server to come up for follower");
   }
-
-  move_base_msgs::MoveBaseGoal explorer_goal;
-  move_base_msgs::MoveBaseGoal follower_goal;
 
 
   //Build goal for explorer
@@ -212,6 +212,11 @@ int main(int argc, char** argv)
         explorer.drive_straight(drive_value, direction_b);
 
       explorer.go_to_goal(explorer.goal_list[i][0],explorer.goal_list[i][1]);
+      explorer_goal.target_pose.header.frame_id = "map";
+      explorer_goal.target_pose.header.stamp = ros::Time::now();
+      explorer_goal.target_pose.pose.position.x = explorer.goal_list[i][0];
+      explorer_goal.target_pose.pose.position.y = explorer.goal_list[i][1];
+      explorer_goal.target_pose.pose.orientation.w = 1.0;
       
       ros::Duration(0.5).sleep();
 

@@ -25,7 +25,7 @@ Follower::Follower(ros::NodeHandle* nodehandle, const std::string& robot_name) :
     m_pitch{ 0 },
     m_yaw{ 0 }
 {
-    ROS_INFO("FOllower Object Created!")
+    ROS_INFO("FOllower Object Created!");
     m_initialize_subscribers();
     m_initialize_publishers();
 }
