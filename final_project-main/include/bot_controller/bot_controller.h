@@ -5,6 +5,8 @@
 #include <nav_msgs/Odometry.h>     //for nav_msgs::Odometry
 #include <sensor_msgs/LaserScan.h> //for laser scans
 #include <fiducial_msgs/FiducialTransformArray.h>
+#include <geometry_msgs/TransformStamped.h>
+#include <tf2_ros/transform_broadcaster.h>
 #include <ros/ros.h>
 #include <utility>
 #include <string>

@@ -98,7 +98,7 @@ void Bot_Controller::m_fiducial_callback(const fiducial_msgs::FiducialTransformA
         transformStamped.transform.rotation.z = msg->transforms[2].transform.rotation.z;
         transformStamped.transform.rotation.w = msg->transforms[3].transform.rotation.w;
 
-        fiducial_id= msg->transforms.fiducial_id;
+        fiducial_id= msg->transforms[0].fiducial_id;
 
         //Store location of fiducial IDs based on fiducial_ID detected
         if (fiducial_ID==0){ 
@@ -118,7 +118,7 @@ void Bot_Controller::m_fiducial_callback(const fiducial_msgs::FiducialTransformA
         ROS_INFO("New Fiducial ID detected and location stored");
 
         //Debug print
-        std::cout <<"\nNew marker " << fiducial_id << " added is "<<  markers.at(counter)<<"\n";
+        std::cout <<"\nNew marker " << fiducial_id << " added is\n";
         std::cout <<"New Posit (" <<  m_posit.at(fiducial_id).at(0);
         std::cout << ", " << m_posit.at(fiducial_id).at(1)<<")\n";
 
