@@ -1,7 +1,6 @@
 /**
  * @file main.cpp
- * @author Jerry Pittman, Jr., Nicholas Novak, Orlandis Smith
- *  (jpittma1@umd.edu, nnovak@umd.edu, osmith15@umd.edu)
+ * @author Jerry Pittman, Jr., Nicholas Novak, Orlandis Smith (jpittma1@umd.edu, nnovak@umd.edu, osmith15@umd.edu)
  * @brief ENPM809Y Final Project Group 5
  * @version 0.1
  * @date 2021-12-11
