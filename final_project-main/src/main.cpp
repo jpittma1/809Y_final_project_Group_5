@@ -12,7 +12,7 @@
 
 #include <actionlib/client/simple_action_client.h>
 #include <fiducial_msgs/FiducialTransformArray.h>
-#include <geometry_msgs/Twist.h>  //for geometry_msgs::Twist
+#include <geometry_msgs/Twist.h>
 #include <move_base_msgs/MoveBaseAction.h>
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2_ros/transform_broadcaster.h>
@@ -23,7 +23,6 @@
 #include <algorithm>
 #include <utility>
 
-#include "../include/bot_controller/bot_controller.h"
 #include "../include/follower/follower.h"
 #include "../include/explorer/explorer.h"
 
@@ -85,18 +84,11 @@ void listen(tf2_ros::Buffer& tfBuffer) {
 int main(int argc, char** argv)
 {
   
-
   bool explorer_goal_sent = false;
   bool follower_goal_sent = false;
 
-  //An array to store marker IDs
-  // std::array<int, 4> markers{};
-  //An unsorted and sorted array for storing marker locations from explorer
-  // std::array<std::array<double, 2>, 4> posit{};
-  // std::array<std::array<double, 2>, 4> posit_new{};
-  
 
-  ros::init(argc, argv, "simple_navigation_goals");
+  // ros::init(argc, argv, "simple_navigation_goals");
   ros::NodeHandle nh;
   geometry_msgs::TransformStamped transformStamped;
 
@@ -188,23 +180,11 @@ int main(int argc, char** argv)
       print_usage("_direction:= <f/b>");
     }
   }
+
   //---Data to pull from array "m_fid" and "m_posit"
   int fiducial_id;
   double goal_x;
   double goal_y;
-
-  // if (motion_type == "g")
-  // {
-  //   if (!nh.hasParam("goal_x"))
-  //     print_usage("missing argument: _goal_x:=<double>");
-  //   else
-  //     nh.getParam("goal_x", goal_x);
-
-  //   if (!nh.hasParam("goal_y"))
-  //     print_usage("missing argument: _goal_y:=<double>");
-  //   else
-  //     nh.getParam("goal_y", goal_y);
-  // }
 
   tf2_ros::Buffer tfBuffer;
   tf2_ros::TransformListener tfListener(tfBuffer);
@@ -246,14 +226,6 @@ int main(int argc, char** argv)
           << transformStamped.transform.translation.y << ","
           << transformStamped.transform.translation.z << "]"
         );
-        
-  
-        // Markers Hardcoded based on initial testing
-        // markers{0,3,1,2};
-        // markers.at(0)=0;
-        // markers.at(1)=3;
-        // markers.at(2)=1;
-        // markers.at(3)=2;
 
       
       }
