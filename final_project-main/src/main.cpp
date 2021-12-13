@@ -85,23 +85,30 @@ int main(int argc, char** argv)
   ros::NodeHandle nh;
   geometry_msgs::TransformStamped transformStamped;
 
-  std::string robot_name_explore;
-  std::string robot_name_follow;
-
+  std::string robot_name;
+  // std::string robot_name_follow;
 
   //Initialize Follower and Explorer class objects
   Follower follower(&nh, "follower");
-  Explorer explorer(&nh, "explorer");
- 
-  if (nh.hasParam("robot_name")) {
-    nh.getParam("robot_name", robot_name);
-    ROS_INFO_STREAM("robot name: " << robot_name);
-  }
-  else {
-    print_usage("missing argument: _robot_name:= <name>");
-  }
-
   
+ 
+  // if (nh.hasParam("robot_name")) {
+  //   nh.getParam("robot_name", robot_name_follow);
+  //   ROS_INFO_STREAM("robot name: " << robot_name_follow);
+  // }
+  // else {
+  //   print_usage("missing argument: _robot_name_follow:= <name>");
+  // }
+
+  Explorer explorer(&nh, "explorer");
+  
+  // if (nh.hasParam("robot_name")) {
+  //   nh.getParam("robot_name", robot_name_explore);
+  //   ROS_INFO_STREAM("robot name: " << robot_name_explore);
+  // }
+  // else {
+  //   print_usage("missing argument: _robot_name_explore:= <name>");
+  // }
   
   // tell the action client that we want to spin a thread by default
   MoveBaseClient explorer_client("/explorer/move_base", true);
@@ -205,7 +212,7 @@ int main(int argc, char** argv)
         explorer.drive_straight(drive_value, direction_b);
 
       explorer.go_to_goal(explorer.goal_list[i][0],explorer.goal_list[i][1]);
-      // i++;
+      
       ros::Duration(0.5).sleep();
 
     
