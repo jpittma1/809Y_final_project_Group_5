@@ -8,9 +8,6 @@
  * @copyright Copyright (c) 2021
  * 
  */
-// #include <geometry_msgs/Quaternion.h>
-// #include <tf/transform_datatypes.h>
-// #include <cmath>
 
 #include "../include/follower/follower.h"
 

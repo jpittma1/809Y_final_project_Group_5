@@ -1,8 +1,6 @@
 #ifndef EXPLORER_H
 #define EXPLORER_H
 
-#include "../include/bot_controller/bot_controller.h"
-
 /**
  * @brief A class that inherits from Bot_contreoller to control the explorer and exploration algorithm.
  * 
