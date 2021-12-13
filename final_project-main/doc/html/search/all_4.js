@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['exp_5fnode',['exp_node',['../class_explorer.html#acfbbc5075675a523b7995d6c2db06eff',1,'Explorer']]],
-  ['explorer',['Explorer',['../class_explorer.html',1,'Explorer'],['../class_explorer.html#aafe6b7c3b9c2e24815aa14a731f31890',1,'Explorer::Explorer()']]],
-  ['explorer_2ecpp',['explorer.cpp',['../explorer_8cpp.html',1,'']]],
-  ['explorer_2eh',['explorer.h',['../explorer_8h.html',1,'']]]
+  ['follower',['Follower',['../class_follower.html',1,'Follower'],['../class_follower.html#a6870e654b7cc901944ead12870a6b107',1,'Follower::Follower()']]],
+  ['follower_2ecpp',['follower.cpp',['../follower_8cpp.html',1,'']]],
+  ['follower_2eh',['follower.h',['../follower_8h.html',1,'']]],
+  ['final_5fproject',['final_project',['../md__r_e_a_d_m_e.html',1,'']]]
 ];

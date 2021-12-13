@@ -193,7 +193,7 @@ const geometry_msgs::Twist &amp; msg)</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>virtual void <link linkend="class_bot___controller_1afff936a963b8b3b4b641a7f152b45166">drive_straight</link> (
+                        <para>virtual void <link linkend="class_bot___controller_1af1137bb5b154232042e7701a0c24c100">drive_straight</link> (
 double distance, bool direction)</para>
                     </listitem>
                 </itemizedlist>
@@ -201,7 +201,7 @@ double distance, bool direction)</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>virtual void <link linkend="class_bot___controller_1a19ba7ced629e4ee9a0743efdef4a5cc7">rotate</link> (
+                        <para>virtual void <link linkend="class_bot___controller_1ab83b7a259633a0e5c8855159b0027303">rotate</link> (
 double angle_to_rotate, bool direction, double final_angle)</para>
                     </listitem>
                 </itemizedlist>
@@ -209,7 +209,7 @@ double angle_to_rotate, bool direction, double final_angle)</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>virtual bool <link linkend="class_bot___controller_1a5e2f980d71dab69d952c532b5819483b">go_to_goal</link> (
+                        <para>virtual bool <link linkend="class_bot___controller_1a3170c3d67d2c4f92226aa8fe9bc84558">go_to_goal</link> (
 double x, double y)</para>
                     </listitem>
                 </itemizedlist>
@@ -217,7 +217,7 @@ double x, double y)</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>virtual void <link linkend="class_bot___controller_1a28d1caa8c0ed9d8fb313caacecc5e71b">stop</link> (
+                        <para>virtual void <link linkend="class_bot___controller_1a068f0e65e236f7ee9748c20b21a11d7f">stop</link> (
 )</para>
                     </listitem>
                 </itemizedlist>
@@ -225,7 +225,7 @@ double x, double y)</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>virtual double <link linkend="class_bot___controller_1a836b1e434c1c15ccec0b81313a32aca8">compute_expected_final_yaw</link> (
+                        <para>virtual double <link linkend="class_bot___controller_1abd0ba787692f53c17fed466e8850e1bc">compute_expected_final_yaw</link> (
 bool direction, double angle_to_rotate)</para>
                     </listitem>
                 </itemizedlist>
@@ -233,7 +233,7 @@ bool direction, double angle_to_rotate)</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>virtual double <link linkend="class_bot___controller_1abda61292c3719a4a5676ddcd0d8311a1">compute_yaw_deg</link> (
+                        <para>virtual double <link linkend="class_bot___controller_1a0c54c607b8eda10c2c3d287f2d939950">compute_yaw_deg</link> (
 )</para>
                     </listitem>
                 </itemizedlist>
@@ -241,7 +241,7 @@ bool direction, double angle_to_rotate)</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>virtual double <link linkend="class_bot___controller_1a362541183536f955e54234e14f18f3c2">compute_yaw_rad</link> (
+                        <para>virtual double <link linkend="class_bot___controller_1ace0990064539cca6fff70a98655623c4">compute_yaw_rad</link> (
 )</para>
                     </listitem>
                 </itemizedlist>
@@ -249,7 +249,7 @@ bool direction, double angle_to_rotate)</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>virtual double <link linkend="class_bot___controller_1a722a49277ba04f303ca588d80a4910c3">convert_rad_to_deg</link> (
+                        <para>virtual double <link linkend="class_bot___controller_1ae217e781d11e9a70b8a02dacb0e30683">convert_rad_to_deg</link> (
 double angle)</para>
                     </listitem>
                 </itemizedlist>
@@ -367,36 +367,36 @@ double angle)<para><emphasis>Normalizes the angle to be -M_PI circle to +M_PI ci
                 <title>virtual void Bot_Controller::publish_velocities (const geometry_msgs::Twist &amp;msg)=0</title> <emphasis></emphasis>
                 
             </section>
-            <section xml:id="class_bot___controller_1afff936a963b8b3b4b641a7f152b45166">
-                <title>void Bot_Controller::drive_straight (double distance, bool direction)=0</title> <emphasis></emphasis>
+            <section xml:id="class_bot___controller_1af1137bb5b154232042e7701a0c24c100">
+                <title>virtual void Bot_Controller::drive_straight (double distance, bool direction)=0</title> <emphasis></emphasis>
                 
             </section>
-            <section xml:id="class_bot___controller_1a19ba7ced629e4ee9a0743efdef4a5cc7">
-                <title>void Bot_Controller::rotate (double angle_to_rotate, bool direction, double final_angle)=0</title> <emphasis></emphasis>
+            <section xml:id="class_bot___controller_1ab83b7a259633a0e5c8855159b0027303">
+                <title>virtual void Bot_Controller::rotate (double angle_to_rotate, bool direction, double final_angle)=0</title> <emphasis></emphasis>
                 
             </section>
-            <section xml:id="class_bot___controller_1a5e2f980d71dab69d952c532b5819483b">
-                <title>bool Bot_Controller::go_to_goal (double x, double y)=0</title> <emphasis></emphasis>
+            <section xml:id="class_bot___controller_1a3170c3d67d2c4f92226aa8fe9bc84558">
+                <title>virtual bool Bot_Controller::go_to_goal (double x, double y)=0</title> <emphasis></emphasis>
                 
             </section>
-            <section xml:id="class_bot___controller_1a28d1caa8c0ed9d8fb313caacecc5e71b">
-                <title>void Bot_Controller::stop ()=0</title> <emphasis></emphasis>
+            <section xml:id="class_bot___controller_1a068f0e65e236f7ee9748c20b21a11d7f">
+                <title>virtual void Bot_Controller::stop ()=0</title> <emphasis></emphasis>
                 
             </section>
-            <section xml:id="class_bot___controller_1a836b1e434c1c15ccec0b81313a32aca8">
-                <title>double Bot_Controller::compute_expected_final_yaw (bool direction, double angle_to_rotate)=0</title> <emphasis></emphasis>
+            <section xml:id="class_bot___controller_1abd0ba787692f53c17fed466e8850e1bc">
+                <title>virtual double Bot_Controller::compute_expected_final_yaw (bool direction, double angle_to_rotate)=0</title> <emphasis></emphasis>
                 
             </section>
-            <section xml:id="class_bot___controller_1abda61292c3719a4a5676ddcd0d8311a1">
-                <title>double Bot_Controller::compute_yaw_deg ()=0</title> <emphasis></emphasis>
+            <section xml:id="class_bot___controller_1a0c54c607b8eda10c2c3d287f2d939950">
+                <title>virtual double Bot_Controller::compute_yaw_deg ()=0</title> <emphasis></emphasis>
                 
             </section>
-            <section xml:id="class_bot___controller_1a362541183536f955e54234e14f18f3c2">
-                <title>double Bot_Controller::compute_yaw_rad ()=0</title> <emphasis></emphasis>
+            <section xml:id="class_bot___controller_1ace0990064539cca6fff70a98655623c4">
+                <title>virtual double Bot_Controller::compute_yaw_rad ()=0</title> <emphasis></emphasis>
                 
             </section>
-            <section xml:id="class_bot___controller_1a722a49277ba04f303ca588d80a4910c3">
-                <title>double Bot_Controller::convert_rad_to_deg (double angle)=0</title> <emphasis></emphasis>
+            <section xml:id="class_bot___controller_1ae217e781d11e9a70b8a02dacb0e30683">
+                <title>virtual double Bot_Controller::convert_rad_to_deg (double angle)=0</title> <emphasis></emphasis>
                 
             </section>
             <section xml:id="class_bot___controller_1a2efd33efbb2d3c8caa52e04a049b5971">

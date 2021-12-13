@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rotate',['rotate',['../class_bot___controller.html#a19ba7ced629e4ee9a0743efdef4a5cc7',1,'Bot_Controller::rotate()'],['../class_explorer.html#a2616a65bd251592f1b9f151546d429d8',1,'Explorer::rotate()'],['../class_follower.html#ae241d3dc81b6ddebdfbede88e2cebb98',1,'Follower::rotate()']]]
+  ['stop',['stop',['../class_bot___controller.html#a068f0e65e236f7ee9748c20b21a11d7f',1,'Bot_Controller::stop()'],['../class_explorer.html#a0e4a623ff30d1886cc9f57ec081c527f',1,'Explorer::stop()'],['../class_follower.html#a84c17a75630c27bea4f401c8ab8e45b2',1,'Follower::stop()']]]
 ];

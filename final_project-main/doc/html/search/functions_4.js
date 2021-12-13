@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['explorer',['Explorer',['../class_explorer.html#aafe6b7c3b9c2e24815aa14a731f31890',1,'Explorer']]]
+  ['follower',['Follower',['../class_follower.html#a6870e654b7cc901944ead12870a6b107',1,'Follower']]]
 ];

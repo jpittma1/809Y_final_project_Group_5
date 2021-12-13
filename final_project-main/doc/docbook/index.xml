@@ -7,22 +7,16 @@
     <chapter>
         <title>Class Documentation</title>
         <xi:include href="class_bot___controller.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include href="class_bot_action_server.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="class_explorer.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="class_follower.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     </chapter>
     <chapter>
         <title>File Documentation</title>
-        <xi:include href="bot__action__server_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="bot__controller_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="explorer_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="follower_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="_r_e_a_d_m_e_8md.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include href="bot__action__client_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include href="bot__action__server_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="bot__controller_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include href="bot__service__client_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-        <xi:include href="bot__service__server_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="explorer_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="follower_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
         <xi:include href="main_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>

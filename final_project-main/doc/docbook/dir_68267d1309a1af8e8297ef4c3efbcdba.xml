@@ -17,35 +17,7 @@
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>file <link linkend="bot__action__client_8cpp">bot_action_client.cpp</link></para>
-                    </listitem>
-                </itemizedlist>
-            </para>
-            <para>
-                <itemizedlist>
-                    <listitem>
-                        <para>file <link linkend="bot__action__server_8cpp">bot_action_server.cpp</link></para>
-                    </listitem>
-                </itemizedlist>
-            </para>
-            <para>
-                <itemizedlist>
-                    <listitem>
                         <para>file <link linkend="bot__controller_8cpp">bot_controller.cpp</link></para>
-                    </listitem>
-                </itemizedlist>
-            </para>
-            <para>
-                <itemizedlist>
-                    <listitem>
-                        <para>file <link linkend="bot__service__client_8cpp">bot_service_client.cpp</link></para>
-                    </listitem>
-                </itemizedlist>
-            </para>
-            <para>
-                <itemizedlist>
-                    <listitem>
-                        <para>file <link linkend="bot__service__server_8cpp">bot_service_server.cpp</link></para>
                     </listitem>
                 </itemizedlist>
             </para>

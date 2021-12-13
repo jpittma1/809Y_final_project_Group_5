@@ -44,6 +44,128 @@
             </para>
         </section>
         <section>
+            <title>Private Attributes</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>ros::NodeHandle m_nh</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>ros::Subscriber m_pose_subscriber</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>ros::Subscriber m_scan_subscriber</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>ros::Subscriber m_fiducial_subscriber</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>ros::Publisher m_velocity_publisher</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>std::string m_robot_name</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>double m_kv</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>double m_kh</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>std::string m_parent_frame</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>std::string m_child_frame</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>std::pair&lt; double, double &gt; m_location</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>geometry_msgs::Quaternion m_orientation</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>double m_linear_speed</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>double m_angular_speed</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>double m_roll</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>double m_pitch</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>double m_yaw</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
             <title></title>
             <para>
                 <itemizedlist>
@@ -56,7 +178,7 @@ ros::NodeHandle * nodehandle, const std::string &amp; robot_name)</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>virtual void <link linkend="class_follower_1ae9e1df72904d2171d99f7bd18ccd89ab">publish_velocities</link> (
+                        <para>void <link linkend="class_follower_1aaae1600959a929c269d557d9c09ba777">publish_velocities</link> (
 const geometry_msgs::Twist &amp; msg)</para>
                     </listitem>
                 </itemizedlist>
@@ -64,7 +186,7 @@ const geometry_msgs::Twist &amp; msg)</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>virtual void <link linkend="class_follower_1a0af597b7d7f416c37d85be69377d0b58">drive_straight</link> (
+                        <para>void <link linkend="class_follower_1ad4d1ce6f43ce65c0aa5a560247ca55ad">drive_straight</link> (
 double distance, bool direction)</para>
                     </listitem>
                 </itemizedlist>
@@ -72,7 +194,7 @@ double distance, bool direction)</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>virtual void <link linkend="class_follower_1ae241d3dc81b6ddebdfbede88e2cebb98">rotate</link> (
+                        <para>void <link linkend="class_follower_1abf8ec0da50295140bf750d30906a726b">rotate</link> (
 double angle_to_rotate, bool direction, double final_angle)</para>
                     </listitem>
                 </itemizedlist>
@@ -80,7 +202,7 @@ double angle_to_rotate, bool direction, double final_angle)</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>virtual bool <link linkend="class_follower_1ab4e7d953f54be23aadd7ed081d01ea2c">go_to_goal</link> (
+                        <para>bool <link linkend="class_follower_1a08ab05cb32f0e6653939163dd22f344a">go_to_goal</link> (
 double x, double y)</para>
                     </listitem>
                 </itemizedlist>
@@ -88,7 +210,7 @@ double x, double y)</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>virtual void <link linkend="class_follower_1a098544bd512f5d5b054e15d173cec066">stop</link> (
+                        <para>void <link linkend="class_follower_1a84c17a75630c27bea4f401c8ab8e45b2">stop</link> (
 )</para>
                     </listitem>
                 </itemizedlist>
@@ -96,7 +218,7 @@ double x, double y)</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>virtual double <link linkend="class_follower_1ab87e93b6fafa6f25137ba60d5860558e">compute_expected_final_yaw</link> (
+                        <para>double <link linkend="class_follower_1a5573bec72ce4aed99706213154849b65">compute_expected_final_yaw</link> (
 bool direction, double angle_to_rotate)</para>
                     </listitem>
                 </itemizedlist>
@@ -104,7 +226,7 @@ bool direction, double angle_to_rotate)</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>virtual double <link linkend="class_follower_1a300c727aa90274ffa63a2fb9a6403054">compute_yaw_deg</link> (
+                        <para>double <link linkend="class_follower_1ac988cad87474cb64ef3be7fe197d90a7">compute_yaw_deg</link> (
 )</para>
                     </listitem>
                 </itemizedlist>
@@ -112,7 +234,7 @@ bool direction, double angle_to_rotate)</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>virtual double <link linkend="class_follower_1a09782942c6aeb9c1797931eb42bc9d20">compute_yaw_rad</link> (
+                        <para>double <link linkend="class_follower_1abde593631e6549062d77fb2169a17c66">compute_yaw_rad</link> (
 )</para>
                     </listitem>
                 </itemizedlist>
@@ -120,16 +242,105 @@ bool direction, double angle_to_rotate)</para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>virtual double <link linkend="class_follower_1a8d6f37307eb0693f9ca04d31ccfe75ae">convert_rad_to_deg</link> (
+                        <para>double <link linkend="class_follower_1a670f07466502e1020514d6ba6b928553">convert_rad_to_deg</link> (
 double angle)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para> <link linkend="class_follower_1a1dd55289af5ded7a57a2874c5477c33d">~Follower</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title></title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_follower_1ad6e5f2c27361138af2c160c3ddeb1e66">m_pose_callback</link> (
+const nav_msgs::Odometry::ConstPtr &amp; msg)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_follower_1aae97b248833ca22a0755ba07e6b479e0">m_scan_callback</link> (
+const sensor_msgs::LaserScan::ConstPtr &amp; msg)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_follower_1a142e244a9c4992c0897dd2719f92a2b0">m_fiducial_callback</link> (
+const fiducial_msgs::FiducialTransformArray::ConstPtr &amp; msg)<para><emphasis>To store the locations of the fiducial IDs (waypoints) and the fiducial_ID number.</emphasis></para>
+</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_follower_1a3add2fb77acd217793be425700799ec0">m_initialize_subscribers</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_follower_1ae54652c5c8fdc6dca58c631603c82840">m_initialize_publishers</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>double <link linkend="class_follower_1ad1755902377610ec60e73e2a01e4077c">m_compute_distance</link> (
+const std::pair&lt; double, double &gt; &amp; a, const std::pair&lt; double, double &gt; &amp; b)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_follower_1a84aed500287d1ae121471d9bd39521e0">m_move</link> (
+double linear, double angular)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>double <link linkend="class_follower_1ace3b7ecf01c52be704a6031dfef599dc">m_normalize_angle_positive</link> (
+double angle)<para><emphasis>Normalizes the angle to be 0 to 2*M_PI.</emphasis></para>
+</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>double <link linkend="class_follower_1a6199117d8bc6dd4db59544713d5944ad">m_normalize_angle</link> (
+double angle)<para><emphasis>Normalizes the angle to be -M_PI circle to +M_PI circle.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
         </section>
     <simplesect>
 
-<para>Public Inheritance Child class of Bot_controller Class to go to ArUco markers found by <link linkend="class_explorer">Explorer</link> child. </para>
+<para><link linkend="class_follower">Follower</link> Class <link linkend="class_explorer">Explorer</link>. </para>
     </simplesect>
+        <section>
+            <title>Member Data Documentation</title>
+        </section>
         <section>
             <title>Member Data Documentation</title>
         </section>
@@ -137,40 +348,151 @@ double angle)</para>
                 <title>Follower::Follower (ros::NodeHandle *nodehandle, const std::string &amp;robot_name)</title> <emphasis></emphasis>
                 
             </section>
-            <section xml:id="class_follower_1ae9e1df72904d2171d99f7bd18ccd89ab">
-                <title>virtual void Follower::publish_velocities (const geometry_msgs::Twist &amp;msg) override</title> <emphasis></emphasis>
+            <section xml:id="class_follower_1aaae1600959a929c269d557d9c09ba777">
+                <title>void Follower::publish_velocities (const geometry_msgs::Twist &amp;msg)</title> <emphasis></emphasis>
                 
             </section>
-            <section xml:id="class_follower_1a0af597b7d7f416c37d85be69377d0b58">
-                <title>virtual void Follower::drive_straight (double distance, bool direction) override</title> <emphasis></emphasis>
+            <section xml:id="class_follower_1ad4d1ce6f43ce65c0aa5a560247ca55ad">
+                <title>void Follower::drive_straight (double distance, bool direction)</title> <emphasis></emphasis>
                 
             </section>
-            <section xml:id="class_follower_1ae241d3dc81b6ddebdfbede88e2cebb98">
-                <title>virtual void Follower::rotate (double angle_to_rotate, bool direction, double final_angle) override</title> <emphasis></emphasis>
+            <section xml:id="class_follower_1abf8ec0da50295140bf750d30906a726b">
+                <title>void Follower::rotate (double angle_to_rotate, bool direction, double final_angle)</title> <emphasis></emphasis>
                 
             </section>
-            <section xml:id="class_follower_1ab4e7d953f54be23aadd7ed081d01ea2c">
-                <title>virtual bool Follower::go_to_goal (double x, double y) override</title> <emphasis></emphasis>
+            <section xml:id="class_follower_1a08ab05cb32f0e6653939163dd22f344a">
+                <title>bool Follower::go_to_goal (double x, double y)</title> <emphasis></emphasis>
                 
             </section>
-            <section xml:id="class_follower_1a098544bd512f5d5b054e15d173cec066">
-                <title>virtual void Follower::stop () override</title> <emphasis></emphasis>
+            <section xml:id="class_follower_1a84c17a75630c27bea4f401c8ab8e45b2">
+                <title>void Follower::stop ()</title> <emphasis></emphasis>
                 
             </section>
-            <section xml:id="class_follower_1ab87e93b6fafa6f25137ba60d5860558e">
-                <title>virtual double Follower::compute_expected_final_yaw (bool direction, double angle_to_rotate) override</title> <emphasis></emphasis>
+            <section xml:id="class_follower_1a5573bec72ce4aed99706213154849b65">
+                <title>double Follower::compute_expected_final_yaw (bool direction, double angle_to_rotate)</title> <emphasis></emphasis>
                 
             </section>
-            <section xml:id="class_follower_1a300c727aa90274ffa63a2fb9a6403054">
-                <title>virtual double Follower::compute_yaw_deg () override</title> <emphasis></emphasis>
+            <section xml:id="class_follower_1ac988cad87474cb64ef3be7fe197d90a7">
+                <title>double Follower::compute_yaw_deg ()</title> <emphasis></emphasis>
                 
             </section>
-            <section xml:id="class_follower_1a09782942c6aeb9c1797931eb42bc9d20">
-                <title>virtual double Follower::compute_yaw_rad () override</title> <emphasis></emphasis>
+            <section xml:id="class_follower_1abde593631e6549062d77fb2169a17c66">
+                <title>double Follower::compute_yaw_rad ()</title> <emphasis></emphasis>
                 
             </section>
-            <section xml:id="class_follower_1a8d6f37307eb0693f9ca04d31ccfe75ae">
-                <title>virtual double Follower::convert_rad_to_deg (double angle) override</title> <emphasis></emphasis>
+            <section xml:id="class_follower_1a670f07466502e1020514d6ba6b928553">
+                <title>double Follower::convert_rad_to_deg (double angle)</title> <emphasis></emphasis>
                 
+            </section>
+            <section xml:id="class_follower_1a1dd55289af5ded7a57a2874c5477c33d">
+                <title>Follower::~Follower ()</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_follower_1ad6e5f2c27361138af2c160c3ddeb1e66">
+                <title>void Follower::m_pose_callback (const nav_msgs::Odometry::ConstPtr &amp;msg)</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_follower_1aae97b248833ca22a0755ba07e6b479e0">
+                <title>void Follower::m_scan_callback (const sensor_msgs::LaserScan::ConstPtr &amp;msg)</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_follower_1a142e244a9c4992c0897dd2719f92a2b0">
+                <title>void Follower::m_fiducial_callback (const fiducial_msgs::FiducialTransformArray::ConstPtr &amp;msg)</title> <emphasis>To store the locations of the fiducial IDs (waypoints) and the fiducial_ID number.</emphasis>
+                
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>msg</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
+            </section>
+            <section xml:id="class_follower_1a3add2fb77acd217793be425700799ec0">
+                <title>void Follower::m_initialize_subscribers ()</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_follower_1ae54652c5c8fdc6dca58c631603c82840">
+                <title>void Follower::m_initialize_publishers ()</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_follower_1ad1755902377610ec60e73e2a01e4077c">
+                <title>double Follower::m_compute_distance (const std::pair&lt; double, double &gt; &amp;a, const std::pair&lt; double, double &gt; &amp;b)</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_follower_1a84aed500287d1ae121471d9bd39521e0">
+                <title>void Follower::m_move (double linear, double angular)</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_follower_1ace3b7ecf01c52be704a6031dfef599dc">
+                <title>double Follower::m_normalize_angle_positive (double angle)</title> <emphasis>Normalizes the angle to be 0 to 2*M_PI.</emphasis>
+                
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>angle</entry>
+                                <entry>
+<para>Angle to normalize (rad) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                <formalpara><title>Returns: </title>
+
+<para>double Normalized angle (rad) </para>
+</formalpara>
+</para>
+
+            </section>
+            <section xml:id="class_follower_1a6199117d8bc6dd4db59544713d5944ad">
+                <title>double Follower::m_normalize_angle (double angle)</title> <emphasis>Normalizes the angle to be -M_PI circle to +M_PI circle.</emphasis>
+                
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>angle</entry>
+                                <entry>
+<para>Angle to normalize (rad) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                <formalpara><title>Returns: </title>
+
+<para>double Normalized angle (rad) </para>
+</formalpara>
+</para>
+
             </section>
 </section>

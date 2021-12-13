@@ -1,7 +1,20 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="follower_8h">
     <title>follower.h File Reference</title>
-    <programlisting>#include &quot;../include/bot_controller/bot_controller.h&quot;</programlisting>
+    <programlisting>#include &lt;geometry_msgs/Twist.h&gt;</programlisting>
+    <programlisting>#include &lt;nav_msgs/Odometry.h&gt;</programlisting>
+    <programlisting>#include &lt;sensor_msgs/LaserScan.h&gt;</programlisting>
+    <programlisting>#include &lt;fiducial_msgs/FiducialTransformArray.h&gt;</programlisting>
+    <programlisting>#include &lt;geometry_msgs/TransformStamped.h&gt;</programlisting>
+    <programlisting>#include &lt;tf2_ros/transform_broadcaster.h&gt;</programlisting>
+    <programlisting>#include &lt;ros/ros.h&gt;</programlisting>
+    <programlisting>#include &lt;utility&gt;</programlisting>
+    <programlisting>#include &lt;string&gt;</programlisting>
+    <programlisting>#include &lt;array&gt;</programlisting>
+    <programlisting>#include &lt;algorithm&gt;</programlisting>
+    <programlisting>#include &lt;tf/transform_datatypes.h&gt;</programlisting>
+    <programlisting>#include &lt;geometry_msgs/Quaternion.h&gt;</programlisting>
+    <programlisting>#include &lt;cmath&gt;</programlisting>
 <para>Include dependency diagram for follower.h</para>
 <para>
     <figure>
@@ -30,9 +43,8 @@
                 <itemizedlist>
                     <listitem>
                         <para>struct <link linkend="class_follower">Follower</link></para>
-<para><emphasis>Public Inheritance Child class of Bot_controller Class
-to go to ArUco markers found by
-Explorer child.</emphasis></para>
+<para><emphasis>Follower Class
+Explorer.</emphasis></para>
                     </listitem>
                 </itemizedlist>
             </para>

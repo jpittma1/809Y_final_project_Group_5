@@ -17,13 +17,6 @@
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>file <link linkend="bot__action__server_8h">bot_action_server.h</link></para>
-                    </listitem>
-                </itemizedlist>
-            </para>
-            <para>
-                <itemizedlist>
-                    <listitem>
                         <para>file <link linkend="bot__controller_8h">bot_controller.h</link></para>
                     </listitem>
                 </itemizedlist>

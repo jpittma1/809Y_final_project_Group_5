@@ -94,132 +94,42 @@ $(document).ready(function(){initNavTree('class_explorer.html','');});
  <a href="class_explorer.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="explorer_8h_source.html">explorer.h</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for Explorer:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_explorer__inherit__graph.png" border="0" usemap="#_explorer_inherit__map" alt="Inheritance graph"/></div>
-<map name="_explorer_inherit__map" id="_explorer_inherit__map">
-<area shape="rect" id="node2" href="class_bot___controller.html" title="Controller class to drive a turtlebot. " alt="" coords="5,5,111,32"/>
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for Explorer:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_explorer__coll__graph.png" border="0" usemap="#_explorer_coll__map" alt="Collaboration graph"/></div>
-<map name="_explorer_coll__map" id="_explorer_coll__map">
-<area shape="rect" id="node2" href="class_bot___controller.html" title="Controller class to drive a turtlebot. " alt="" coords="5,5,111,32"/>
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aafe6b7c3b9c2e24815aa14a731f31890"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#aafe6b7c3b9c2e24815aa14a731f31890">Explorer</a> (ros::NodeHandle *nodehandle, const std::string &amp;robot_name)</td></tr>
 <tr class="separator:aafe6b7c3b9c2e24815aa14a731f31890"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71d49e07fda9132640ef7ca560492065"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#a71d49e07fda9132640ef7ca560492065">publish_velocities</a> (const geometry_msgs::Twist &amp;msg) override</td></tr>
-<tr class="separator:a71d49e07fda9132640ef7ca560492065"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38e04dc019525baca8530b6cf3e779de"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#a38e04dc019525baca8530b6cf3e779de">drive_straight</a> (double distance, bool direction) override</td></tr>
-<tr class="separator:a38e04dc019525baca8530b6cf3e779de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2616a65bd251592f1b9f151546d429d8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#a2616a65bd251592f1b9f151546d429d8">rotate</a> (double angle_to_rotate, bool direction, double final_angle) override</td></tr>
-<tr class="separator:a2616a65bd251592f1b9f151546d429d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf31add48ee079244fbdc7aaa574c72b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#aaf31add48ee079244fbdc7aaa574c72b">go_to_goal</a> (double x, double y) override</td></tr>
-<tr class="separator:aaf31add48ee079244fbdc7aaa574c72b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44a5755de0e7a3934265a8f9ab4c9b2e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#a44a5755de0e7a3934265a8f9ab4c9b2e">stop</a> () override</td></tr>
-<tr class="separator:a44a5755de0e7a3934265a8f9ab4c9b2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a445fc280b6fb133e1ce02e09920da2"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#a5a445fc280b6fb133e1ce02e09920da2">compute_expected_final_yaw</a> (bool direction, double angle_to_rotate) override</td></tr>
-<tr class="separator:a5a445fc280b6fb133e1ce02e09920da2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9235375b60669fc046c41318759dc1dc"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#a9235375b60669fc046c41318759dc1dc">compute_yaw_deg</a> () override</td></tr>
-<tr class="separator:a9235375b60669fc046c41318759dc1dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abace49485da40310e567a77689bcb377"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#abace49485da40310e567a77689bcb377">compute_yaw_rad</a> () override</td></tr>
-<tr class="separator:abace49485da40310e567a77689bcb377"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00f687c86ecf3de47a1b424a3b2e07ea"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#a00f687c86ecf3de47a1b424a3b2e07ea">convert_rad_to_deg</a> (double angle) override</td></tr>
-<tr class="separator:a00f687c86ecf3de47a1b424a3b2e07ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ffef25585ef957b9df4407366723787"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#a8ffef25585ef957b9df4407366723787">publish_velocities</a> (const geometry_msgs::Twist &amp;msg)</td></tr>
+<tr class="separator:a8ffef25585ef957b9df4407366723787"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4ca9f16c48a60fc4d0e426b6fd9e9a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#ab4ca9f16c48a60fc4d0e426b6fd9e9a0">drive_straight</a> (double distance, bool direction)</td></tr>
+<tr class="separator:ab4ca9f16c48a60fc4d0e426b6fd9e9a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8e3a980fd3929734fb3a4b0b2e0a7e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#ac8e3a980fd3929734fb3a4b0b2e0a7e0">rotate</a> (double angle_to_rotate, bool direction, double final_angle)</td></tr>
+<tr class="separator:ac8e3a980fd3929734fb3a4b0b2e0a7e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1e259feaac1114adb0f24588428e8ef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#aa1e259feaac1114adb0f24588428e8ef">go_to_goal</a> (double x, double y)</td></tr>
+<tr class="separator:aa1e259feaac1114adb0f24588428e8ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e4a623ff30d1886cc9f57ec081c527f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#a0e4a623ff30d1886cc9f57ec081c527f">stop</a> ()</td></tr>
+<tr class="separator:a0e4a623ff30d1886cc9f57ec081c527f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02c37b93448ed474f1bf0d03e2758ca2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#a02c37b93448ed474f1bf0d03e2758ca2">compute_expected_final_yaw</a> (bool direction, double angle_to_rotate)</td></tr>
+<tr class="separator:a02c37b93448ed474f1bf0d03e2758ca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a670cdffdb8c3173c300590cfc45ab6d2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#a670cdffdb8c3173c300590cfc45ab6d2">compute_yaw_deg</a> ()</td></tr>
+<tr class="separator:a670cdffdb8c3173c300590cfc45ab6d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5b91cd64189a60ffe62535cb5bc093a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#ac5b91cd64189a60ffe62535cb5bc093a">compute_yaw_rad</a> ()</td></tr>
+<tr class="separator:ac5b91cd64189a60ffe62535cb5bc093a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3a5c9368647dd9d2c36d12497bd889e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#ac3a5c9368647dd9d2c36d12497bd889e">convert_rad_to_deg</a> (double angle)</td></tr>
+<tr class="separator:ac3a5c9368647dd9d2c36d12497bd889e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1b0a71e92e003e9162a5ba99d843392"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#aa1b0a71e92e003e9162a5ba99d843392">~Explorer</a> ()</td></tr>
+<tr class="separator:aa1b0a71e92e003e9162a5ba99d843392"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b0c1e46e1a17e99f4156edf5a93b691"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#a2b0c1e46e1a17e99f4156edf5a93b691">move_next_loc</a> (std::array&lt; double, 2 &gt; goal_loc)</td></tr>
 <tr class="separator:a2b0c1e46e1a17e99f4156edf5a93b691"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a847e3ad2e7233d493a8dcfdd7139cb58"><td class="memItemLeft" align="right" valign="top">std::array&lt; std::array&lt; double, 2 &gt;, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#a847e3ad2e7233d493a8dcfdd7139cb58">get_goals</a> ()</td></tr>
 <tr class="separator:a847e3ad2e7233d493a8dcfdd7139cb58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_class_bot___controller"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_bot___controller')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_bot___controller.html">Bot_Controller</a></td></tr>
-<tr class="memitem:a05104e1b41f7c9cd9cdfe80bbbd53a7d inherit pub_methods_class_bot___controller"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#a05104e1b41f7c9cd9cdfe80bbbd53a7d">Bot_Controller</a> (ros::NodeHandle *nodehandle, const std::string &amp;robot_name)</td></tr>
-<tr class="separator:a05104e1b41f7c9cd9cdfe80bbbd53a7d inherit pub_methods_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2efd33efbb2d3c8caa52e04a049b5971 inherit pub_methods_class_bot___controller"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#a2efd33efbb2d3c8caa52e04a049b5971">get_current_x</a> ()</td></tr>
-<tr class="separator:a2efd33efbb2d3c8caa52e04a049b5971 inherit pub_methods_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5985b03ff6787846a5abf5cd85ed6ae2 inherit pub_methods_class_bot___controller"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#a5985b03ff6787846a5abf5cd85ed6ae2">get_current_y</a> ()</td></tr>
-<tr class="separator:a5985b03ff6787846a5abf5cd85ed6ae2 inherit pub_methods_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:acfbbc5075675a523b7995d6c2db06eff"><td class="memItemLeft" align="right" valign="top">ros::NodeHandle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#acfbbc5075675a523b7995d6c2db06eff">exp_node</a></td></tr>
-<tr class="separator:acfbbc5075675a523b7995d6c2db06eff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acda1856f421dfe836f39de446415b969"><td class="memItemLeft" align="right" valign="top">std::array&lt; std::array&lt; int, 3 &gt;, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#acda1856f421dfe836f39de446415b969">goal_list</a> {}</td></tr>
 <tr class="separator:acda1856f421dfe836f39de446415b969"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1aee46522a58db39d3643f2138c76fa"><td class="memItemLeft" align="right" valign="top">std::array&lt; int, 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#af1aee46522a58db39d3643f2138c76fa">start_place</a> {}</td></tr>
 <tr class="separator:af1aee46522a58db39d3643f2138c76fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_attribs_class_bot___controller"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_bot___controller')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_bot___controller.html">Bot_Controller</a></td></tr>
-<tr class="memitem:a397be472573c291e96f2d0b201e31643 inherit pub_attribs_class_bot___controller"><td class="memItemLeft" align="right" valign="top">std::array&lt; int, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#a397be472573c291e96f2d0b201e31643">m_fid</a> {}</td></tr>
-<tr class="separator:a397be472573c291e96f2d0b201e31643 inherit pub_attribs_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1318ffd8b630e459194f68e9a6573e2 inherit pub_attribs_class_bot___controller"><td class="memItemLeft" align="right" valign="top">std::array&lt; std::array&lt; double, 2 &gt;, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#ac1318ffd8b630e459194f68e9a6573e2">m_posit</a> {}</td></tr>
-<tr class="separator:ac1318ffd8b630e459194f68e9a6573e2 inherit pub_attribs_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_methods_class_bot___controller"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_bot___controller')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_bot___controller.html">Bot_Controller</a></td></tr>
-<tr class="memitem:acc77fd887b8ddc97431a33f3cf72e82c inherit pro_methods_class_bot___controller"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#acc77fd887b8ddc97431a33f3cf72e82c">m_pose_callback</a> (const nav_msgs::Odometry::ConstPtr &amp;msg)</td></tr>
-<tr class="separator:acc77fd887b8ddc97431a33f3cf72e82c inherit pro_methods_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7a0c2b3a9a5adc3464dc581003c3ce1 inherit pro_methods_class_bot___controller"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#ae7a0c2b3a9a5adc3464dc581003c3ce1">m_scan_callback</a> (const sensor_msgs::LaserScan::ConstPtr &amp;msg)</td></tr>
-<tr class="separator:ae7a0c2b3a9a5adc3464dc581003c3ce1 inherit pro_methods_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:affa0d8469972f97d731d72c8654a9f90 inherit pro_methods_class_bot___controller"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#affa0d8469972f97d731d72c8654a9f90">m_fiducial_callback</a> (const fiducial_msgs::FiducialTransformArray::ConstPtr &amp;msg)</td></tr>
-<tr class="memdesc:affa0d8469972f97d731d72c8654a9f90 inherit pro_methods_class_bot___controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">To store the locations of the fiducial IDs (waypoints) and the fiducial_ID number.  <a href="class_bot___controller.html#affa0d8469972f97d731d72c8654a9f90">More...</a><br /></td></tr>
-<tr class="separator:affa0d8469972f97d731d72c8654a9f90 inherit pro_methods_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90bb076f647b36f2cf5b5e57ae98ce41 inherit pro_methods_class_bot___controller"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#a90bb076f647b36f2cf5b5e57ae98ce41">m_initialize_subscribers</a> ()</td></tr>
-<tr class="separator:a90bb076f647b36f2cf5b5e57ae98ce41 inherit pro_methods_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8d1e3dd6aced881ebcc76e32aaf0910 inherit pro_methods_class_bot___controller"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#ab8d1e3dd6aced881ebcc76e32aaf0910">m_initialize_publishers</a> ()</td></tr>
-<tr class="separator:ab8d1e3dd6aced881ebcc76e32aaf0910 inherit pro_methods_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac099bee38ac176cc8de6a6f78581eaa1 inherit pro_methods_class_bot___controller"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#ac099bee38ac176cc8de6a6f78581eaa1">m_compute_distance</a> (const std::pair&lt; double, double &gt; &amp;a, const std::pair&lt; double, double &gt; &amp;b)</td></tr>
-<tr class="separator:ac099bee38ac176cc8de6a6f78581eaa1 inherit pro_methods_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e53992a4bdea36f745569bfe0035916 inherit pro_methods_class_bot___controller"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#a2e53992a4bdea36f745569bfe0035916">m_move</a> (double linear, double angular)</td></tr>
-<tr class="separator:a2e53992a4bdea36f745569bfe0035916 inherit pro_methods_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a622aa7b81b1bed82ab5478c7bd9ddd07 inherit pro_methods_class_bot___controller"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#a622aa7b81b1bed82ab5478c7bd9ddd07">m_normalize_angle_positive</a> (double angle)</td></tr>
-<tr class="memdesc:a622aa7b81b1bed82ab5478c7bd9ddd07 inherit pro_methods_class_bot___controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalizes the angle to be 0 to 2*M_PI.  <a href="class_bot___controller.html#a622aa7b81b1bed82ab5478c7bd9ddd07">More...</a><br /></td></tr>
-<tr class="separator:a622aa7b81b1bed82ab5478c7bd9ddd07 inherit pro_methods_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a234205057d0671c04b143ec5f794741c inherit pro_methods_class_bot___controller"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#a234205057d0671c04b143ec5f794741c">m_normalize_angle</a> (double angle)</td></tr>
-<tr class="memdesc:a234205057d0671c04b143ec5f794741c inherit pro_methods_class_bot___controller"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalizes the angle to be -M_PI circle to +M_PI circle.  <a href="class_bot___controller.html#a234205057d0671c04b143ec5f794741c">More...</a><br /></td></tr>
-<tr class="separator:a234205057d0671c04b143ec5f794741c inherit pro_methods_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_class_bot___controller"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_bot___controller')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_bot___controller.html">Bot_Controller</a></td></tr>
-<tr class="memitem:a8c1fd43eb1f1b2443c29e29c154e6bbf inherit pro_attribs_class_bot___controller"><td class="memItemLeft" align="right" valign="top">ros::NodeHandle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#a8c1fd43eb1f1b2443c29e29c154e6bbf">m_nh</a></td></tr>
-<tr class="separator:a8c1fd43eb1f1b2443c29e29c154e6bbf inherit pro_attribs_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20ae2e16fa667a6814200b2fa625560d inherit pro_attribs_class_bot___controller"><td class="memItemLeft" align="right" valign="top">ros::Subscriber&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#a20ae2e16fa667a6814200b2fa625560d">m_pose_subscriber</a></td></tr>
-<tr class="separator:a20ae2e16fa667a6814200b2fa625560d inherit pro_attribs_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e51618eccaa742f901c524960f828d9 inherit pro_attribs_class_bot___controller"><td class="memItemLeft" align="right" valign="top">ros::Subscriber&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#a6e51618eccaa742f901c524960f828d9">m_scan_subscriber</a></td></tr>
-<tr class="separator:a6e51618eccaa742f901c524960f828d9 inherit pro_attribs_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a198f7fa6e2c06473b50b6f63a052d80d inherit pro_attribs_class_bot___controller"><td class="memItemLeft" align="right" valign="top">ros::Subscriber&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#a198f7fa6e2c06473b50b6f63a052d80d">m_fiducial_subscriber</a></td></tr>
-<tr class="separator:a198f7fa6e2c06473b50b6f63a052d80d inherit pro_attribs_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ffa549048f2deb56585dccb829bc799 inherit pro_attribs_class_bot___controller"><td class="memItemLeft" align="right" valign="top">ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#a4ffa549048f2deb56585dccb829bc799">m_velocity_publisher</a></td></tr>
-<tr class="separator:a4ffa549048f2deb56585dccb829bc799 inherit pro_attribs_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ecd942ad3fc0ae744d95fc412e0eeef inherit pro_attribs_class_bot___controller"><td class="memItemLeft" align="right" valign="top">ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#a7ecd942ad3fc0ae744d95fc412e0eeef">m_bot_status_publisher</a></td></tr>
-<tr class="separator:a7ecd942ad3fc0ae744d95fc412e0eeef inherit pro_attribs_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7b886cbf176bf26f2b79ff3b9c2b2d3 inherit pro_attribs_class_bot___controller"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#ae7b886cbf176bf26f2b79ff3b9c2b2d3">m_robot_name</a></td></tr>
-<tr class="separator:ae7b886cbf176bf26f2b79ff3b9c2b2d3 inherit pro_attribs_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a32a48f880085309d6a4cf97b00d782 inherit pro_attribs_class_bot___controller"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#a3a32a48f880085309d6a4cf97b00d782">m_kv</a></td></tr>
-<tr class="separator:a3a32a48f880085309d6a4cf97b00d782 inherit pro_attribs_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a370bd365935d7a3974bb3e4cb1c03527 inherit pro_attribs_class_bot___controller"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#a370bd365935d7a3974bb3e4cb1c03527">m_kh</a></td></tr>
-<tr class="separator:a370bd365935d7a3974bb3e4cb1c03527 inherit pro_attribs_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bab0d5444e03781994c77b1416b2bc3 inherit pro_attribs_class_bot___controller"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#a9bab0d5444e03781994c77b1416b2bc3">m_parent_frame</a></td></tr>
-<tr class="separator:a9bab0d5444e03781994c77b1416b2bc3 inherit pro_attribs_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc69b7362125c7dac732900685487fa0 inherit pro_attribs_class_bot___controller"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#acc69b7362125c7dac732900685487fa0">m_child_frame</a></td></tr>
-<tr class="separator:acc69b7362125c7dac732900685487fa0 inherit pro_attribs_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0263fb2e87730711a87b601a92cbfb1b inherit pro_attribs_class_bot___controller"><td class="memItemLeft" align="right" valign="top">std::pair&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#a0263fb2e87730711a87b601a92cbfb1b">m_location</a></td></tr>
-<tr class="separator:a0263fb2e87730711a87b601a92cbfb1b inherit pro_attribs_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89d0e2f520820806f17b7019e34c2878 inherit pro_attribs_class_bot___controller"><td class="memItemLeft" align="right" valign="top">geometry_msgs::Quaternion&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#a89d0e2f520820806f17b7019e34c2878">m_orientation</a></td></tr>
-<tr class="separator:a89d0e2f520820806f17b7019e34c2878 inherit pro_attribs_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00d57b54c76e9ca0eb977f0e844183ef inherit pro_attribs_class_bot___controller"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#a00d57b54c76e9ca0eb977f0e844183ef">m_linear_speed</a></td></tr>
-<tr class="separator:a00d57b54c76e9ca0eb977f0e844183ef inherit pro_attribs_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5261f99cc940016fe9ce6c565fa5d7c inherit pro_attribs_class_bot___controller"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#ac5261f99cc940016fe9ce6c565fa5d7c">m_angular_speed</a></td></tr>
-<tr class="separator:ac5261f99cc940016fe9ce6c565fa5d7c inherit pro_attribs_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6326d31a11e7af0bfb6d25c6d5810aad inherit pro_attribs_class_bot___controller"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#a6326d31a11e7af0bfb6d25c6d5810aad">m_roll</a></td></tr>
-<tr class="separator:a6326d31a11e7af0bfb6d25c6d5810aad inherit pro_attribs_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72b91ce22685011b90339b627b7dc4f3 inherit pro_attribs_class_bot___controller"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#a72b91ce22685011b90339b627b7dc4f3">m_pitch</a></td></tr>
-<tr class="separator:a72b91ce22685011b90339b627b7dc4f3 inherit pro_attribs_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86f4b79640605ce24d6ced079bb61d46 inherit pro_attribs_class_bot___controller"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_bot___controller.html#a86f4b79640605ce24d6ced079bb61d46">m_yaw</a></td></tr>
-<tr class="separator:a86f4b79640605ce24d6ced079bb61d46 inherit pro_attribs_class_bot___controller"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class that inherits from Bot_contreoller to control the explorer and exploration algorithm. </p>
@@ -252,13 +162,12 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="explorer_8cpp_source.html#l00014">14</a> of file <a class="el" href="explorer_8cpp_source.html">explorer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="explorer_8cpp_source.html#l00013">13</a> of file <a class="el" href="explorer_8cpp_source.html">explorer.cpp</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a5a445fc280b6fb133e1ce02e09920da2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a445fc280b6fb133e1ce02e09920da2">&#9670;&nbsp;</a></span>compute_expected_final_yaw()</h2>
+<a id="aa1b0a71e92e003e9162a5ba99d843392"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1b0a71e92e003e9162a5ba99d843392">&#9670;&nbsp;</a></span>~Explorer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -267,7 +176,32 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual double Explorer::compute_expected_final_yaw </td>
+          <td class="memname">Explorer::~Explorer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="explorer_8h_source.html#l00024">24</a> of file <a class="el" href="explorer_8h_source.html">explorer.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a02c37b93448ed474f1bf0d03e2758ca2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02c37b93448ed474f1bf0d03e2758ca2">&#9670;&nbsp;</a></span>compute_expected_final_yaw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Explorer::compute_expected_final_yaw </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>direction</em>, </td>
@@ -284,110 +218,78 @@ Additional Inherited Members</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_bot___controller.html#a836b1e434c1c15ccec0b81313a32aca8">Bot_Controller</a>.</p>
+<p class="definition">Definition at line <a class="el" href="explorer_8cpp_source.html#l00132">132</a> of file <a class="el" href="explorer_8cpp_source.html">explorer.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a9235375b60669fc046c41318759dc1dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9235375b60669fc046c41318759dc1dc">&#9670;&nbsp;</a></span>compute_yaw_deg()</h2>
+<a id="a670cdffdb8c3173c300590cfc45ab6d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a670cdffdb8c3173c300590cfc45ab6d2">&#9670;&nbsp;</a></span>compute_yaw_deg()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual double Explorer::compute_yaw_deg </td>
+          <td class="memname">double Explorer::compute_yaw_deg </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_bot___controller.html#abda61292c3719a4a5676ddcd0d8311a1">Bot_Controller</a>.</p>
+<p class="definition">Definition at line <a class="el" href="explorer_8cpp_source.html#l00144">144</a> of file <a class="el" href="explorer_8cpp_source.html">explorer.cpp</a>.</p>
 
 </div>
 </div>
-<a id="abace49485da40310e567a77689bcb377"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abace49485da40310e567a77689bcb377">&#9670;&nbsp;</a></span>compute_yaw_rad()</h2>
+<a id="ac5b91cd64189a60ffe62535cb5bc093a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5b91cd64189a60ffe62535cb5bc093a">&#9670;&nbsp;</a></span>compute_yaw_rad()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual double Explorer::compute_yaw_rad </td>
+          <td class="memname">double Explorer::compute_yaw_rad </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_bot___controller.html#a362541183536f955e54234e14f18f3c2">Bot_Controller</a>.</p>
+<p class="definition">Definition at line <a class="el" href="explorer_8cpp_source.html#l00156">156</a> of file <a class="el" href="explorer_8cpp_source.html">explorer.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a00f687c86ecf3de47a1b424a3b2e07ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00f687c86ecf3de47a1b424a3b2e07ea">&#9670;&nbsp;</a></span>convert_rad_to_deg()</h2>
+<a id="ac3a5c9368647dd9d2c36d12497bd889e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3a5c9368647dd9d2c36d12497bd889e">&#9670;&nbsp;</a></span>convert_rad_to_deg()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual double Explorer::convert_rad_to_deg </td>
+          <td class="memname">double Explorer::convert_rad_to_deg </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>angle</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_bot___controller.html#a722a49277ba04f303ca588d80a4910c3">Bot_Controller</a>.</p>
+<p class="definition">Definition at line <a class="el" href="explorer_8cpp_source.html#l00058">58</a> of file <a class="el" href="explorer_8cpp_source.html">explorer.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a38e04dc019525baca8530b6cf3e779de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38e04dc019525baca8530b6cf3e779de">&#9670;&nbsp;</a></span>drive_straight()</h2>
+<a id="ab4ca9f16c48a60fc4d0e426b6fd9e9a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4ca9f16c48a60fc4d0e426b6fd9e9a0">&#9670;&nbsp;</a></span>drive_straight()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void Explorer::drive_straight </td>
+          <td class="memname">void Explorer::drive_straight </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>distance</em>, </td>
@@ -404,14 +306,9 @@ Additional Inherited Members</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_bot___controller.html#afff936a963b8b3b4b641a7f152b45166">Bot_Controller</a>.</p>
+<p class="definition">Definition at line <a class="el" href="explorer_8cpp_source.html#l00195">195</a> of file <a class="el" href="explorer_8cpp_source.html">explorer.cpp</a>.</p>
 
 </div>
 </div>
@@ -438,21 +335,18 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="explorer_8h_source.html#l00032">32</a> of file <a class="el" href="explorer_8h_source.html">explorer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="explorer_8h_source.html#l00033">33</a> of file <a class="el" href="explorer_8h_source.html">explorer.h</a>.</p>
 
 </div>
 </div>
-<a id="aaf31add48ee079244fbdc7aaa574c72b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf31add48ee079244fbdc7aaa574c72b">&#9670;&nbsp;</a></span>go_to_goal()</h2>
+<a id="aa1e259feaac1114adb0f24588428e8ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1e259feaac1114adb0f24588428e8ef">&#9670;&nbsp;</a></span>go_to_goal()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool Explorer::go_to_goal </td>
+          <td class="memname">bool Explorer::go_to_goal </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>x</em>, </td>
@@ -469,14 +363,9 @@ Additional Inherited Members</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_bot___controller.html#a5e2f980d71dab69d952c532b5819483b">Bot_Controller</a>.</p>
+<p class="definition">Definition at line <a class="el" href="explorer_8cpp_source.html#l00216">216</a> of file <a class="el" href="explorer_8cpp_source.html">explorer.cpp</a>.</p>
 
 </div>
 </div>
@@ -504,49 +393,36 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="explorer_8h_source.html#l00030">30</a> of file <a class="el" href="explorer_8h_source.html">explorer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="explorer_8h_source.html#l00031">31</a> of file <a class="el" href="explorer_8h_source.html">explorer.h</a>.</p>
 
 </div>
 </div>
-<a id="a71d49e07fda9132640ef7ca560492065"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71d49e07fda9132640ef7ca560492065">&#9670;&nbsp;</a></span>publish_velocities()</h2>
+<a id="a8ffef25585ef957b9df4407366723787"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ffef25585ef957b9df4407366723787">&#9670;&nbsp;</a></span>publish_velocities()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void Explorer::publish_velocities </td>
+          <td class="memname">void Explorer::publish_velocities </td>
           <td>(</td>
           <td class="paramtype">const geometry_msgs::Twist &amp;&#160;</td>
           <td class="paramname"><em>msg</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_bot___controller.html#ae357ee9ea3ec7a5000f39532fc52fa72">Bot_Controller</a>.</p>
-
 </div>
 </div>
-<a id="a2616a65bd251592f1b9f151546d429d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2616a65bd251592f1b9f151546d429d8">&#9670;&nbsp;</a></span>rotate()</h2>
+<a id="ac8e3a980fd3929734fb3a4b0b2e0a7e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8e3a980fd3929734fb3a4b0b2e0a7e0">&#9670;&nbsp;</a></span>rotate()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void Explorer::rotate </td>
+          <td class="memname">void Explorer::rotate </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>angle_to_rotate</em>, </td>
@@ -569,61 +445,32 @@ Additional Inherited Members</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_bot___controller.html#a19ba7ced629e4ee9a0743efdef4a5cc7">Bot_Controller</a>.</p>
+<p class="definition">Definition at line <a class="el" href="explorer_8cpp_source.html#l00168">168</a> of file <a class="el" href="explorer_8cpp_source.html">explorer.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a44a5755de0e7a3934265a8f9ab4c9b2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44a5755de0e7a3934265a8f9ab4c9b2e">&#9670;&nbsp;</a></span>stop()</h2>
+<a id="a0e4a623ff30d1886cc9f57ec081c527f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e4a623ff30d1886cc9f57ec081c527f">&#9670;&nbsp;</a></span>stop()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void Explorer::stop </td>
+          <td class="memname">void Explorer::stop </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_bot___controller.html#a28d1caa8c0ed9d8fb313caacecc5e71b">Bot_Controller</a>.</p>
+<p class="definition">Definition at line <a class="el" href="explorer_8cpp_source.html#l00123">123</a> of file <a class="el" href="explorer_8cpp_source.html">explorer.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="acfbbc5075675a523b7995d6c2db06eff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfbbc5075675a523b7995d6c2db06eff">&#9670;&nbsp;</a></span>exp_node</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">ros::NodeHandle Explorer::exp_node</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="explorer_8h_source.html#l00025">25</a> of file <a class="el" href="explorer_8h_source.html">explorer.h</a>.</p>
-
-</div>
-</div>
 <a id="acda1856f421dfe836f39de446415b969"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acda1856f421dfe836f39de446415b969">&#9670;&nbsp;</a></span>goal_list</h2>
 
@@ -636,7 +483,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="explorer_8h_source.html#l00026">26</a> of file <a class="el" href="explorer_8h_source.html">explorer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="explorer_8h_source.html#l00027">27</a> of file <a class="el" href="explorer_8h_source.html">explorer.h</a>.</p>
 
 </div>
 </div>
@@ -652,7 +499,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="explorer_8h_source.html#l00027">27</a> of file <a class="el" href="explorer_8h_source.html">explorer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="explorer_8h_source.html#l00028">28</a> of file <a class="el" href="explorer_8h_source.html">explorer.h</a>.</p>
 
 </div>
 </div>

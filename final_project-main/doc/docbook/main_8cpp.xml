@@ -13,7 +13,6 @@
     <programlisting>#include &lt;iostream&gt;</programlisting>
     <programlisting>#include &lt;algorithm&gt;</programlisting>
     <programlisting>#include &lt;utility&gt;</programlisting>
-    <programlisting>#include &quot;../include/bot_controller/bot_controller.h&quot;</programlisting>
     <programlisting>#include &quot;../include/follower/follower.h&quot;</programlisting>
     <programlisting>#include &quot;../include/explorer/explorer.h&quot;</programlisting>
 <para>Include dependency diagram for main.cpp</para>
