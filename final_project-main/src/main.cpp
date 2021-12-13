@@ -141,18 +141,9 @@ int main(int argc, char** argv)
   // explorer_goal.target_pose.pose.position.y = -1.716889;
   // explorer_goal.target_pose.pose.orientation.w = 1.0;
 
-  //Build goal for follower
-  // follower_goal.target_pose.header.frame_id = "map";
-  // follower_goal.target_pose.header.stamp = ros::Time::now();
-  // follower_goal.target_pose.pose.position.x = -0.289296;//
-  // follower_goal.target_pose.pose.position.y = -1.282680;//
-  // follower_goal.target_pose.pose.orientation.w = 1.0;
-
-
   // explorer_client.waitForResult();
 
   // ROS_INFO("Sending goal");
-  // follower_client.sendGoal(follower_goal);
   // explorer_client.waitForResult();
 
   std::string motion_type;
@@ -256,16 +247,6 @@ int main(int argc, char** argv)
           << transformStamped.transform.translation.z << "]"
         );
         
-        // posit.at(counter).at(0) = transformStamped.transform.translation.x;
-        // posit.at(counter).at(1)=transformStamped.transform.translation.y;
-        // markers.at(counter)=nh.getParam("fiducial_id", follower.m_fid(counter));
-        // markers=m_nh.getParam("fiducial_id", fiducial_id);
-        // markers=follower.get_fid(counter);
-        // markers.at(counter)=follower.get_fid();
-        // markers=follower.get_fid;
-        // markers=follower.get_fid(counter);
-        // markers.at(counter)=follower.get_fid;
-
   
         // Markers Hardcoded based on initial testing
         // markers{0,3,1,2};
@@ -291,6 +272,16 @@ int main(int argc, char** argv)
         fiducial_id=follower.m_fid.at(i);
         goal_x=follower.m_posit.at(i).at(0);
         goal_y=follower.m_posit.at(i).at(1);
+        //Build goal for follower using Move_base
+        follower_goal.target_pose.header.frame_id = "map";
+        follower_goal.target_pose.header.stamp = ros::Time::now();
+        follower_goal.target_pose.pose.position.x = goal_x;//
+        follower_goal.target_pose.pose.position.y = goal_y;//
+        follower_goal.target_pose.pose.orientation.w = 1.0;
+
+        ROS_INFO("Sending goal");
+        follower_client.sendGoal(follower_goal);
+        follower_client.waitForResult();
         
         if (motion_type == "h")
           follower.stop();
