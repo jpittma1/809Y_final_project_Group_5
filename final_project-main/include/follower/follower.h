@@ -27,15 +27,15 @@ class Follower : public Bot_Controller {
         virtual ~Follower() {}
         
         //Follower accessor
-        const std::array <int, 4> get_fid() {
-            return m_fid;
-        }
+        // const std::array <int, 4> get_fid() {
+        //     return m_fid;
+        // }
     
        
         //Follower mutator
-        void set_fid(int id, int location) {
-            m_fid.at(location) = id;
-        }
+        // void set_fid(int id, int location) {
+        //     m_fid.at(location) = id;
+        // }
 
     // private:
         // std::array <int, 4> m_fid {};

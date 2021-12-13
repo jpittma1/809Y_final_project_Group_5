@@ -35,6 +35,8 @@ public:
     
     virtual ~Bot_Controller() {}
 
+    std::array <int, 4> m_fid {};               //store fidicual IDs
+    std::array<std::array<double, 2>, 4> m_posit{};  //store marker positions
 
     const double get_current_x(){
         return m_location.first;
@@ -66,8 +68,7 @@ protected: //for inheritance
     double m_roll;                                                     //rad
     double m_pitch;                                                    //rad
     double m_yaw;       //rad
-    std::array <int, 4> m_fid {};               //store fidicual IDs
-    std::array<std::array<double, 2>, 4> m_posit{};  //store marker positions
+    
 
     void m_pose_callback(const nav_msgs::Odometry::ConstPtr &msg);     // prototype for callback of example subscriber
     void m_scan_callback(const sensor_msgs::LaserScan::ConstPtr &msg); // prototype for callback of example subscriber
