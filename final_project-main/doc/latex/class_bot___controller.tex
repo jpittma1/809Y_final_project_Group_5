@@ -9,39 +9,116 @@ Controller class to drive a turtlebot.
 
 {\ttfamily \#include $<$bot\+\_\+controller.\+h$>$}
 
+
+
+Inheritance diagram for Bot\+\_\+\+Controller\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{class_bot___controller__inherit__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_bot___controller_a05104e1b41f7c9cd9cdfe80bbbd53a7d}{Bot\+\_\+\+Controller} (ros\+::\+Node\+Handle $\ast$nodehandle, const std\+::string \&robot\+\_\+name)
 \item 
-void \hyperlink{class_bot___controller_a7c4af8b19d122f72582b5bbd309ded7a}{publish\+\_\+velocities} (const geometry\+\_\+msgs\+::\+Twist \&msg)
+virtual void \hyperlink{class_bot___controller_ae357ee9ea3ec7a5000f39532fc52fa72}{publish\+\_\+velocities} (const geometry\+\_\+msgs\+::\+Twist \&msg)=0
 \item 
-void \hyperlink{class_bot___controller_aacde4d9a862dfa0fc029686a66603de7}{drive\+\_\+straight} (double distance, bool direction)
+virtual void \hyperlink{class_bot___controller_afff936a963b8b3b4b641a7f152b45166}{drive\+\_\+straight} (double distance, bool direction)=0
 \item 
-void \hyperlink{class_bot___controller_a8ea05eaf643a647581a0f60ab9c85c24}{rotate} (double angle\+\_\+to\+\_\+rotate, bool direction, double final\+\_\+angle)
+virtual void \hyperlink{class_bot___controller_a19ba7ced629e4ee9a0743efdef4a5cc7}{rotate} (double angle\+\_\+to\+\_\+rotate, bool direction, double final\+\_\+angle)=0
 \item 
-bool \hyperlink{class_bot___controller_a7bd188779f02159f9fdfea435caf94b1}{go\+\_\+to\+\_\+goal} (double x, double y)
+virtual bool \hyperlink{class_bot___controller_a5e2f980d71dab69d952c532b5819483b}{go\+\_\+to\+\_\+goal} (double x, double y)=0
 \item 
-void \hyperlink{class_bot___controller_a87e3ac792f943a573e676d382a816519}{stop} ()
+virtual void \hyperlink{class_bot___controller_a28d1caa8c0ed9d8fb313caacecc5e71b}{stop} ()=0
 \item 
-double \hyperlink{class_bot___controller_a25e004b632ad2c2c494f8a91f3c24533}{compute\+\_\+expected\+\_\+final\+\_\+yaw} (bool direction, double angle\+\_\+to\+\_\+rotate)
+virtual double \hyperlink{class_bot___controller_a836b1e434c1c15ccec0b81313a32aca8}{compute\+\_\+expected\+\_\+final\+\_\+yaw} (bool direction, double angle\+\_\+to\+\_\+rotate)=0
 \item 
-double \hyperlink{class_bot___controller_ad9ed858063dc3f928157122e95e677ae}{compute\+\_\+yaw\+\_\+deg} ()
+virtual double \hyperlink{class_bot___controller_abda61292c3719a4a5676ddcd0d8311a1}{compute\+\_\+yaw\+\_\+deg} ()=0
 \item 
-double \hyperlink{class_bot___controller_af23e3dd2a3af58bc16fda4aebbd78c18}{compute\+\_\+yaw\+\_\+rad} ()
+virtual double \hyperlink{class_bot___controller_a362541183536f955e54234e14f18f3c2}{compute\+\_\+yaw\+\_\+rad} ()=0
 \item 
-double \hyperlink{class_bot___controller_ad07d6cfa7f66b200a1540221b699b48e}{convert\+\_\+rad\+\_\+to\+\_\+deg} (double angle)
+virtual double \hyperlink{class_bot___controller_a722a49277ba04f303ca588d80a4910c3}{convert\+\_\+rad\+\_\+to\+\_\+deg} (double angle)=0
 \item 
 const double \hyperlink{class_bot___controller_a2efd33efbb2d3c8caa52e04a049b5971}{get\+\_\+current\+\_\+x} ()
 \item 
 const double \hyperlink{class_bot___controller_a5985b03ff6787846a5abf5cd85ed6ae2}{get\+\_\+current\+\_\+y} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::array$<$ int, 4 $>$ \hyperlink{class_bot___controller_a397be472573c291e96f2d0b201e31643}{m\+\_\+fid} \{\}
+\item 
+std\+::array$<$ std\+::array$<$ double, 2 $>$, 4 $>$ \hyperlink{class_bot___controller_ac1318ffd8b630e459194f68e9a6573e2}{m\+\_\+posit} \{\}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_bot___controller_acc77fd887b8ddc97431a33f3cf72e82c}{m\+\_\+pose\+\_\+callback} (const nav\+\_\+msgs\+::\+Odometry\+::\+Const\+Ptr \&msg)
+\item 
+void \hyperlink{class_bot___controller_ae7a0c2b3a9a5adc3464dc581003c3ce1}{m\+\_\+scan\+\_\+callback} (const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&msg)
+\item 
+void \hyperlink{class_bot___controller_affa0d8469972f97d731d72c8654a9f90}{m\+\_\+fiducial\+\_\+callback} (const fiducial\+\_\+msgs\+::\+Fiducial\+Transform\+Array\+::\+Const\+Ptr \&msg)
+\begin{DoxyCompactList}\small\item\em To store the locations of the fiducial I\+Ds (waypoints) and the fiducial\+\_\+\+ID number. \end{DoxyCompactList}\item 
+void \hyperlink{class_bot___controller_a90bb076f647b36f2cf5b5e57ae98ce41}{m\+\_\+initialize\+\_\+subscribers} ()
+\item 
+void \hyperlink{class_bot___controller_ab8d1e3dd6aced881ebcc76e32aaf0910}{m\+\_\+initialize\+\_\+publishers} ()
+\item 
+double \hyperlink{class_bot___controller_ac099bee38ac176cc8de6a6f78581eaa1}{m\+\_\+compute\+\_\+distance} (const std\+::pair$<$ double, double $>$ \&a, const std\+::pair$<$ double, double $>$ \&b)
+\item 
+void \hyperlink{class_bot___controller_a2e53992a4bdea36f745569bfe0035916}{m\+\_\+move} (double linear, double angular)
+\item 
+double \hyperlink{class_bot___controller_a622aa7b81b1bed82ab5478c7bd9ddd07}{m\+\_\+normalize\+\_\+angle\+\_\+positive} (double angle)
+\begin{DoxyCompactList}\small\item\em Normalizes the angle to be 0 to 2$\ast$\+M\+\_\+\+PI. \end{DoxyCompactList}\item 
+double \hyperlink{class_bot___controller_a234205057d0671c04b143ec5f794741c}{m\+\_\+normalize\+\_\+angle} (double angle)
+\begin{DoxyCompactList}\small\item\em Normalizes the angle to be -\/\+M\+\_\+\+PI circle to +\+M\+\_\+\+PI circle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ros\+::\+Node\+Handle \hyperlink{class_bot___controller_a8c1fd43eb1f1b2443c29e29c154e6bbf}{m\+\_\+nh}
+\item 
+ros\+::\+Subscriber \hyperlink{class_bot___controller_a20ae2e16fa667a6814200b2fa625560d}{m\+\_\+pose\+\_\+subscriber}
+\item 
+ros\+::\+Subscriber \hyperlink{class_bot___controller_a6e51618eccaa742f901c524960f828d9}{m\+\_\+scan\+\_\+subscriber}
+\item 
+ros\+::\+Subscriber \hyperlink{class_bot___controller_a198f7fa6e2c06473b50b6f63a052d80d}{m\+\_\+fiducial\+\_\+subscriber}
+\item 
+ros\+::\+Publisher \hyperlink{class_bot___controller_a4ffa549048f2deb56585dccb829bc799}{m\+\_\+velocity\+\_\+publisher}
+\item 
+ros\+::\+Publisher \hyperlink{class_bot___controller_a7ecd942ad3fc0ae744d95fc412e0eeef}{m\+\_\+bot\+\_\+status\+\_\+publisher}
+\item 
+std\+::string \hyperlink{class_bot___controller_ae7b886cbf176bf26f2b79ff3b9c2b2d3}{m\+\_\+robot\+\_\+name}
+\item 
+double \hyperlink{class_bot___controller_a3a32a48f880085309d6a4cf97b00d782}{m\+\_\+kv}
+\item 
+double \hyperlink{class_bot___controller_a370bd365935d7a3974bb3e4cb1c03527}{m\+\_\+kh}
+\item 
+std\+::string \hyperlink{class_bot___controller_a9bab0d5444e03781994c77b1416b2bc3}{m\+\_\+parent\+\_\+frame}
+\item 
+std\+::string \hyperlink{class_bot___controller_acc69b7362125c7dac732900685487fa0}{m\+\_\+child\+\_\+frame}
+\item 
+std\+::pair$<$ double, double $>$ \hyperlink{class_bot___controller_a0263fb2e87730711a87b601a92cbfb1b}{m\+\_\+location}
+\item 
+geometry\+\_\+msgs\+::\+Quaternion \hyperlink{class_bot___controller_a89d0e2f520820806f17b7019e34c2878}{m\+\_\+orientation}
+\item 
+double \hyperlink{class_bot___controller_a00d57b54c76e9ca0eb977f0e844183ef}{m\+\_\+linear\+\_\+speed}
+\item 
+double \hyperlink{class_bot___controller_ac5261f99cc940016fe9ce6c565fa5d7c}{m\+\_\+angular\+\_\+speed}
+\item 
+double \hyperlink{class_bot___controller_a6326d31a11e7af0bfb6d25c6d5810aad}{m\+\_\+roll}
+\item 
+double \hyperlink{class_bot___controller_a72b91ce22685011b90339b627b7dc4f3}{m\+\_\+pitch}
+\item 
+double \hyperlink{class_bot___controller_a86f4b79640605ce24d6ced079bb61d46}{m\+\_\+yaw}
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Controller class to drive a turtlebot. 
 
-Definition at line 16 of file bot\+\_\+controller.\+h.
+Definition at line 22 of file bot\+\_\+controller.\+h.
 
 
 
@@ -59,55 +136,75 @@ Definition at line 8 of file bot\+\_\+controller.\+cpp.
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_bot___controller_a25e004b632ad2c2c494f8a91f3c24533}\label{class_bot___controller_a25e004b632ad2c2c494f8a91f3c24533}} 
+\mbox{\Hypertarget{class_bot___controller_a836b1e434c1c15ccec0b81313a32aca8}\label{class_bot___controller_a836b1e434c1c15ccec0b81313a32aca8}} 
 \index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!compute\+\_\+expected\+\_\+final\+\_\+yaw@{compute\+\_\+expected\+\_\+final\+\_\+yaw}}
 \index{compute\+\_\+expected\+\_\+final\+\_\+yaw@{compute\+\_\+expected\+\_\+final\+\_\+yaw}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
 \subsubsection{\texorpdfstring{compute\+\_\+expected\+\_\+final\+\_\+yaw()}{compute\_expected\_final\_yaw()}}
-{\footnotesize\ttfamily double Bot\+\_\+\+Controller\+::compute\+\_\+expected\+\_\+final\+\_\+yaw (\begin{DoxyParamCaption}\item[{bool}]{direction,  }\item[{double}]{angle\+\_\+to\+\_\+rotate }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily double Bot\+\_\+\+Controller\+::compute\+\_\+expected\+\_\+final\+\_\+yaw (\begin{DoxyParamCaption}\item[{bool}]{direction,  }\item[{double}]{angle\+\_\+to\+\_\+rotate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
-Definition at line 95 of file bot\+\_\+controller.\+cpp.
+Implemented in \hyperlink{class_follower_ab87e93b6fafa6f25137ba60d5860558e}{Follower}, and \hyperlink{class_explorer_a5a445fc280b6fb133e1ce02e09920da2}{Explorer}.
 
-\mbox{\Hypertarget{class_bot___controller_ad9ed858063dc3f928157122e95e677ae}\label{class_bot___controller_ad9ed858063dc3f928157122e95e677ae}} 
+
+
+Definition at line 149 of file bot\+\_\+controller.\+cpp.
+
+\mbox{\Hypertarget{class_bot___controller_abda61292c3719a4a5676ddcd0d8311a1}\label{class_bot___controller_abda61292c3719a4a5676ddcd0d8311a1}} 
 \index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!compute\+\_\+yaw\+\_\+deg@{compute\+\_\+yaw\+\_\+deg}}
 \index{compute\+\_\+yaw\+\_\+deg@{compute\+\_\+yaw\+\_\+deg}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
 \subsubsection{\texorpdfstring{compute\+\_\+yaw\+\_\+deg()}{compute\_yaw\_deg()}}
-{\footnotesize\ttfamily double Bot\+\_\+\+Controller\+::compute\+\_\+yaw\+\_\+deg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily double Bot\+\_\+\+Controller\+::compute\+\_\+yaw\+\_\+deg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
-Definition at line 110 of file bot\+\_\+controller.\+cpp.
+Implemented in \hyperlink{class_follower_a300c727aa90274ffa63a2fb9a6403054}{Follower}, and \hyperlink{class_explorer_a9235375b60669fc046c41318759dc1dc}{Explorer}.
 
-\mbox{\Hypertarget{class_bot___controller_af23e3dd2a3af58bc16fda4aebbd78c18}\label{class_bot___controller_af23e3dd2a3af58bc16fda4aebbd78c18}} 
+
+
+Definition at line 164 of file bot\+\_\+controller.\+cpp.
+
+\mbox{\Hypertarget{class_bot___controller_a362541183536f955e54234e14f18f3c2}\label{class_bot___controller_a362541183536f955e54234e14f18f3c2}} 
 \index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!compute\+\_\+yaw\+\_\+rad@{compute\+\_\+yaw\+\_\+rad}}
 \index{compute\+\_\+yaw\+\_\+rad@{compute\+\_\+yaw\+\_\+rad}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
 \subsubsection{\texorpdfstring{compute\+\_\+yaw\+\_\+rad()}{compute\_yaw\_rad()}}
-{\footnotesize\ttfamily double Bot\+\_\+\+Controller\+::compute\+\_\+yaw\+\_\+rad (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily double Bot\+\_\+\+Controller\+::compute\+\_\+yaw\+\_\+rad (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
-Definition at line 128 of file bot\+\_\+controller.\+cpp.
+Implemented in \hyperlink{class_follower_a09782942c6aeb9c1797931eb42bc9d20}{Follower}, and \hyperlink{class_explorer_abace49485da40310e567a77689bcb377}{Explorer}.
 
-\mbox{\Hypertarget{class_bot___controller_ad07d6cfa7f66b200a1540221b699b48e}\label{class_bot___controller_ad07d6cfa7f66b200a1540221b699b48e}} 
+
+
+Definition at line 176 of file bot\+\_\+controller.\+cpp.
+
+\mbox{\Hypertarget{class_bot___controller_a722a49277ba04f303ca588d80a4910c3}\label{class_bot___controller_a722a49277ba04f303ca588d80a4910c3}} 
 \index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!convert\+\_\+rad\+\_\+to\+\_\+deg@{convert\+\_\+rad\+\_\+to\+\_\+deg}}
 \index{convert\+\_\+rad\+\_\+to\+\_\+deg@{convert\+\_\+rad\+\_\+to\+\_\+deg}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
 \subsubsection{\texorpdfstring{convert\+\_\+rad\+\_\+to\+\_\+deg()}{convert\_rad\_to\_deg()}}
-{\footnotesize\ttfamily double Bot\+\_\+\+Controller\+::convert\+\_\+rad\+\_\+to\+\_\+deg (\begin{DoxyParamCaption}\item[{double}]{angle }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily double Bot\+\_\+\+Controller\+::convert\+\_\+rad\+\_\+to\+\_\+deg (\begin{DoxyParamCaption}\item[{double}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \hyperlink{class_follower_a8d6f37307eb0693f9ca04d31ccfe75ae}{Follower}, and \hyperlink{class_explorer_a00f687c86ecf3de47a1b424a3b2e07ea}{Explorer}.
 
 
 
 Definition at line 56 of file bot\+\_\+controller.\+cpp.
 
-\mbox{\Hypertarget{class_bot___controller_aacde4d9a862dfa0fc029686a66603de7}\label{class_bot___controller_aacde4d9a862dfa0fc029686a66603de7}} 
+\mbox{\Hypertarget{class_bot___controller_afff936a963b8b3b4b641a7f152b45166}\label{class_bot___controller_afff936a963b8b3b4b641a7f152b45166}} 
 \index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!drive\+\_\+straight@{drive\+\_\+straight}}
 \index{drive\+\_\+straight@{drive\+\_\+straight}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
 \subsubsection{\texorpdfstring{drive\+\_\+straight()}{drive\_straight()}}
-{\footnotesize\ttfamily void Bot\+\_\+\+Controller\+::drive\+\_\+straight (\begin{DoxyParamCaption}\item[{double}]{distance,  }\item[{bool}]{direction }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Bot\+\_\+\+Controller\+::drive\+\_\+straight (\begin{DoxyParamCaption}\item[{double}]{distance,  }\item[{bool}]{direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
-Definition at line 173 of file bot\+\_\+controller.\+cpp.
+Implemented in \hyperlink{class_follower_a0af597b7d7f416c37d85be69377d0b58}{Follower}, and \hyperlink{class_explorer_a38e04dc019525baca8530b6cf3e779de}{Explorer}.
+
+
+
+Definition at line 215 of file bot\+\_\+controller.\+cpp.
 
 \mbox{\Hypertarget{class_bot___controller_a2efd33efbb2d3c8caa52e04a049b5971}\label{class_bot___controller_a2efd33efbb2d3c8caa52e04a049b5971}} 
 \index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!get\+\_\+current\+\_\+x@{get\+\_\+current\+\_\+x}}
@@ -117,7 +214,7 @@ Definition at line 173 of file bot\+\_\+controller.\+cpp.
 
 
 
-Definition at line 31 of file bot\+\_\+controller.\+h.
+Definition at line 43 of file bot\+\_\+controller.\+h.
 
 \mbox{\Hypertarget{class_bot___controller_a5985b03ff6787846a5abf5cd85ed6ae2}\label{class_bot___controller_a5985b03ff6787846a5abf5cd85ed6ae2}} 
 \index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!get\+\_\+current\+\_\+y@{get\+\_\+current\+\_\+y}}
@@ -127,47 +224,389 @@ Definition at line 31 of file bot\+\_\+controller.\+h.
 
 
 
-Definition at line 35 of file bot\+\_\+controller.\+h.
+Definition at line 47 of file bot\+\_\+controller.\+h.
 
-\mbox{\Hypertarget{class_bot___controller_a7bd188779f02159f9fdfea435caf94b1}\label{class_bot___controller_a7bd188779f02159f9fdfea435caf94b1}} 
+\mbox{\Hypertarget{class_bot___controller_a5e2f980d71dab69d952c532b5819483b}\label{class_bot___controller_a5e2f980d71dab69d952c532b5819483b}} 
 \index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!go\+\_\+to\+\_\+goal@{go\+\_\+to\+\_\+goal}}
 \index{go\+\_\+to\+\_\+goal@{go\+\_\+to\+\_\+goal}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
 \subsubsection{\texorpdfstring{go\+\_\+to\+\_\+goal()}{go\_to\_goal()}}
-{\footnotesize\ttfamily bool Bot\+\_\+\+Controller\+::go\+\_\+to\+\_\+goal (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Bot\+\_\+\+Controller\+::go\+\_\+to\+\_\+goal (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
-Definition at line 195 of file bot\+\_\+controller.\+cpp.
+Implemented in \hyperlink{class_follower_ab4e7d953f54be23aadd7ed081d01ea2c}{Follower}, and \hyperlink{class_explorer_aaf31add48ee079244fbdc7aaa574c72b}{Explorer}.
 
-\mbox{\Hypertarget{class_bot___controller_a7c4af8b19d122f72582b5bbd309ded7a}\label{class_bot___controller_a7c4af8b19d122f72582b5bbd309ded7a}} 
+
+
+Definition at line 237 of file bot\+\_\+controller.\+cpp.
+
+\mbox{\Hypertarget{class_bot___controller_ac099bee38ac176cc8de6a6f78581eaa1}\label{class_bot___controller_ac099bee38ac176cc8de6a6f78581eaa1}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+compute\+\_\+distance@{m\+\_\+compute\+\_\+distance}}
+\index{m\+\_\+compute\+\_\+distance@{m\+\_\+compute\+\_\+distance}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+compute\+\_\+distance()}{m\_compute\_distance()}}
+{\footnotesize\ttfamily double Bot\+\_\+\+Controller\+::m\+\_\+compute\+\_\+distance (\begin{DoxyParamCaption}\item[{const std\+::pair$<$ double, double $>$ \&}]{a,  }\item[{const std\+::pair$<$ double, double $>$ \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 129 of file bot\+\_\+controller.\+cpp.
+
+\mbox{\Hypertarget{class_bot___controller_affa0d8469972f97d731d72c8654a9f90}\label{class_bot___controller_affa0d8469972f97d731d72c8654a9f90}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+fiducial\+\_\+callback@{m\+\_\+fiducial\+\_\+callback}}
+\index{m\+\_\+fiducial\+\_\+callback@{m\+\_\+fiducial\+\_\+callback}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+fiducial\+\_\+callback()}{m\_fiducial\_callback()}}
+{\footnotesize\ttfamily void Bot\+\_\+\+Controller\+::m\+\_\+fiducial\+\_\+callback (\begin{DoxyParamCaption}\item[{const fiducial\+\_\+msgs\+::\+Fiducial\+Transform\+Array\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+To store the locations of the fiducial I\+Ds (waypoints) and the fiducial\+\_\+\+ID number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 80 of file bot\+\_\+controller.\+cpp.
+
+\mbox{\Hypertarget{class_bot___controller_ab8d1e3dd6aced881ebcc76e32aaf0910}\label{class_bot___controller_ab8d1e3dd6aced881ebcc76e32aaf0910}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+initialize\+\_\+publishers@{m\+\_\+initialize\+\_\+publishers}}
+\index{m\+\_\+initialize\+\_\+publishers@{m\+\_\+initialize\+\_\+publishers}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+initialize\+\_\+publishers()}{m\_initialize\_publishers()}}
+{\footnotesize\ttfamily void Bot\+\_\+\+Controller\+::m\+\_\+initialize\+\_\+publishers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 42 of file bot\+\_\+controller.\+cpp.
+
+\mbox{\Hypertarget{class_bot___controller_a90bb076f647b36f2cf5b5e57ae98ce41}\label{class_bot___controller_a90bb076f647b36f2cf5b5e57ae98ce41}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+initialize\+\_\+subscribers@{m\+\_\+initialize\+\_\+subscribers}}
+\index{m\+\_\+initialize\+\_\+subscribers@{m\+\_\+initialize\+\_\+subscribers}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+initialize\+\_\+subscribers()}{m\_initialize\_subscribers()}}
+{\footnotesize\ttfamily void Bot\+\_\+\+Controller\+::m\+\_\+initialize\+\_\+subscribers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 48 of file bot\+\_\+controller.\+cpp.
+
+\mbox{\Hypertarget{class_bot___controller_a2e53992a4bdea36f745569bfe0035916}\label{class_bot___controller_a2e53992a4bdea36f745569bfe0035916}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+move@{m\+\_\+move}}
+\index{m\+\_\+move@{m\+\_\+move}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+move()}{m\_move()}}
+{\footnotesize\ttfamily void Bot\+\_\+\+Controller\+::m\+\_\+move (\begin{DoxyParamCaption}\item[{double}]{linear,  }\item[{double}]{angular }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 133 of file bot\+\_\+controller.\+cpp.
+
+\mbox{\Hypertarget{class_bot___controller_a234205057d0671c04b143ec5f794741c}\label{class_bot___controller_a234205057d0671c04b143ec5f794741c}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+normalize\+\_\+angle@{m\+\_\+normalize\+\_\+angle}}
+\index{m\+\_\+normalize\+\_\+angle@{m\+\_\+normalize\+\_\+angle}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+normalize\+\_\+angle()}{m\_normalize\_angle()}}
+{\footnotesize\ttfamily double Bot\+\_\+\+Controller\+::m\+\_\+normalize\+\_\+angle (\begin{DoxyParamCaption}\item[{double}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Normalizes the angle to be -\/\+M\+\_\+\+PI circle to +\+M\+\_\+\+PI circle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & Angle to normalize (rad) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double Normalized angle (rad) 
+\end{DoxyReturn}
+
+
+Definition at line 35 of file bot\+\_\+controller.\+cpp.
+
+\mbox{\Hypertarget{class_bot___controller_a622aa7b81b1bed82ab5478c7bd9ddd07}\label{class_bot___controller_a622aa7b81b1bed82ab5478c7bd9ddd07}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+normalize\+\_\+angle\+\_\+positive@{m\+\_\+normalize\+\_\+angle\+\_\+positive}}
+\index{m\+\_\+normalize\+\_\+angle\+\_\+positive@{m\+\_\+normalize\+\_\+angle\+\_\+positive}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+normalize\+\_\+angle\+\_\+positive()}{m\_normalize\_angle\_positive()}}
+{\footnotesize\ttfamily double Bot\+\_\+\+Controller\+::m\+\_\+normalize\+\_\+angle\+\_\+positive (\begin{DoxyParamCaption}\item[{double}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Normalizes the angle to be 0 to 2$\ast$\+M\+\_\+\+PI. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle} & Angle to normalize (rad) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double Normalized angle (rad) 
+\end{DoxyReturn}
+
+
+Definition at line 27 of file bot\+\_\+controller.\+cpp.
+
+\mbox{\Hypertarget{class_bot___controller_acc77fd887b8ddc97431a33f3cf72e82c}\label{class_bot___controller_acc77fd887b8ddc97431a33f3cf72e82c}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+pose\+\_\+callback@{m\+\_\+pose\+\_\+callback}}
+\index{m\+\_\+pose\+\_\+callback@{m\+\_\+pose\+\_\+callback}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+pose\+\_\+callback()}{m\_pose\_callback()}}
+{\footnotesize\ttfamily void Bot\+\_\+\+Controller\+::m\+\_\+pose\+\_\+callback (\begin{DoxyParamCaption}\item[{const nav\+\_\+msgs\+::\+Odometry\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 60 of file bot\+\_\+controller.\+cpp.
+
+\mbox{\Hypertarget{class_bot___controller_ae7a0c2b3a9a5adc3464dc581003c3ce1}\label{class_bot___controller_ae7a0c2b3a9a5adc3464dc581003c3ce1}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+scan\+\_\+callback@{m\+\_\+scan\+\_\+callback}}
+\index{m\+\_\+scan\+\_\+callback@{m\+\_\+scan\+\_\+callback}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+scan\+\_\+callback()}{m\_scan\_callback()}}
+{\footnotesize\ttfamily void Bot\+\_\+\+Controller\+::m\+\_\+scan\+\_\+callback (\begin{DoxyParamCaption}\item[{const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 73 of file bot\+\_\+controller.\+cpp.
+
+\mbox{\Hypertarget{class_bot___controller_ae357ee9ea3ec7a5000f39532fc52fa72}\label{class_bot___controller_ae357ee9ea3ec7a5000f39532fc52fa72}} 
 \index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!publish\+\_\+velocities@{publish\+\_\+velocities}}
 \index{publish\+\_\+velocities@{publish\+\_\+velocities}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
 \subsubsection{\texorpdfstring{publish\+\_\+velocities()}{publish\_velocities()}}
-{\footnotesize\ttfamily void Bot\+\_\+\+Controller\+::publish\+\_\+velocities (\begin{DoxyParamCaption}\item[{const geometry\+\_\+msgs\+::\+Twist \&}]{msg }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily virtual void Bot\+\_\+\+Controller\+::publish\+\_\+velocities (\begin{DoxyParamCaption}\item[{const geometry\+\_\+msgs\+::\+Twist \&}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-\mbox{\Hypertarget{class_bot___controller_a8ea05eaf643a647581a0f60ab9c85c24}\label{class_bot___controller_a8ea05eaf643a647581a0f60ab9c85c24}} 
+
+
+Implemented in \hyperlink{class_follower_ae9e1df72904d2171d99f7bd18ccd89ab}{Follower}, and \hyperlink{class_explorer_a71d49e07fda9132640ef7ca560492065}{Explorer}.
+
+\mbox{\Hypertarget{class_bot___controller_a19ba7ced629e4ee9a0743efdef4a5cc7}\label{class_bot___controller_a19ba7ced629e4ee9a0743efdef4a5cc7}} 
 \index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!rotate@{rotate}}
 \index{rotate@{rotate}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
 \subsubsection{\texorpdfstring{rotate()}{rotate()}}
-{\footnotesize\ttfamily void Bot\+\_\+\+Controller\+::rotate (\begin{DoxyParamCaption}\item[{double}]{angle\+\_\+to\+\_\+rotate,  }\item[{bool}]{direction,  }\item[{double}]{final\+\_\+angle }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Bot\+\_\+\+Controller\+::rotate (\begin{DoxyParamCaption}\item[{double}]{angle\+\_\+to\+\_\+rotate,  }\item[{bool}]{direction,  }\item[{double}]{final\+\_\+angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
-Definition at line 146 of file bot\+\_\+controller.\+cpp.
+Implemented in \hyperlink{class_follower_ae241d3dc81b6ddebdfbede88e2cebb98}{Follower}, and \hyperlink{class_explorer_a2616a65bd251592f1b9f151546d429d8}{Explorer}.
 
-\mbox{\Hypertarget{class_bot___controller_a87e3ac792f943a573e676d382a816519}\label{class_bot___controller_a87e3ac792f943a573e676d382a816519}} 
+
+
+Definition at line 188 of file bot\+\_\+controller.\+cpp.
+
+\mbox{\Hypertarget{class_bot___controller_a28d1caa8c0ed9d8fb313caacecc5e71b}\label{class_bot___controller_a28d1caa8c0ed9d8fb313caacecc5e71b}} 
 \index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!stop@{stop}}
 \index{stop@{stop}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
 \subsubsection{\texorpdfstring{stop()}{stop()}}
-{\footnotesize\ttfamily void Bot\+\_\+\+Controller\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Bot\+\_\+\+Controller\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
-Definition at line 86 of file bot\+\_\+controller.\+cpp.
+Implemented in \hyperlink{class_follower_a098544bd512f5d5b054e15d173cec066}{Follower}, and \hyperlink{class_explorer_a44a5755de0e7a3934265a8f9ab4c9b2e}{Explorer}.
+
+
+
+Definition at line 140 of file bot\+\_\+controller.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_bot___controller_ac5261f99cc940016fe9ce6c565fa5d7c}\label{class_bot___controller_ac5261f99cc940016fe9ce6c565fa5d7c}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+angular\+\_\+speed@{m\+\_\+angular\+\_\+speed}}
+\index{m\+\_\+angular\+\_\+speed@{m\+\_\+angular\+\_\+speed}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+angular\+\_\+speed}{m\_angular\_speed}}
+{\footnotesize\ttfamily double Bot\+\_\+\+Controller\+::m\+\_\+angular\+\_\+speed\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 69 of file bot\+\_\+controller.\+h.
+
+\mbox{\Hypertarget{class_bot___controller_a7ecd942ad3fc0ae744d95fc412e0eeef}\label{class_bot___controller_a7ecd942ad3fc0ae744d95fc412e0eeef}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+bot\+\_\+status\+\_\+publisher@{m\+\_\+bot\+\_\+status\+\_\+publisher}}
+\index{m\+\_\+bot\+\_\+status\+\_\+publisher@{m\+\_\+bot\+\_\+status\+\_\+publisher}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+bot\+\_\+status\+\_\+publisher}{m\_bot\_status\_publisher}}
+{\footnotesize\ttfamily ros\+::\+Publisher Bot\+\_\+\+Controller\+::m\+\_\+bot\+\_\+status\+\_\+publisher\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 58 of file bot\+\_\+controller.\+h.
+
+\mbox{\Hypertarget{class_bot___controller_acc69b7362125c7dac732900685487fa0}\label{class_bot___controller_acc69b7362125c7dac732900685487fa0}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+child\+\_\+frame@{m\+\_\+child\+\_\+frame}}
+\index{m\+\_\+child\+\_\+frame@{m\+\_\+child\+\_\+frame}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+child\+\_\+frame}{m\_child\_frame}}
+{\footnotesize\ttfamily std\+::string Bot\+\_\+\+Controller\+::m\+\_\+child\+\_\+frame\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 65 of file bot\+\_\+controller.\+h.
+
+\mbox{\Hypertarget{class_bot___controller_a397be472573c291e96f2d0b201e31643}\label{class_bot___controller_a397be472573c291e96f2d0b201e31643}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+fid@{m\+\_\+fid}}
+\index{m\+\_\+fid@{m\+\_\+fid}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+fid}{m\_fid}}
+{\footnotesize\ttfamily std\+::array$<$int, 4$>$ Bot\+\_\+\+Controller\+::m\+\_\+fid \{\}}
+
+
+
+Definition at line 40 of file bot\+\_\+controller.\+h.
+
+\mbox{\Hypertarget{class_bot___controller_a198f7fa6e2c06473b50b6f63a052d80d}\label{class_bot___controller_a198f7fa6e2c06473b50b6f63a052d80d}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+fiducial\+\_\+subscriber@{m\+\_\+fiducial\+\_\+subscriber}}
+\index{m\+\_\+fiducial\+\_\+subscriber@{m\+\_\+fiducial\+\_\+subscriber}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+fiducial\+\_\+subscriber}{m\_fiducial\_subscriber}}
+{\footnotesize\ttfamily ros\+::\+Subscriber Bot\+\_\+\+Controller\+::m\+\_\+fiducial\+\_\+subscriber\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 56 of file bot\+\_\+controller.\+h.
+
+\mbox{\Hypertarget{class_bot___controller_a370bd365935d7a3974bb3e4cb1c03527}\label{class_bot___controller_a370bd365935d7a3974bb3e4cb1c03527}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+kh@{m\+\_\+kh}}
+\index{m\+\_\+kh@{m\+\_\+kh}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+kh}{m\_kh}}
+{\footnotesize\ttfamily double Bot\+\_\+\+Controller\+::m\+\_\+kh\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 63 of file bot\+\_\+controller.\+h.
+
+\mbox{\Hypertarget{class_bot___controller_a3a32a48f880085309d6a4cf97b00d782}\label{class_bot___controller_a3a32a48f880085309d6a4cf97b00d782}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+kv@{m\+\_\+kv}}
+\index{m\+\_\+kv@{m\+\_\+kv}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+kv}{m\_kv}}
+{\footnotesize\ttfamily double Bot\+\_\+\+Controller\+::m\+\_\+kv\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 62 of file bot\+\_\+controller.\+h.
+
+\mbox{\Hypertarget{class_bot___controller_a00d57b54c76e9ca0eb977f0e844183ef}\label{class_bot___controller_a00d57b54c76e9ca0eb977f0e844183ef}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+linear\+\_\+speed@{m\+\_\+linear\+\_\+speed}}
+\index{m\+\_\+linear\+\_\+speed@{m\+\_\+linear\+\_\+speed}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+linear\+\_\+speed}{m\_linear\_speed}}
+{\footnotesize\ttfamily double Bot\+\_\+\+Controller\+::m\+\_\+linear\+\_\+speed\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 68 of file bot\+\_\+controller.\+h.
+
+\mbox{\Hypertarget{class_bot___controller_a0263fb2e87730711a87b601a92cbfb1b}\label{class_bot___controller_a0263fb2e87730711a87b601a92cbfb1b}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+location@{m\+\_\+location}}
+\index{m\+\_\+location@{m\+\_\+location}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+location}{m\_location}}
+{\footnotesize\ttfamily std\+::pair$<$double, double$>$ Bot\+\_\+\+Controller\+::m\+\_\+location\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 66 of file bot\+\_\+controller.\+h.
+
+\mbox{\Hypertarget{class_bot___controller_a8c1fd43eb1f1b2443c29e29c154e6bbf}\label{class_bot___controller_a8c1fd43eb1f1b2443c29e29c154e6bbf}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+nh@{m\+\_\+nh}}
+\index{m\+\_\+nh@{m\+\_\+nh}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+nh}{m\_nh}}
+{\footnotesize\ttfamily ros\+::\+Node\+Handle Bot\+\_\+\+Controller\+::m\+\_\+nh\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 52 of file bot\+\_\+controller.\+h.
+
+\mbox{\Hypertarget{class_bot___controller_a89d0e2f520820806f17b7019e34c2878}\label{class_bot___controller_a89d0e2f520820806f17b7019e34c2878}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+orientation@{m\+\_\+orientation}}
+\index{m\+\_\+orientation@{m\+\_\+orientation}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+orientation}{m\_orientation}}
+{\footnotesize\ttfamily geometry\+\_\+msgs\+::\+Quaternion Bot\+\_\+\+Controller\+::m\+\_\+orientation\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 67 of file bot\+\_\+controller.\+h.
+
+\mbox{\Hypertarget{class_bot___controller_a9bab0d5444e03781994c77b1416b2bc3}\label{class_bot___controller_a9bab0d5444e03781994c77b1416b2bc3}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+parent\+\_\+frame@{m\+\_\+parent\+\_\+frame}}
+\index{m\+\_\+parent\+\_\+frame@{m\+\_\+parent\+\_\+frame}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+parent\+\_\+frame}{m\_parent\_frame}}
+{\footnotesize\ttfamily std\+::string Bot\+\_\+\+Controller\+::m\+\_\+parent\+\_\+frame\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 64 of file bot\+\_\+controller.\+h.
+
+\mbox{\Hypertarget{class_bot___controller_a72b91ce22685011b90339b627b7dc4f3}\label{class_bot___controller_a72b91ce22685011b90339b627b7dc4f3}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+pitch@{m\+\_\+pitch}}
+\index{m\+\_\+pitch@{m\+\_\+pitch}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+pitch}{m\_pitch}}
+{\footnotesize\ttfamily double Bot\+\_\+\+Controller\+::m\+\_\+pitch\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 71 of file bot\+\_\+controller.\+h.
+
+\mbox{\Hypertarget{class_bot___controller_a20ae2e16fa667a6814200b2fa625560d}\label{class_bot___controller_a20ae2e16fa667a6814200b2fa625560d}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+pose\+\_\+subscriber@{m\+\_\+pose\+\_\+subscriber}}
+\index{m\+\_\+pose\+\_\+subscriber@{m\+\_\+pose\+\_\+subscriber}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+pose\+\_\+subscriber}{m\_pose\_subscriber}}
+{\footnotesize\ttfamily ros\+::\+Subscriber Bot\+\_\+\+Controller\+::m\+\_\+pose\+\_\+subscriber\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 54 of file bot\+\_\+controller.\+h.
+
+\mbox{\Hypertarget{class_bot___controller_ac1318ffd8b630e459194f68e9a6573e2}\label{class_bot___controller_ac1318ffd8b630e459194f68e9a6573e2}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+posit@{m\+\_\+posit}}
+\index{m\+\_\+posit@{m\+\_\+posit}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+posit}{m\_posit}}
+{\footnotesize\ttfamily std\+::array$<$std\+::array$<$double, 2$>$, 4$>$ Bot\+\_\+\+Controller\+::m\+\_\+posit \{\}}
+
+
+
+Definition at line 41 of file bot\+\_\+controller.\+h.
+
+\mbox{\Hypertarget{class_bot___controller_ae7b886cbf176bf26f2b79ff3b9c2b2d3}\label{class_bot___controller_ae7b886cbf176bf26f2b79ff3b9c2b2d3}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+robot\+\_\+name@{m\+\_\+robot\+\_\+name}}
+\index{m\+\_\+robot\+\_\+name@{m\+\_\+robot\+\_\+name}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+robot\+\_\+name}{m\_robot\_name}}
+{\footnotesize\ttfamily std\+::string Bot\+\_\+\+Controller\+::m\+\_\+robot\+\_\+name\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 60 of file bot\+\_\+controller.\+h.
+
+\mbox{\Hypertarget{class_bot___controller_a6326d31a11e7af0bfb6d25c6d5810aad}\label{class_bot___controller_a6326d31a11e7af0bfb6d25c6d5810aad}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+roll@{m\+\_\+roll}}
+\index{m\+\_\+roll@{m\+\_\+roll}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+roll}{m\_roll}}
+{\footnotesize\ttfamily double Bot\+\_\+\+Controller\+::m\+\_\+roll\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 70 of file bot\+\_\+controller.\+h.
+
+\mbox{\Hypertarget{class_bot___controller_a6e51618eccaa742f901c524960f828d9}\label{class_bot___controller_a6e51618eccaa742f901c524960f828d9}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+scan\+\_\+subscriber@{m\+\_\+scan\+\_\+subscriber}}
+\index{m\+\_\+scan\+\_\+subscriber@{m\+\_\+scan\+\_\+subscriber}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+scan\+\_\+subscriber}{m\_scan\_subscriber}}
+{\footnotesize\ttfamily ros\+::\+Subscriber Bot\+\_\+\+Controller\+::m\+\_\+scan\+\_\+subscriber\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 55 of file bot\+\_\+controller.\+h.
+
+\mbox{\Hypertarget{class_bot___controller_a4ffa549048f2deb56585dccb829bc799}\label{class_bot___controller_a4ffa549048f2deb56585dccb829bc799}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+velocity\+\_\+publisher@{m\+\_\+velocity\+\_\+publisher}}
+\index{m\+\_\+velocity\+\_\+publisher@{m\+\_\+velocity\+\_\+publisher}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+velocity\+\_\+publisher}{m\_velocity\_publisher}}
+{\footnotesize\ttfamily ros\+::\+Publisher Bot\+\_\+\+Controller\+::m\+\_\+velocity\+\_\+publisher\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 57 of file bot\+\_\+controller.\+h.
+
+\mbox{\Hypertarget{class_bot___controller_a86f4b79640605ce24d6ced079bb61d46}\label{class_bot___controller_a86f4b79640605ce24d6ced079bb61d46}} 
+\index{Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}!m\+\_\+yaw@{m\+\_\+yaw}}
+\index{m\+\_\+yaw@{m\+\_\+yaw}!Bot\+\_\+\+Controller@{Bot\+\_\+\+Controller}}
+\subsubsection{\texorpdfstring{m\+\_\+yaw}{m\_yaw}}
+{\footnotesize\ttfamily double Bot\+\_\+\+Controller\+::m\+\_\+yaw\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 72 of file bot\+\_\+controller.\+h.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-include/\hyperlink{bot__controller_8h}{bot\+\_\+controller.\+h}\item 
+include/bot\+\_\+controller/\hyperlink{bot__controller_8h}{bot\+\_\+controller.\+h}\item 
 src/\hyperlink{bot__controller_8cpp}{bot\+\_\+controller.\+cpp}\end{DoxyCompactItemize}

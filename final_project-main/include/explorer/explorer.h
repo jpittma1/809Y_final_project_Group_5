@@ -21,7 +21,7 @@ class Explorer : public Bot_Controller {
         virtual double compute_yaw_rad() override;
         virtual double convert_rad_to_deg(double angle) override;
 
-
+        // virtual ~Explorer() {}
         ros::NodeHandle exp_node;
         std::array<std::array<int,3>,4> goal_list {};
         std::array<int,3> start_place {};

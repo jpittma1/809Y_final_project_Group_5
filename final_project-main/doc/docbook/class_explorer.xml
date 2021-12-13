@@ -1,0 +1,207 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="class_explorer">
+<title>Explorer class Reference</title>
+<para>
+    <programlisting>#include <link linkend="explorer_8h">&lt;explorer.h&gt;</link></programlisting>
+</para>
+<para>Inheritance diagram for Explorer</para>
+<para>
+    <figure>
+        <title>Inheritance graph</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="1" fileref="class_explorer__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </figure>
+</para>
+<para>Collaboration diagram for Explorer</para>
+<para>
+    <figure>
+        <title>Collaboration graph</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="1" fileref="class_explorer__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </figure>
+</para>
+        <section>
+            <title>Public Attributes</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>ros::NodeHandle exp_node</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>std::array&lt; std::array&lt; int, 3 &gt;, 4 &gt; goal_list</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>std::array&lt; int, 3 &gt; start_place</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title></title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para> <link linkend="class_explorer_1aafe6b7c3b9c2e24815aa14a731f31890">Explorer</link> (
+ros::NodeHandle * nodehandle, const std::string &amp; robot_name)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>virtual void <link linkend="class_explorer_1a71d49e07fda9132640ef7ca560492065">publish_velocities</link> (
+const geometry_msgs::Twist &amp; msg)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>virtual void <link linkend="class_explorer_1a38e04dc019525baca8530b6cf3e779de">drive_straight</link> (
+double distance, bool direction)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>virtual void <link linkend="class_explorer_1a2616a65bd251592f1b9f151546d429d8">rotate</link> (
+double angle_to_rotate, bool direction, double final_angle)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>virtual bool <link linkend="class_explorer_1aaf31add48ee079244fbdc7aaa574c72b">go_to_goal</link> (
+double x, double y)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>virtual void <link linkend="class_explorer_1a44a5755de0e7a3934265a8f9ab4c9b2e">stop</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>virtual double <link linkend="class_explorer_1a5a445fc280b6fb133e1ce02e09920da2">compute_expected_final_yaw</link> (
+bool direction, double angle_to_rotate)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>virtual double <link linkend="class_explorer_1a9235375b60669fc046c41318759dc1dc">compute_yaw_deg</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>virtual double <link linkend="class_explorer_1abace49485da40310e567a77689bcb377">compute_yaw_rad</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>virtual double <link linkend="class_explorer_1a00f687c86ecf3de47a1b424a3b2e07ea">convert_rad_to_deg</link> (
+double angle)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_explorer_1a2b0c1e46e1a17e99f4156edf5a93b691">move_next_loc</link> (
+std::array&lt; double, 2 &gt; goal_loc)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>std::array&lt; std::array&lt; double, 2 &gt;, 4 &gt; <link linkend="class_explorer_1a847e3ad2e7233d493a8dcfdd7139cb58">get_goals</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+    <simplesect>
+
+<para>A class that inherits from Bot_contreoller to control the explorer and exploration algorithm. </para>
+    </simplesect>
+        <section>
+            <title>Member Data Documentation</title>
+        </section>
+            <section xml:id="class_explorer_1aafe6b7c3b9c2e24815aa14a731f31890">
+                <title>Explorer::Explorer (ros::NodeHandle *nodehandle, const std::string &amp;robot_name)</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1a71d49e07fda9132640ef7ca560492065">
+                <title>virtual void Explorer::publish_velocities (const geometry_msgs::Twist &amp;msg) override</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1a38e04dc019525baca8530b6cf3e779de">
+                <title>virtual void Explorer::drive_straight (double distance, bool direction) override</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1a2616a65bd251592f1b9f151546d429d8">
+                <title>virtual void Explorer::rotate (double angle_to_rotate, bool direction, double final_angle) override</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1aaf31add48ee079244fbdc7aaa574c72b">
+                <title>virtual bool Explorer::go_to_goal (double x, double y) override</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1a44a5755de0e7a3934265a8f9ab4c9b2e">
+                <title>virtual void Explorer::stop () override</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1a5a445fc280b6fb133e1ce02e09920da2">
+                <title>virtual double Explorer::compute_expected_final_yaw (bool direction, double angle_to_rotate) override</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1a9235375b60669fc046c41318759dc1dc">
+                <title>virtual double Explorer::compute_yaw_deg () override</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1abace49485da40310e567a77689bcb377">
+                <title>virtual double Explorer::compute_yaw_rad () override</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1a00f687c86ecf3de47a1b424a3b2e07ea">
+                <title>virtual double Explorer::convert_rad_to_deg (double angle) override</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1a2b0c1e46e1a17e99f4156edf5a93b691">
+                <title>void Explorer::move_next_loc (std::array&lt; double, 2 &gt; goal_loc)</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1a847e3ad2e7233d493a8dcfdd7139cb58">
+                <title>std::array&lt;std::array&lt;double,2&gt;,4&gt; Explorer::get_goals ()</title> <emphasis></emphasis>
+                
+            </section>
+</section>

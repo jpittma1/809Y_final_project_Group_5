@@ -1,0 +1,204 @@
+\hypertarget{class_follower}{}\section{Follower Class Reference}
+\label{class_follower}\index{Follower@{Follower}}
+
+
+Public Inheritance Child class of Bot\+\_\+controller Class to go to Ar\+Uco markers found by \hyperlink{class_explorer}{Explorer} child.  
+
+
+
+
+{\ttfamily \#include $<$follower.\+h$>$}
+
+
+
+Inheritance diagram for Follower\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=159pt]{class_follower__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Follower\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=159pt]{class_follower__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_follower_a6870e654b7cc901944ead12870a6b107}{Follower} (ros\+::\+Node\+Handle $\ast$nodehandle, const std\+::string \&robot\+\_\+name)
+\item 
+virtual void \hyperlink{class_follower_ae9e1df72904d2171d99f7bd18ccd89ab}{publish\+\_\+velocities} (const geometry\+\_\+msgs\+::\+Twist \&msg) override
+\item 
+virtual void \hyperlink{class_follower_a0af597b7d7f416c37d85be69377d0b58}{drive\+\_\+straight} (double distance, bool direction) override
+\item 
+virtual void \hyperlink{class_follower_ae241d3dc81b6ddebdfbede88e2cebb98}{rotate} (double angle\+\_\+to\+\_\+rotate, bool direction, double final\+\_\+angle) override
+\item 
+virtual bool \hyperlink{class_follower_ab4e7d953f54be23aadd7ed081d01ea2c}{go\+\_\+to\+\_\+goal} (double x, double y) override
+\item 
+virtual void \hyperlink{class_follower_a098544bd512f5d5b054e15d173cec066}{stop} () override
+\item 
+virtual double \hyperlink{class_follower_ab87e93b6fafa6f25137ba60d5860558e}{compute\+\_\+expected\+\_\+final\+\_\+yaw} (bool direction, double angle\+\_\+to\+\_\+rotate) override
+\item 
+virtual double \hyperlink{class_follower_a300c727aa90274ffa63a2fb9a6403054}{compute\+\_\+yaw\+\_\+deg} () override
+\item 
+virtual double \hyperlink{class_follower_a09782942c6aeb9c1797931eb42bc9d20}{compute\+\_\+yaw\+\_\+rad} () override
+\item 
+virtual double \hyperlink{class_follower_a8d6f37307eb0693f9ca04d31ccfe75ae}{convert\+\_\+rad\+\_\+to\+\_\+deg} (double angle) override
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::array$<$ int, 4 $>$ \hyperlink{class_follower_a350054bbd7659d493cccc4b4ad9bc460}{m\+\_\+fid} \{\}
+\item 
+std\+::array$<$ std\+::array$<$ double, 2 $>$, 4 $>$ \hyperlink{class_follower_a6d4e1ebbe79cc8af601d53cba7aeb30a}{m\+\_\+posit} \{\}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Public Inheritance Child class of Bot\+\_\+controller Class to go to Ar\+Uco markers found by \hyperlink{class_explorer}{Explorer} child. 
+
+Definition at line 13 of file follower.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_follower_a6870e654b7cc901944ead12870a6b107}\label{class_follower_a6870e654b7cc901944ead12870a6b107}} 
+\index{Follower@{Follower}!Follower@{Follower}}
+\index{Follower@{Follower}!Follower@{Follower}}
+\subsubsection{\texorpdfstring{Follower()}{Follower()}}
+{\footnotesize\ttfamily Follower\+::\+Follower (\begin{DoxyParamCaption}\item[{ros\+::\+Node\+Handle $\ast$}]{nodehandle,  }\item[{const std\+::string \&}]{robot\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Definition at line 14 of file follower.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_follower_ab87e93b6fafa6f25137ba60d5860558e}\label{class_follower_ab87e93b6fafa6f25137ba60d5860558e}} 
+\index{Follower@{Follower}!compute\+\_\+expected\+\_\+final\+\_\+yaw@{compute\+\_\+expected\+\_\+final\+\_\+yaw}}
+\index{compute\+\_\+expected\+\_\+final\+\_\+yaw@{compute\+\_\+expected\+\_\+final\+\_\+yaw}!Follower@{Follower}}
+\subsubsection{\texorpdfstring{compute\+\_\+expected\+\_\+final\+\_\+yaw()}{compute\_expected\_final\_yaw()}}
+{\footnotesize\ttfamily virtual double Follower\+::compute\+\_\+expected\+\_\+final\+\_\+yaw (\begin{DoxyParamCaption}\item[{bool}]{direction,  }\item[{double}]{angle\+\_\+to\+\_\+rotate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{class_bot___controller_a836b1e434c1c15ccec0b81313a32aca8}{Bot\+\_\+\+Controller}.
+
+\mbox{\Hypertarget{class_follower_a300c727aa90274ffa63a2fb9a6403054}\label{class_follower_a300c727aa90274ffa63a2fb9a6403054}} 
+\index{Follower@{Follower}!compute\+\_\+yaw\+\_\+deg@{compute\+\_\+yaw\+\_\+deg}}
+\index{compute\+\_\+yaw\+\_\+deg@{compute\+\_\+yaw\+\_\+deg}!Follower@{Follower}}
+\subsubsection{\texorpdfstring{compute\+\_\+yaw\+\_\+deg()}{compute\_yaw\_deg()}}
+{\footnotesize\ttfamily virtual double Follower\+::compute\+\_\+yaw\+\_\+deg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{class_bot___controller_abda61292c3719a4a5676ddcd0d8311a1}{Bot\+\_\+\+Controller}.
+
+\mbox{\Hypertarget{class_follower_a09782942c6aeb9c1797931eb42bc9d20}\label{class_follower_a09782942c6aeb9c1797931eb42bc9d20}} 
+\index{Follower@{Follower}!compute\+\_\+yaw\+\_\+rad@{compute\+\_\+yaw\+\_\+rad}}
+\index{compute\+\_\+yaw\+\_\+rad@{compute\+\_\+yaw\+\_\+rad}!Follower@{Follower}}
+\subsubsection{\texorpdfstring{compute\+\_\+yaw\+\_\+rad()}{compute\_yaw\_rad()}}
+{\footnotesize\ttfamily virtual double Follower\+::compute\+\_\+yaw\+\_\+rad (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{class_bot___controller_a362541183536f955e54234e14f18f3c2}{Bot\+\_\+\+Controller}.
+
+\mbox{\Hypertarget{class_follower_a8d6f37307eb0693f9ca04d31ccfe75ae}\label{class_follower_a8d6f37307eb0693f9ca04d31ccfe75ae}} 
+\index{Follower@{Follower}!convert\+\_\+rad\+\_\+to\+\_\+deg@{convert\+\_\+rad\+\_\+to\+\_\+deg}}
+\index{convert\+\_\+rad\+\_\+to\+\_\+deg@{convert\+\_\+rad\+\_\+to\+\_\+deg}!Follower@{Follower}}
+\subsubsection{\texorpdfstring{convert\+\_\+rad\+\_\+to\+\_\+deg()}{convert\_rad\_to\_deg()}}
+{\footnotesize\ttfamily virtual double Follower\+::convert\+\_\+rad\+\_\+to\+\_\+deg (\begin{DoxyParamCaption}\item[{double}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{class_bot___controller_a722a49277ba04f303ca588d80a4910c3}{Bot\+\_\+\+Controller}.
+
+\mbox{\Hypertarget{class_follower_a0af597b7d7f416c37d85be69377d0b58}\label{class_follower_a0af597b7d7f416c37d85be69377d0b58}} 
+\index{Follower@{Follower}!drive\+\_\+straight@{drive\+\_\+straight}}
+\index{drive\+\_\+straight@{drive\+\_\+straight}!Follower@{Follower}}
+\subsubsection{\texorpdfstring{drive\+\_\+straight()}{drive\_straight()}}
+{\footnotesize\ttfamily virtual void Follower\+::drive\+\_\+straight (\begin{DoxyParamCaption}\item[{double}]{distance,  }\item[{bool}]{direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{class_bot___controller_afff936a963b8b3b4b641a7f152b45166}{Bot\+\_\+\+Controller}.
+
+\mbox{\Hypertarget{class_follower_ab4e7d953f54be23aadd7ed081d01ea2c}\label{class_follower_ab4e7d953f54be23aadd7ed081d01ea2c}} 
+\index{Follower@{Follower}!go\+\_\+to\+\_\+goal@{go\+\_\+to\+\_\+goal}}
+\index{go\+\_\+to\+\_\+goal@{go\+\_\+to\+\_\+goal}!Follower@{Follower}}
+\subsubsection{\texorpdfstring{go\+\_\+to\+\_\+goal()}{go\_to\_goal()}}
+{\footnotesize\ttfamily virtual bool Follower\+::go\+\_\+to\+\_\+goal (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{class_bot___controller_a5e2f980d71dab69d952c532b5819483b}{Bot\+\_\+\+Controller}.
+
+\mbox{\Hypertarget{class_follower_ae9e1df72904d2171d99f7bd18ccd89ab}\label{class_follower_ae9e1df72904d2171d99f7bd18ccd89ab}} 
+\index{Follower@{Follower}!publish\+\_\+velocities@{publish\+\_\+velocities}}
+\index{publish\+\_\+velocities@{publish\+\_\+velocities}!Follower@{Follower}}
+\subsubsection{\texorpdfstring{publish\+\_\+velocities()}{publish\_velocities()}}
+{\footnotesize\ttfamily virtual void Follower\+::publish\+\_\+velocities (\begin{DoxyParamCaption}\item[{const geometry\+\_\+msgs\+::\+Twist \&}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{class_bot___controller_ae357ee9ea3ec7a5000f39532fc52fa72}{Bot\+\_\+\+Controller}.
+
+\mbox{\Hypertarget{class_follower_ae241d3dc81b6ddebdfbede88e2cebb98}\label{class_follower_ae241d3dc81b6ddebdfbede88e2cebb98}} 
+\index{Follower@{Follower}!rotate@{rotate}}
+\index{rotate@{rotate}!Follower@{Follower}}
+\subsubsection{\texorpdfstring{rotate()}{rotate()}}
+{\footnotesize\ttfamily virtual void Follower\+::rotate (\begin{DoxyParamCaption}\item[{double}]{angle\+\_\+to\+\_\+rotate,  }\item[{bool}]{direction,  }\item[{double}]{final\+\_\+angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{class_bot___controller_a19ba7ced629e4ee9a0743efdef4a5cc7}{Bot\+\_\+\+Controller}.
+
+\mbox{\Hypertarget{class_follower_a098544bd512f5d5b054e15d173cec066}\label{class_follower_a098544bd512f5d5b054e15d173cec066}} 
+\index{Follower@{Follower}!stop@{stop}}
+\index{stop@{stop}!Follower@{Follower}}
+\subsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily virtual void Follower\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{class_bot___controller_a28d1caa8c0ed9d8fb313caacecc5e71b}{Bot\+\_\+\+Controller}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_follower_a350054bbd7659d493cccc4b4ad9bc460}\label{class_follower_a350054bbd7659d493cccc4b4ad9bc460}} 
+\index{Follower@{Follower}!m\+\_\+fid@{m\+\_\+fid}}
+\index{m\+\_\+fid@{m\+\_\+fid}!Follower@{Follower}}
+\subsubsection{\texorpdfstring{m\+\_\+fid}{m\_fid}}
+{\footnotesize\ttfamily std\+::array$<$int, 4$>$ Follower\+::m\+\_\+fid \{\}}
+
+
+
+Definition at line 29 of file follower.\+h.
+
+\mbox{\Hypertarget{class_follower_a6d4e1ebbe79cc8af601d53cba7aeb30a}\label{class_follower_a6d4e1ebbe79cc8af601d53cba7aeb30a}} 
+\index{Follower@{Follower}!m\+\_\+posit@{m\+\_\+posit}}
+\index{m\+\_\+posit@{m\+\_\+posit}!Follower@{Follower}}
+\subsubsection{\texorpdfstring{m\+\_\+posit}{m\_posit}}
+{\footnotesize\ttfamily std\+::array$<$std\+::array$<$double, 2$>$, 4$>$ Follower\+::m\+\_\+posit \{\}}
+
+
+
+Definition at line 30 of file follower.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/follower/\hyperlink{follower_8h}{follower.\+h}\item 
+src/\hyperlink{follower_8cpp}{follower.\+cpp}\end{DoxyCompactItemize}

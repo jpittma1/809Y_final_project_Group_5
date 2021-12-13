@@ -1,9 +1,9 @@
 var searchData=
 [
   ['camera_5fimage_5ftopic_5fcallback',['camera_image_topic_callback',['../bot__service__server_8cpp.html#aad738bad1c37a6d5f963820243c43cf6',1,'bot_service_server.cpp']]],
-  ['compute_5fexpected_5ffinal_5fyaw',['compute_expected_final_yaw',['../class_bot___controller.html#a25e004b632ad2c2c494f8a91f3c24533',1,'Bot_Controller']]],
-  ['compute_5fyaw_5fdeg',['compute_yaw_deg',['../class_bot___controller.html#ad9ed858063dc3f928157122e95e677ae',1,'Bot_Controller']]],
-  ['compute_5fyaw_5frad',['compute_yaw_rad',['../class_bot_action_server.html#af24acb7dc4e73c24a4c913fd6a521bf0',1,'BotActionServer::compute_yaw_rad()'],['../class_bot___controller.html#af23e3dd2a3af58bc16fda4aebbd78c18',1,'Bot_Controller::compute_yaw_rad()']]],
-  ['convert_5frad_5fto_5fdeg',['convert_rad_to_deg',['../class_bot___controller.html#ad07d6cfa7f66b200a1540221b699b48e',1,'Bot_Controller']]],
+  ['compute_5fexpected_5ffinal_5fyaw',['compute_expected_final_yaw',['../class_bot___controller.html#a836b1e434c1c15ccec0b81313a32aca8',1,'Bot_Controller::compute_expected_final_yaw()'],['../class_explorer.html#a5a445fc280b6fb133e1ce02e09920da2',1,'Explorer::compute_expected_final_yaw()'],['../class_follower.html#ab87e93b6fafa6f25137ba60d5860558e',1,'Follower::compute_expected_final_yaw()']]],
+  ['compute_5fyaw_5fdeg',['compute_yaw_deg',['../class_bot___controller.html#abda61292c3719a4a5676ddcd0d8311a1',1,'Bot_Controller::compute_yaw_deg()'],['../class_explorer.html#a9235375b60669fc046c41318759dc1dc',1,'Explorer::compute_yaw_deg()'],['../class_follower.html#a300c727aa90274ffa63a2fb9a6403054',1,'Follower::compute_yaw_deg()']]],
+  ['compute_5fyaw_5frad',['compute_yaw_rad',['../class_bot_action_server.html#af24acb7dc4e73c24a4c913fd6a521bf0',1,'BotActionServer::compute_yaw_rad()'],['../class_bot___controller.html#a362541183536f955e54234e14f18f3c2',1,'Bot_Controller::compute_yaw_rad()'],['../class_explorer.html#abace49485da40310e567a77689bcb377',1,'Explorer::compute_yaw_rad()'],['../class_follower.html#a09782942c6aeb9c1797931eb42bc9d20',1,'Follower::compute_yaw_rad()']]],
+  ['convert_5frad_5fto_5fdeg',['convert_rad_to_deg',['../class_bot___controller.html#a722a49277ba04f303ca588d80a4910c3',1,'Bot_Controller::convert_rad_to_deg()'],['../class_explorer.html#a00f687c86ecf3de47a1b424a3b2e07ea',1,'Explorer::convert_rad_to_deg()'],['../class_follower.html#a8d6f37307eb0693f9ca04d31ccfe75ae',1,'Follower::convert_rad_to_deg()']]],
   ['cv_5fptr',['cv_ptr',['../bot__service__server_8cpp.html#a46a054ab4fc737d95a4b5555d51a761c',1,'bot_service_server.cpp']]]
 ];

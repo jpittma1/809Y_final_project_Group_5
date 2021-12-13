@@ -1,4 +1,6 @@
-<map id="include/bot_controller.h" name="include/bot_controller.h">
-<area shape="rect" id="node2" href="$bot__controller_8cpp.html" title="src/bot_controller.cpp" alt="" coords="5,80,152,107"/>
-<area shape="rect" id="node3" href="$main__bot_8cpp.html" title="src/main_bot.cpp" alt="" coords="176,80,299,107"/>
+<map id="include/bot_controller/bot_controller.h" name="include/bot_controller/bot_controller.h">
+<area shape="rect" id="node2" href="$bot__controller_8cpp.html" title="src/bot_controller.cpp" alt="" coords="5,95,152,121"/>
+<area shape="rect" id="node3" href="$explorer_8cpp.html" title="Explorer Robot. " alt="" coords="176,95,291,121"/>
+<area shape="rect" id="node4" href="$follower_8cpp.html" title="Follower Robot. " alt="" coords="315,95,429,121"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="ENPM809Y Final Project Group 5. " alt="" coords="454,95,551,121"/>
 </map>

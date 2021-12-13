@@ -88,6 +88,9 @@ $(document).ready(function(){initNavTree('main_8cpp.html','');});
 <div class="title">main.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>ENPM809Y Final Project Group 5.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;actionlib/client/simple_action_client.h&gt;</code><br />
 <code>#include &lt;fiducial_msgs/FiducialTransformArray.h&gt;</code><br />
 <code>#include &lt;geometry_msgs/Twist.h&gt;</code><br />
@@ -96,10 +99,22 @@ $(document).ready(function(){initNavTree('main_8cpp.html','');});
 <code>#include &lt;tf2_ros/transform_broadcaster.h&gt;</code><br />
 <code>#include &lt;tf2_ros/transform_listener.h&gt;</code><br />
 <code>#include &lt;ros/ros.h&gt;</code><br />
+<code>#include &lt;array&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
+<code>#include &quot;<a class="el" href="bot__controller_8h_source.html">../include/bot_controller/bot_controller.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="follower_8h_source.html">../include/follower/follower.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="explorer_8h_source.html">../include/explorer/explorer.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for main.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8cpp__incl.png" border="0" usemap="#src_2main_8cpp" alt=""/></div>
+<map name="src_2main_8cpp" id="src_2main_8cpp">
+<area shape="rect" id="node14" href="bot__controller_8h.html" title="../include/bot_controller\l/bot_controller.h" alt="" coords="833,80,991,121"/>
+<area shape="rect" id="node20" href="follower_8h.html" title="../include/follower\l/follower.h" alt="" coords="1991,80,2115,121"/>
+<area shape="rect" id="node22" href="explorer_8h.html" title="../include/explorer\l/explorer.h" alt="" coords="1841,80,1967,121"/>
+</map>
 </div>
 </div>
 <p><a href="main_8cpp_source.html">Go to the source code of this file.</a></p>
@@ -111,6 +126,8 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a9c2747abcaef4c03d19858e45f59de80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a9c2747abcaef4c03d19858e45f59de80">print_usage</a> (std::string error=&quot;&quot;)</td></tr>
+<tr class="separator:a9c2747abcaef4c03d19858e45f59de80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a299d89c50484c4d3a597f6b43b65e21c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a299d89c50484c4d3a597f6b43b65e21c">broadcast</a> ()</td></tr>
 <tr class="separator:a299d89c50484c4d3a597f6b43b65e21c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2baabcf8bc6fb2727c0aade0c1b8efe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aa2baabcf8bc6fb2727c0aade0c1b8efe">listen</a> (tf2_ros::Buffer &amp;tfBuffer)</td></tr>
@@ -118,7 +135,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
 <tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>ENPM809Y Final Project Group 5. </p>
+<dl class="section author"><dt>Author</dt><dd>Jerry Pittman, Jr., Nicholas Novak, Orlandis Smith (<a href="#" onclick="location.href='mai'+'lto:'+'jpi'+'tt'+'ma1'+'@u'+'md.'+'ed'+'u'; return false;">jpitt<span style="display: none;">.nosp@m.</span>ma1@<span style="display: none;">.nosp@m.</span>umd.e<span style="display: none;">.nosp@m.</span>du</a>, <a href="#" onclick="location.href='mai'+'lto:'+'nno'+'va'+'k@u'+'md'+'.ed'+'u'; return false;">nnova<span style="display: none;">.nosp@m.</span>k@um<span style="display: none;">.nosp@m.</span>d.edu</a>, <a href="#" onclick="location.href='mai'+'lto:'+'osm'+'it'+'h15'+'@u'+'md.'+'ed'+'u'; return false;">osmit<span style="display: none;">.nosp@m.</span>h15@<span style="display: none;">.nosp@m.</span>umd.e<span style="display: none;">.nosp@m.</span>du</a>) </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2021-12-11</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2021 </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+</div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="a21e20cc0b6656ae897b3cbb969b93241"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a21e20cc0b6656ae897b3cbb969b93241">&#9670;&nbsp;</a></span>MoveBaseClient</h2>
 
@@ -131,7 +156,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00010">10</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00030">30</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
 </div>
 </div>
@@ -151,7 +176,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00013">13</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00042">42</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
 </div>
 </div>
@@ -171,7 +196,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00034">34</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00063">63</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
 </div>
 </div>
@@ -201,7 +226,27 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00056">56</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00085">85</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9c2747abcaef4c03d19858e45f59de80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c2747abcaef4c03d19858e45f59de80">&#9670;&nbsp;</a></span>print_usage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_usage </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>error</em> = <code>&quot;&quot;</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="main_8cpp_source.html#l00035">35</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
 
 </div>
 </div>

@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="main_8cpp">
+    <title>main.cpp File Reference</title>
+    <programlisting>#include &lt;actionlib/client/simple_action_client.h&gt;</programlisting>
+    <programlisting>#include &lt;fiducial_msgs/FiducialTransformArray.h&gt;</programlisting>
+    <programlisting>#include &lt;geometry_msgs/Twist.h&gt;</programlisting>
+    <programlisting>#include &lt;move_base_msgs/MoveBaseAction.h&gt;</programlisting>
+    <programlisting>#include &lt;tf2/LinearMath/Quaternion.h&gt;</programlisting>
+    <programlisting>#include &lt;tf2_ros/transform_broadcaster.h&gt;</programlisting>
+    <programlisting>#include &lt;tf2_ros/transform_listener.h&gt;</programlisting>
+    <programlisting>#include &lt;ros/ros.h&gt;</programlisting>
+    <programlisting>#include &lt;array&gt;</programlisting>
+    <programlisting>#include &lt;iostream&gt;</programlisting>
+    <programlisting>#include &lt;algorithm&gt;</programlisting>
+    <programlisting>#include &lt;utility&gt;</programlisting>
+    <programlisting>#include &quot;../include/bot_controller/bot_controller.h&quot;</programlisting>
+    <programlisting>#include &quot;../include/follower/follower.h&quot;</programlisting>
+    <programlisting>#include &quot;../include/explorer/explorer.h&quot;</programlisting>
+<para>Include dependency diagram for main.cpp</para>
+<para>
+    <figure>
+        <title>Dependency diagram</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="1" fileref="main_8cpp__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </figure>
+</para>
+<para>Included by dependency diagram for main.cpp</para>
+<para>
+    <figure>
+        <title>Dependency diagram</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="1" fileref="main_8cpp__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </figure>
+</para>
+        <section>
+            <title>Typedefs</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>typedef actionlib::SimpleActionClient&lt; move_base_msgs::MoveBaseAction &gt;  <link linkend="main_8cpp_1a21e20cc0b6656ae897b3cbb969b93241">MoveBaseClient</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>Functions</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="main_8cpp_1a9c2747abcaef4c03d19858e45f59de80">print_usage</link> (
+std::string error)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="main_8cpp_1a299d89c50484c4d3a597f6b43b65e21c">broadcast</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="main_8cpp_1aa2baabcf8bc6fb2727c0aade0c1b8efe">listen</link> (
+tf2_ros::Buffer &amp; tfBuffer)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="main_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627">main</link> (
+int argc, char ** argv)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+    <simplesect>
+        <title>Detailed Description</title>
+
+<para>ENPM809Y Final Project Group 5. </para>
+
+<para><formalpara><title>Author: </title>
+
+<para>Jerry Pittman, Jr., Nicholas Novak, Orlandis Smith (<link xlink:href="mailto:jpittma1@umd.edu">jpittma1@umd.edu</link>, <link xlink:href="mailto:nnovak@umd.edu">nnovak@umd.edu</link>, <link xlink:href="mailto:osmith15@umd.edu">osmith15@umd.edu</link>) </para>
+</formalpara>
+<formalpara><title>Version: </title>
+
+<para>0.1 </para>
+</formalpara>
+<formalpara><title>Date: </title>
+
+<para>2021-12-11</para>
+</formalpara>
+<formalpara><title>Copyright: </title>
+
+<para>Copyright (c) 2021 </para>
+</formalpara>
+</para>
+    <para>Definition in file /home/jerry/catkin_ws/src/809Y_final_project_Group_5/final_project-main/src/main.cpp</para>
+    </simplesect>
+</section>

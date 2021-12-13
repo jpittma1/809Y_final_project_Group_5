@@ -4,6 +4,9 @@
 #include <geometry_msgs/Twist.h>   //for geometry_msgs::Twist
 #include <nav_msgs/Odometry.h>     //for nav_msgs::Odometry
 #include <sensor_msgs/LaserScan.h> //for laser scans
+#include <fiducial_msgs/FiducialTransformArray.h>
+#include <geometry_msgs/TransformStamped.h>
+#include <tf2_ros/transform_broadcaster.h>
 #include <ros/ros.h>
 #include <utility>
 #include <string>
@@ -32,8 +35,10 @@ public:
     virtual double compute_yaw_rad() =0;
     virtual double convert_rad_to_deg(double angle) =0;
     
-    virtual ~Bot_Controller() {}
+    // virtual ~Bot_Controller() {}
 
+    std::array <int, 4> m_fid {};               //store fidicual IDs
+    std::array<std::array<double, 2>, 4> m_posit{};  //store marker positions
 
     const double get_current_x(){
         return m_location.first;
@@ -64,7 +69,9 @@ protected: //for inheritance
     double m_angular_speed;
     double m_roll;                                                     //rad
     double m_pitch;                                                    //rad
-    double m_yaw;                                                      //rad
+    double m_yaw;       //rad
+    
+
     void m_pose_callback(const nav_msgs::Odometry::ConstPtr &msg);     // prototype for callback of example subscriber
     void m_scan_callback(const sensor_msgs::LaserScan::ConstPtr &msg); // prototype for callback of example subscriber
     
