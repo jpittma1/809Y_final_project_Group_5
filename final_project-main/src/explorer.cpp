@@ -258,8 +258,4 @@ bool Explorer::go_to_goal(double goal_x, double goal_y) {
         // ros::shutdown();
         return true;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 2e5dc88f7af042a87bf7167cb2448d8fd479abd1
