@@ -101,17 +101,17 @@ void Bot_Controller::m_fiducial_callback(const fiducial_msgs::FiducialTransformA
         fiducial_id= msg->transforms[0].fiducial_id;
 
         //Store location of fiducial IDs based on fiducial_ID detected
-        if (fiducial_ID==0){ 
-            m_fid.at(0)=fiducial_ID;
+        if (fiducial_id==0){ 
+            m_fid.at(0)=fiducial_id;
             m_posit.at(0)={transformStamped.transform.translation.x, transformStamped.transform.translation.y};
         } else if(fiducial_id==1) {
-             m_fid.at(1)=fiducial_ID;
+             m_fid.at(1)=fiducial_id;
              m_posit.at(1)={transformStamped.transform.translation.x, transformStamped.transform.translation.y};
         } else if (fiducial_id==2) {
-            m_fid.at(2)=fiducial_ID;
+            m_fid.at(2)=fiducial_id;
             m_posit.at(2)={transformStamped.transform.translation.x, transformStamped.transform.translation.y};
         } else {
-             m_fid.at(3)=fiducial_ID;
+             m_fid.at(3)=fiducial_id;
              m_posit.at(3)={transformStamped.transform.translation.x, transformStamped.transform.translation.y};
         }
         
