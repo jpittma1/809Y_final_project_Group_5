@@ -109,7 +109,7 @@ int main(int argc, char** argv)
   // else {
   //   print_usage("missing argument: _robot_name_explore:= <name>");
   // }
-
+  
   // tell the action client that we want to spin a thread by default
   MoveBaseClient explorer_client("/explorer/move_base", true);
   // tell the action client that we want to spin a thread by default
@@ -117,6 +117,7 @@ int main(int argc, char** argv)
 
   move_base_msgs::MoveBaseGoal explorer_goal;
   move_base_msgs::MoveBaseGoal follower_goal;
+
 
   // wait for the action server to come up
   while (!explorer_client.waitForServer(ros::Duration(5.0))) {
@@ -126,6 +127,9 @@ int main(int argc, char** argv)
   while (!follower_client.waitForServer(ros::Duration(5.0))) {
     ROS_INFO("Waiting for the move_base action server to come up for follower");
   }
+
+  // move_base_msgs::MoveBaseGoal explorer_goal;
+  // move_base_msgs::MoveBaseGoal follower_goal;
 
 
   //Build goal for explorer
@@ -201,6 +205,15 @@ int main(int argc, char** argv)
 
     int i = 0;
     for(i = 0; i < 4; i++){
+      goal_list[i][0] = goal_x;
+      goal_list[i][1] = goal_y;
+      explorer_goal.target_pose.header.frame_id = "map";
+      explorer_goal.target_pose.header.stamp = ros::Time::now();
+      explorer_goal.target_pose.pose.position.x = goal_x;
+      explorer_goal.target_pose.pose.position.y = goal_y;
+      explorer_goal.target_pose.pose.orientation.w = 1.0;
+
+
       if (!explorer_goal_sent){
         ROS_INFO("Sending goal for explorer");
         explorer_client.sendGoal(explorer_goal);//this should be sent only once
@@ -211,20 +224,15 @@ int main(int argc, char** argv)
       else if (motion_type == "s")
         explorer.drive_straight(drive_value, direction_b);
 
-      explorer.go_to_goal(explorer.goal_list[i][0],explorer.goal_list[i][1]);
-      explorer_goal.target_pose.header.frame_id = "map";
-      explorer_goal.target_pose.header.stamp = ros::Time::now();
-      explorer_goal.target_pose.pose.position.x = explorer.goal_list[i][0];
-      explorer_goal.target_pose.pose.position.y = explorer.goal_list[i][1];
-      explorer_goal.target_pose.pose.orientation.w = 1.0;
+      // explorer.go_to_goal(explorer.goal_list[i][0],explorer.goal_list[i][1]);
       
       ros::Duration(0.5).sleep();
 
     
       if (explorer_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
-        ROS_INFO("Hooray, robot reached goal");
+        ROS_INFO("Hooray, explorer reached goal");
       }
-    }
+    
 
     try {
         transformStamped = tfBuffer.lookupTransform("map", "marker_frame", ros::Time(0));
@@ -239,12 +247,12 @@ int main(int argc, char** argv)
       catch (tf2::TransformException& ex) {
           ROS_WARN("%s", ex.what());
           ros::Duration(1.0).sleep();
-      }
+      }}
     
       //*****FOLLOWER*******//
       
      
-
+      if (explorer_goal.target_pose.pose.position.x == -4 && explorer_goal.target_pose.pose.position.y == 2.5){
       //---Send Follower to IDs O through 3 ---//
       for (int i=0;i<4;i++) {
         //--Set Goal for next ID--//
@@ -291,7 +299,7 @@ int main(int argc, char** argv)
           ros::shutdown();
         }
 
-      }
+      }}
 
     broadcast();
     listen(tfBuffer);
