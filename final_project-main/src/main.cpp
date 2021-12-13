@@ -78,15 +78,21 @@ int main(int argc, char** argv)
   bool explorer_goal_sent = false;
   bool follower_goal_sent = false;
 
+  ros::init(argc, argv, "follower");
+  ros::init(argc, argv, "explorer");
 
   // ros::init(argc, argv, "simple_navigation_goals");
   ros::NodeHandle nh;
   geometry_msgs::TransformStamped transformStamped;
 
-  ros::init(argc, argv, "follower_bot");
-  ros::init(argc, argv, "explorer_bot");
-  
-  std::string robot_name;
+  std::string robot_name_explore;
+  std::string robot_name_follow;
+
+
+  //Initialize Follower and Explorer class objects
+  Follower follower(&nh, "follower");
+  Explorer explorer(&nh, "explorer");
+ 
   if (nh.hasParam("robot_name")) {
     nh.getParam("robot_name", robot_name);
     ROS_INFO_STREAM("robot name: " << robot_name);
@@ -94,11 +100,9 @@ int main(int argc, char** argv)
   else {
     print_usage("missing argument: _robot_name:= <name>");
   }
-  
-  //Initialize Follower and Explorer class objects
-  Follower follower(&nh, "follower");
-  Explorer explorer(&nh, "explorer");
 
+  
+  
   // tell the action client that we want to spin a thread by default
   MoveBaseClient explorer_client("/explorer/move_base", true);
   // tell the action client that we want to spin a thread by default
