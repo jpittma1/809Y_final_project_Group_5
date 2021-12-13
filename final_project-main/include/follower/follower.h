@@ -24,15 +24,19 @@ class Follower : public Bot_Controller {
         virtual double compute_yaw_rad() override;
         virtual double convert_rad_to_deg(double angle) override;
 
-        virtual ~Follower() {}
-        
+        // virtual ~Follower() {}
+
+        std::array <int, 4> m_fid {};               //store fidicual IDs
+        std::array<std::array<double, 2>, 4> m_posit{};  //store marker positions
+
+
         //Follower accessor
         // const std::array <int, 4> get_fid() {
         //     return m_fid;
         // }
     
        
-        //Follower mutator
+        // //Follower mutator
         // void set_fid(int id, int location) {
         //     m_fid.at(location) = id;
         // }

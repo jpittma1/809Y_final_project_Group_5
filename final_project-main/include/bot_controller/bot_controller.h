@@ -35,7 +35,7 @@ public:
     virtual double compute_yaw_rad() =0;
     virtual double convert_rad_to_deg(double angle) =0;
     
-    virtual ~Bot_Controller() {}
+    // virtual ~Bot_Controller() {}
 
     std::array <int, 4> m_fid {};               //store fidicual IDs
     std::array<std::array<double, 2>, 4> m_posit{};  //store marker positions
