@@ -12,7 +12,7 @@
 
 #include <actionlib/client/simple_action_client.h>
 #include <fiducial_msgs/FiducialTransformArray.h>
-#include <geometry_msgs/Twist.h>  //for geometry_msgs::Twist
+#include <geometry_msgs/Twist.h>
 #include <move_base_msgs/MoveBaseAction.h>
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2_ros/transform_broadcaster.h>

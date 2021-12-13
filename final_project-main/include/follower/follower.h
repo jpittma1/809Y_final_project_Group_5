@@ -16,6 +16,7 @@
 #include <geometry_msgs/Quaternion.h>
 #include <cmath>
 
+
 /**
  * @brief Follower Class
  * Explorer
@@ -41,25 +42,24 @@ class Follower {
 
 
         //Follower accessor
-        const std::array <int, 4> get_fid() {
-            return m_fid;
-        }
+        // const std::array <int, 4> get_fid() {
+        //     return m_fid;
+        // }
     
-       
-        //Follower mutator
-        void set_fid(int id, int location) {
-            m_fid.at(location) = id;
-        }
+        // //Follower mutator
+        // void set_fid(int id, int location) {
+        //     m_fid.at(location) = id;
+        // }
 
     private:
         // std::array <int, 4> m_fid {};
+        // std::array<std::array<double, 2>, 4> m_posit{};
         ros::NodeHandle m_nh;
 
         ros::Subscriber m_pose_subscriber;
         ros::Subscriber m_scan_subscriber;
         ros::Subscriber m_fiducial_subscriber;
         ros::Publisher m_velocity_publisher;
-        ros::Publisher m_bot_status_publisher; //slide 19 task
 
         std::string m_robot_name;
 
@@ -74,7 +74,6 @@ class Follower {
         double m_roll;                                                     //rad
         double m_pitch;                                                    //rad
         double m_yaw;       //rad
-        
 
         void m_pose_callback(const nav_msgs::Odometry::ConstPtr &msg);     // prototype for callback of example subscriber
         void m_scan_callback(const sensor_msgs::LaserScan::ConstPtr &msg); // prototype for callback of example subscriber
