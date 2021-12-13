@@ -260,52 +260,52 @@ int main(int argc, char** argv)
      
       if (explorer_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED){
       //---Send Follower to IDs O through 3 ---//
-      for (int i=0;i<4;i++) {
-        //--Set Goal for next ID--//
-        fiducial_id=follower.m_fid.at(i);
-        goal_x=follower.m_posit.at(i).at(0);
-        goal_y=follower.m_posit.at(i).at(1);
-        //Build goal for follower using Move_base
-        follower_goal.target_pose.header.frame_id = "map";
-        follower_goal.target_pose.header.stamp = ros::Time::now();
-        follower_goal.target_pose.pose.position.x = goal_x;//
-        follower_goal.target_pose.pose.position.y = goal_y;//
-        follower_goal.target_pose.pose.orientation.w = 1.0;
+        for (int i=0;i<4;i++) {
+          //--Set Goal for next ID--//
+          fiducial_id=follower.m_fid.at(i);
+          goal_x=follower.m_posit.at(i).at(0);
+          goal_y=follower.m_posit.at(i).at(1);
+          //Build goal for follower using Move_base
+          follower_goal.target_pose.header.frame_id = "map";
+          follower_goal.target_pose.header.stamp = ros::Time::now();
+          follower_goal.target_pose.pose.position.x = goal_x;//
+          follower_goal.target_pose.pose.position.y = goal_y;//
+          follower_goal.target_pose.pose.orientation.w = 1.0;
 
-        ROS_INFO("Sending goal");
-        follower_client.sendGoal(follower_goal);
-        follower_client.waitForResult();
-        
-        if (motion_type == "h")
-          follower.stop();
-        else if (motion_type == "s")
-          follower.drive_straight(drive_value, direction_b);
-        else if (motion_type == "r")
-        {
-          if (final_angle == 0)
-            final_angle = follower.compute_expected_final_yaw(direction_b, drive_value);
-          follower.rotate(drive_value, direction_b, final_angle);
-        }
-        else if (motion_type == "g")
-        {
-          ROS_INFO("Sending follower to goal for");
-          std::cout << "\nFiducial ID: "<< fiducial_id;
-          std::cout << "\nLocated at: ("<< goal_x << ", "<<goal_y<<")";
-          follower.go_to_goal(goal_x, goal_y);
-          ROS_INFO("Hooray, follower reached goal");
-        }
+          ROS_INFO("Sending goal");
+          follower_client.sendGoal(follower_goal);
+          follower_client.waitForResult();
+          
+          if (motion_type == "h")
+            follower.stop();
+          else if (motion_type == "s")
+            follower.drive_straight(drive_value, direction_b);
+          else if (motion_type == "r")
+          {
+            if (final_angle == 0)
+              final_angle = follower.compute_expected_final_yaw(direction_b, drive_value);
+            follower.rotate(drive_value, direction_b, final_angle);
+          }
+          else if (motion_type == "g")
+          {
+            ROS_INFO("Sending follower to goal for");
+            std::cout << "\nFiducial ID: "<< fiducial_id;
+            std::cout << "\nLocated at: ("<< goal_x << ", "<<goal_y<<")";
+            follower.go_to_goal(goal_x, goal_y);
+            ROS_INFO("Hooray, follower reached goal");
+          }
 
-        //---Send Follower to Start Position (-4,3.5) ---//
-        if (i==3) {
-          ROS_INFO("Sending follower to Start Position");
-          goal_x=-4;
-          goal_y=3.5;
-          follower.go_to_goal(goal_x, goal_y);
-          ROS_INFO("Hooray, follower reached starting position");
-          ros::shutdown();
-        }
-
-      }}
+          //---Send Follower to Start Position (-4,3.5) ---//
+          if (i==3) {
+            ROS_INFO("Sending follower to Start Position");
+            goal_x=-4;
+            goal_y=3.5;
+            follower.go_to_goal(goal_x, goal_y);
+            ROS_INFO("Hooray, follower reached starting position");
+            ros::shutdown();
+          }
+       }
+      }
 
     broadcast();
     listen(tfBuffer);
