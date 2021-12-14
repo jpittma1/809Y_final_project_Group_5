@@ -8,13 +8,12 @@
  * @copyright Copyright (c) 2021
  * 
  */
-#include <xmlrpcpp/XmlRpcClient.h>
-#include <xmlrpcpp/XmlRpc.h>
-
-
 #include "../include/explorer/explorer.h"
 #include "../include/explorer/aruco_confirm.h"
 #include "../include/follower/follower.h"
+#include <xmlrpcpp/XmlRpcClient.h>
+#include <xmlrpcpp/XmlRpc.h>
+
 
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
@@ -54,7 +53,7 @@ void listen(tf2_ros::Buffer& tfBuffer) {
 
   geometry_msgs::TransformStamped transformStamped;
   try {
-    transformStamped = tfBuffer.lookupTransform("map", "my_frame", ros::Time(0));
+    transformStamped = tfBuffer.lookupTransform("map", "marker_frame", ros::Time(0));
     auto trans_x = transformStamped.transform.translation.x;
     auto trans_y = transformStamped.transform.translation.y;
     auto trans_z = transformStamped.transform.translation.z;
@@ -83,17 +82,18 @@ int main(int argc, char** argv) {
   bool follower_goal_sent = false;
 
   ros::init(argc, argv, "final_project");
+  // ros::init(argc, argv, "explorer");
 
   ros::NodeHandle nh;
   
   geometry_msgs::TransformStamped transformStamped;
 
-  // std::string robot_name; <--screws up multiple robots move base
+  std::string robot_name;
   // std::string robot_name_follow;
 
   //Initialize Follower and Explorer class objects
   Explorer explorer(&nh, "explorer");
-  // ros::Duration(1.0).sleep();
+  ros::Duration(1.0).sleep();
   Follower follower(&nh, "follower");
   ArucoNode aruco_node(&nh);
   
@@ -253,18 +253,7 @@ int main(int argc, char** argv) {
       }
 
       ROS_INFO_STREAM("fiducial id of current and next: " << aruco_node.fid_ids[i] << "\t" << aruco_node.fid_ids[i+1]);
-      if (i != 3){
-        while(aruco_node.fid_ids[i+1] == 0){
-          aruco_node.marker_listen(tfBuffer, i);
-          explorer.rotate(3,true,360);
-        }
-      }
-      else{
-        while(aruco_node.fid_ids[i] == 0){
-          aruco_node.marker_listen(tfBuffer, i);
-          explorer.rotate(3,true,360);
-        }
-      }
+     
 
 
       
@@ -279,6 +268,13 @@ int main(int argc, char** argv) {
     
       if (explorer_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
         ROS_INFO("Hooray, explorer reached goal");
+        // aruco_node.marker_listen(tfBuffer, i);
+        
+        ROS_INFO_STREAM("fiducial id of current and next: " << aruco_node.fid_ids[i] << "\t" << aruco_node.fid_ids[i+1]);
+        while(!aruco_node.aruco_seen()){
+          explorer.rotate(0.1,true,360);
+          aruco_node.marker_listen(tfBuffer, i);
+        }
       }
     
       // try {

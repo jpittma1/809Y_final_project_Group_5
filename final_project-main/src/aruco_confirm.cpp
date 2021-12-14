@@ -15,6 +15,7 @@ ArucoNode::ArucoNode(ros::NodeHandle* nodehandle):
 {
     m_initialize_publishers();
     m_initialize_subscribers();    
+    m_check_subscribers();
 };
 
 void ArucoNode::fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg)
@@ -65,11 +66,24 @@ void ArucoNode::marker_listen(tf2_ros::Buffer& tfBuffer, int count) {
     }
 }
 
-void ArucoNode::detect_subs(){}
+void ArucoNode::aruco_exists(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg){
+    if(!msg->transforms.empty()){marker_seen = true;}
+
+}
+
+bool ArucoNode::aruco_seen(){
+    m_check_subscribers();
+    return marker_seen;
+}
 
 void ArucoNode::m_initialize_publishers() {
     ROS_INFO("Initializing Publishers");
     m_velocity_publisher = m_nh.advertise<geometry_msgs::Twist>("/cmd_vel", 100);
+}
+void ArucoNode::m_check_subscribers() {
+    ROS_INFO_STREAM("Initializing Checker.");
+    m_check_subscriber = m_nh.subscribe("explorer_tf/camera_rgb_optical_frame", 1000, &ArucoNode::aruco_exists, this);
+
 }
 
 void ArucoNode::m_initialize_subscribers() {
