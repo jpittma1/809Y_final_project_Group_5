@@ -272,7 +272,10 @@ int main(int argc, char** argv) {
         
         ROS_INFO_STREAM("fiducial id of current and next: " << aruco_node.fid_ids[i] << "\t" << aruco_node.fid_ids[i+1]);
         while(!aruco_node.aruco_seen()){
-          explorer.rotate(0.1,true,360);
+          geometry_msgs::Twist msg;
+          msg.linear.x = 0.0;
+          msg.angular.z = 0.1;
+          explorer.m_velocity_publisher.publish(msg);
           aruco_node.marker_listen(tfBuffer, i);
         }
       }

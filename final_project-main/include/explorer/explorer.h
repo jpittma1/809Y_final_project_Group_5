@@ -50,13 +50,14 @@ class Explorer{
 
         std::array<std::array<double,2>,4> get_goals() {};
 
+        ros::Publisher m_velocity_publisher;
+
     private:
         ros::NodeHandle m_nh;
 
         ros::Subscriber m_pose_subscriber;
         ros::Subscriber m_scan_subscriber;
         ros::Subscriber m_fiducial_subscriber;
-        ros::Publisher m_velocity_publisher;
 
         std::string m_robot_name;
 
