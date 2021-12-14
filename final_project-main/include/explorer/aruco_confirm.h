@@ -24,11 +24,11 @@
 class ArucoNode{
     public:
         ArucoNode(ros::NodeHandle* nodehandle);
-        void fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg){};
-        void marker_listen(tf2_ros::Buffer& tfBuffer, int count){};
-        void marker_broadcast(){};
+        void fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg);
+        void marker_listen(tf2_ros::Buffer& tfBuffer, int count);
+        void marker_broadcast();
         
-        void detect_subs(){};
+        void detect_subs();
 
         
 
@@ -40,8 +40,8 @@ class ArucoNode{
         
         ~ArucoNode() {}
     private:
-        void m_initialize_publishers(){};
-        void m_initialize_subscribers(){};
+        void m_initialize_publishers();
+        void m_initialize_subscribers();
 
         ros::NodeHandle m_nh;
         ros::Subscriber m_pose_subscriber;
@@ -49,10 +49,6 @@ class ArucoNode{
         ros::Subscriber m_fiducial_subscriber;
         ros::Publisher m_velocity_publisher;
 
-        
-
-        
-    
 };
 
 #endif
