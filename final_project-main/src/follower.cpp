@@ -47,12 +47,12 @@ double Follower::m_normalize_angle(double angle)
 }
 
 void Follower::m_initialize_publishers() {
-    ROS_INFO("Initializing Publishers");
+    ROS_INFO("Initializing Follower Publishers");
     m_velocity_publisher = m_nh.advertise<geometry_msgs::Twist>("/cmd_vel", 100);
 }
 
 void Follower::m_initialize_subscribers() {
-    ROS_INFO("Initializing Subscribers");
+    ROS_INFO("Initializing Follower Subscribers");
     m_pose_subscriber = m_nh.subscribe("/odom", 1000, &Follower::m_pose_callback, this);
     m_scan_subscriber = m_nh.subscribe("/scan", 1000, &Follower::m_scan_callback, this);
     m_fiducial_subscriber = m_nh.subscribe("/fiducial_transforms", 1000, &Follower::m_fiducial_callback, this);

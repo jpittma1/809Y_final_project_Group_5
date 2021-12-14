@@ -37,7 +37,7 @@ class Follower {
         void stop();
         double compute_expected_final_yaw(bool direction, double angle_to_rotate);
         double compute_yaw_deg();
-        double compute_yaw_rad() ;
+        double compute_yaw_rad();
         double convert_rad_to_deg(double angle);
 
         ~Follower() {}

@@ -45,12 +45,12 @@ double Explorer::m_normalize_angle(double angle)
 }
 
 void Explorer::m_initialize_publishers() {
-    ROS_INFO("Initializing Publishers");
+    ROS_INFO("Initializing Explorer Publishers");
     m_velocity_publisher = m_nh.advertise<geometry_msgs::Twist>("/cmd_vel", 100);
 }
 
 void Explorer::m_initialize_subscribers() {
-    ROS_INFO("Initializing Subscribers");
+    ROS_INFO("Initializing Explorer Subscribers");
     m_pose_subscriber = m_nh.subscribe("/odom", 1000, &Explorer::m_pose_callback, this);
     m_scan_subscriber = m_nh.subscribe("/scan", 1000, &Explorer::m_scan_callback, this);   
 }
@@ -72,14 +72,14 @@ void Explorer::m_scan_callback(const sensor_msgs::LaserScan::ConstPtr& msg) {
     ROS_INFO_STREAM("Left: " << msg->ranges[90]);
     ROS_INFO_STREAM("Right: " << msg->ranges[270]);
 }
-// std::array<double,2> get_start_loc(){
-//     std::array<double,2> start_loc;
-//     start_loc[0] = get_current_x();
-//     start_loc[1] = get_current_y();
-//     return start_loc;
-// }
-std::array<std::array<double,2>,4> get_goals(){
-// ros::NodeHandle m_nh;
+
+/**
+ * @brief Get the goals object from aruco_lookup.yaml
+ * 
+ * @return std::array<std::array<double,2>,4> 
+ */
+std::array<std::array<double,2>,4> get_goals() {
+  ros::NodeHandle m_nh;
 
   std::array<std::array<double,2>,4> exp_goal;
   XmlRpc::XmlRpcValue goal_list;
@@ -112,7 +112,6 @@ std::array<std::array<double,2>,4> get_goals(){
   std::cout << "Explorer Goal 4 is: ("<<exp_goal[3][0] << ", " << exp_goal[3][1] <<")\n";
 
   return exp_goal;
-
 }
 double Explorer::m_compute_distance(const std::pair<double, double>& a, const std::pair<double, double>& b) {
     return  sqrt(pow(b.first - a.first, 2) + pow(b.second - a.second, 2));

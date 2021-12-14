@@ -44,7 +44,7 @@ class Explorer{
 
         void move_next_loc(std::array<double,2> goal_loc){};
 
-        std::array<std::array<double,2>,4> get_goals(){}
+        std::array<std::array<double,2>,4> get_goals() {};
 
     private:
         ros::NodeHandle m_nh;
