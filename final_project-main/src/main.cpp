@@ -191,10 +191,6 @@ int main(int argc, char** argv) {
 
       ROS_INFO_STREAM("fiducial id of current and next: " << aruco_node.fid_ids[i] << "\t" << aruco_node.fid_ids[i+1]);
      
-
-
-      
-      
       explorer_client.waitForResult();
 
 
@@ -217,18 +213,7 @@ int main(int argc, char** argv) {
         }
       }
     
-      // try {
-      //     transformStamped = tfBuffer.lookupTransform("map", "marker_frame", ros::Time(0));
-      //     ROS_INFO_STREAM("Position in /map frame: ["
-      //       << transformStamped.transform.translation.x << ","
-      //       << transformStamped.transform.translation.y << ","
-      //       << transformStamped.transform.translation.z << "]"
-      //     );
-      // }
-      // catch (tf2::TransformException& ex) {
-      //       ROS_WARN("%s", ex.what());
-      //       ros::Duration(1.0).sleep();
-      // }
+      
     }//Explorer for loop
     
     //---SEND Explorer Home---
