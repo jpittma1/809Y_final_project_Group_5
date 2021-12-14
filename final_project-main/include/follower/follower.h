@@ -6,19 +6,20 @@
 #include <sensor_msgs/LaserScan.h> //for laser scans
 #include <fiducial_msgs/FiducialTransformArray.h>
 #include <geometry_msgs/TransformStamped.h>
+#include <geometry_msgs/Quaternion.h>
 #include <tf2_ros/transform_broadcaster.h>
 #include <tf2_ros/transform_listener.h>
+#include <tf2/LinearMath/Quaternion.h>
 #include <ros/ros.h>
 #include <actionlib/client/simple_action_client.h>
 #include <move_base_msgs/MoveBaseAction.h>
-#include <tf2/LinearMath/Quaternion.h>
 #include <utility>
 #include <string>
 #include <array>
 #include <algorithm>
 #include <iostream>
 #include <tf/transform_datatypes.h> //to manipulate quaternions
-#include <geometry_msgs/Quaternion.h>
+
 #include <cmath>
 
 

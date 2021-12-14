@@ -8,7 +8,6 @@
  * @copyright Copyright (c) 2021
  * 
  */
-
 #include "../include/follower/follower.h"
 #include "../include/explorer/explorer.h"
 
@@ -83,14 +82,16 @@ int main(int argc, char** argv) {
   // std::string robot_name_follow;
 
   //Initialize Follower and Explorer class objects
-  Follower follower(&nh, "follower");
   Explorer explorer(&nh, "explorer");
+  Follower follower(&nh, "follower");
   
 
   // tell the action client that we want to spin a thread by default
   MoveBaseClient explorer_client("/explorer/move_base", true);
   // tell the action client that we want to spin a thread by default
   MoveBaseClient follower_client("/follower/move_base", true);
+
+  // ros::Duration(1.0).sleep();
 
   // wait for the action server to come up
   while (!explorer_client.waitForServer(ros::Duration(5.0))) {
@@ -171,7 +172,8 @@ int main(int argc, char** argv) {
 
   static double final_angle{ 0 };
   
-  std::array<std::array<double,2>,4> goal_list = explorer.get_goals(); //Goals from aruco_lookup.yaml
+  //EXplorer Get Goals from aruco_lookup.yaml
+  std::array<std::array<double,2>,4> goal_list = explorer.get_goals(); 
  
   while (ros::ok()) {
     //*****EXPLORER*****//

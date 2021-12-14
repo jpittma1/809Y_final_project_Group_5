@@ -24,6 +24,7 @@ Explorer::Explorer(ros::NodeHandle* nodehandle, const std::string& robot_name) :
     m_pitch{ 0 },
     m_yaw{ 0 }
 {
+    ROS_INFO("Explorer Object Created!");
     m_initialize_publishers();
     m_initialize_subscribers();
     // start_place = Explorer::get_start_loc();
@@ -79,6 +80,7 @@ void Explorer::m_scan_callback(const sensor_msgs::LaserScan::ConstPtr& msg) {
  * @return std::array<std::array<double,2>,4> 
  */
 std::array<std::array<double,2>,4> get_goals() {
+  ROS_INFO("Get_goals() called...");
   ros::NodeHandle m_nh;
 
   std::array<std::array<double,2>,4> exp_goal;
