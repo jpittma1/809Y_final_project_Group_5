@@ -235,12 +235,11 @@ int main(int argc, char** argv) {
       explorer_goal.target_pose.pose.position.y = goal_y;
       explorer_goal.target_pose.pose.orientation.w = 1.0;
 
-      explorer_client.waitForResult();
 
 
       if (!explorer_goal_sent){
         ROS_INFO("Sending goal for explorer");
-        explorer_client.sendGoal(explorer_goal);//this should be sent only once
+        explorer_client.sendGoalAndWait(explorer_goal);//this should be sent only once
         explorer_goal_sent = true;
       }
       
@@ -300,7 +299,7 @@ int main(int argc, char** argv) {
 
         if (!follower_goal_sent){
           ROS_INFO("Sending follower goal");
-          follower_client.sendGoal(follower_goal);
+          follower_client.sendGoalAndWait(follower_goal);
           follower_goal_sent = true;
         }
         
