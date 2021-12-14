@@ -10,7 +10,7 @@
  */
 #include "../include/explorer/aruco_confirm.h"
 
-ArcuoNode::ArucoNode(ros::NodeHandle* nodehandle):
+ArucoNode::ArucoNode(ros::NodeHandle* nodehandle):
     m_nh{ *nodehandle }
 {
     m_initialize_publishers();
