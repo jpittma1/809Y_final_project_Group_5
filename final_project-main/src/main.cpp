@@ -8,12 +8,13 @@
  * @copyright Copyright (c) 2021
  * 
  */
-#include "../include/explorer/explorer.h"
-#include "../include/explorer/aruco_confirm.h"
-#include "../include/follower/follower.h"
 #include <xmlrpcpp/XmlRpcClient.h>
 #include <xmlrpcpp/XmlRpc.h>
 
+
+#include "../include/explorer/explorer.h"
+#include "../include/explorer/aruco_confirm.h"
+#include "../include/follower/follower.h"
 
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
@@ -82,18 +83,17 @@ int main(int argc, char** argv) {
   bool follower_goal_sent = false;
 
   ros::init(argc, argv, "final_project");
-  // ros::init(argc, argv, "explorer");
 
   ros::NodeHandle nh;
   
   geometry_msgs::TransformStamped transformStamped;
 
-  std::string robot_name;
+  // std::string robot_name; <--screws up multiple robots move base
   // std::string robot_name_follow;
 
   //Initialize Follower and Explorer class objects
   Explorer explorer(&nh, "explorer");
-  ros::Duration(1.0).sleep();
+  // ros::Duration(1.0).sleep();
   Follower follower(&nh, "follower");
   ArucoNode aruco_node(&nh);
   
