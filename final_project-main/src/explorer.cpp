@@ -47,13 +47,13 @@ double Explorer::m_normalize_angle(double angle)
 
 void Explorer::m_initialize_publishers() {
     ROS_INFO("Initializing Explorer Publishers");
-    m_velocity_publisher = m_nh.advertise<geometry_msgs::Twist>("/cmd_vel", 100);
+    m_velocity_publisher = m_nh.advertise<geometry_msgs::Twist>("/explorer/cmd_vel", 100);
 }
 
 void Explorer::m_initialize_subscribers() {
     ROS_INFO("Initializing Explorer Subscribers");
-    m_pose_subscriber = m_nh.subscribe("/odom", 1000, &Explorer::m_pose_callback, this);
-    m_scan_subscriber = m_nh.subscribe("/scan", 1000, &Explorer::m_scan_callback, this);   
+    m_pose_subscriber = m_nh.subscribe("/explorer/odom", 1000, &Explorer::m_pose_callback, this);
+    m_scan_subscriber = m_nh.subscribe("/explorer/scan", 1000, &Explorer::m_scan_callback, this);   
 }
 
 double Explorer::convert_rad_to_deg(double angle) {

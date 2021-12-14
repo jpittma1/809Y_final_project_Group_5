@@ -52,6 +52,9 @@ class Explorer{
 
         ros::Publisher m_velocity_publisher;
 
+        void m_move(double linear, double angular);
+
+
     private:
         ros::NodeHandle m_nh;
 
@@ -79,7 +82,6 @@ class Explorer{
         void m_initialize_subscribers();
         void m_initialize_publishers();
         double m_compute_distance(const std::pair<double, double> &a, const std::pair<double, double> &b);
-        void m_move(double linear, double angular);
 
         double m_normalize_angle_positive(double angle);
         double m_normalize_angle(double angle);

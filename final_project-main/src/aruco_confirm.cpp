@@ -68,7 +68,7 @@ void ArucoNode::marker_listen(tf2_ros::Buffer& tfBuffer, int count) {
 
 void ArucoNode::aruco_exists(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg){
     if(!msg->transforms.empty()){marker_seen = true;}
-
+    ROS_INFO_STREAM("Checker callback called!");
 }
 
 bool ArucoNode::aruco_seen(){
@@ -82,11 +82,11 @@ void ArucoNode::m_initialize_publishers() {
 }
 void ArucoNode::m_check_subscribers() {
     ROS_INFO_STREAM("Initializing Checker.");
-    m_check_subscriber = m_nh.subscribe("explorer_tf/camera_rgb_optical_frame", 1000, &ArucoNode::aruco_exists, this);
+    m_check_subscriber = m_nh.subscribe("/fiducial_transforms", 1000, &ArucoNode::aruco_exists, this);
 
 }
 
 void ArucoNode::m_initialize_subscribers() {
     ROS_INFO_STREAM("Initializing Subscribers\nMessage: "<<this);
-    m_scan_subscriber = m_nh.subscribe("explorer_tf/camera_rgb_optical_frame", 1000, &ArucoNode::fiducial_callback, this);   
+    m_scan_subscriber = m_nh.subscribe("/fiducial_transforms", 1000, &ArucoNode::fiducial_callback, this);   
 }
