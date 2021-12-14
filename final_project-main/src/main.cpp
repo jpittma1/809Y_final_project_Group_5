@@ -84,7 +84,7 @@ int main(int argc, char** argv) {
 
   //Initialize Follower and Explorer class objects
   Explorer explorer(&nh, "explorer");
-  ros::Duration(1.0).sleep();
+ 
   Follower follower(&nh, "follower");
   ArucoNode aruco_node(&nh);
   
