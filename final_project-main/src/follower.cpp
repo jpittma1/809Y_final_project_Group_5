@@ -98,29 +98,38 @@ void Follower::m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::
         transformStamped.transform.rotation.z = msg->transforms[2].transform.rotation.z;
         transformStamped.transform.rotation.w = msg->transforms[3].transform.rotation.w;
 
-        fiducial_id= msg->transforms[0].fiducial_id;
+        try {
+            transformStamped = tfBuffer.lookupTransform("map", "marker_frame", ros::Time(0));
+            
+            fiducial_id= msg->transforms[0].fiducial_id;
 
-        //Store location of fiducial IDs based on fiducial_ID detected
-        if (fiducial_id==0){ 
-            m_fid.at(0)=fiducial_id;
-            m_posit.at(0)={transformStamped.transform.translation.x, transformStamped.transform.translation.y};
-        } else if(fiducial_id==1) {
-             m_fid.at(1)=fiducial_id;
-             m_posit.at(1)={transformStamped.transform.translation.x, transformStamped.transform.translation.y};
-        } else if (fiducial_id==2) {
-            m_fid.at(2)=fiducial_id;
-            m_posit.at(2)={transformStamped.transform.translation.x, transformStamped.transform.translation.y};
-        } else {
-             m_fid.at(3)=fiducial_id;
-             m_posit.at(3)={transformStamped.transform.translation.x, transformStamped.transform.translation.y};
-        }
+            //Store location of fiducial IDs based on fiducial_ID detected
+            if (fiducial_id==0){ 
+                m_fid.at(0)=fiducial_id;
+                m_posit.at(0)={transformStamped.transform.translation.x, transformStamped.transform.translation.y};
+            } else if(fiducial_id==1) {
+                m_fid.at(1)=fiducial_id;
+                m_posit.at(1)={transformStamped.transform.translation.x, transformStamped.transform.translation.y};
+            } else if (fiducial_id==2) {
+                m_fid.at(2)=fiducial_id;
+                m_posit.at(2)={transformStamped.transform.translation.x, transformStamped.transform.translation.y};
+            } else {
+                m_fid.at(3)=fiducial_id;
+                m_posit.at(3)={transformStamped.transform.translation.x, transformStamped.transform.translation.y};
+            }
         
-        ROS_INFO("New Fiducial ID detected and location stored");
+            ROS_INFO("New Fiducial ID detected and location stored");
 
-        //Debug print
-        std::cout <<"\nNew marker " << fiducial_id << " added is\n";
-        std::cout <<"New Posit (" <<  m_posit.at(fiducial_id).at(0);
-        std::cout << ", " << m_posit.at(fiducial_id).at(1)<<")\n";
+            //Debug print
+            std::cout <<"\nNew marker " << fiducial_id << " added is\n";
+            std::cout <<"New Posit (" <<  m_posit.at(fiducial_id).at(0);
+            std::cout << ", " << m_posit.at(fiducial_id).at(1)<<")\n";
+
+        }
+        catch (tf2::TransformException& ex) {
+            ROS_WARN("%s", ex.what());
+            ros::Duration(1.0).sleep();
+        }
 
         br.sendTransform(transformStamped);
     }
