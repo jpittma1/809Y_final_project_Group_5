@@ -49,6 +49,10 @@ class ArucoNode{
         ros::Subscriber m_fiducial_subscriber;
         ros::Publisher m_velocity_publisher;
 
+        
+
+        
+    
 };
 
 #endif

@@ -84,7 +84,7 @@ void Follower::m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::
         geometry_msgs::TransformStamped transformStamped;
 
         int fiducial_id;
-        ROS_INFO("FOllower fiducial_callback called");
+
         //broadcast the new frame to /tf Topic
         transformStamped.header.stamp = ros::Time::now();
         transformStamped.header.frame_id = "explorer_tf/camera_rgb_optical_frame";

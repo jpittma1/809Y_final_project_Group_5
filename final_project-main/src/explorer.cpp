@@ -115,7 +115,6 @@ std::array<std::array<double,2>,4> get_goals() {
 
   return exp_goal;
 }
-
 double Explorer::m_compute_distance(const std::pair<double, double>& a, const std::pair<double, double>& b) {
     return  sqrt(pow(b.first - a.first, 2) + pow(b.second - a.second, 2));
 }
