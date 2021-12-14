@@ -244,6 +244,7 @@ int main(int argc, char** argv) {
       explorer_goal.target_pose.pose.orientation.w = 1.0;
 
 
+      // aruco_node.m_initialize_subscribers();
 
       if (!explorer_goal_sent){
         ROS_INFO("Sending goal for explorer");
@@ -251,17 +252,17 @@ int main(int argc, char** argv) {
         explorer_goal_sent = true;
       }
 
-      
+      ROS_INFO_STREAM("fiducial id of current and next: " << aruco_node.fid_ids[i] << "\t" << aruco_node.fid_ids[i+1]);
       if (i != 3){
         while(aruco_node.fid_ids[i+1] == 0){
           aruco_node.marker_listen(tfBuffer, i);
-          explorer.rotate(0.01,true,180);
+          explorer.rotate(3,true,360);
         }
       }
       else{
         while(aruco_node.fid_ids[i] == 0){
           aruco_node.marker_listen(tfBuffer, i);
-          explorer.rotate(0.01,true,180);
+          explorer.rotate(3,true,360);
         }
       }
 

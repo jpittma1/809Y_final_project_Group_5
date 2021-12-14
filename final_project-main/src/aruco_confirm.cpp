@@ -21,6 +21,8 @@ void ArucoNode::fiducial_callback(const fiducial_msgs::FiducialTransformArray::C
 {
     if (!msg->transforms.empty()) {//check marker is detected
     //broadcaster object
+    //Looking for marker_frame before this is called.
+        ROS_INFO_STREAM("Setting up broadcaster!\nMessage:" << msg);
         static tf2_ros::TransformBroadcaster br;
         geometry_msgs::TransformStamped transformStamped;
         //broadcast the new frame to /tf Topic
@@ -41,7 +43,10 @@ void ArucoNode::fiducial_callback(const fiducial_msgs::FiducialTransformArray::C
 
 void ArucoNode::marker_listen(tf2_ros::Buffer& tfBuffer, int count) {
   //for listener
+    
 
+
+    m_initialize_subscribers();
     geometry_msgs::TransformStamped transformStamped;
     try {
         transformStamped = tfBuffer.lookupTransform("map", "marker_frame",
@@ -51,7 +56,6 @@ void ArucoNode::marker_listen(tf2_ros::Buffer& tfBuffer, int count) {
         << transformStamped.transform.translation.y << ","
         << transformStamped.transform.translation.z << "]"
         );
-        fid_ids[count] = transformStamped.transform.translation.z;
         transformed_locs[count][0] = transformStamped.transform.translation.x;
         transformed_locs[count][1] = transformStamped.transform.translation.y;
     }
@@ -69,6 +73,6 @@ void ArucoNode::m_initialize_publishers() {
 }
 
 void ArucoNode::m_initialize_subscribers() {
-    ROS_INFO("Initializing Subscribers");
+    ROS_INFO_STREAM("Initializing Subscribers\nMessage: "<<this);
     m_scan_subscriber = m_nh.subscribe("explorer_tf/camera_rgb_optical_frame", 1000, &ArucoNode::fiducial_callback, this);   
 }

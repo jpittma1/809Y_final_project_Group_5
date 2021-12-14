@@ -32,7 +32,7 @@ class ArucoNode{
 
         
 
-        std::array<int,4> fid_ids;
+        std::array<int,4> fid_ids{0,0,0,0};
         std::array<std::array<double,2>,4> transformed_locs;
 
         int temp_id;
