@@ -1,18 +1,15 @@
+/**
+ * @file main.cpp
+ * @author Jerry Pittman, Nicholas Novak, Orlandis Smith
+ * @brief 809Y Final Project Group 5
+ * @version 1.0
+ * @date 2021-12-12
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
 
 
-#include <actionlib/client/simple_action_client.h>
-#include <fiducial_msgs/FiducialTransformArray.h>
-#include <geometry_msgs/Twist.h>
-#include <move_base_msgs/MoveBaseAction.h>
-#include <tf2/LinearMath/Quaternion.h>
-#include <tf2_ros/transform_broadcaster.h>
-#include <tf2_ros/transform_listener.h>
-#include <ros/ros.h>
-#include <array>
-#include <iostream>
-#include <algorithm>
-#include <utility>
-#include <string>
 
 #include "../include/follower/follower.h"
 #include "../include/explorer/explorer.h"
@@ -203,7 +200,7 @@ int main(int argc, char** argv)
   while (ros::ok()) {
     //*****EXPLORER*****//
 
-    int i = 0;
+  
     for(i = 0; i < 4; i++){
       goal_x = goal_list[i][0];
       goal_y = goal_list[i][1];
