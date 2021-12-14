@@ -28,8 +28,9 @@ class ArucoNode{
         void marker_listen(tf2_ros::Buffer& tfBuffer, int count);
         void marker_broadcast();
         
-        void detect_subs();
+        void aruco_exists(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg);
 
+        bool aruco_seen();
         
 
         std::array<int,4> fid_ids{0,0,0,0};
@@ -37,14 +38,18 @@ class ArucoNode{
 
         int temp_id;
         int m_count{0};
+
+        bool marker_seen {false};
         
         ~ArucoNode() {}
     private:
         void m_initialize_publishers();
+        void m_check_subscribers();
         void m_initialize_subscribers();
 
+
         ros::NodeHandle m_nh;
-        ros::Subscriber m_pose_subscriber;
+        ros::Subscriber m_check_subscriber;
         ros::Subscriber m_scan_subscriber;
         ros::Subscriber m_fiducial_subscriber;
         ros::Publisher m_velocity_publisher;

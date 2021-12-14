@@ -90,28 +90,28 @@ std::array<std::array<double,2>,4> get_goals() {
   
   exp_goal[0][0] = goal_list[0];
   exp_goal[0][1] = goal_list[1];
-  std::cout << "Explorer Goal 1 is: ("<<exp_goal[0][0] << ", " << exp_goal[0][1] <<")\n";
+//   std::cout << "Explorer Goal 1 is: ("<<exp_goal[0][0] << ", " << exp_goal[0][1] <<")\n";
 
   m_nh.getParam("target_2", goal_list);
   ROS_ASSERT(goal_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
   
   exp_goal[1][0] = goal_list[0];
   exp_goal[1][1] = goal_list[1];
-  std::cout << "Explorer Goal 2 is: ("<<exp_goal[1][0] << ", " << exp_goal[1][1] <<")\n";
+//   std::cout << "Explorer Goal 2 is: ("<<exp_goal[1][0] << ", " << exp_goal[1][1] <<")\n";
 
   m_nh.getParam("target_3", goal_list);
   ROS_ASSERT(goal_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
   
   exp_goal[2][0] = goal_list[0];
   exp_goal[2][1] = goal_list[1];
-  std::cout << "Explorer Goal 3 is: ("<<exp_goal[2][0] << ", " << exp_goal[2][1] <<")\n";
+//   std::cout << "Explorer Goal 3 is: ("<<exp_goal[2][0] << ", " << exp_goal[2][1] <<")\n";
 
   m_nh.getParam("target_4", goal_list);
   ROS_ASSERT(goal_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
   
   exp_goal[3][0] = goal_list[0];
   exp_goal[3][1] = goal_list[1];
-  std::cout << "Explorer Goal 4 is: ("<<exp_goal[3][0] << ", " << exp_goal[3][1] <<")\n";
+//   std::cout << "Explorer Goal 4 is: ("<<exp_goal[3][0] << ", " << exp_goal[3][1] <<")\n";
 
   return exp_goal;
 }
@@ -176,6 +176,8 @@ void Explorer::rotate(double angle_to_rotate, bool direction, double final_angle
     ROS_INFO_STREAM("Rotate an angle of [" << angle_to_rotate << " degrees]");
     ROS_INFO_STREAM("Current orientation: " << current_yaw_deg);
     ROS_INFO_STREAM("Final orientation: " << final_angle);
+
+    // m_angular_speed = angle_to_rotate;
 
     if (direction) {
         if (final_angle >= current_yaw_deg) {
