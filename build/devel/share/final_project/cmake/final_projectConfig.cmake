@@ -185,7 +185,7 @@ foreach(t ${final_project_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "actionlib_msgs;geometry_msgs;message_generation;message_runtime;std_msgs;fiducial_msgs;move_base_msgs")
+set(depends "actionlib_msgs;geometry_msgs;message_generation;message_runtime;std_msgs;fiducial_msgs")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls
