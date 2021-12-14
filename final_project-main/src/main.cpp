@@ -217,8 +217,6 @@ int main(int argc, char** argv) {
   goal_list[3][0] = exp_goal[0];
   goal_list[3][1] = exp_goal[1];
 
-  
-  
 
   while (ros::ok()) {
     //*****EXPLORER*****//
@@ -259,14 +257,8 @@ int main(int argc, char** argv) {
         }
       }
 
-
-      
-      
       explorer_client.waitForResult();
 
-
-
-      
       ros::Duration(0.5).sleep();
 
     
@@ -293,7 +285,7 @@ int main(int argc, char** argv) {
     goal_y=2.5;
     explorer.go_to_goal(goal_x, goal_y);
 
-    ros::Duration(2.0).sleep();
+    ros::Duration(5.0).sleep();
     delayed_start=true;
 
     //*****FOLLOWER*******//
