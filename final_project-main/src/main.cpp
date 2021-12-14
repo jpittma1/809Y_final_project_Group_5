@@ -9,6 +9,7 @@
  * 
  */
 #include "../include/explorer/explorer.h"
+#include "../include/explorer/aruco_confirm.h"
 #include "../include/follower/follower.h"
 #include <xmlrpcpp/XmlRpcClient.h>
 #include <xmlrpcpp/XmlRpc.h>
@@ -88,6 +89,7 @@ int main(int argc, char** argv) {
   Explorer explorer(&nh, "explorer");
   ros::Duration(1.0).sleep();
   Follower follower(&nh, "follower");
+  ArucoNode aruco_node(&nh);
   
 
   // tell the action client that we want to spin a thread by default
@@ -242,11 +244,28 @@ int main(int argc, char** argv) {
         explorer_client.sendGoalAndWait(explorer_goal);//this should be sent only once
         explorer_goal_sent = true;
       }
+
+      
+      if (i != 3){
+        while(aruco_node.fid_ids[i+1] == 0){
+          aruco_node.marker_listen(tfBuffer, i);
+          explorer.rotate(0.01,true,180);
+        }
+      }
+      else{
+        while(aruco_node.fid_ids[i] == 0){
+          aruco_node.marker_listen(tfBuffer, i);
+          explorer.rotate(0.01,true,180);
+        }
+      }
+
+
+      
       
       explorer_client.waitForResult();
 
 
-      explorer.go_to_goal(goal_x,goal_y);
+
       
       ros::Duration(0.5).sleep();
 
