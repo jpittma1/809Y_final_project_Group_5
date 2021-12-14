@@ -9,8 +9,6 @@
  * 
  */
 
-
-
 #include "../include/follower/follower.h"
 #include "../include/explorer/explorer.h"
 
@@ -75,11 +73,11 @@ int main(int argc, char** argv)
   bool explorer_goal_sent = false;
   bool follower_goal_sent = false;
 
-  ros::init(argc, argv, "follower");
-  ros::init(argc, argv, "explorer");
+  ros::init(argc, argv, "find_aruco_markers");
+  // ros::init(argc, argv, "explorer");
 
-  // ros::init(argc, argv, "simple_navigation_goals");
   ros::NodeHandle nh;
+  
   geometry_msgs::TransformStamped transformStamped;
 
   std::string robot_name;
@@ -87,34 +85,13 @@ int main(int argc, char** argv)
 
   //Initialize Follower and Explorer class objects
   Follower follower(&nh, "follower");
-  
- 
-  // if (nh.hasParam("robot_name")) {
-  //   nh.getParam("robot_name", robot_name_follow);
-  //   ROS_INFO_STREAM("robot name: " << robot_name_follow);
-  // }
-  // else {
-  //   print_usage("missing argument: _robot_name_follow:= <name>");
-  // }
-
   Explorer explorer(&nh, "explorer");
   
-  // if (nh.hasParam("robot_name")) {
-  //   nh.getParam("robot_name", robot_name_explore);
-  //   ROS_INFO_STREAM("robot name: " << robot_name_explore);
-  // }
-  // else {
-  //   print_usage("missing argument: _robot_name_explore:= <name>");
-  // }
-  
+
   // tell the action client that we want to spin a thread by default
   MoveBaseClient explorer_client("/explorer/move_base", true);
   // tell the action client that we want to spin a thread by default
   MoveBaseClient follower_client("/follower/move_base", true);
-
-
-  move_base_msgs::MoveBaseGoal explorer_goal;
-  move_base_msgs::MoveBaseGoal follower_goal;
 
   // wait for the action server to come up
   while (!explorer_client.waitForServer(ros::Duration(5.0))) {
@@ -125,8 +102,8 @@ int main(int argc, char** argv)
     ROS_INFO("Waiting for the move_base action server to come up for follower");
   }
   
-  // move_base_msgs::MoveBaseGoal explorer_goal;
-  // move_base_msgs::MoveBaseGoal follower_goal;
+  move_base_msgs::MoveBaseGoal explorer_goal;
+  move_base_msgs::MoveBaseGoal follower_goal;
 
 
   //Build goal for explorer
@@ -195,20 +172,17 @@ int main(int argc, char** argv)
 
   static double final_angle{ 0 };
   
-  std::array<std::array<double,2>,4> goal_list = explorer.get_goals();
+  std::array<std::array<double,2>,4> goal_list = explorer.get_goals(); //Goals from aruco_lookup.yaml
  
   while (ros::ok()) {
     //*****EXPLORER*****//
 
-  
-    for(i = 0; i < 4; i++){
+    for(int i = 0; i < 4; i++){
       goal_x = goal_list[i][0];
       goal_y = goal_list[i][1];
 
-      ROS_INFO_STREAM("Goal Explorer Pos: "
-          << goal_x
-          << goal_y
-          << '.');
+      ROS_INFO_STREAM("Explorer Goal Pos: (");
+      std::cout << goal_x << ", " << goal_y << ")\n";
 
       explorer_goal.target_pose.header.frame_id = "map";
       explorer_goal.target_pose.header.stamp = ros::Time::now();
@@ -236,80 +210,107 @@ int main(int argc, char** argv)
         ROS_INFO("Hooray, explorer reached goal");
       }
     
-
-    try {
-        transformStamped = tfBuffer.lookupTransform("map", "marker_frame", ros::Time(0));
-        ROS_INFO_STREAM("Position in /map frame: ["
-          << transformStamped.transform.translation.x << ","
-          << transformStamped.transform.translation.y << ","
-          << transformStamped.transform.translation.z << "]"
-        );
-
-      
-      }
-      catch (tf2::TransformException& ex) {
-          ROS_WARN("%s", ex.what());
-          ros::Duration(1.0).sleep();
-      }}
+      // try {
+      //     transformStamped = tfBuffer.lookupTransform("map", "marker_frame", ros::Time(0));
+      //     ROS_INFO_STREAM("Position in /map frame: ["
+      //       << transformStamped.transform.translation.x << ","
+      //       << transformStamped.transform.translation.y << ","
+      //       << transformStamped.transform.translation.z << "]"
+      //     );
+      // }
+      // catch (tf2::TransformException& ex) {
+      //       ROS_WARN("%s", ex.what());
+      //       ros::Duration(1.0).sleep();
+      // }
+    }//Explorer for loop
     
-      //*****FOLLOWER*******//
-      
-     
-      if (explorer_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED){
-      //---Send Follower to IDs O through 3 ---//
-        for (int i=0;i<4;i++) {
-          //--Set Goal for next ID--//
-          fiducial_id=follower.m_fid.at(i);
-          goal_x=follower.m_posit.at(i).at(0);
-          goal_y=follower.m_posit.at(i).at(1);
-          //Build goal for follower using Move_base
-          follower_goal.target_pose.header.frame_id = "map";
-          follower_goal.target_pose.header.stamp = ros::Time::now();
-          follower_goal.target_pose.pose.position.x = goal_x;//
-          follower_goal.target_pose.pose.position.y = goal_y;//
-          follower_goal.target_pose.pose.orientation.w = 1.0;
+    //---SEND Explorer Home---
+    goal_x=-4;
+    goal_y=2.5;
+    explorer.go_to_goal(goal_x, goal_y);
 
-          ROS_INFO("Sending goal");
-          follower_client.sendGoal(follower_goal);
-          follower_client.waitForResult();
-          
-          if (motion_type == "h")
-            follower.stop();
-          else if (motion_type == "s")
-            follower.drive_straight(drive_value, direction_b);
-          else if (motion_type == "r")
-          {
-            if (final_angle == 0)
-              final_angle = follower.compute_expected_final_yaw(direction_b, drive_value);
-            follower.rotate(drive_value, direction_b, final_angle);
-          }
-          else if (motion_type == "g")
-          {
-            ROS_INFO("Sending follower to goal for");
-            std::cout << "\nFiducial ID: "<< fiducial_id;
-            std::cout << "\nLocated at: ("<< goal_x << ", "<<goal_y<<")";
-            follower.go_to_goal(goal_x, goal_y);
-            ROS_INFO("Hooray, follower reached goal");
-          }
+    //*****FOLLOWER*******//
+    
+    //Wait until explorer "home" = (-4,2.5) before follower leave
+    if (goal_x==-4 && goal_y==2.5){
+      ros::Duration(2.0).sleep();
+    //---Send Follower to IDs O through 3 ---//
+      for (int j=0; j<4 ;j++) {
+        //--Set Goal for next ID--//
+        fiducial_id=follower.m_fid.at(j);
+        goal_x=follower.m_posit.at(j).at(0);
+        goal_y=follower.m_posit.at(j).at(1);
+        
+        //Build goal for follower using Move_base
+        follower_goal.target_pose.header.frame_id = "map";
+        follower_goal.target_pose.header.stamp = ros::Time::now();
+        follower_goal.target_pose.pose.position.x = goal_x;
+        follower_goal.target_pose.pose.position.y = goal_y;
+        follower_goal.target_pose.pose.orientation.w = 1.0;
 
-          //---Send Follower to Start Position (-4,3.5) ---//
-          if (i==3) {
-            ROS_INFO("Sending follower to Start Position");
-            goal_x=-4;
-            goal_y=3.5;
-            follower.go_to_goal(goal_x, goal_y);
-            ROS_INFO("Hooray, follower reached starting position");
-            ros::shutdown();
-          }
-       }
-      }
+        ROS_INFO("Sending follower goal");
+        follower_client.sendGoal(follower_goal);
+        follower_client.waitForResult();
+        
+        if (motion_type == "h")
+          follower.stop();
+        else if (motion_type == "s")
+          follower.drive_straight(drive_value, direction_b);
+        else if (motion_type == "r")
+        {
+          if (final_angle == 0)
+            final_angle = follower.compute_expected_final_yaw(direction_b, drive_value);
+          follower.rotate(drive_value, direction_b, final_angle);
+        }
+        else if (motion_type == "g")
+        {
+          ROS_INFO("Follower moving to goal for");
+          std::cout << "\nFiducial ID: "<< fiducial_id;
+          std::cout << "\nLocated at: ("<< goal_x << ", "<<goal_y<<")";
+          follower.go_to_goal(goal_x, goal_y);
+          ROS_INFO("Hooray, follower reached goal");
+        }
+
+        ros::Duration(0.5).sleep();
+        //---Send Follower to Start Position (-4,3.5) ---//
+        // if (j==3) {
+        //   ROS_INFO("Sending follower to Start Position");
+        //   goal_x=-4;
+        //   goal_y=3.5;
+        //   //TBD if need for going home
+        //   // follower_goal.target_pose.header.frame_id = "map";
+        //   // follower_goal.target_pose.header.stamp = ros::Time::now();
+        //   // follower_goal.target_pose.pose.position.x = goal_x;
+        //   // follower_goal.target_pose.pose.position.y = goal_y;
+        //   // follower_goal.target_pose.pose.orientation.w = 1.0;
+        //   follower.go_to_goal(goal_x, goal_y);
+        //   ROS_INFO("Hooray, follower reached starting position");
+        //   ros::shutdown();
+        }
+      } //for loop
+
+      //---Send Follower to Start Position (-4,3.5) ---//
+      ROS_INFO("Sending follower to Start Position");
+      goal_x=-4;
+      goal_y=3.5;
+      //TBD if need for going home
+      // follower_goal.target_pose.header.frame_id = "map";
+      // follower_goal.target_pose.header.stamp = ros::Time::now();
+      // follower_goal.target_pose.pose.position.x = goal_x;
+      // follower_goal.target_pose.pose.position.y = goal_y;
+      // follower_goal.target_pose.pose.orientation.w = 1.0;
+      follower.go_to_goal(goal_x, goal_y);
+      ROS_INFO("Hooray, follower reached starting position");
+      ros::shutdown();
+
+    }//if loop
 
     broadcast();
     listen(tfBuffer);
     ros::spinOnce();
     loop_rate.sleep();
 
-  }
+  }//while ros OK loop
 
 
 }

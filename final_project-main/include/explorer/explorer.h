@@ -12,6 +12,7 @@
 #include <string>
 #include <array>
 #include <algorithm>
+#include <iostream>
 #include <tf/transform_datatypes.h> //to manipulate quaternions
 #include <geometry_msgs/Quaternion.h>
 #include <cmath>

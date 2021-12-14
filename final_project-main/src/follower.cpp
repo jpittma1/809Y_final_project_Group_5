@@ -231,7 +231,7 @@ void Follower::drive_straight(double distance_to_drive, bool direction) {
 
 
 bool Follower::go_to_goal(double goal_x, double goal_y) {
-    // ROS_INFO_STREAM("Going to goal [" << goal_x << "," << goal_y << "]");
+    // ROS_INFO_STREAM("Follower Going to goal [" << goal_x << "," << goal_y << "]");
     // ROS_INFO_STREAM("Current location: " << m_location.first << "," << m_location.second);
     std::pair<double, double> goal{ goal_x, goal_y };
     double distance_to_goal = m_compute_distance(m_location, goal);
