@@ -118,60 +118,6 @@ int main(int argc, char** argv) {
   move_base_msgs::MoveBaseGoal follower_goal;
 
 
-  //Build goal for explorer
-  // explorer_goal.target_pose.header.frame_id = "map";
-  // explorer_goal.target_pose.header.stamp = ros::Time::now();
-  // explorer_goal.target_pose.pose.position.x = 7.710214;
-  // explorer_goal.target_pose.pose.position.y = -1.716889;
-  // explorer_goal.target_pose.pose.orientation.w = 1.0;
-
-
-  // ROS_INFO("Sending goal");
-  // explorer_client.waitForResult();
-
-  // std::string motion_type;
-  // if (nh.hasParam("motion"))
-  // {
-  //   nh.getParam("motion", motion_type);
-  // }
-  // else
-  // {
-  //   print_usage("missing argument: _motion:= <s/r/g/h>");
-  // }
-
-  // double drive_value;
-
-  // std::string direction_s;
-  // bool direction_b;
-  // if (motion_type == "s" || motion_type == "r")
-  // {
-  //   if (nh.hasParam("value"))
-  //   {
-  //     nh.getParam("value", drive_value);
-  //   }
-  //   else
-  //   {
-  //     print_usage("_value:= <double>");
-  //   }
-
-  //   if (nh.hasParam("direction"))
-  //   {
-  //     nh.getParam("direction", direction_s);
-  //     if (direction_s == "f")
-  //       direction_b = true;
-  //     else if (direction_s == "b")
-  //       direction_b = false;
-  //     else
-  //     {
-  //       print_usage("_direction:=<f/b>");
-  //     }
-  //   }
-  //   else
-  //   {
-  //     print_usage("_direction:= <f/b>");
-  //   }
-  // }
-
   //---Data to pull from array "m_fid" and "m_posit"
   int fiducial_id;
   double goal_x;
