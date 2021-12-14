@@ -10,12 +10,15 @@
  */
 #include "../include/explorer/explorer.h"
 #include "../include/follower/follower.h"
+#include <xmlrpcpp/XmlRpcClient.h>
+#include <xmlrpcpp/XmlRpc.h>
+
 
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
+
 // forward declaration
 void print_usage(std::string error = "");
-
 void print_usage(std::string error)
 {
   if (!error.empty())  // if not empty string
@@ -114,7 +117,6 @@ int main(int argc, char** argv) {
   // explorer_goal.target_pose.pose.position.y = -1.716889;
   // explorer_goal.target_pose.pose.orientation.w = 1.0;
 
-  // explorer_client.waitForResult();
 
   // ROS_INFO("Sending goal");
   // explorer_client.waitForResult();
@@ -178,17 +180,47 @@ int main(int argc, char** argv) {
   // std::array<std::array<double,2>,4> goal_list = explorer.get_goals();
   //hardcode
   std::array<std::array<double,2>,4> goal_list={};
-  goal_list[0][0] = -1.752882;
-  goal_list[0][1] = 3.246192; 
-  goal_list[1][0] = -2.510293;
-  goal_list[1][1] = 1.125585;
-  goal_list[2][0] = -0.289296;
-  goal_list[2][1] = -1.282680;
-  goal_list[3][0] = -1.282680;
-  goal_list[3][1] = -1.716889;
+
+  // std::array<std::array<double,2>,4> exp_goal = {};
+  XmlRpc::XmlRpcValue exp_goal;
+  nh.getParam("/aruco_lookup_locations/target_1", exp_goal);
+  // ROS_INFO_STREAM("Goal 1: " << nh.getParam("/aruco_lookup_locations/target_1",exp_goal));
+
+  ROS_ASSERT(exp_goal.getType() == XmlRpc::XmlRpcValue::TypeArray);
+
+  goal_list[0][0] = exp_goal[0];
+  goal_list[0][1] = exp_goal[1];
+
+  nh.getParam("/aruco_lookup_locations/target_1", exp_goal);
+  // ROS_INFO_STREAM("Goal 2: " << nh.getParam("/aruco_lookup_locations/target_1",exp_goal));
+
+  ROS_ASSERT(exp_goal.getType() == XmlRpc::XmlRpcValue::TypeArray);
+
+  goal_list[1][0] = exp_goal[0];
+  goal_list[1][1] = exp_goal[1];
+
+  nh.getParam("/aruco_lookup_locations/target_3", exp_goal);
+  // ROS_INFO_STREAM("Goal 1:" << nh.getParam("/aruco_lookup_locations/target_1",exp_goal));
+
+  ROS_ASSERT(exp_goal.getType() == XmlRpc::XmlRpcValue::TypeArray);
+
+  goal_list[2][0] = exp_goal[0];
+  goal_list[2][1] = exp_goal[1];
+
+  nh.getParam("/aruco_lookup_locations/target_4", exp_goal);
+  // ROS_INFO_STREAM("Goal 1:" << nh.getParam("/aruco_lookup_locations/target_1",exp_goal));
+
+  ROS_ASSERT(exp_goal.getType() == XmlRpc::XmlRpcValue::TypeArray);
+
+  goal_list[3][0] = exp_goal[0];
+  goal_list[3][1] = exp_goal[1];
+
+  
+  
 
   while (ros::ok()) {
     //*****EXPLORER*****//
+
 
     for(int i = 0; i < 4; i++){
       goal_x = goal_list[i][0];
@@ -203,6 +235,8 @@ int main(int argc, char** argv) {
       explorer_goal.target_pose.pose.position.y = goal_y;
       explorer_goal.target_pose.pose.orientation.w = 1.0;
 
+      explorer_client.waitForResult();
+
 
       if (!explorer_goal_sent){
         ROS_INFO("Sending goal for explorer");
@@ -210,6 +244,8 @@ int main(int argc, char** argv) {
         explorer_goal_sent = true;
       }
       
+      explorer_client.waitForResult();
+
 
       explorer.go_to_goal(goal_x,goal_y);
       
