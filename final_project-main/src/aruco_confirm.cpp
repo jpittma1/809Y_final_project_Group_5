@@ -1,7 +1,7 @@
 /**
  * @file explorer.cpp
  * @author 809Y Final Project Group 5
- * @brief Explorer Robot
+ * @brief  ArucoNode
  * @version 0.1
  * @date 2021-12-12
  * 
