@@ -5,4 +5,4 @@ Description: Description of final_project
 Version: 0.0.0
 Cflags: -I/home/jerry/catkin_ws/src/809Y_final_project_Group_5/final_project-main/include
 Libs: -L${prefix}/lib 
-Requires: actionlib_msgs geometry_msgs message_generation message_runtime std_msgs fiducial_msgs
+Requires: actionlib_msgs geometry_msgs message_generation message_runtime std_msgs fiducial_msgs move_base_msgs

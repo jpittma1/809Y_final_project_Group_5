@@ -114,7 +114,7 @@ find_package(Boost REQUIRED COMPONENTS system thread)
 catkin_package(
  INCLUDE_DIRS include
 #  LIBRARIES bot_controller
-CATKIN_DEPENDS actionlib_msgs geometry_msgs message_generation message_runtime std_msgs fiducial_msgs
+CATKIN_DEPENDS actionlib_msgs geometry_msgs message_generation message_runtime std_msgs fiducial_msgs move_base_msgs
 #  DEPENDS system_lib
 )
 

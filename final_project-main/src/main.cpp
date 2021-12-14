@@ -82,12 +82,12 @@ int main(int argc, char** argv) {
   
   geometry_msgs::TransformStamped transformStamped;
 
-  std::string robot_name;
+  // std::string robot_name;
   // std::string robot_name_follow;
 
   //Initialize Follower and Explorer class objects
   Explorer explorer(&nh, "explorer");
-  ros::Duration(1.0).sleep();
+  // ros::Duration(1.0).sleep();
   Follower follower(&nh, "follower");
   ArucoNode aruco_node(&nh);
   
@@ -119,52 +119,6 @@ int main(int argc, char** argv) {
   // explorer_goal.target_pose.pose.position.y = -1.716889;
   // explorer_goal.target_pose.pose.orientation.w = 1.0;
 
-
-  // ROS_INFO("Sending goal");
-  // explorer_client.waitForResult();
-
-  // std::string motion_type;
-  // if (nh.hasParam("motion"))
-  // {
-  //   nh.getParam("motion", motion_type);
-  // }
-  // else
-  // {
-  //   print_usage("missing argument: _motion:= <s/r/g/h>");
-  // }
-
-  // double drive_value;
-
-  // std::string direction_s;
-  // bool direction_b;
-  // if (motion_type == "s" || motion_type == "r")
-  // {
-  //   if (nh.hasParam("value"))
-  //   {
-  //     nh.getParam("value", drive_value);
-  //   }
-  //   else
-  //   {
-  //     print_usage("_value:= <double>");
-  //   }
-
-  //   if (nh.hasParam("direction"))
-  //   {
-  //     nh.getParam("direction", direction_s);
-  //     if (direction_s == "f")
-  //       direction_b = true;
-  //     else if (direction_s == "b")
-  //       direction_b = false;
-  //     else
-  //     {
-  //       print_usage("_direction:=<f/b>");
-  //     }
-  //   }
-  //   else
-  //   {
-  //     print_usage("_direction:= <f/b>");
-  //   }
-  // }
 
   //---Data to pull from array "m_fid" and "m_posit"
   int fiducial_id;
@@ -236,7 +190,6 @@ int main(int argc, char** argv) {
       explorer_goal.target_pose.pose.orientation.w = 1.0;
 
 
-
       if (!explorer_goal_sent){
         ROS_INFO("Sending goal for explorer");
         explorer_client.sendGoalAndWait(explorer_goal);//this should be sent only once
@@ -266,18 +219,7 @@ int main(int argc, char** argv) {
         ROS_INFO("Hooray, explorer reached goal");
       }
     
-      // try {
-      //     transformStamped = tfBuffer.lookupTransform("map", "marker_frame", ros::Time(0));
-      //     ROS_INFO_STREAM("Position in /map frame: ["
-      //       << transformStamped.transform.translation.x << ","
-      //       << transformStamped.transform.translation.y << ","
-      //       << transformStamped.transform.translation.z << "]"
-      //     );
-      // }
-      // catch (tf2::TransformException& ex) {
-      //       ROS_WARN("%s", ex.what());
-      //       ros::Duration(1.0).sleep();
-      // }
+     
     }//Explorer for loop
     
     //---SEND Explorer Home---
@@ -316,21 +258,12 @@ int main(int argc, char** argv) {
         
         follower_client.waitForResult();
         
-        // if (motion_type == "h") {
-        //   follower.stop();
-        // } else if (motion_type == "s") {
-        //   follower.drive_straight(drive_value, direction_b);
-        // } else if (motion_type == "r") {
-        //     if (final_angle == 0)
-        //       final_angle = follower.compute_expected_final_yaw(direction_b, drive_value);
-        //     follower.rotate(drive_value, direction_b, final_angle);
-        // } else if (motion_type == "g") {
-          ROS_INFO("Follower moving to goal");
-          std::cout << "\nFiducial ID: "<< fiducial_id;
-          std::cout << "\nLocated at: ("<< goal_x << ", "<<goal_y<<")";
-          follower.go_to_goal(goal_x, goal_y);
-          ROS_INFO("Hooray, follower reached goal");
-        // }
+        ROS_INFO("Follower moving to goal");
+        std::cout << "\nFiducial ID: "<< fiducial_id;
+        std::cout << "\nLocated at: ("<< goal_x << ", "<<goal_y<<")";
+        follower.go_to_goal(goal_x, goal_y);
+        ROS_INFO("Hooray, follower reached goal");
+        
 
         ros::Duration(0.5).sleep();
         //---Send Follower to Start Position (-4,3.5) ---//
@@ -339,10 +272,10 @@ int main(int argc, char** argv) {
           goal_x=-4;
           goal_y=3.5;
           //TBD if need for going home
-          // follower_goal.target_pose.header.frame_id = "map";
-          // follower_goal.target_pose.header.stamp = ros::Time::now();
-          // follower_goal.target_pose.pose.position.x = goal_x;
-          // follower_goal.target_pose.pose.position.y = goal_y;
+          follower_goal.target_pose.header.frame_id = "map";
+          follower_goal.target_pose.header.stamp = ros::Time::now();
+          follower_goal.target_pose.pose.position.x = goal_x;
+          follower_goal.target_pose.pose.position.y = goal_y;
           // follower_goal.target_pose.pose.orientation.w = 1.0;
           follower.go_to_goal(goal_x, goal_y);
           ROS_INFO("Hooray, follower reached starting position");
@@ -350,19 +283,6 @@ int main(int argc, char** argv) {
         } //if j=3 loop
      } //for "j" loop
 
-    // //---Send Follower to Start Position (-4,3.5) ---//
-    // ROS_INFO("Sending follower to Start Position");
-    // goal_x=-4;
-    // goal_y=3.5;
-    // //TBD if need for going home
-    // // follower_goal.target_pose.header.frame_id = "map";
-    // // follower_goal.target_pose.header.stamp = ros::Time::now();
-    // // follower_goal.target_pose.pose.position.x = goal_x;
-    // // follower_goal.target_pose.pose.position.y = goal_y;
-    // // follower_goal.target_pose.pose.orientation.w = 1.0;
-    // follower.go_to_goal(goal_x, goal_y);
-    // ROS_INFO("Hooray, follower reached starting position");
-    // ros::shutdown();
   
     }//if loop
   broadcast();
