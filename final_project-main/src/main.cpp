@@ -67,8 +67,7 @@ void listen(tf2_ros::Buffer& tfBuffer) {
   }
 }
 
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
   
   bool explorer_goal_sent = false;
   bool follower_goal_sent = false;
@@ -273,44 +272,41 @@ int main(int argc, char** argv)
 
         ros::Duration(0.5).sleep();
         //---Send Follower to Start Position (-4,3.5) ---//
-        // if (j==3) {
-        //   ROS_INFO("Sending follower to Start Position");
-        //   goal_x=-4;
-        //   goal_y=3.5;
-        //   //TBD if need for going home
-        //   // follower_goal.target_pose.header.frame_id = "map";
-        //   // follower_goal.target_pose.header.stamp = ros::Time::now();
-        //   // follower_goal.target_pose.pose.position.x = goal_x;
-        //   // follower_goal.target_pose.pose.position.y = goal_y;
-        //   // follower_goal.target_pose.pose.orientation.w = 1.0;
-        //   follower.go_to_goal(goal_x, goal_y);
-        //   ROS_INFO("Hooray, follower reached starting position");
-        //   ros::shutdown();
-        }
-      } //for loop
+        if (j==3) {
+          ROS_INFO("Sending follower to Start Position");
+          goal_x=-4;
+          goal_y=3.5;
+          //TBD if need for going home
+          // follower_goal.target_pose.header.frame_id = "map";
+          // follower_goal.target_pose.header.stamp = ros::Time::now();
+          // follower_goal.target_pose.pose.position.x = goal_x;
+          // follower_goal.target_pose.pose.position.y = goal_y;
+          // follower_goal.target_pose.pose.orientation.w = 1.0;
+          follower.go_to_goal(goal_x, goal_y);
+          ROS_INFO("Hooray, follower reached starting position");
+          ros::shutdown();
+        }//for loop
+    } //if loop
 
-      //---Send Follower to Start Position (-4,3.5) ---//
-      ROS_INFO("Sending follower to Start Position");
-      goal_x=-4;
-      goal_y=3.5;
-      //TBD if need for going home
-      // follower_goal.target_pose.header.frame_id = "map";
-      // follower_goal.target_pose.header.stamp = ros::Time::now();
-      // follower_goal.target_pose.pose.position.x = goal_x;
-      // follower_goal.target_pose.pose.position.y = goal_y;
-      // follower_goal.target_pose.pose.orientation.w = 1.0;
-      follower.go_to_goal(goal_x, goal_y);
-      ROS_INFO("Hooray, follower reached starting position");
-      ros::shutdown();
+  // //---Send Follower to Start Position (-4,3.5) ---//
+  // ROS_INFO("Sending follower to Start Position");
+  // goal_x=-4;
+  // goal_y=3.5;
+  // //TBD if need for going home
+  // // follower_goal.target_pose.header.frame_id = "map";
+  // // follower_goal.target_pose.header.stamp = ros::Time::now();
+  // // follower_goal.target_pose.pose.position.x = goal_x;
+  // // follower_goal.target_pose.pose.position.y = goal_y;
+  // // follower_goal.target_pose.pose.orientation.w = 1.0;
+  // follower.go_to_goal(goal_x, goal_y);
+  // ROS_INFO("Hooray, follower reached starting position");
+  // ros::shutdown();
 
-    }//if loop
-
-    broadcast();
-    listen(tfBuffer);
-    ros::spinOnce();
-    loop_rate.sleep();
-
+    
+  broadcast();
+  listen(tfBuffer);
+  ros::spinOnce();
+  loop_rate.sleep();
   }//while ros OK loop
 
-
-}
+}//main
