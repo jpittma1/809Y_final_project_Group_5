@@ -8,8 +8,8 @@
  * @copyright Copyright (c) 2021
  * 
  */
-#include "../include/follower/follower.h"
 #include "../include/explorer/explorer.h"
+#include "../include/follower/follower.h"
 
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
@@ -71,7 +71,7 @@ int main(int argc, char** argv) {
   bool explorer_goal_sent = false;
   bool follower_goal_sent = false;
 
-  ros::init(argc, argv, "find_aruco_markers");
+  ros::init(argc, argv, "final_project");
   // ros::init(argc, argv, "explorer");
 
   ros::NodeHandle nh;
@@ -83,6 +83,7 @@ int main(int argc, char** argv) {
 
   //Initialize Follower and Explorer class objects
   Explorer explorer(&nh, "explorer");
+  ros::Duration(1.0).sleep();
   Follower follower(&nh, "follower");
   
 
@@ -210,7 +211,7 @@ int main(int argc, char** argv) {
       }
       
 
-      // explorer.go_to_goal(explorer.goal_list[i][0],explorer.goal_list[i][1]);
+      explorer.go_to_goal(goal_x,goal_y);
       
       ros::Duration(0.5).sleep();
 

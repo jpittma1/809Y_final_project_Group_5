@@ -19,7 +19,6 @@
 #include <algorithm>
 #include <iostream>
 #include <tf/transform_datatypes.h> //to manipulate quaternions
-
 #include <cmath>
 
 
