@@ -71,25 +71,16 @@ void listen(tf2_ros::Buffer& tfBuffer) {
 }
 
 
-
-
-
-
-
 int main(int argc, char** argv) {
   
   bool explorer_goal_sent = false;
   bool follower_goal_sent = false;
 
   ros::init(argc, argv, "final_project");
-  // ros::init(argc, argv, "explorer");
 
   ros::NodeHandle nh;
   
   geometry_msgs::TransformStamped transformStamped;
-
-  std::string robot_name;
-  // std::string robot_name_follow;
 
   //Initialize Follower and Explorer class objects
   Explorer explorer(&nh, "explorer");
