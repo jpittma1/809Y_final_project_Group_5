@@ -76,7 +76,6 @@ int main(int argc, char** argv) {
   static double final_angle{ 0 };
   
   //****Explorer Get Goals from aruco_lookup.yaml*****
-  
   std::array<std::array<double,2>,4> goal_list={};
   // std::array<std::array<double,2>,4> exp_goal = {};
 
@@ -89,7 +88,7 @@ int main(int argc, char** argv) {
   goal_list[0][0] = exp_goal[0];
   goal_list[0][1] = exp_goal[1];
 
-  nh.getParam("/aruco_lookup_locations/target_1", exp_goal);
+  nh.getParam("/aruco_lookup_locations/target_2", exp_goal);
   // ROS_INFO_STREAM("Goal 2: " << nh.getParam("/aruco_lookup_locations/target_1",exp_goal));
 
   ROS_ASSERT(exp_goal.getType() == XmlRpc::XmlRpcValue::TypeArray);
@@ -126,7 +125,7 @@ int main(int argc, char** argv) {
 
       explorer_goal.target_pose.header.frame_id = "map";
       explorer_goal.target_pose.header.stamp = ros::Time::now();
-      explorer_goal.target_pose.pose.position.x = -1.5;
+      explorer_goal.target_pose.pose.position.x = goal_x;
       explorer_goal.target_pose.pose.position.y = goal_y;
       explorer_goal.target_pose.pose.orientation.w = 1.0;
 
@@ -148,18 +147,17 @@ int main(int argc, char** argv) {
     
       if (explorer_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
         ROS_INFO("Hooray, explorer reached goal");
+        explorer_goal_sent = false;
         // aruco_node.marker_listen(tfBuffer, i);
         
         while(!aruco_node.marker_seen){
           explorer.m_move(0.0,0.5);
           aruco_node.marker_listen(tfBuffer, i);
-
         } 
-        
-
-      }
+      }    
+  
+   }//Explorer for loop
     
-    }//Explorer for loop
     
     //---SEND Explorer Home---
     goal_x=-4;
@@ -248,8 +246,8 @@ int main(int argc, char** argv) {
 
         } else {
             ros::spinOnce();
-          }//if j=3 loop
-     } //for "j" loop
+          }//if j==3 loop
+     } //Follower "j" loop
 
     }//if loop
   
