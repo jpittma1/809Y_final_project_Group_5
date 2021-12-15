@@ -88,7 +88,7 @@ class ArucoNode{
          * @param tfBuffer 
          * @param count 
          */
-        void m_initialize_subscribers(tf2_ros::Buffer& tfBuffer, int count);
+        void m_initialize_subscribers();
         
     private:
         

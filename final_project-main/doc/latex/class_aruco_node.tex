@@ -20,8 +20,8 @@ void \hyperlink{class_aruco_node_ad79fd951057c9a40f34fc159363fbd94}{marker\+\_\+
 \begin{DoxyCompactList}\small\item\em listener for ar\+Uco markers \end{DoxyCompactList}\item 
 \hyperlink{class_aruco_node_a134694163a28530a800198e2c039eb25}{$\sim$\+Aruco\+Node} ()
 \begin{DoxyCompactList}\small\item\em Destroy the Aruco Node object. \end{DoxyCompactList}\item 
-void \hyperlink{class_aruco_node_a986dfcf96c1b6688571e85b181d011e0}{m\+\_\+initialize\+\_\+subscribers} (tf2\+\_\+ros\+::\+Buffer \&tf\+Buffer, int count)
-\end{DoxyCompactItemize}
+void \hyperlink{class_aruco_node_a3aa9013d9f53f08c7de83be3359f7503}{m\+\_\+initialize\+\_\+subscribers} ()
+\begin{DoxyCompactList}\small\item\em initializes subscribers \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -42,7 +42,7 @@ std\+::array$<$ bool, 4 $>$ \hyperlink{class_aruco_node_a2e41167c119527f9fbeb937
 \subsection{Detailed Description}
 A class that detects the Aruco Marker. 
 
-Definition at line 24 of file aruco\+\_\+confirm.\+h.
+Definition at line 26 of file aruco\+\_\+confirm.\+h.
 
 
 
@@ -78,7 +78,7 @@ Destroy the Aruco Node object.
 
 
 
-Definition at line 79 of file aruco\+\_\+confirm.\+h.
+Definition at line 83 of file aruco\+\_\+confirm.\+h.
 
 
 
@@ -102,12 +102,23 @@ Broadcaster for ar\+Uco Markers.
 
 Definition at line 19 of file aruco\+\_\+confirm.\+cpp.
 
-\mbox{\Hypertarget{class_aruco_node_a986dfcf96c1b6688571e85b181d011e0}\label{class_aruco_node_a986dfcf96c1b6688571e85b181d011e0}} 
+\mbox{\Hypertarget{class_aruco_node_a3aa9013d9f53f08c7de83be3359f7503}\label{class_aruco_node_a3aa9013d9f53f08c7de83be3359f7503}} 
 \index{Aruco\+Node@{Aruco\+Node}!m\+\_\+initialize\+\_\+subscribers@{m\+\_\+initialize\+\_\+subscribers}}
 \index{m\+\_\+initialize\+\_\+subscribers@{m\+\_\+initialize\+\_\+subscribers}!Aruco\+Node@{Aruco\+Node}}
 \subsubsection{\texorpdfstring{m\+\_\+initialize\+\_\+subscribers()}{m\_initialize\_subscribers()}}
-{\footnotesize\ttfamily void Aruco\+Node\+::m\+\_\+initialize\+\_\+subscribers (\begin{DoxyParamCaption}\item[{tf2\+\_\+ros\+::\+Buffer \&}]{tf\+Buffer,  }\item[{int}]{count }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Aruco\+Node\+::m\+\_\+initialize\+\_\+subscribers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+initializes subscribers 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tf\+Buffer} & \\
+\hline
+{\em count} & \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line 77 of file aruco\+\_\+confirm.\+cpp.
@@ -148,7 +159,7 @@ Fiducial I\+Ds storage.
 
 
 
-Definition at line 58 of file aruco\+\_\+confirm.\+h.
+Definition at line 60 of file aruco\+\_\+confirm.\+h.
 
 \mbox{\Hypertarget{class_aruco_node_a323a2a97fc30a4e6daf59d9577485569}\label{class_aruco_node_a323a2a97fc30a4e6daf59d9577485569}} 
 \index{Aruco\+Node@{Aruco\+Node}!first\+\_\+goal@{first\+\_\+goal}}
@@ -162,7 +173,7 @@ First goal met; initially no.
 
 
 
-Definition at line 52 of file aruco\+\_\+confirm.\+h.
+Definition at line 54 of file aruco\+\_\+confirm.\+h.
 
 \mbox{\Hypertarget{class_aruco_node_a454cdb8d15fa07e7913887a1b2029600}\label{class_aruco_node_a454cdb8d15fa07e7913887a1b2029600}} 
 \index{Aruco\+Node@{Aruco\+Node}!m\+\_\+count@{m\+\_\+count}}
@@ -172,7 +183,7 @@ Definition at line 52 of file aruco\+\_\+confirm.\+h.
 
 
 
-Definition at line 67 of file aruco\+\_\+confirm.\+h.
+Definition at line 71 of file aruco\+\_\+confirm.\+h.
 
 \mbox{\Hypertarget{class_aruco_node_a2e41167c119527f9fbeb937838fc8909}\label{class_aruco_node_a2e41167c119527f9fbeb937838fc8909}} 
 \index{Aruco\+Node@{Aruco\+Node}!marker\+\_\+seen@{marker\+\_\+seen}}
@@ -186,7 +197,7 @@ Determines if marker seen; 4 I\+Ds to detect.
 
 
 
-Definition at line 73 of file aruco\+\_\+confirm.\+h.
+Definition at line 77 of file aruco\+\_\+confirm.\+h.
 
 \mbox{\Hypertarget{class_aruco_node_ac9561321e855855ccc8f643cc139a638}\label{class_aruco_node_ac9561321e855855ccc8f643cc139a638}} 
 \index{Aruco\+Node@{Aruco\+Node}!temp\+\_\+id@{temp\+\_\+id}}
@@ -196,7 +207,7 @@ Definition at line 73 of file aruco\+\_\+confirm.\+h.
 
 
 
-Definition at line 66 of file aruco\+\_\+confirm.\+h.
+Definition at line 70 of file aruco\+\_\+confirm.\+h.
 
 \mbox{\Hypertarget{class_aruco_node_ab410bc0b655071ee67e7ba63b4edf256}\label{class_aruco_node_ab410bc0b655071ee67e7ba63b4edf256}} 
 \index{Aruco\+Node@{Aruco\+Node}!transformed\+\_\+locs@{transformed\+\_\+locs}}
@@ -210,7 +221,7 @@ Transformed locations.
 
 
 
-Definition at line 64 of file aruco\+\_\+confirm.\+h.
+Definition at line 68 of file aruco\+\_\+confirm.\+h.
 
 
 

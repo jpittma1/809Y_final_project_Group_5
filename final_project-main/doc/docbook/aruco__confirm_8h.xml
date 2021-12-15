@@ -16,6 +16,7 @@
     <programlisting>#include &lt;tf/transform_datatypes.h&gt;</programlisting>
     <programlisting>#include &lt;geometry_msgs/Quaternion.h&gt;</programlisting>
     <programlisting>#include &lt;cmath&gt;</programlisting>
+    <programlisting>#include &quot;../include/follower/follower.h&quot;</programlisting>
 <para>Include dependency diagram for aruco_confirm.h</para>
 <para>
     <figure>

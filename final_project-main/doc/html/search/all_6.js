@@ -3,7 +3,7 @@ var searchData=
   ['m_5fcount',['m_count',['../class_aruco_node.html#a454cdb8d15fa07e7913887a1b2029600',1,'ArucoNode']]],
   ['m_5ffid',['m_fid',['../class_follower.html#a350054bbd7659d493cccc4b4ad9bc460',1,'Follower']]],
   ['m_5fgoal_5fcount',['m_goal_count',['../class_follower.html#af53c7dcd8b5a99111bdfe0c8dd2015cf',1,'Follower']]],
-  ['m_5finitialize_5fsubscribers',['m_initialize_subscribers',['../class_aruco_node.html#a986dfcf96c1b6688571e85b181d011e0',1,'ArucoNode']]],
+  ['m_5finitialize_5fsubscribers',['m_initialize_subscribers',['../class_aruco_node.html#a3aa9013d9f53f08c7de83be3359f7503',1,'ArucoNode']]],
   ['m_5fmove',['m_move',['../class_explorer.html#ace304ef65547f4a3ff6458d934c54e87',1,'Explorer']]],
   ['m_5fposit',['m_posit',['../class_follower.html#a6d4e1ebbe79cc8af601d53cba7aeb30a',1,'Follower']]],
   ['m_5ftest',['m_test',['../class_follower.html#a64e365d54197c51a8d1f777900b09647',1,'Follower']]],

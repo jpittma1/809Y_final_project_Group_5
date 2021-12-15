@@ -13,7 +13,7 @@
 ArucoNode::ArucoNode(ros::NodeHandle* nodehandle, tf2_ros::Buffer& tfBuffer, int count):
     m_nh{ *nodehandle }
 {
-    m_initialize_subscribers(tfBuffer, count);
+    m_initialize_subscribers();
 };
 
 void ArucoNode::fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg)
@@ -51,8 +51,8 @@ void ArucoNode::fiducial_callback(const fiducial_msgs::FiducialTransformArray::C
 
 void ArucoNode::marker_listen(tf2_ros::Buffer& tfBuffer, int count) {
   //for listener
-    
-    m_initialize_subscribers(tfBuffer, count);
+    m_count = count;
+    m_initialize_subscribers();
     geometry_msgs::TransformStamped transformStamped;
     try {
         transformStamped = tfBuffer.lookupTransform("map", "marker_frame",
@@ -74,7 +74,7 @@ void ArucoNode::marker_listen(tf2_ros::Buffer& tfBuffer, int count) {
 
 }
 
-void ArucoNode::m_initialize_subscribers(tf2_ros::Buffer& tfBuffer, int count) {
+void ArucoNode::m_initialize_subscribers() {
     ROS_INFO_STREAM("Initializing Subscribers\nMessage: "<<this);
     m_fiducial_a_subscriber = m_nh.subscribe("/fiducial_transforms", 1000, &ArucoNode::fiducial_callback, this); 
 }

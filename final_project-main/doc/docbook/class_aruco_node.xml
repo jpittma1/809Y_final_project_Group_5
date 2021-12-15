@@ -136,8 +136,9 @@ tf2_ros::Buffer &amp; tfBuffer, int count)<para><emphasis>listener for arUco mar
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>void <link linkend="class_aruco_node_1a986dfcf96c1b6688571e85b181d011e0">m_initialize_subscribers</link> (
-tf2_ros::Buffer &amp; tfBuffer, int count)</para>
+                        <para>void <link linkend="class_aruco_node_1a3aa9013d9f53f08c7de83be3359f7503">m_initialize_subscribers</link> (
+)<para><emphasis>initializes subscribers</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -237,8 +238,35 @@ tf2_ros::Buffer &amp; tfBuffer, int count)</para>
                 <title>ArucoNode::~ArucoNode ()</title> <emphasis>Destroy the Aruco Node object.</emphasis>
                 
             </section>
-            <section xml:id="class_aruco_node_1a986dfcf96c1b6688571e85b181d011e0">
-                <title>void ArucoNode::m_initialize_subscribers (tf2_ros::Buffer &amp;tfBuffer, int count)</title> <emphasis></emphasis>
+            <section xml:id="class_aruco_node_1a3aa9013d9f53f08c7de83be3359f7503">
+                <title>void ArucoNode::m_initialize_subscribers ()</title> <emphasis>initializes subscribers</emphasis>
                 
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>tfBuffer</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>count</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
             </section>
 </section>
