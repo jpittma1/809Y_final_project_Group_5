@@ -59,6 +59,8 @@ class ArucoNode{
          */
         std::array<int,4> fid_ids{0,0,0,0};
 
+       
+
         /**
          * @brief Transformed locations
          * 
@@ -79,7 +81,13 @@ class ArucoNode{
          * 
          */
         ~ArucoNode() {}
-
+        
+        /**
+         * @brief initializes subscribers
+         * 
+         * @param tfBuffer 
+         * @param count 
+         */
         void m_initialize_subscribers(tf2_ros::Buffer& tfBuffer, int count);
         
     private:

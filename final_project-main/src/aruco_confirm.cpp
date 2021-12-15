@@ -13,7 +13,7 @@
 ArucoNode::ArucoNode(ros::NodeHandle* nodehandle, tf2_ros::Buffer& tfBuffer, int count):
     m_nh{ *nodehandle }
 {
-    m_initialize_subscribers(tfBuffer,count);
+    m_initialize_subscribers(tfBuffer, count);
 };
 
 void ArucoNode::fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg)
