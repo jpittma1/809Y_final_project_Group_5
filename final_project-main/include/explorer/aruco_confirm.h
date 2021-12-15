@@ -46,6 +46,12 @@ class ArucoNode{
         void marker_listen(tf2_ros::Buffer& tfBuffer, int count);
         
         /**
+         * @brief Broadcaster for ArUco markers
+         * 
+         */
+        void marker_broadcast();
+
+        /**
          * @brief Does arUco marker exist
          * 
          * @param msg 
@@ -58,6 +64,10 @@ class ArucoNode{
          */
         void aruco_seen();
         
+        /**
+         * @brief First goal met; initially no
+         * 
+         */
         bool first_goal = false;
 
         /**
@@ -75,7 +85,11 @@ class ArucoNode{
         int temp_id;
         int m_count{0};
 
-       std::array<bool,4> marker_seen {false,false,false,false};
+        /**
+         * @brief Determines if marker seen; 4 IDs to detect
+         * 
+         */
+        std::array<bool,4> marker_seen {false,false,false,false};
         
         /**
          * @brief Destroy the Aruco Node object
@@ -84,15 +98,13 @@ class ArucoNode{
         ~ArucoNode() {}
         
     private:
-        // void m_check_subscribers();
+        
         void m_initialize_subscribers();
 
 
         ros::NodeHandle m_nh;
-        // ros::Subscriber m_check_subscriber;
-        // ros::Subscriber m_scan_subscriber;
+        
         ros::Subscriber m_fiducial_subscriber;
-        // ros::Publisher m_velocity_publisher;
 
     
 };

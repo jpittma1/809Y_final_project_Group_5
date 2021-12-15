@@ -191,7 +191,7 @@ int main(int argc, char** argv) {
     delayed_start=true;
 
     follower.setup_goals();
-    ROS_INFO_STREAM("The first goal is: "<<follower.m_posit[0][0]<<"\t"<<follower.m_post[0][1]);
+    ROS_INFO("The first goal is: "<<follower.m_posit[0][0]<<"\t"<<follower.m_post[0][1]);
 
     //*****FOLLOWER*******//
     //--STEP 01. Let Follower Get home---
