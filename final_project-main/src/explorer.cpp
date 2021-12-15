@@ -50,7 +50,6 @@ void Explorer::m_initialize_publishers() {
 void Explorer::m_initialize_subscribers() {
     ROS_INFO("Initializing Explorer Subscribers");
     m_e_pose_subscriber = m_nh.subscribe("/explorer/odom", 1000, &Explorer::m_pose_callback, this);
-    // m_scan_subscriber = m_nh.subscribe("/explorer/scan", 1000, &Explorer::m_scan_callback, this);   
 }
 
 double Explorer::convert_rad_to_deg(double angle) {
@@ -215,7 +214,6 @@ bool Explorer::go_to_goal(double goal_x, double goal_y) {
     }
     else {
         stop();
-        // ros::shutdown();
         return true;
     }
 }

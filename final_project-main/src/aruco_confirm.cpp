@@ -46,7 +46,7 @@ void ArucoNode::fiducial_callback(const fiducial_msgs::FiducialTransformArray::C
         br.sendTransform(transformStamped); //broadcast the transform on /tf Topic
         marker_seen[m_count] = true;
     }
-    else{ROS_INFO_STREAM("Empty Transform.");}
+    // else{ROS_INFO_STREAM("Empty Transform.");}
 }
 
 void ArucoNode::marker_listen(tf2_ros::Buffer& tfBuffer, int count) {

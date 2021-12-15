@@ -17,6 +17,8 @@
 #include <geometry_msgs/Quaternion.h>
 #include <cmath>
 
+#include "../include/follower/follower.h"
+
 /**
  * @brief A class that detects the Aruco Marker.
  * 
