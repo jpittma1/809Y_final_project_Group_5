@@ -48,8 +48,12 @@ void print_usage(std::string error)
 //   br.sendTransform(transformStamped);
 // }
 
+/**
+ * @brief Listener to convert ArUco marker's pose of /map frame
+ * 
+ * @param tfBuffer 
+ */
 void listen(tf2_ros::Buffer& tfBuffer) {
-  //for listener
 
   geometry_msgs::TransformStamped transformStamped;
   try {
