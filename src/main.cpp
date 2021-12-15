@@ -238,8 +238,8 @@ int main(int argc, char** argv) {
         //--Set Goal for next ID--//
         fiducial_id=follower.m_fid.at(j);
         
-        goal_x = goal_list[j][0];
-        goal_y = goal_list[j][1];
+        goal_x = follow_list[j][0];
+        goal_y = follow_list[j][1];
         ROS_INFO_STREAM("The first goal is: "<<goal_x<<"\t"<<goal_y);
 
         
@@ -253,7 +253,7 @@ int main(int argc, char** argv) {
 
         if (!follower_goal_sent){
           ROS_INFO("Sending follower goal");
-          follower_client.sendGoalAndWait(follower_goal);
+          follower_client.sendGoal(follower_goal);
           follower_goal_sent = true;
         }
         
