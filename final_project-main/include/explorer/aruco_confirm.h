@@ -23,17 +23,51 @@
  */
 class ArucoNode{
     public:
+        /**
+         * @brief Construct a new Aruco Node object
+         * 
+         * @param nodehandle 
+         */
         ArucoNode(ros::NodeHandle* nodehandle);
+
+        /**
+         * @brief Broadcaster for arUco Markers
+         * 
+         * @param msg 
+         */
         void fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg);
-        void marker_listen(tf2_ros::Buffer& tfBuffer, int count);
-        void marker_broadcast();
         
+        /**
+         * @brief listener for arUco markers
+         * 
+         * @param tfBuffer 
+         * @param count 
+         */
+        void marker_listen(tf2_ros::Buffer& tfBuffer, int count);
+        
+        /**
+         * @brief Does arUco marker exist
+         * 
+         * @param msg 
+         */
         void aruco_exists_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg);
 
+        /**
+         * @brief Is ArUco marker seen?
+         * 
+         */
         void aruco_seen();
         
-
+        /**
+         * @brief Fiducial IDs storage
+         * 
+         */
         std::array<int,4> fid_ids{0,0,0,0};
+
+        /**
+         * @brief Transformed locations
+         * 
+         */
         std::array<std::array<double,2>,4> transformed_locs;
 
         int temp_id;
@@ -41,7 +75,12 @@ class ArucoNode{
 
         bool marker_seen {false};
         
+        /**
+         * @brief Destroy the Aruco Node object
+         * 
+         */
         ~ArucoNode() {}
+        
     private:
         void m_check_subscribers();
         void m_initialize_subscribers();

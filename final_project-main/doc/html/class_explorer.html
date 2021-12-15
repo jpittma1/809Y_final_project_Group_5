@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('class_explorer.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>A class that inherits from Bot_contreoller to control the explorer and exploration algorithm.  
+<p>A class to control the explorer and exploration algorithm.  
  <a href="class_explorer.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="explorer_8h_source.html">explorer.h</a>&gt;</code></p>
@@ -98,6 +98,7 @@ $(document).ready(function(){initNavTree('class_explorer.html','');});
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aafe6b7c3b9c2e24815aa14a731f31890"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#aafe6b7c3b9c2e24815aa14a731f31890">Explorer</a> (ros::NodeHandle *nodehandle, const std::string &amp;robot_name)</td></tr>
+<tr class="memdesc:aafe6b7c3b9c2e24815aa14a731f31890"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="class_explorer.html" title="A class to control the explorer and exploration algorithm. ">Explorer</a> object.  <a href="#aafe6b7c3b9c2e24815aa14a731f31890">More...</a><br /></td></tr>
 <tr class="separator:aafe6b7c3b9c2e24815aa14a731f31890"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ffef25585ef957b9df4407366723787"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#a8ffef25585ef957b9df4407366723787">publish_velocities</a> (const geometry_msgs::Twist &amp;msg)</td></tr>
 <tr class="separator:a8ffef25585ef957b9df4407366723787"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -118,25 +119,30 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac3a5c9368647dd9d2c36d12497bd889e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#ac3a5c9368647dd9d2c36d12497bd889e">convert_rad_to_deg</a> (double angle)</td></tr>
 <tr class="separator:ac3a5c9368647dd9d2c36d12497bd889e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1b0a71e92e003e9162a5ba99d843392"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#aa1b0a71e92e003e9162a5ba99d843392">~Explorer</a> ()</td></tr>
+<tr class="memdesc:aa1b0a71e92e003e9162a5ba99d843392"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="class_explorer.html" title="A class to control the explorer and exploration algorithm. ">Explorer</a> object.  <a href="#aa1b0a71e92e003e9162a5ba99d843392">More...</a><br /></td></tr>
 <tr class="separator:aa1b0a71e92e003e9162a5ba99d843392"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b0c1e46e1a17e99f4156edf5a93b691"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#a2b0c1e46e1a17e99f4156edf5a93b691">move_next_loc</a> (std::array&lt; double, 2 &gt; goal_loc)</td></tr>
 <tr class="separator:a2b0c1e46e1a17e99f4156edf5a93b691"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a847e3ad2e7233d493a8dcfdd7139cb58"><td class="memItemLeft" align="right" valign="top">std::array&lt; std::array&lt; double, 2 &gt;, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#a847e3ad2e7233d493a8dcfdd7139cb58">get_goals</a> ()</td></tr>
+<tr class="memdesc:a847e3ad2e7233d493a8dcfdd7139cb58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the goals object.  <a href="#a847e3ad2e7233d493a8dcfdd7139cb58">More...</a><br /></td></tr>
 <tr class="separator:a847e3ad2e7233d493a8dcfdd7139cb58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace304ef65547f4a3ff6458d934c54e87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#ace304ef65547f4a3ff6458d934c54e87">m_move</a> (double linear, double angular)</td></tr>
+<tr class="memdesc:ace304ef65547f4a3ff6458d934c54e87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move bot in a linear and angular motion.  <a href="#ace304ef65547f4a3ff6458d934c54e87">More...</a><br /></td></tr>
 <tr class="separator:ace304ef65547f4a3ff6458d934c54e87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:acda1856f421dfe836f39de446415b969"><td class="memItemLeft" align="right" valign="top">std::array&lt; std::array&lt; int, 3 &gt;, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#acda1856f421dfe836f39de446415b969">goal_list</a> {}</td></tr>
+<tr class="memdesc:acda1856f421dfe836f39de446415b969"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Goal List.  <a href="#acda1856f421dfe836f39de446415b969">More...</a><br /></td></tr>
 <tr class="separator:acda1856f421dfe836f39de446415b969"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1aee46522a58db39d3643f2138c76fa"><td class="memItemLeft" align="right" valign="top">std::array&lt; int, 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#af1aee46522a58db39d3643f2138c76fa">start_place</a> {}</td></tr>
+<tr class="memdesc:af1aee46522a58db39d3643f2138c76fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Store starting and final position.  <a href="#af1aee46522a58db39d3643f2138c76fa">More...</a><br /></td></tr>
 <tr class="separator:af1aee46522a58db39d3643f2138c76fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee857cd646f2ce6eb7e017a67e90bcdf"><td class="memItemLeft" align="right" valign="top">ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_explorer.html#aee857cd646f2ce6eb7e017a67e90bcdf">m_velocity_publisher</a></td></tr>
 <tr class="separator:aee857cd646f2ce6eb7e017a67e90bcdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A class that inherits from Bot_contreoller to control the explorer and exploration algorithm. </p>
+<div class="textblock"><p>A class to control the explorer and exploration algorithm. </p>
 
 <p class="definition">Definition at line <a class="el" href="explorer_8h_source.html#l00028">28</a> of file <a class="el" href="explorer_8h_source.html">explorer.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -166,6 +172,15 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Construct a new <a class="el" href="class_explorer.html" title="A class to control the explorer and exploration algorithm. ">Explorer</a> object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nodehandle</td><td></td></tr>
+    <tr><td class="paramname">robot_name</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p class="definition">Definition at line <a class="el" href="explorer_8cpp_source.html#l00013">13</a> of file <a class="el" href="explorer_8cpp_source.html">explorer.cpp</a>.</p>
 
 </div>
@@ -193,7 +208,9 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="explorer_8h_source.html#l00042">42</a> of file <a class="el" href="explorer_8h_source.html">explorer.h</a>.</p>
+<p>Destroy the <a class="el" href="class_explorer.html" title="A class to control the explorer and exploration algorithm. ">Explorer</a> object. </p>
+
+<p class="definition">Definition at line <a class="el" href="explorer_8h_source.html#l00051">51</a> of file <a class="el" href="explorer_8h_source.html">explorer.h</a>.</p>
 
 </div>
 </div>
@@ -339,7 +356,10 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="explorer_8h_source.html#l00051">51</a> of file <a class="el" href="explorer_8h_source.html">explorer.h</a>.</p>
+<p>Get the goals object. </p>
+<dl class="section return"><dt>Returns</dt><dd>std::array&lt;std::array&lt;double,2&gt;,4&gt; </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="explorer_8h_source.html#l00077">77</a> of file <a class="el" href="explorer_8h_source.html">explorer.h</a>.</p>
 
 </div>
 </div>
@@ -399,6 +419,15 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Move bot in a linear and angular motion. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">linear</td><td></td></tr>
+    <tr><td class="paramname">angular</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p class="definition">Definition at line <a class="el" href="explorer_8cpp_source.html#l00122">122</a> of file <a class="el" href="explorer_8cpp_source.html">explorer.cpp</a>.</p>
 
 </div>
@@ -426,8 +455,14 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">goal_loc</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="explorer_8h_source.html#l00049">49</a> of file <a class="el" href="explorer_8h_source.html">explorer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="explorer_8h_source.html#l00070">70</a> of file <a class="el" href="explorer_8h_source.html">explorer.h</a>.</p>
 
 </div>
 </div>
@@ -517,7 +552,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="explorer_8h_source.html#l00045">45</a> of file <a class="el" href="explorer_8h_source.html">explorer.h</a>.</p>
+<p>Get Goal List. </p>
+
+<p class="definition">Definition at line <a class="el" href="explorer_8h_source.html#l00057">57</a> of file <a class="el" href="explorer_8h_source.html">explorer.h</a>.</p>
 
 </div>
 </div>
@@ -533,7 +570,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="explorer_8h_source.html#l00051">51</a> of file <a class="el" href="explorer_8h_source.html">explorer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="explorer_8h_source.html#l00077">77</a> of file <a class="el" href="explorer_8h_source.html">explorer.h</a>.</p>
 
 </div>
 </div>
@@ -549,7 +586,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="explorer_8h_source.html#l00046">46</a> of file <a class="el" href="explorer_8h_source.html">explorer.h</a>.</p>
+<p>Store starting and final position. </p>
+
+<p class="definition">Definition at line <a class="el" href="explorer_8h_source.html#l00063">63</a> of file <a class="el" href="explorer_8h_source.html">explorer.h</a>.</p>
 
 </div>
 </div>

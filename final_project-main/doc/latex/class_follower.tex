@@ -2,7 +2,7 @@
 \label{class_follower}\index{Follower@{Follower}}
 
 
-\hyperlink{class_follower}{Follower} Class \hyperlink{class_explorer}{Explorer}.  
+\hyperlink{class_follower}{Follower} Class for \hyperlink{class_follower}{Follower} bot Goal is to have \hyperlink{class_follower}{Follower} go to Ar\+Uco markers in fiducial ID order.  
 
 
 
@@ -13,19 +13,13 @@
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_follower_a6870e654b7cc901944ead12870a6b107}{Follower} (ros\+::\+Node\+Handle $\ast$nodehandle, const std\+::string \&robot\+\_\+name)
-\item 
-void \hyperlink{class_follower_aaae1600959a929c269d557d9c09ba777}{publish\+\_\+velocities} (const geometry\+\_\+msgs\+::\+Twist \&msg)
-\item 
-void \hyperlink{class_follower_ad4d1ce6f43ce65c0aa5a560247ca55ad}{drive\+\_\+straight} (double distance, bool direction)
-\item 
-void \hyperlink{class_follower_abf8ec0da50295140bf750d30906a726b}{rotate} (double angle\+\_\+to\+\_\+rotate, bool direction, double final\+\_\+angle)
-\item 
+\begin{DoxyCompactList}\small\item\em Construct a new \hyperlink{class_follower}{Follower} object. \end{DoxyCompactList}\item 
 bool \hyperlink{class_follower_a08ab05cb32f0e6653939163dd22f344a}{go\+\_\+to\+\_\+goal} (double x, double y)
-\item 
+\begin{DoxyCompactList}\small\item\em Get robot to goal based on x and y coordinates Error Tolerance of 0.\+05. \end{DoxyCompactList}\item 
 void \hyperlink{class_follower_a84c17a75630c27bea4f401c8ab8e45b2}{stop} ()
 \item 
 double \hyperlink{class_follower_a5573bec72ce4aed99706213154849b65}{compute\+\_\+expected\+\_\+final\+\_\+yaw} (bool direction, double angle\+\_\+to\+\_\+rotate)
-\item 
+\begin{DoxyCompactList}\small\item\em Computes expected final yaw. \end{DoxyCompactList}\item 
 double \hyperlink{class_follower_ac988cad87474cb64ef3be7fe197d90a7}{compute\+\_\+yaw\+\_\+deg} ()
 \item 
 double \hyperlink{class_follower_abde593631e6549062d77fb2169a17c66}{compute\+\_\+yaw\+\_\+rad} ()
@@ -33,20 +27,20 @@ double \hyperlink{class_follower_abde593631e6549062d77fb2169a17c66}{compute\+\_\
 double \hyperlink{class_follower_a670f07466502e1020514d6ba6b928553}{convert\+\_\+rad\+\_\+to\+\_\+deg} (double angle)
 \item 
 \hyperlink{class_follower_a1dd55289af5ded7a57a2874c5477c33d}{$\sim$\+Follower} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Destroy the \hyperlink{class_follower}{Follower} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 std\+::array$<$ int, 4 $>$ \hyperlink{class_follower_a350054bbd7659d493cccc4b4ad9bc460}{m\+\_\+fid} \{\}
-\item 
+\begin{DoxyCompactList}\small\item\em store fidicual I\+Ds \end{DoxyCompactList}\item 
 std\+::array$<$ std\+::array$<$ double, 2 $>$, 4 $>$ \hyperlink{class_follower_a6d4e1ebbe79cc8af601d53cba7aeb30a}{m\+\_\+posit} \{\}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em store marker positions \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-\hyperlink{class_follower}{Follower} Class \hyperlink{class_explorer}{Explorer}. 
+\hyperlink{class_follower}{Follower} Class for \hyperlink{class_follower}{Follower} bot Goal is to have \hyperlink{class_follower}{Follower} go to Ar\+Uco markers in fiducial ID order. 
 
-Definition at line 30 of file follower.\+h.
+Definition at line 31 of file follower.\+h.
 
 
 
@@ -59,6 +53,17 @@ Definition at line 30 of file follower.\+h.
 
 
 
+Construct a new \hyperlink{class_follower}{Follower} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nodehandle} & \\
+\hline
+{\em robot\+\_\+name} & \\
+\hline
+\end{DoxyParams}
+
+
 Definition at line 14 of file follower.\+cpp.
 
 \mbox{\Hypertarget{class_follower_a1dd55289af5ded7a57a2874c5477c33d}\label{class_follower_a1dd55289af5ded7a57a2874c5477c33d}} 
@@ -69,7 +74,11 @@ Definition at line 14 of file follower.\+cpp.
 
 
 
-Definition at line 43 of file follower.\+h.
+Destroy the \hyperlink{class_follower}{Follower} object. 
+
+
+
+Definition at line 69 of file follower.\+h.
 
 
 
@@ -80,6 +89,20 @@ Definition at line 43 of file follower.\+h.
 \subsubsection{\texorpdfstring{compute\+\_\+expected\+\_\+final\+\_\+yaw()}{compute\_expected\_final\_yaw()}}
 {\footnotesize\ttfamily double Follower\+::compute\+\_\+expected\+\_\+final\+\_\+yaw (\begin{DoxyParamCaption}\item[{bool}]{direction,  }\item[{double}]{angle\+\_\+to\+\_\+rotate }\end{DoxyParamCaption})}
 
+
+
+Computes expected final yaw. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & \\
+\hline
+{\em angle\+\_\+to\+\_\+rotate} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
 
 
 Definition at line 153 of file follower.\+cpp.
@@ -114,16 +137,6 @@ Definition at line 177 of file follower.\+cpp.
 
 Definition at line 62 of file follower.\+cpp.
 
-\mbox{\Hypertarget{class_follower_ad4d1ce6f43ce65c0aa5a560247ca55ad}\label{class_follower_ad4d1ce6f43ce65c0aa5a560247ca55ad}} 
-\index{Follower@{Follower}!drive\+\_\+straight@{drive\+\_\+straight}}
-\index{drive\+\_\+straight@{drive\+\_\+straight}!Follower@{Follower}}
-\subsubsection{\texorpdfstring{drive\+\_\+straight()}{drive\_straight()}}
-{\footnotesize\ttfamily void Follower\+::drive\+\_\+straight (\begin{DoxyParamCaption}\item[{double}]{distance,  }\item[{bool}]{direction }\end{DoxyParamCaption})}
-
-
-
-Definition at line 216 of file follower.\+cpp.
-
 \mbox{\Hypertarget{class_follower_a08ab05cb32f0e6653939163dd22f344a}\label{class_follower_a08ab05cb32f0e6653939163dd22f344a}} 
 \index{Follower@{Follower}!go\+\_\+to\+\_\+goal@{go\+\_\+to\+\_\+goal}}
 \index{go\+\_\+to\+\_\+goal@{go\+\_\+to\+\_\+goal}!Follower@{Follower}}
@@ -132,23 +145,23 @@ Definition at line 216 of file follower.\+cpp.
 
 
 
-Definition at line 237 of file follower.\+cpp.
-
-\mbox{\Hypertarget{class_follower_aaae1600959a929c269d557d9c09ba777}\label{class_follower_aaae1600959a929c269d557d9c09ba777}} 
-\index{Follower@{Follower}!publish\+\_\+velocities@{publish\+\_\+velocities}}
-\index{publish\+\_\+velocities@{publish\+\_\+velocities}!Follower@{Follower}}
-\subsubsection{\texorpdfstring{publish\+\_\+velocities()}{publish\_velocities()}}
-{\footnotesize\ttfamily void Follower\+::publish\+\_\+velocities (\begin{DoxyParamCaption}\item[{const geometry\+\_\+msgs\+::\+Twist \&}]{msg }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{class_follower_abf8ec0da50295140bf750d30906a726b}\label{class_follower_abf8ec0da50295140bf750d30906a726b}} 
-\index{Follower@{Follower}!rotate@{rotate}}
-\index{rotate@{rotate}!Follower@{Follower}}
-\subsubsection{\texorpdfstring{rotate()}{rotate()}}
-{\footnotesize\ttfamily void Follower\+::rotate (\begin{DoxyParamCaption}\item[{double}]{angle\+\_\+to\+\_\+rotate,  }\item[{bool}]{direction,  }\item[{double}]{final\+\_\+angle }\end{DoxyParamCaption})}
+Get robot to goal based on x and y coordinates Error Tolerance of 0.\+05. 
 
 
+\begin{DoxyParams}{Parameters}
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
 
-Definition at line 189 of file follower.\+cpp.
+false 
+\end{DoxyReturn}
+
+
+Definition at line 188 of file follower.\+cpp.
 
 \mbox{\Hypertarget{class_follower_a84c17a75630c27bea4f401c8ab8e45b2}\label{class_follower_a84c17a75630c27bea4f401c8ab8e45b2}} 
 \index{Follower@{Follower}!stop@{stop}}
@@ -171,7 +184,11 @@ Definition at line 144 of file follower.\+cpp.
 
 
 
-Definition at line 45 of file follower.\+h.
+store fidicual I\+Ds 
+
+
+
+Definition at line 75 of file follower.\+h.
 
 \mbox{\Hypertarget{class_follower_a6d4e1ebbe79cc8af601d53cba7aeb30a}\label{class_follower_a6d4e1ebbe79cc8af601d53cba7aeb30a}} 
 \index{Follower@{Follower}!m\+\_\+posit@{m\+\_\+posit}}
@@ -181,7 +198,11 @@ Definition at line 45 of file follower.\+h.
 
 
 
-Definition at line 46 of file follower.\+h.
+store marker positions 
+
+
+
+Definition at line 81 of file follower.\+h.
 
 
 

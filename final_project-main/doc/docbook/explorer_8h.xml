@@ -48,7 +48,7 @@
                 <itemizedlist>
                     <listitem>
                         <para>struct <link linkend="class_explorer">Explorer</link></para>
-<para><emphasis>A class that inherits from Bot_contreoller to control the explorer and exploration algorithm.</emphasis></para>
+<para><emphasis>A class to control the explorer and exploration algorithm.</emphasis></para>
                     </listitem>
                 </itemizedlist>
             </para>

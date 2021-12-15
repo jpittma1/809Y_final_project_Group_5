@@ -22,12 +22,17 @@
 #include <cmath>
 
 /**
- * @brief A class that inherits from Bot_contreoller to control the explorer and exploration algorithm.
+ * @brief A class to control the explorer and exploration algorithm.
  * 
  */
 class Explorer{
     public:
-        // main() will need to instantiate a ROS nodehandle, then pass it to the constructor
+        /**
+         * @brief Construct a new Explorer object
+         * 
+         * @param nodehandle 
+         * @param robot_name 
+         */
         Explorer(ros::NodeHandle *nodehandle, const std::string &robot_name);
         void publish_velocities(const geometry_msgs::Twist &msg);
         void drive_straight(double distance, bool direction);
@@ -39,19 +44,46 @@ class Explorer{
         double compute_yaw_rad() ;
         double convert_rad_to_deg(double angle);
 
+        /**
+         * @brief Destroy the Explorer object
+         * 
+         */
         ~Explorer() {}
 
-        // ros::NodeHandle exp_node;
+        /**
+         * @brief Get Goal List
+         * 
+         */
         std::array<std::array<int,3>,4> goal_list {};
+
+        /**
+         * @brief Store starting and final position
+         * 
+         */
         std::array<int,3> start_place {};
 
-
+        /**
+         * @brief 
+         * 
+         * @param goal_loc 
+         */
         void move_next_loc(std::array<double,2> goal_loc){};
 
+        /**
+         * @brief Get the goals object
+         * 
+         * @return std::array<std::array<double,2>,4> 
+         */
         std::array<std::array<double,2>,4> get_goals() {};
 
         ros::Publisher m_velocity_publisher;
 
+        /**
+         * @brief Move bot in a linear and angular motion
+         * 
+         * @param linear 
+         * @param angular 
+         */
         void m_move(double linear, double angular);
 
 
@@ -76,14 +108,54 @@ class Explorer{
         double m_pitch;                                                    //rad
         double m_yaw;       //rad
 
+        /**
+         * @brief Odom callback
+         * 
+         * @param msg 
+         */
         void m_pose_callback(const nav_msgs::Odometry::ConstPtr &msg);     
+        
+        /**
+         * @brief Laser Scan callback
+         * 
+         * @param msg 
+         */
         void m_scan_callback(const sensor_msgs::LaserScan::ConstPtr &msg);
         
+        /**
+         * @brief Initializes subscribers
+         * 
+         */
         void m_initialize_subscribers();
+       
+        /**
+         * @brief initializes publishers
+         * 
+         */
         void m_initialize_publishers();
+        /**
+         * @brief computes distance between two points
+         * 
+         * @param a 
+         * @param b 
+         * @return double 
+         */
         double m_compute_distance(const std::pair<double, double> &a, const std::pair<double, double> &b);
-
+       
+        /**
+         * @brief Normalizes the angle to be 0 to 2*M_PI
+         * 
+         * @param angle Angle to normalize (rad)
+         * @return double Normalized angle (rad)
+         */
         double m_normalize_angle_positive(double angle);
+       
+       /**
+         * @brief Normalizes the angle to be -M_PI circle to +M_PI circle
+         * 
+         * @param angle Angle to normalize (rad)
+         * @return double Normalized angle (rad)
+         */
         double m_normalize_angle(double angle);
 
     

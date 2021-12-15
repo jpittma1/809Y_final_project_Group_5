@@ -48,8 +48,8 @@
                 <itemizedlist>
                     <listitem>
                         <para>struct <link linkend="class_follower">Follower</link></para>
-<para><emphasis>Follower Class
-Explorer.</emphasis></para>
+<para><emphasis>Follower Class for Follower bot
+Goal is to have Follower go to ArUco markers in fiducial ID order.</emphasis></para>
                     </listitem>
                 </itemizedlist>
             </para>

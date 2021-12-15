@@ -81,8 +81,6 @@ void ArucoNode::aruco_seen(){
     ros::spinOnce();
 }
 
-
-
 void ArucoNode::m_check_subscribers() {
     ROS_INFO_STREAM("Initializing Checker.");
     m_check_subscriber = m_nh.subscribe("/fiducial_transforms", 1000, &ArucoNode::aruco_exists_callback, this);

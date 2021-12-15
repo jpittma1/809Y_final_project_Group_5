@@ -31,14 +31,14 @@
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>std::array&lt; int, 4 &gt; m_fid</para>
+                        <para>std::array&lt; int, 4 &gt; m_fid<para><emphasis>store fidicual IDs</emphasis></para></para>
                     </listitem>
                 </itemizedlist>
             </para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>std::array&lt; std::array&lt; double, 2 &gt;, 4 &gt; m_posit</para>
+                        <para>std::array&lt; std::array&lt; double, 2 &gt;, 4 &gt; m_posit<para><emphasis>store marker positions</emphasis></para></para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -171,31 +171,8 @@
                 <itemizedlist>
                     <listitem>
                         <para> <link linkend="class_follower_1a6870e654b7cc901944ead12870a6b107">Follower</link> (
-ros::NodeHandle * nodehandle, const std::string &amp; robot_name)</para>
-                    </listitem>
-                </itemizedlist>
-            </para>
-            <para>
-                <itemizedlist>
-                    <listitem>
-                        <para>void <link linkend="class_follower_1aaae1600959a929c269d557d9c09ba777">publish_velocities</link> (
-const geometry_msgs::Twist &amp; msg)</para>
-                    </listitem>
-                </itemizedlist>
-            </para>
-            <para>
-                <itemizedlist>
-                    <listitem>
-                        <para>void <link linkend="class_follower_1ad4d1ce6f43ce65c0aa5a560247ca55ad">drive_straight</link> (
-double distance, bool direction)</para>
-                    </listitem>
-                </itemizedlist>
-            </para>
-            <para>
-                <itemizedlist>
-                    <listitem>
-                        <para>void <link linkend="class_follower_1abf8ec0da50295140bf750d30906a726b">rotate</link> (
-double angle_to_rotate, bool direction, double final_angle)</para>
+ros::NodeHandle * nodehandle, const std::string &amp; robot_name)<para><emphasis>Construct a new Follower object.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -203,7 +180,9 @@ double angle_to_rotate, bool direction, double final_angle)</para>
                 <itemizedlist>
                     <listitem>
                         <para>bool <link linkend="class_follower_1a08ab05cb32f0e6653939163dd22f344a">go_to_goal</link> (
-double x, double y)</para>
+double x, double y)<para><emphasis>Get robot to goal based on x and y coordinates
+ Error Tolerance of 0.05.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -219,7 +198,8 @@ double x, double y)</para>
                 <itemizedlist>
                     <listitem>
                         <para>double <link linkend="class_follower_1a5573bec72ce4aed99706213154849b65">compute_expected_final_yaw</link> (
-bool direction, double angle_to_rotate)</para>
+bool direction, double angle_to_rotate)<para><emphasis>Computes expected final yaw.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -251,7 +231,8 @@ double angle)</para>
                 <itemizedlist>
                     <listitem>
                         <para> <link linkend="class_follower_1a1dd55289af5ded7a57a2874c5477c33d">~Follower</link> (
-)</para>
+)<para><emphasis>Destroy the Follower object.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -262,7 +243,8 @@ double angle)</para>
                 <itemizedlist>
                     <listitem>
                         <para>void <link linkend="class_follower_1ad6e5f2c27361138af2c160c3ddeb1e66">m_pose_callback</link> (
-const nav_msgs::Odometry::ConstPtr &amp; msg)</para>
+const nav_msgs::Odometry::ConstPtr &amp; msg)<para><emphasis>odom callback</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -270,7 +252,8 @@ const nav_msgs::Odometry::ConstPtr &amp; msg)</para>
                 <itemizedlist>
                     <listitem>
                         <para>void <link linkend="class_follower_1aae97b248833ca22a0755ba07e6b479e0">m_scan_callback</link> (
-const sensor_msgs::LaserScan::ConstPtr &amp; msg)</para>
+const sensor_msgs::LaserScan::ConstPtr &amp; msg)<para><emphasis>Laser Scan.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -278,7 +261,8 @@ const sensor_msgs::LaserScan::ConstPtr &amp; msg)</para>
                 <itemizedlist>
                     <listitem>
                         <para>void <link linkend="class_follower_1a142e244a9c4992c0897dd2719f92a2b0">m_fiducial_callback</link> (
-const fiducial_msgs::FiducialTransformArray::ConstPtr &amp; msg)<para><emphasis>To store the locations of the fiducial IDs (waypoints) and the fiducial_ID number.</emphasis></para>
+const fiducial_msgs::FiducialTransformArray::ConstPtr &amp; msg)<para><emphasis>To store the locations of the fiducial IDs (waypoints) and the fiducial_ID number
+Based on explorer&apos;s camera.</emphasis></para>
 </para>
                     </listitem>
                 </itemizedlist>
@@ -287,7 +271,8 @@ const fiducial_msgs::FiducialTransformArray::ConstPtr &amp; msg)<para><emphasis>
                 <itemizedlist>
                     <listitem>
                         <para>void <link linkend="class_follower_1a3add2fb77acd217793be425700799ec0">m_initialize_subscribers</link> (
-)</para>
+)<para><emphasis>Initializes subscribers.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -295,7 +280,8 @@ const fiducial_msgs::FiducialTransformArray::ConstPtr &amp; msg)<para><emphasis>
                 <itemizedlist>
                     <listitem>
                         <para>void <link linkend="class_follower_1ae54652c5c8fdc6dca58c631603c82840">m_initialize_publishers</link> (
-)</para>
+)<para><emphasis>Initializes Publishers.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -311,7 +297,8 @@ const std::pair&lt; double, double &gt; &amp; a, const std::pair&lt; double, dou
                 <itemizedlist>
                     <listitem>
                         <para>void <link linkend="class_follower_1a84aed500287d1ae121471d9bd39521e0">m_move</link> (
-double linear, double angular)</para>
+double linear, double angular)<para><emphasis>Move bot based on given angle and linear distance.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -336,7 +323,7 @@ double angle)<para><emphasis>Normalizes the angle to be -M_PI circle to +M_PI ci
         </section>
     <simplesect>
 
-<para><link linkend="class_follower">Follower</link> Class <link linkend="class_explorer">Explorer</link>. </para>
+<para><link linkend="class_follower">Follower</link> Class for <link linkend="class_follower">Follower</link> bot Goal is to have <link linkend="class_follower">Follower</link> go to ArUco markers in fiducial ID order. </para>
     </simplesect>
         <section>
             <title>Member Data Documentation</title>
@@ -345,32 +332,112 @@ double angle)<para><emphasis>Normalizes the angle to be -M_PI circle to +M_PI ci
             <title>Member Data Documentation</title>
         </section>
             <section xml:id="class_follower_1a6870e654b7cc901944ead12870a6b107">
-                <title>Follower::Follower (ros::NodeHandle *nodehandle, const std::string &amp;robot_name)</title> <emphasis></emphasis>
+                <title>Follower::Follower (ros::NodeHandle *nodehandle, const std::string &amp;robot_name)</title> <emphasis>Construct a new Follower object.</emphasis>
                 
-            </section>
-            <section xml:id="class_follower_1aaae1600959a929c269d557d9c09ba777">
-                <title>void Follower::publish_velocities (const geometry_msgs::Twist &amp;msg)</title> <emphasis></emphasis>
-                
-            </section>
-            <section xml:id="class_follower_1ad4d1ce6f43ce65c0aa5a560247ca55ad">
-                <title>void Follower::drive_straight (double distance, bool direction)</title> <emphasis></emphasis>
-                
-            </section>
-            <section xml:id="class_follower_1abf8ec0da50295140bf750d30906a726b">
-                <title>void Follower::rotate (double angle_to_rotate, bool direction, double final_angle)</title> <emphasis></emphasis>
-                
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>nodehandle</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>robot_name</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
             </section>
             <section xml:id="class_follower_1a08ab05cb32f0e6653939163dd22f344a">
-                <title>bool Follower::go_to_goal (double x, double y)</title> <emphasis></emphasis>
+                <title>bool Follower::go_to_goal (double x, double y)</title> <emphasis>Get robot to goal based on x and y coordinates
+ Error Tolerance of 0.05.</emphasis>
                 
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>x</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>y</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                <formalpara><title>Returns: </title>
+
+<para>true </para>
+<simplesect/>
+<para>false </para>
+</formalpara>
+</para>
+
             </section>
             <section xml:id="class_follower_1a84c17a75630c27bea4f401c8ab8e45b2">
                 <title>void Follower::stop ()</title> <emphasis></emphasis>
                 
             </section>
             <section xml:id="class_follower_1a5573bec72ce4aed99706213154849b65">
-                <title>double Follower::compute_expected_final_yaw (bool direction, double angle_to_rotate)</title> <emphasis></emphasis>
+                <title>double Follower::compute_expected_final_yaw (bool direction, double angle_to_rotate)</title> <emphasis>Computes expected final yaw.</emphasis>
                 
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>direction</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>angle_to_rotate</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                <formalpara><title>Returns: </title>
+
+<para>double </para>
+</formalpara>
+</para>
+
             </section>
             <section xml:id="class_follower_1ac988cad87474cb64ef3be7fe197d90a7">
                 <title>double Follower::compute_yaw_deg ()</title> <emphasis></emphasis>
@@ -385,19 +452,62 @@ double angle)<para><emphasis>Normalizes the angle to be -M_PI circle to +M_PI ci
                 
             </section>
             <section xml:id="class_follower_1a1dd55289af5ded7a57a2874c5477c33d">
-                <title>Follower::~Follower ()</title> <emphasis></emphasis>
+                <title>Follower::~Follower ()</title> <emphasis>Destroy the Follower object.</emphasis>
                 
             </section>
             <section xml:id="class_follower_1ad6e5f2c27361138af2c160c3ddeb1e66">
-                <title>void Follower::m_pose_callback (const nav_msgs::Odometry::ConstPtr &amp;msg)</title> <emphasis></emphasis>
+                <title>void Follower::m_pose_callback (const nav_msgs::Odometry::ConstPtr &amp;msg)</title> <emphasis>odom callback</emphasis>
                 
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>msg</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
             </section>
             <section xml:id="class_follower_1aae97b248833ca22a0755ba07e6b479e0">
-                <title>void Follower::m_scan_callback (const sensor_msgs::LaserScan::ConstPtr &amp;msg)</title> <emphasis></emphasis>
+                <title>void Follower::m_scan_callback (const sensor_msgs::LaserScan::ConstPtr &amp;msg)</title> <emphasis>Laser Scan.</emphasis>
                 
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>msg</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
             </section>
             <section xml:id="class_follower_1a142e244a9c4992c0897dd2719f92a2b0">
-                <title>void Follower::m_fiducial_callback (const fiducial_msgs::FiducialTransformArray::ConstPtr &amp;msg)</title> <emphasis>To store the locations of the fiducial IDs (waypoints) and the fiducial_ID number.</emphasis>
+                <title>void Follower::m_fiducial_callback (const fiducial_msgs::FiducialTransformArray::ConstPtr &amp;msg)</title> <emphasis>To store the locations of the fiducial IDs (waypoints) and the fiducial_ID number
+Based on explorer&apos;s camera.</emphasis>
                 
 <para>
                 <formalpara>
@@ -422,11 +532,11 @@ double angle)<para><emphasis>Normalizes the angle to be -M_PI circle to +M_PI ci
 
             </section>
             <section xml:id="class_follower_1a3add2fb77acd217793be425700799ec0">
-                <title>void Follower::m_initialize_subscribers ()</title> <emphasis></emphasis>
+                <title>void Follower::m_initialize_subscribers ()</title> <emphasis>Initializes subscribers.</emphasis>
                 
             </section>
             <section xml:id="class_follower_1ae54652c5c8fdc6dca58c631603c82840">
-                <title>void Follower::m_initialize_publishers ()</title> <emphasis></emphasis>
+                <title>void Follower::m_initialize_publishers ()</title> <emphasis>Initializes Publishers.</emphasis>
                 
             </section>
             <section xml:id="class_follower_1ad1755902377610ec60e73e2a01e4077c">
@@ -434,8 +544,35 @@ double angle)<para><emphasis>Normalizes the angle to be -M_PI circle to +M_PI ci
                 
             </section>
             <section xml:id="class_follower_1a84aed500287d1ae121471d9bd39521e0">
-                <title>void Follower::m_move (double linear, double angular)</title> <emphasis></emphasis>
+                <title>void Follower::m_move (double linear, double angular)</title> <emphasis>Move bot based on given angle and linear distance.</emphasis>
                 
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>linear</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>angular</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
             </section>
             <section xml:id="class_follower_1ace3b7ecf01c52be704a6031dfef599dc">
                 <title>double Follower::m_normalize_angle_positive (double angle)</title> <emphasis>Normalizes the angle to be 0 to 2*M_PI.</emphasis>

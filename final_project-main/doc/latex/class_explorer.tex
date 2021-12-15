@@ -2,7 +2,7 @@
 \label{class_explorer}\index{Explorer@{Explorer}}
 
 
-A class that inherits from Bot\+\_\+contreoller to control the explorer and exploration algorithm.  
+A class to control the explorer and exploration algorithm.  
 
 
 
@@ -13,7 +13,7 @@ A class that inherits from Bot\+\_\+contreoller to control the explorer and expl
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_explorer_aafe6b7c3b9c2e24815aa14a731f31890}{Explorer} (ros\+::\+Node\+Handle $\ast$nodehandle, const std\+::string \&robot\+\_\+name)
-\item 
+\begin{DoxyCompactList}\small\item\em Construct a new \hyperlink{class_explorer}{Explorer} object. \end{DoxyCompactList}\item 
 void \hyperlink{class_explorer_a8ffef25585ef957b9df4407366723787}{publish\+\_\+velocities} (const geometry\+\_\+msgs\+::\+Twist \&msg)
 \item 
 void \hyperlink{class_explorer_ab4ca9f16c48a60fc4d0e426b6fd9e9a0}{drive\+\_\+straight} (double distance, bool direction)
@@ -33,26 +33,26 @@ double \hyperlink{class_explorer_ac5b91cd64189a60ffe62535cb5bc093a}{compute\+\_\
 double \hyperlink{class_explorer_ac3a5c9368647dd9d2c36d12497bd889e}{convert\+\_\+rad\+\_\+to\+\_\+deg} (double angle)
 \item 
 \hyperlink{class_explorer_aa1b0a71e92e003e9162a5ba99d843392}{$\sim$\+Explorer} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Destroy the \hyperlink{class_explorer}{Explorer} object. \end{DoxyCompactList}\item 
 void \hyperlink{class_explorer_a2b0c1e46e1a17e99f4156edf5a93b691}{move\+\_\+next\+\_\+loc} (std\+::array$<$ double, 2 $>$ goal\+\_\+loc)
 \item 
 std\+::array$<$ std\+::array$<$ double, 2 $>$, 4 $>$ \hyperlink{class_explorer_a847e3ad2e7233d493a8dcfdd7139cb58}{get\+\_\+goals} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get the goals object. \end{DoxyCompactList}\item 
 void \hyperlink{class_explorer_ace304ef65547f4a3ff6458d934c54e87}{m\+\_\+move} (double linear, double angular)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Move bot in a linear and angular motion. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 std\+::array$<$ std\+::array$<$ int, 3 $>$, 4 $>$ \hyperlink{class_explorer_acda1856f421dfe836f39de446415b969}{goal\+\_\+list} \{\}
-\item 
+\begin{DoxyCompactList}\small\item\em Get Goal List. \end{DoxyCompactList}\item 
 std\+::array$<$ int, 3 $>$ \hyperlink{class_explorer_af1aee46522a58db39d3643f2138c76fa}{start\+\_\+place} \{\}
-\item 
+\begin{DoxyCompactList}\small\item\em Store starting and final position. \end{DoxyCompactList}\item 
 ros\+::\+Publisher \hyperlink{class_explorer_aee857cd646f2ce6eb7e017a67e90bcdf}{m\+\_\+velocity\+\_\+publisher}
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-A class that inherits from Bot\+\_\+contreoller to control the explorer and exploration algorithm. 
+A class to control the explorer and exploration algorithm. 
 
 Definition at line 28 of file explorer.\+h.
 
@@ -67,6 +67,17 @@ Definition at line 28 of file explorer.\+h.
 
 
 
+Construct a new \hyperlink{class_explorer}{Explorer} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nodehandle} & \\
+\hline
+{\em robot\+\_\+name} & \\
+\hline
+\end{DoxyParams}
+
+
 Definition at line 13 of file explorer.\+cpp.
 
 \mbox{\Hypertarget{class_explorer_aa1b0a71e92e003e9162a5ba99d843392}\label{class_explorer_aa1b0a71e92e003e9162a5ba99d843392}} 
@@ -77,7 +88,11 @@ Definition at line 13 of file explorer.\+cpp.
 
 
 
-Definition at line 42 of file explorer.\+h.
+Destroy the \hyperlink{class_explorer}{Explorer} object. 
+
+
+
+Definition at line 51 of file explorer.\+h.
 
 
 
@@ -140,7 +155,14 @@ Definition at line 203 of file explorer.\+cpp.
 
 
 
-Definition at line 51 of file explorer.\+h.
+Get the goals object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::array$<$std\+::array$<$double,2$>$,4$>$ 
+\end{DoxyReturn}
+
+
+Definition at line 77 of file explorer.\+h.
 
 \mbox{\Hypertarget{class_explorer_aa1e259feaac1114adb0f24588428e8ef}\label{class_explorer_aa1e259feaac1114adb0f24588428e8ef}} 
 \index{Explorer@{Explorer}!go\+\_\+to\+\_\+goal@{go\+\_\+to\+\_\+goal}}
@@ -160,6 +182,17 @@ Definition at line 224 of file explorer.\+cpp.
 
 
 
+Move bot in a linear and angular motion. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em linear} & \\
+\hline
+{\em angular} & \\
+\hline
+\end{DoxyParams}
+
+
 Definition at line 122 of file explorer.\+cpp.
 
 \mbox{\Hypertarget{class_explorer_a2b0c1e46e1a17e99f4156edf5a93b691}\label{class_explorer_a2b0c1e46e1a17e99f4156edf5a93b691}} 
@@ -169,8 +202,13 @@ Definition at line 122 of file explorer.\+cpp.
 {\footnotesize\ttfamily void Explorer\+::move\+\_\+next\+\_\+loc (\begin{DoxyParamCaption}\item[{std\+::array$<$ double, 2 $>$}]{goal\+\_\+loc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
+\begin{DoxyParams}{Parameters}
+{\em goal\+\_\+loc} & \\
+\hline
+\end{DoxyParams}
 
-Definition at line 49 of file explorer.\+h.
+
+Definition at line 70 of file explorer.\+h.
 
 \mbox{\Hypertarget{class_explorer_a8ffef25585ef957b9df4407366723787}\label{class_explorer_a8ffef25585ef957b9df4407366723787}} 
 \index{Explorer@{Explorer}!publish\+\_\+velocities@{publish\+\_\+velocities}}
@@ -209,7 +247,11 @@ Definition at line 129 of file explorer.\+cpp.
 
 
 
-Definition at line 45 of file explorer.\+h.
+Get Goal List. 
+
+
+
+Definition at line 57 of file explorer.\+h.
 
 \mbox{\Hypertarget{class_explorer_aee857cd646f2ce6eb7e017a67e90bcdf}\label{class_explorer_aee857cd646f2ce6eb7e017a67e90bcdf}} 
 \index{Explorer@{Explorer}!m\+\_\+velocity\+\_\+publisher@{m\+\_\+velocity\+\_\+publisher}}
@@ -219,7 +261,7 @@ Definition at line 45 of file explorer.\+h.
 
 
 
-Definition at line 51 of file explorer.\+h.
+Definition at line 77 of file explorer.\+h.
 
 \mbox{\Hypertarget{class_explorer_af1aee46522a58db39d3643f2138c76fa}\label{class_explorer_af1aee46522a58db39d3643f2138c76fa}} 
 \index{Explorer@{Explorer}!start\+\_\+place@{start\+\_\+place}}
@@ -229,7 +271,11 @@ Definition at line 51 of file explorer.\+h.
 
 
 
-Definition at line 46 of file explorer.\+h.
+Store starting and final position. 
+
+
+
+Definition at line 63 of file explorer.\+h.
 
 
 

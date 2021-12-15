@@ -23,31 +23,65 @@
 
 
 /**
- * @brief Follower Class
- * Explorer
+ * @brief Follower Class for Follower bot
+ * Goal is to have Follower go to ArUco markers in fiducial ID order
+ *
  * 
  */
 class Follower {
     public:
+        /**
+         * @brief Construct a new Follower object
+         * 
+         * @param nodehandle 
+         * @param robot_name 
+         */
         Follower(ros::NodeHandle *nodehandle, const std::string &robot_name);
-        // void publish_velocities(const geometry_msgs::Twist &msg);
-        // void drive_straight(double distance, bool direction);
-        // void rotate(double angle_to_rotate, bool direction, double final_angle);
+        
+        /**
+         * @brief Get robot to goal based on x and y coordinates
+         *  Error Tolerance of 0.05
+         * 
+         * @param x 
+         * @param y 
+         * @return true 
+         * @return false 
+         */
         bool go_to_goal(double x, double y);
         void stop();
+
+        /**
+         * @brief Computes expected final yaw
+         * 
+         * @param direction 
+         * @param angle_to_rotate 
+         * @return double 
+         */
         double compute_expected_final_yaw(bool direction, double angle_to_rotate);
         double compute_yaw_deg();
         double compute_yaw_rad();
         double convert_rad_to_deg(double angle);
 
+        /**
+         * @brief Destroy the Follower object
+         * 
+         */
         ~Follower() {}
 
-        std::array <int, 4> m_fid {};               //store fidicual IDs
-        std::array<std::array<double, 2>, 4> m_posit{};  //store marker positions
+        /**
+         * @brief store fidicual IDs
+         * 
+         */
+        std::array <int, 4> m_fid {};
+
+        /**
+         * @brief store marker positions
+         * 
+         */
+        std::array<std::array<double, 2>, 4> m_posit{};
 
 
     private:
-        
         ros::NodeHandle m_nh;
 
         ros::Subscriber m_pose_subscriber;
@@ -67,21 +101,49 @@ class Follower {
         double m_angular_speed;
         double m_roll;                                                     //rad
         double m_pitch;                                                    //rad
-        double m_yaw;       //rad
-
+        double m_yaw;   //rad
+        
+        /**
+         * @brief odom callback
+         * 
+         * @param msg 
+         */
         void m_pose_callback(const nav_msgs::Odometry::ConstPtr &msg);
+        
+        /**
+         * @brief Laser Scan
+         * 
+         * @param msg 
+         */
         void m_scan_callback(const sensor_msgs::LaserScan::ConstPtr &msg); 
         
         /**
-             * @brief To store the locations of the fiducial IDs (waypoints) and the fiducial_ID number
-             * 
-             * @param msg 
-             */
+         * @brief To store the locations of the fiducial IDs (waypoints) and the fiducial_ID number
+         * Based on explorer's camera
+         * 
+         * @param msg 
+        */
         void m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr &msg);
-            
+        
+        /**
+         * @brief Initializes subscribers
+         * 
+         */
         void m_initialize_subscribers();
+
+        /**
+         * @brief Initializes Publishers
+         * 
+         */
         void m_initialize_publishers();
         double m_compute_distance(const std::pair<double, double> &a, const std::pair<double, double> &b);
+        
+        /**
+         * @brief Move bot based on given angle and linear distance
+         * 
+         * @param linear 
+         * @param angular 
+         */
         void m_move(double linear, double angular);
 
         /**

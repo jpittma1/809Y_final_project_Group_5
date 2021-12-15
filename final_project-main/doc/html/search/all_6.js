@@ -7,7 +7,6 @@ var searchData=
   ['m_5fvelocity_5fpublisher',['m_velocity_publisher',['../class_explorer.html#aee857cd646f2ce6eb7e017a67e90bcdf',1,'Explorer']]],
   ['main',['main',['../main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main.cpp']]],
   ['main_2ecpp',['main.cpp',['../main_8cpp.html',1,'']]],
-  ['marker_5fbroadcast',['marker_broadcast',['../class_aruco_node.html#adb4d7fb3af40cb83ae69be077c589558',1,'ArucoNode']]],
   ['marker_5flisten',['marker_listen',['../class_aruco_node.html#ad79fd951057c9a40f34fc159363fbd94',1,'ArucoNode']]],
   ['marker_5fseen',['marker_seen',['../class_aruco_node.html#a21fe489a4ab6a73e807e74a5c1de466d',1,'ArucoNode']]],
   ['move_5fnext_5floc',['move_next_loc',['../class_explorer.html#a2b0c1e46e1a17e99f4156edf5a93b691',1,'Explorer']]],

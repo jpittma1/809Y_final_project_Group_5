@@ -31,14 +31,14 @@
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>std::array&lt; std::array&lt; int, 3 &gt;, 4 &gt; goal_list</para>
+                        <para>std::array&lt; std::array&lt; int, 3 &gt;, 4 &gt; goal_list<para><emphasis>Get Goal List.</emphasis></para></para>
                     </listitem>
                 </itemizedlist>
             </para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>std::array&lt; int, 3 &gt; start_place</para>
+                        <para>std::array&lt; int, 3 &gt; start_place<para><emphasis>Store starting and final position.</emphasis></para></para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -171,7 +171,8 @@
                 <itemizedlist>
                     <listitem>
                         <para> <link linkend="class_explorer_1aafe6b7c3b9c2e24815aa14a731f31890">Explorer</link> (
-ros::NodeHandle * nodehandle, const std::string &amp; robot_name)</para>
+ros::NodeHandle * nodehandle, const std::string &amp; robot_name)<para><emphasis>Construct a new Explorer object.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -251,7 +252,8 @@ double angle)</para>
                 <itemizedlist>
                     <listitem>
                         <para> <link linkend="class_explorer_1aa1b0a71e92e003e9162a5ba99d843392">~Explorer</link> (
-)</para>
+)<para><emphasis>Destroy the Explorer object.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -267,7 +269,8 @@ std::array&lt; double, 2 &gt; goal_loc)</para>
                 <itemizedlist>
                     <listitem>
                         <para>std::array&lt; std::array&lt; double, 2 &gt;, 4 &gt; <link linkend="class_explorer_1a847e3ad2e7233d493a8dcfdd7139cb58">get_goals</link> (
-)</para>
+)<para><emphasis>Get the goals object.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -275,7 +278,8 @@ std::array&lt; double, 2 &gt; goal_loc)</para>
                 <itemizedlist>
                     <listitem>
                         <para>void <link linkend="class_explorer_1ace304ef65547f4a3ff6458d934c54e87">m_move</link> (
-double linear, double angular)</para>
+double linear, double angular)<para><emphasis>Move bot in a linear and angular motion.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -286,7 +290,8 @@ double linear, double angular)</para>
                 <itemizedlist>
                     <listitem>
                         <para>void <link linkend="class_explorer_1ac509e6fbb69d3246d7b00f2703f1c316">m_pose_callback</link> (
-const nav_msgs::Odometry::ConstPtr &amp; msg)</para>
+const nav_msgs::Odometry::ConstPtr &amp; msg)<para><emphasis>Odom callback.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -294,7 +299,8 @@ const nav_msgs::Odometry::ConstPtr &amp; msg)</para>
                 <itemizedlist>
                     <listitem>
                         <para>void <link linkend="class_explorer_1a4e059ac936186ab5a1fdfbda4d0b73b2">m_scan_callback</link> (
-const sensor_msgs::LaserScan::ConstPtr &amp; msg)</para>
+const sensor_msgs::LaserScan::ConstPtr &amp; msg)<para><emphasis>Laser Scan callback.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -302,7 +308,8 @@ const sensor_msgs::LaserScan::ConstPtr &amp; msg)</para>
                 <itemizedlist>
                     <listitem>
                         <para>void <link linkend="class_explorer_1ac341b7ad68b91b0c71fe0c158f2703ed">m_initialize_subscribers</link> (
-)</para>
+)<para><emphasis>Initializes subscribers.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -310,7 +317,8 @@ const sensor_msgs::LaserScan::ConstPtr &amp; msg)</para>
                 <itemizedlist>
                     <listitem>
                         <para>void <link linkend="class_explorer_1ae6ab01ec1fc07201b0fff0297ad72dba">m_initialize_publishers</link> (
-)</para>
+)<para><emphasis>initializes publishers</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -318,7 +326,8 @@ const sensor_msgs::LaserScan::ConstPtr &amp; msg)</para>
                 <itemizedlist>
                     <listitem>
                         <para>double <link linkend="class_explorer_1a507bd3d14e43f9c465811db56c31a265">m_compute_distance</link> (
-const std::pair&lt; double, double &gt; &amp; a, const std::pair&lt; double, double &gt; &amp; b)</para>
+const std::pair&lt; double, double &gt; &amp; a, const std::pair&lt; double, double &gt; &amp; b)<para><emphasis>computes distance between two points</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -326,7 +335,8 @@ const std::pair&lt; double, double &gt; &amp; a, const std::pair&lt; double, dou
                 <itemizedlist>
                     <listitem>
                         <para>double <link linkend="class_explorer_1ace07aad09cc3dc09200d9809df3adcf4">m_normalize_angle_positive</link> (
-double angle)</para>
+double angle)<para><emphasis>Normalizes the angle to be 0 to 2*M_PI.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -334,14 +344,15 @@ double angle)</para>
                 <itemizedlist>
                     <listitem>
                         <para>double <link linkend="class_explorer_1a6f7794ac0dd79de7cc1fb7fe24c3af15">m_normalize_angle</link> (
-double angle)</para>
+double angle)<para><emphasis>Normalizes the angle to be -M_PI circle to +M_PI circle.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
         </section>
     <simplesect>
 
-<para>A class that inherits from Bot_contreoller to control the explorer and exploration algorithm. </para>
+<para>A class to control the explorer and exploration algorithm. </para>
     </simplesect>
         <section>
             <title>Member Data Documentation</title>
@@ -350,8 +361,35 @@ double angle)</para>
             <title>Member Data Documentation</title>
         </section>
             <section xml:id="class_explorer_1aafe6b7c3b9c2e24815aa14a731f31890">
-                <title>Explorer::Explorer (ros::NodeHandle *nodehandle, const std::string &amp;robot_name)</title> <emphasis></emphasis>
+                <title>Explorer::Explorer (ros::NodeHandle *nodehandle, const std::string &amp;robot_name)</title> <emphasis>Construct a new Explorer object.</emphasis>
                 
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>nodehandle</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>robot_name</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
             </section>
             <section xml:id="class_explorer_1a8ffef25585ef957b9df4407366723787">
                 <title>void Explorer::publish_velocities (const geometry_msgs::Twist &amp;msg)</title> <emphasis></emphasis>
@@ -390,47 +428,224 @@ double angle)</para>
                 
             </section>
             <section xml:id="class_explorer_1aa1b0a71e92e003e9162a5ba99d843392">
-                <title>Explorer::~Explorer ()</title> <emphasis></emphasis>
+                <title>Explorer::~Explorer ()</title> <emphasis>Destroy the Explorer object.</emphasis>
                 
             </section>
             <section xml:id="class_explorer_1a2b0c1e46e1a17e99f4156edf5a93b691">
                 <title>void Explorer::move_next_loc (std::array&lt; double, 2 &gt; goal_loc)</title> <emphasis></emphasis>
                 
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>goal_loc</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
             </section>
             <section xml:id="class_explorer_1a847e3ad2e7233d493a8dcfdd7139cb58">
-                <title>std::array&lt;std::array&lt;double,2&gt;,4&gt; Explorer::get_goals ()</title> <emphasis></emphasis>
+                <title>std::array&lt;std::array&lt;double,2&gt;,4&gt; Explorer::get_goals ()</title> <emphasis>Get the goals object.</emphasis>
                 
+<para><formalpara><title>Returns: </title>
+
+<para>std::array&lt;std::array&lt;double,2&gt;,4&gt; </para>
+</formalpara>
+</para>
+
             </section>
             <section xml:id="class_explorer_1ace304ef65547f4a3ff6458d934c54e87">
-                <title>void Explorer::m_move (double linear, double angular)</title> <emphasis></emphasis>
+                <title>void Explorer::m_move (double linear, double angular)</title> <emphasis>Move bot in a linear and angular motion.</emphasis>
                 
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>linear</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>angular</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
             </section>
             <section xml:id="class_explorer_1ac509e6fbb69d3246d7b00f2703f1c316">
-                <title>void Explorer::m_pose_callback (const nav_msgs::Odometry::ConstPtr &amp;msg)</title> <emphasis></emphasis>
+                <title>void Explorer::m_pose_callback (const nav_msgs::Odometry::ConstPtr &amp;msg)</title> <emphasis>Odom callback.</emphasis>
                 
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>msg</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
             </section>
             <section xml:id="class_explorer_1a4e059ac936186ab5a1fdfbda4d0b73b2">
-                <title>void Explorer::m_scan_callback (const sensor_msgs::LaserScan::ConstPtr &amp;msg)</title> <emphasis></emphasis>
+                <title>void Explorer::m_scan_callback (const sensor_msgs::LaserScan::ConstPtr &amp;msg)</title> <emphasis>Laser Scan callback.</emphasis>
                 
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>msg</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
             </section>
             <section xml:id="class_explorer_1ac341b7ad68b91b0c71fe0c158f2703ed">
-                <title>void Explorer::m_initialize_subscribers ()</title> <emphasis></emphasis>
+                <title>void Explorer::m_initialize_subscribers ()</title> <emphasis>Initializes subscribers.</emphasis>
                 
             </section>
             <section xml:id="class_explorer_1ae6ab01ec1fc07201b0fff0297ad72dba">
-                <title>void Explorer::m_initialize_publishers ()</title> <emphasis></emphasis>
+                <title>void Explorer::m_initialize_publishers ()</title> <emphasis>initializes publishers</emphasis>
                 
             </section>
             <section xml:id="class_explorer_1a507bd3d14e43f9c465811db56c31a265">
-                <title>double Explorer::m_compute_distance (const std::pair&lt; double, double &gt; &amp;a, const std::pair&lt; double, double &gt; &amp;b)</title> <emphasis></emphasis>
+                <title>double Explorer::m_compute_distance (const std::pair&lt; double, double &gt; &amp;a, const std::pair&lt; double, double &gt; &amp;b)</title> <emphasis>computes distance between two points</emphasis>
                 
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>a</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>b</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                <formalpara><title>Returns: </title>
+
+<para>double </para>
+</formalpara>
+</para>
+
             </section>
             <section xml:id="class_explorer_1ace07aad09cc3dc09200d9809df3adcf4">
-                <title>double Explorer::m_normalize_angle_positive (double angle)</title> <emphasis></emphasis>
+                <title>double Explorer::m_normalize_angle_positive (double angle)</title> <emphasis>Normalizes the angle to be 0 to 2*M_PI.</emphasis>
                 
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>angle</entry>
+                                <entry>
+<para>Angle to normalize (rad) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                <formalpara><title>Returns: </title>
+
+<para>double Normalized angle (rad) </para>
+</formalpara>
+</para>
+
             </section>
             <section xml:id="class_explorer_1a6f7794ac0dd79de7cc1fb7fe24c3af15">
-                <title>double Explorer::m_normalize_angle (double angle)</title> <emphasis></emphasis>
+                <title>double Explorer::m_normalize_angle (double angle)</title> <emphasis>Normalizes the angle to be -M_PI circle to +M_PI circle.</emphasis>
                 
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>angle</entry>
+                                <entry>
+<para>Angle to normalize (rad) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                <formalpara><title>Returns: </title>
+
+<para>double Normalized angle (rad) </para>
+</formalpara>
+</para>
+
             </section>
 </section>
