@@ -2,7 +2,7 @@
  * @file explorer.cpp
  * @author 809Y Final Project Group 5
  * @brief  ArucoNode
- * @version 0.1
+ * @version 1.0
  * @date 2021-12-12
  * 
  * @copyright Copyright (c) 2021
@@ -13,8 +13,7 @@
 ArucoNode::ArucoNode(ros::NodeHandle* nodehandle):
     m_nh{ *nodehandle }
 {
-    m_initialize_subscribers();    
-    m_check_subscribers();
+    m_initialize_subscribers();
 };
 
 void ArucoNode::fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg)
@@ -25,7 +24,9 @@ void ArucoNode::fiducial_callback(const fiducial_msgs::FiducialTransformArray::C
         ROS_INFO_STREAM("Setting up broadcaster!\nMessage:" << msg);
         static tf2_ros::TransformBroadcaster br;
         geometry_msgs::TransformStamped transformStamped;
+        
         //broadcast the new frame to /tf Topic
+        ROS_INFO_STREAM("I see another sillouetto of a marker: " << msg->transforms[0].fiducial_id);
         transformStamped.header.stamp = ros::Time::now();
         transformStamped.header.frame_id = "explorer_tf/camera_rgb_optical_frame";
         transformStamped.child_frame_id = "marker_frame"; //name of the frame
