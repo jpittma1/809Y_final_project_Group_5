@@ -82,10 +82,8 @@ void ArucoNode::aruco_seen(){
     ros::spinOnce();
 }
 
-void ArucoNode::m_initialize_publishers() {
-    ROS_INFO("Initializing Publishers");
-    m_velocity_publisher = m_nh.advertise<geometry_msgs::Twist>("/cmd_vel", 100);
-}
+
+
 void ArucoNode::m_check_subscribers() {
     ROS_INFO_STREAM("Initializing Checker.");
     m_check_subscriber = m_nh.subscribe("/fiducial_transforms", 1000, &ArucoNode::aruco_exists_callback, this);

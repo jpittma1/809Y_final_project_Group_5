@@ -30,9 +30,9 @@
 class Follower {
     public:
         Follower(ros::NodeHandle *nodehandle, const std::string &robot_name);
-        void publish_velocities(const geometry_msgs::Twist &msg);
-        void drive_straight(double distance, bool direction);
-        void rotate(double angle_to_rotate, bool direction, double final_angle);
+        // void publish_velocities(const geometry_msgs::Twist &msg);
+        // void drive_straight(double distance, bool direction);
+        // void rotate(double angle_to_rotate, bool direction, double final_angle);
         bool go_to_goal(double x, double y);
         void stop();
         double compute_expected_final_yaw(bool direction, double angle_to_rotate);
@@ -69,8 +69,8 @@ class Follower {
         double m_pitch;                                                    //rad
         double m_yaw;       //rad
 
-        void m_pose_callback(const nav_msgs::Odometry::ConstPtr &msg);     // prototype for callback of example subscriber
-        void m_scan_callback(const sensor_msgs::LaserScan::ConstPtr &msg); // prototype for callback of example subscriber
+        void m_pose_callback(const nav_msgs::Odometry::ConstPtr &msg);
+        void m_scan_callback(const sensor_msgs::LaserScan::ConstPtr &msg); 
         
         /**
              * @brief To store the locations of the fiducial IDs (waypoints) and the fiducial_ID number

@@ -76,8 +76,8 @@ class Explorer{
         double m_pitch;                                                    //rad
         double m_yaw;       //rad
 
-        void m_pose_callback(const nav_msgs::Odometry::ConstPtr &msg);     // prototype for callback of example subscriber
-        void m_scan_callback(const sensor_msgs::LaserScan::ConstPtr &msg); // prototype for callback of example subscriber
+        void m_pose_callback(const nav_msgs::Odometry::ConstPtr &msg);     
+        void m_scan_callback(const sensor_msgs::LaserScan::ConstPtr &msg);
         
         void m_initialize_subscribers();
         void m_initialize_publishers();

@@ -43,7 +43,6 @@ class ArucoNode{
         
         ~ArucoNode() {}
     private:
-        void m_initialize_publishers();
         void m_check_subscribers();
         void m_initialize_subscribers();
 
@@ -54,9 +53,6 @@ class ArucoNode{
         ros::Subscriber m_fiducial_subscriber;
         ros::Publisher m_velocity_publisher;
 
-        
-
-        
     
 };
 

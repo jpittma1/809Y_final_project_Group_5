@@ -184,54 +184,52 @@ double Follower::compute_yaw_rad() {
     return yaw_rad;
 }
 
+// void Follower::rotate(double angle_to_rotate, bool direction, double final_angle) {
+//     double current_yaw_deg = compute_yaw_deg();
+//     ROS_INFO_STREAM("Rotate an angle of [" << angle_to_rotate << " degrees]");
+//     ROS_INFO_STREAM("Current orientation: " << current_yaw_deg);
+//     ROS_INFO_STREAM("Final orientation: " << final_angle);
 
+//     if (direction) {
+//         if (final_angle >= current_yaw_deg) {
+//             m_move(0.0, m_angular_speed);
+//         }
+//         else {
+//             //stop the robot
+//             stop();
+//         }
+//     }
+//     else {
+//         if (final_angle <= current_yaw_deg) {
+//             m_move(0.0, -m_angular_speed);
+//         }
+//         else {
+//             //stop the robot
+//             stop();
+//         }
+//     }
 
-void Follower::rotate(double angle_to_rotate, bool direction, double final_angle) {
-    double current_yaw_deg = compute_yaw_deg();
-    ROS_INFO_STREAM("Rotate an angle of [" << angle_to_rotate << " degrees]");
-    ROS_INFO_STREAM("Current orientation: " << current_yaw_deg);
-    ROS_INFO_STREAM("Final orientation: " << final_angle);
+// }
 
-    if (direction) {
-        if (final_angle >= current_yaw_deg) {
-            m_move(0.0, m_angular_speed);
-        }
-        else {
-            //stop the robot
-            stop();
-        }
-    }
-    else {
-        if (final_angle <= current_yaw_deg) {
-            m_move(0.0, -m_angular_speed);
-        }
-        else {
-            //stop the robot
-            stop();
-        }
-    }
+// void Follower::drive_straight(double distance_to_drive, bool direction) {
+//     ROS_INFO_STREAM("Drive a distance of [" << distance_to_drive << " m]");
+//     ROS_INFO_STREAM("Current: " << m_location.first << "," << m_location.second);
+//     static std::pair<double, double> start_position{ m_location };
+//     double distance_driven = m_compute_distance(m_location, start_position);
 
-}
-
-void Follower::drive_straight(double distance_to_drive, bool direction) {
-    ROS_INFO_STREAM("Drive a distance of [" << distance_to_drive << " m]");
-    ROS_INFO_STREAM("Current: " << m_location.first << "," << m_location.second);
-    static std::pair<double, double> start_position{ m_location };
-    double distance_driven = m_compute_distance(m_location, start_position);
-
-    if (distance_driven <= distance_to_drive) {
-        // distance_driven = m_compute_distance(m_location, start_position);
-        ROS_INFO_STREAM("Distance driven: [" << distance_driven << "]");
-        if (direction)
-            m_move(m_linear_speed, 0.0);
-        else
-            m_move(-m_linear_speed, 0.0);
-    }
-    else {
-        //stop the robot
-        stop();
-    }
-}
+//     if (distance_driven <= distance_to_drive) {
+//         // distance_driven = m_compute_distance(m_location, start_position);
+//         ROS_INFO_STREAM("Distance driven: [" << distance_driven << "]");
+//         if (direction)
+//             m_move(m_linear_speed, 0.0);
+//         else
+//             m_move(-m_linear_speed, 0.0);
+//     }
+//     else {
+//         //stop the robot
+//         stop();
+//     }
+// }
 
 
 bool Follower::go_to_goal(double goal_x, double goal_y) {
