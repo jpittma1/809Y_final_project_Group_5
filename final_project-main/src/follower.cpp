@@ -124,7 +124,8 @@ void Follower::m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::
         std::cout <<"\nNew marker " << fiducial_id << " added is\n";
         std::cout <<"New Posit (" <<  m_posit.at(fiducial_id).at(0);
         std::cout << ", " << m_posit.at(fiducial_id).at(1)<<")\n";
-
+        
+        ros::spinOnce();
         br.sendTransform(transformStamped);
     }
 }
