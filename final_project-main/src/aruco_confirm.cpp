@@ -13,7 +13,7 @@
 ArucoNode::ArucoNode(ros::NodeHandle* nodehandle):
     m_nh{ *nodehandle }
 {
-    m_initialize_publishers();
+    m_initialize_publishers(); //I don't think this is necessary
     m_initialize_subscribers();    
     m_check_subscribers();
 };
@@ -76,7 +76,7 @@ bool ArucoNode::aruco_seen(){
     return marker_seen;
 }
 
-void ArucoNode::m_initialize_publishers() {
+void ArucoNode::m_initialize_publishers() {//I don't think this is necessary
     ROS_INFO("Initializing Publishers");
     m_velocity_publisher = m_nh.advertise<geometry_msgs::Twist>("/cmd_vel", 100);
 }
