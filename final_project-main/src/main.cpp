@@ -11,6 +11,7 @@
 #include "../include/explorer/explorer.h"
 #include "../include/explorer/aruco_confirm.h"
 #include "../include/follower/follower.h"
+
 #include <xmlrpcpp/XmlRpcClient.h>
 #include <xmlrpcpp/XmlRpc.h>
 
@@ -32,14 +33,10 @@ int main(int argc, char** argv) {
   bool follower_goal_sent = false;
 
   ros::init(argc, argv, "final_project");
-  // ros::init(argc, argv, "explorer");
-
+ 
   ros::NodeHandle nh;
   
   geometry_msgs::TransformStamped transformStamped;
-
-  // std::string robot_name;
-  // std::string robot_name_follow;
 
   //Initialize Follower and Explorer class objects
   Explorer explorer(&nh, "explorer");

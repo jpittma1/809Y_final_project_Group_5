@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bot_5fcontroller',['Bot_Controller',['../class_bot___controller.html',1,'']]]
+  ['aruconode',['ArucoNode',['../class_aruco_node.html',1,'']]]
 ];

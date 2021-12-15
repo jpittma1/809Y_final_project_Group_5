@@ -42,6 +42,13 @@
                     </listitem>
                 </itemizedlist>
             </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>ros::Publisher m_velocity_publisher</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
         </section>
         <section>
             <title>Private Attributes</title>
@@ -70,13 +77,6 @@
                 <itemizedlist>
                     <listitem>
                         <para>ros::Subscriber m_fiducial_subscriber</para>
-                    </listitem>
-                </itemizedlist>
-            </para>
-            <para>
-                <itemizedlist>
-                    <listitem>
-                        <para>ros::Publisher m_velocity_publisher</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -271,6 +271,14 @@ std::array&lt; double, 2 &gt; goal_loc)</para>
                     </listitem>
                 </itemizedlist>
             </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_explorer_1ace304ef65547f4a3ff6458d934c54e87">m_move</link> (
+double linear, double angular)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
         </section>
         <section>
             <title></title>
@@ -311,14 +319,6 @@ const sensor_msgs::LaserScan::ConstPtr &amp; msg)</para>
                     <listitem>
                         <para>double <link linkend="class_explorer_1a507bd3d14e43f9c465811db56c31a265">m_compute_distance</link> (
 const std::pair&lt; double, double &gt; &amp; a, const std::pair&lt; double, double &gt; &amp; b)</para>
-                    </listitem>
-                </itemizedlist>
-            </para>
-            <para>
-                <itemizedlist>
-                    <listitem>
-                        <para>void <link linkend="class_explorer_1ace304ef65547f4a3ff6458d934c54e87">m_move</link> (
-double linear, double angular)</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -401,6 +401,10 @@ double angle)</para>
                 <title>std::array&lt;std::array&lt;double,2&gt;,4&gt; Explorer::get_goals ()</title> <emphasis></emphasis>
                 
             </section>
+            <section xml:id="class_explorer_1ace304ef65547f4a3ff6458d934c54e87">
+                <title>void Explorer::m_move (double linear, double angular)</title> <emphasis></emphasis>
+                
+            </section>
             <section xml:id="class_explorer_1ac509e6fbb69d3246d7b00f2703f1c316">
                 <title>void Explorer::m_pose_callback (const nav_msgs::Odometry::ConstPtr &amp;msg)</title> <emphasis></emphasis>
                 
@@ -419,10 +423,6 @@ double angle)</para>
             </section>
             <section xml:id="class_explorer_1a507bd3d14e43f9c465811db56c31a265">
                 <title>double Explorer::m_compute_distance (const std::pair&lt; double, double &gt; &amp;a, const std::pair&lt; double, double &gt; &amp;b)</title> <emphasis></emphasis>
-                
-            </section>
-            <section xml:id="class_explorer_1ace304ef65547f4a3ff6458d934c54e87">
-                <title>void Explorer::m_move (double linear, double angular)</title> <emphasis></emphasis>
                 
             </section>
             <section xml:id="class_explorer_1ace07aad09cc3dc09200d9809df3adcf4">

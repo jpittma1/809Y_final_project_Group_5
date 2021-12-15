@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['print_5fusage',['print_usage',['../main_8cpp.html#a9c2747abcaef4c03d19858e45f59de80',1,'main.cpp']]],
-  ['publish_5fvelocities',['publish_velocities',['../class_bot___controller.html#ae357ee9ea3ec7a5000f39532fc52fa72',1,'Bot_Controller::publish_velocities()'],['../class_explorer.html#a8ffef25585ef957b9df4407366723787',1,'Explorer::publish_velocities()'],['../class_follower.html#aaae1600959a929c269d557d9c09ba777',1,'Follower::publish_velocities()']]]
+  ['readme_2emd',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
+  ['rotate',['rotate',['../class_explorer.html#ac8e3a980fd3929734fb3a4b0b2e0a7e0',1,'Explorer::rotate()'],['../class_follower.html#abf8ec0da50295140bf750d30906a726b',1,'Follower::rotate()']]]
 ];

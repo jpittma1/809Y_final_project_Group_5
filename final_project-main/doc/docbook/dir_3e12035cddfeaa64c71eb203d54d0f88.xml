@@ -17,6 +17,13 @@
             <para>
                 <itemizedlist>
                     <listitem>
+                        <para>file <link linkend="aruco__confirm_8h">aruco_confirm.h</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
                         <para>file <link linkend="explorer_8h">explorer.h</link></para>
                     </listitem>
                 </itemizedlist>

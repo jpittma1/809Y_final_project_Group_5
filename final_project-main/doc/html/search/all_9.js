@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['readme_2emd',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
-  ['rotate',['rotate',['../class_bot___controller.html#ab83b7a259633a0e5c8855159b0027303',1,'Bot_Controller::rotate()'],['../class_explorer.html#ac8e3a980fd3929734fb3a4b0b2e0a7e0',1,'Explorer::rotate()'],['../class_follower.html#abf8ec0da50295140bf750d30906a726b',1,'Follower::rotate()']]]
+  ['start_5fplace',['start_place',['../class_explorer.html#af1aee46522a58db39d3643f2138c76fa',1,'Explorer']]],
+  ['stop',['stop',['../class_explorer.html#a0e4a623ff30d1886cc9f57ec081c527f',1,'Explorer::stop()'],['../class_follower.html#a84c17a75630c27bea4f401c8ab8e45b2',1,'Follower::stop()']]]
 ];

@@ -17,13 +17,6 @@
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>dir <link linkend="dir_ebf1879768d60c89c940d76166fa9f16">include/bot_controller</link></para>
-                    </listitem>
-                </itemizedlist>
-            </para>
-            <para>
-                <itemizedlist>
-                    <listitem>
                         <para>dir <link linkend="dir_3e12035cddfeaa64c71eb203d54d0f88">include/explorer</link></para>
                     </listitem>
                 </itemizedlist>

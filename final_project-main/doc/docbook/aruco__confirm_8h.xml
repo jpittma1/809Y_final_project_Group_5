@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="aruco__confirm_8h">
+    <title>aruco_confirm.h File Reference</title>
+    <programlisting>#include &lt;geometry_msgs/Twist.h&gt;</programlisting>
+    <programlisting>#include &lt;nav_msgs/Odometry.h&gt;</programlisting>
+    <programlisting>#include &lt;sensor_msgs/LaserScan.h&gt;</programlisting>
+    <programlisting>#include &lt;fiducial_msgs/FiducialTransformArray.h&gt;</programlisting>
+    <programlisting>#include &lt;geometry_msgs/TransformStamped.h&gt;</programlisting>
+    <programlisting>#include &lt;tf2_ros/transform_broadcaster.h&gt;</programlisting>
+    <programlisting>#include &lt;tf2_ros/transform_listener.h&gt;</programlisting>
+    <programlisting>#include &lt;ros/ros.h&gt;</programlisting>
+    <programlisting>#include &lt;utility&gt;</programlisting>
+    <programlisting>#include &lt;string&gt;</programlisting>
+    <programlisting>#include &lt;array&gt;</programlisting>
+    <programlisting>#include &lt;algorithm&gt;</programlisting>
+    <programlisting>#include &lt;tf/transform_datatypes.h&gt;</programlisting>
+    <programlisting>#include &lt;geometry_msgs/Quaternion.h&gt;</programlisting>
+    <programlisting>#include &lt;cmath&gt;</programlisting>
+<para>Include dependency diagram for aruco_confirm.h</para>
+<para>
+    <figure>
+        <title>Dependency diagram</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="1" fileref="aruco__confirm_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </figure>
+</para>
+<para>Included by dependency diagram for aruco_confirm.h</para>
+<para>
+    <figure>
+        <title>Dependency diagram</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="1" fileref="aruco__confirm_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </figure>
+</para>
+        <section>
+            <title> Classes </title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>struct <link linkend="class_aruco_node">ArucoNode</link></para>
+<para><emphasis>A class that detects the Aruco Marker.</emphasis></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+    <simplesect>
+        <title>Detailed Description</title>
+    <para>Definition in file /home/jerry/catkin_ws/src/809Y_final_project_Group_5/final_project-main/include/explorer/aruco_confirm.h</para>
+    </simplesect>
+</section>

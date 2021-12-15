@@ -46,19 +46,8 @@ class Follower {
         std::array<std::array<double, 2>, 4> m_posit{};  //store marker positions
 
 
-        //Follower accessor
-        // const std::array <int, 4> get_fid() {
-        //     return m_fid;
-        // }
-    
-        // //Follower mutator
-        // void set_fid(int id, int location) {
-        //     m_fid.at(location) = id;
-        // }
-
     private:
-        // std::array <int, 4> m_fid {};
-        // std::array<std::array<double, 2>, 4> m_posit{};
+        
         ros::NodeHandle m_nh;
 
         ros::Subscriber m_pose_subscriber;

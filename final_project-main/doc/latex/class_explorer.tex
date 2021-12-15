@@ -37,6 +37,8 @@ double \hyperlink{class_explorer_ac3a5c9368647dd9d2c36d12497bd889e}{convert\+\_\
 void \hyperlink{class_explorer_a2b0c1e46e1a17e99f4156edf5a93b691}{move\+\_\+next\+\_\+loc} (std\+::array$<$ double, 2 $>$ goal\+\_\+loc)
 \item 
 std\+::array$<$ std\+::array$<$ double, 2 $>$, 4 $>$ \hyperlink{class_explorer_a847e3ad2e7233d493a8dcfdd7139cb58}{get\+\_\+goals} ()
+\item 
+void \hyperlink{class_explorer_ace304ef65547f4a3ff6458d934c54e87}{m\+\_\+move} (double linear, double angular)
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -44,13 +46,15 @@ std\+::array$<$ std\+::array$<$ double, 2 $>$, 4 $>$ \hyperlink{class_explorer_a
 std\+::array$<$ std\+::array$<$ int, 3 $>$, 4 $>$ \hyperlink{class_explorer_acda1856f421dfe836f39de446415b969}{goal\+\_\+list} \{\}
 \item 
 std\+::array$<$ int, 3 $>$ \hyperlink{class_explorer_af1aee46522a58db39d3643f2138c76fa}{start\+\_\+place} \{\}
+\item 
+ros\+::\+Publisher \hyperlink{class_explorer_aee857cd646f2ce6eb7e017a67e90bcdf}{m\+\_\+velocity\+\_\+publisher}
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 A class that inherits from Bot\+\_\+contreoller to control the explorer and exploration algorithm. 
 
-Definition at line 10 of file explorer.\+h.
+Definition at line 28 of file explorer.\+h.
 
 
 
@@ -73,7 +77,7 @@ Definition at line 13 of file explorer.\+cpp.
 
 
 
-Definition at line 24 of file explorer.\+h.
+Definition at line 42 of file explorer.\+h.
 
 
 
@@ -86,7 +90,7 @@ Definition at line 24 of file explorer.\+h.
 
 
 
-Definition at line 132 of file explorer.\+cpp.
+Definition at line 138 of file explorer.\+cpp.
 
 \mbox{\Hypertarget{class_explorer_a670cdffdb8c3173c300590cfc45ab6d2}\label{class_explorer_a670cdffdb8c3173c300590cfc45ab6d2}} 
 \index{Explorer@{Explorer}!compute\+\_\+yaw\+\_\+deg@{compute\+\_\+yaw\+\_\+deg}}
@@ -96,7 +100,7 @@ Definition at line 132 of file explorer.\+cpp.
 
 
 
-Definition at line 144 of file explorer.\+cpp.
+Definition at line 150 of file explorer.\+cpp.
 
 \mbox{\Hypertarget{class_explorer_ac5b91cd64189a60ffe62535cb5bc093a}\label{class_explorer_ac5b91cd64189a60ffe62535cb5bc093a}} 
 \index{Explorer@{Explorer}!compute\+\_\+yaw\+\_\+rad@{compute\+\_\+yaw\+\_\+rad}}
@@ -106,7 +110,7 @@ Definition at line 144 of file explorer.\+cpp.
 
 
 
-Definition at line 156 of file explorer.\+cpp.
+Definition at line 162 of file explorer.\+cpp.
 
 \mbox{\Hypertarget{class_explorer_ac3a5c9368647dd9d2c36d12497bd889e}\label{class_explorer_ac3a5c9368647dd9d2c36d12497bd889e}} 
 \index{Explorer@{Explorer}!convert\+\_\+rad\+\_\+to\+\_\+deg@{convert\+\_\+rad\+\_\+to\+\_\+deg}}
@@ -116,7 +120,7 @@ Definition at line 156 of file explorer.\+cpp.
 
 
 
-Definition at line 58 of file explorer.\+cpp.
+Definition at line 59 of file explorer.\+cpp.
 
 \mbox{\Hypertarget{class_explorer_ab4ca9f16c48a60fc4d0e426b6fd9e9a0}\label{class_explorer_ab4ca9f16c48a60fc4d0e426b6fd9e9a0}} 
 \index{Explorer@{Explorer}!drive\+\_\+straight@{drive\+\_\+straight}}
@@ -126,7 +130,7 @@ Definition at line 58 of file explorer.\+cpp.
 
 
 
-Definition at line 195 of file explorer.\+cpp.
+Definition at line 203 of file explorer.\+cpp.
 
 \mbox{\Hypertarget{class_explorer_a847e3ad2e7233d493a8dcfdd7139cb58}\label{class_explorer_a847e3ad2e7233d493a8dcfdd7139cb58}} 
 \index{Explorer@{Explorer}!get\+\_\+goals@{get\+\_\+goals}}
@@ -136,7 +140,7 @@ Definition at line 195 of file explorer.\+cpp.
 
 
 
-Definition at line 33 of file explorer.\+h.
+Definition at line 51 of file explorer.\+h.
 
 \mbox{\Hypertarget{class_explorer_aa1e259feaac1114adb0f24588428e8ef}\label{class_explorer_aa1e259feaac1114adb0f24588428e8ef}} 
 \index{Explorer@{Explorer}!go\+\_\+to\+\_\+goal@{go\+\_\+to\+\_\+goal}}
@@ -146,7 +150,17 @@ Definition at line 33 of file explorer.\+h.
 
 
 
-Definition at line 216 of file explorer.\+cpp.
+Definition at line 224 of file explorer.\+cpp.
+
+\mbox{\Hypertarget{class_explorer_ace304ef65547f4a3ff6458d934c54e87}\label{class_explorer_ace304ef65547f4a3ff6458d934c54e87}} 
+\index{Explorer@{Explorer}!m\+\_\+move@{m\+\_\+move}}
+\index{m\+\_\+move@{m\+\_\+move}!Explorer@{Explorer}}
+\subsubsection{\texorpdfstring{m\+\_\+move()}{m\_move()}}
+{\footnotesize\ttfamily void Explorer\+::m\+\_\+move (\begin{DoxyParamCaption}\item[{double}]{linear,  }\item[{double}]{angular }\end{DoxyParamCaption})}
+
+
+
+Definition at line 122 of file explorer.\+cpp.
 
 \mbox{\Hypertarget{class_explorer_a2b0c1e46e1a17e99f4156edf5a93b691}\label{class_explorer_a2b0c1e46e1a17e99f4156edf5a93b691}} 
 \index{Explorer@{Explorer}!move\+\_\+next\+\_\+loc@{move\+\_\+next\+\_\+loc}}
@@ -156,7 +170,7 @@ Definition at line 216 of file explorer.\+cpp.
 
 
 
-Definition at line 31 of file explorer.\+h.
+Definition at line 49 of file explorer.\+h.
 
 \mbox{\Hypertarget{class_explorer_a8ffef25585ef957b9df4407366723787}\label{class_explorer_a8ffef25585ef957b9df4407366723787}} 
 \index{Explorer@{Explorer}!publish\+\_\+velocities@{publish\+\_\+velocities}}
@@ -172,7 +186,7 @@ Definition at line 31 of file explorer.\+h.
 
 
 
-Definition at line 168 of file explorer.\+cpp.
+Definition at line 174 of file explorer.\+cpp.
 
 \mbox{\Hypertarget{class_explorer_a0e4a623ff30d1886cc9f57ec081c527f}\label{class_explorer_a0e4a623ff30d1886cc9f57ec081c527f}} 
 \index{Explorer@{Explorer}!stop@{stop}}
@@ -182,7 +196,7 @@ Definition at line 168 of file explorer.\+cpp.
 
 
 
-Definition at line 123 of file explorer.\+cpp.
+Definition at line 129 of file explorer.\+cpp.
 
 
 
@@ -195,7 +209,17 @@ Definition at line 123 of file explorer.\+cpp.
 
 
 
-Definition at line 27 of file explorer.\+h.
+Definition at line 45 of file explorer.\+h.
+
+\mbox{\Hypertarget{class_explorer_aee857cd646f2ce6eb7e017a67e90bcdf}\label{class_explorer_aee857cd646f2ce6eb7e017a67e90bcdf}} 
+\index{Explorer@{Explorer}!m\+\_\+velocity\+\_\+publisher@{m\+\_\+velocity\+\_\+publisher}}
+\index{m\+\_\+velocity\+\_\+publisher@{m\+\_\+velocity\+\_\+publisher}!Explorer@{Explorer}}
+\subsubsection{\texorpdfstring{m\+\_\+velocity\+\_\+publisher}{m\_velocity\_publisher}}
+{\footnotesize\ttfamily ros\+::\+Publisher Explorer\+::m\+\_\+velocity\+\_\+publisher}
+
+
+
+Definition at line 51 of file explorer.\+h.
 
 \mbox{\Hypertarget{class_explorer_af1aee46522a58db39d3643f2138c76fa}\label{class_explorer_af1aee46522a58db39d3643f2138c76fa}} 
 \index{Explorer@{Explorer}!start\+\_\+place@{start\+\_\+place}}
@@ -205,7 +229,7 @@ Definition at line 27 of file explorer.\+h.
 
 
 
-Definition at line 28 of file explorer.\+h.
+Definition at line 46 of file explorer.\+h.
 
 
 

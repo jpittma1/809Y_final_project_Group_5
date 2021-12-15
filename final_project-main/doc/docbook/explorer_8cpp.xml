@@ -30,7 +30,8 @@
                 <itemizedlist>
                     <listitem>
                         <para>std::array&lt; std::array&lt; double, 2 &gt;, 4 &gt; <link linkend="explorer_8cpp_1a61450d29adf96573b7eec19cb2fa8156">get_goals</link> (
-)</para>
+)<para><emphasis>Get the goals object from aruco_lookup.yaml.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -38,7 +39,9 @@
     <simplesect>
         <title>Detailed Description</title>
 
-<para><link linkend="class_explorer">Explorer</link> Robot. </para>
+<para><link linkend="class_aruco_node">ArucoNode</link>. </para>
+
+<para><link linkend="class_explorer">Explorer</link> Robot.</para>
 
 <para><formalpara><title>Author: </title>
 

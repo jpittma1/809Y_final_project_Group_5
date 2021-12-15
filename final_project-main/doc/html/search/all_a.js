@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['start_5fplace',['start_place',['../class_explorer.html#af1aee46522a58db39d3643f2138c76fa',1,'Explorer']]],
-  ['stop',['stop',['../class_bot___controller.html#a068f0e65e236f7ee9748c20b21a11d7f',1,'Bot_Controller::stop()'],['../class_explorer.html#a0e4a623ff30d1886cc9f57ec081c527f',1,'Explorer::stop()'],['../class_follower.html#a84c17a75630c27bea4f401c8ab8e45b2',1,'Follower::stop()']]]
+  ['temp_5fid',['temp_id',['../class_aruco_node.html#ac9561321e855855ccc8f643cc139a638',1,'ArucoNode']]],
+  ['transformed_5flocs',['transformed_locs',['../class_aruco_node.html#ab410bc0b655071ee67e7ba63b4edf256',1,'ArucoNode']]]
 ];

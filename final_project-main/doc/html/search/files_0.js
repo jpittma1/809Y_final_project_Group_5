@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['bot_5fcontroller_2ecpp',['bot_controller.cpp',['../bot__controller_8cpp.html',1,'']]],
-  ['bot_5fcontroller_2eh',['bot_controller.h',['../bot__controller_8h.html',1,'']]]
+  ['aruco_5fconfirm_2ecpp',['aruco_confirm.cpp',['../aruco__confirm_8cpp.html',1,'']]],
+  ['aruco_5fconfirm_2eh',['aruco_confirm.h',['../aruco__confirm_8h.html',1,'']]]
 ];

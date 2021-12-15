@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['stop',['stop',['../class_bot___controller.html#a068f0e65e236f7ee9748c20b21a11d7f',1,'Bot_Controller::stop()'],['../class_explorer.html#a0e4a623ff30d1886cc9f57ec081c527f',1,'Explorer::stop()'],['../class_follower.html#a84c17a75630c27bea4f401c8ab8e45b2',1,'Follower::stop()']]]
+  ['_7earuconode',['~ArucoNode',['../class_aruco_node.html#a134694163a28530a800198e2c039eb25',1,'ArucoNode']]],
+  ['_7eexplorer',['~Explorer',['../class_explorer.html#aa1b0a71e92e003e9162a5ba99d843392',1,'Explorer']]],
+  ['_7efollower',['~Follower',['../class_follower.html#a1dd55289af5ded7a57a2874c5477c33d',1,'Follower']]]
 ];

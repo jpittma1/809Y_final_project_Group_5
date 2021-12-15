@@ -17,7 +17,7 @@
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>file <link linkend="bot__controller_8cpp">bot_controller.cpp</link></para>
+                        <para>file <link linkend="aruco__confirm_8cpp">aruco_confirm.cpp</link></para>
                     </listitem>
                 </itemizedlist>
             </para>

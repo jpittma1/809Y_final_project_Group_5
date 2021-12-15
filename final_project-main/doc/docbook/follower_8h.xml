@@ -6,14 +6,19 @@
     <programlisting>#include &lt;sensor_msgs/LaserScan.h&gt;</programlisting>
     <programlisting>#include &lt;fiducial_msgs/FiducialTransformArray.h&gt;</programlisting>
     <programlisting>#include &lt;geometry_msgs/TransformStamped.h&gt;</programlisting>
+    <programlisting>#include &lt;geometry_msgs/Quaternion.h&gt;</programlisting>
     <programlisting>#include &lt;tf2_ros/transform_broadcaster.h&gt;</programlisting>
+    <programlisting>#include &lt;tf2_ros/transform_listener.h&gt;</programlisting>
+    <programlisting>#include &lt;tf2/LinearMath/Quaternion.h&gt;</programlisting>
     <programlisting>#include &lt;ros/ros.h&gt;</programlisting>
+    <programlisting>#include &lt;actionlib/client/simple_action_client.h&gt;</programlisting>
+    <programlisting>#include &lt;move_base_msgs/MoveBaseAction.h&gt;</programlisting>
     <programlisting>#include &lt;utility&gt;</programlisting>
     <programlisting>#include &lt;string&gt;</programlisting>
     <programlisting>#include &lt;array&gt;</programlisting>
     <programlisting>#include &lt;algorithm&gt;</programlisting>
+    <programlisting>#include &lt;iostream&gt;</programlisting>
     <programlisting>#include &lt;tf/transform_datatypes.h&gt;</programlisting>
-    <programlisting>#include &lt;geometry_msgs/Quaternion.h&gt;</programlisting>
     <programlisting>#include &lt;cmath&gt;</programlisting>
 <para>Include dependency diagram for follower.h</para>
 <para>
