@@ -118,6 +118,8 @@ class Follower {
          */
         std::array<std::array<double, 2>, 4> m_posit{};
 
+        bool m_test = true;
+
 
     private:
         ros::NodeHandle m_nh;
