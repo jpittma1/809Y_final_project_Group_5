@@ -40,7 +40,7 @@ int main(int argc, char** argv) {
   tf2_ros::Buffer tfBuffer;
 
   //Initialize Explorer, Follower, and ArucoNode class objects
-  ArucoNode aruco_node(&nh);
+  ArucoNode aruco_node(&nh,tfBuffer,0);
   
   Explorer explorer(&nh, "explorer");
 

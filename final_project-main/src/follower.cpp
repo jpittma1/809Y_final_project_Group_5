@@ -76,7 +76,8 @@ void Follower::m_scan_callback(const sensor_msgs::LaserScan::ConstPtr& msg) {
 
 void Follower::setup_goals(){
     int fiducial_id;
-    ArucoNode a_node(&m_nh);
+    tf2_ros::Buffer tfBuffer;
+    ArucoNode a_node(&m_nh,tfBuffer,0);
 
     
     m_fid.at(0)=a_node.fid_ids[0];

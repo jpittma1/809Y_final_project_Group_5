@@ -96,10 +96,11 @@ class ArucoNode{
          * 
          */
         ~ArucoNode() {}
+
+        void m_initialize_subscribers(tf2_ros::Buffer& tfBuffer, int count);
         
     private:
         
-        void m_initialize_subscribers();
 
 
         ros::NodeHandle m_nh;
@@ -109,6 +110,7 @@ class ArucoNode{
          * 
          */
         ros::Subscriber m_fiducial_a_subscriber;
+        ros::Subscriber m_fiducial_t_subscriber;
 
     
 };
