@@ -92,7 +92,7 @@ class Explorer{
 
         ros::Subscriber m_pose_subscriber;
         ros::Subscriber m_scan_subscriber;
-        ros::Subscriber m_fiducial_subscriber;
+        // ros::Subscriber m_fiducial_subscriber;
 
         std::string m_robot_name;
 
