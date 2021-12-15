@@ -45,8 +45,6 @@ void ArucoNode::fiducial_callback(const fiducial_msgs::FiducialTransformArray::C
 void ArucoNode::marker_listen(tf2_ros::Buffer& tfBuffer, int count) {
   //for listener
     
-
-
     m_initialize_subscribers();
     geometry_msgs::TransformStamped transformStamped;
     try {

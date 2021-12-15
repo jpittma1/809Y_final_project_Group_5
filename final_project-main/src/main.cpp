@@ -67,6 +67,7 @@ int main(int argc, char** argv) {
   Follower follower(&nh, "follower");
   ArucoNode aruco_node(&nh);
   
+  ros::spinOnce();
 
   // tell the action client that we want to spin a thread by default
   MoveBaseClient explorer_client("/explorer/move_base", true);
