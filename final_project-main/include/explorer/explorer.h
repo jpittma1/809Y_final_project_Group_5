@@ -175,6 +175,7 @@ class Explorer{
          * 
          */
         void m_initialize_publishers();
+        
         /**
          * @brief computes distance between two points
          * 

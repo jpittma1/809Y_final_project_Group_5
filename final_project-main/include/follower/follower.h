@@ -40,6 +40,30 @@ class Follower {
          */
         Follower(ros::NodeHandle *nodehandle, const std::string &robot_name);
         
+         /**
+         * @brief Publish velocities to odom
+         * 
+         * @param msg 
+         */
+        void publish_velocities(const geometry_msgs::Twist &msg);
+        
+        /**
+         * @brief moves robot straight
+         * 
+         * @param distance 
+         * @param direction 
+         */
+        void drive_straight(double distance, bool direction);
+        
+        /**
+         * @brief Rotates robot
+         * 
+         * @param angle_to_rotate 
+         * @param direction 
+         * @param final_angle 
+         */
+        void rotate(double angle_to_rotate, bool direction, double final_angle);
+
         /**
          * @brief Get robot to goal based on x and y coordinates
          *  Error Tolerance of 0.05
@@ -52,6 +76,10 @@ class Follower {
         bool go_to_goal(double x, double y);
         void stop();
 
+        /**
+         * @brief Count goals
+         * 
+         */
         int m_goal_count = 0;
 
         /**
@@ -66,6 +94,10 @@ class Follower {
         double compute_yaw_rad();
         double convert_rad_to_deg(double angle);
 
+        /**
+         * @brief Setup goals
+         * 
+         */
         void setup_goals();
 
         /**
@@ -142,6 +174,14 @@ class Follower {
          * 
          */
         void m_initialize_publishers();
+        
+        /**
+         * @brief computes distance between two points
+         * 
+         * @param a 
+         * @param b 
+         * @return double 
+         */
         double m_compute_distance(const std::pair<double, double> &a, const std::pair<double, double> &b);
         
         /**
