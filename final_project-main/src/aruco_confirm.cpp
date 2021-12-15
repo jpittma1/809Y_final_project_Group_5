@@ -13,7 +13,7 @@
 ArucoNode::ArucoNode(ros::NodeHandle* nodehandle):
     m_nh{ *nodehandle }
 {
-    // m_initialize_publishers(); //I don't think this is necessary
+    m_initialize_publishers();
     m_initialize_subscribers();    
     m_check_subscribers();
 };
@@ -33,9 +33,10 @@ void ArucoNode::fiducial_callback(const fiducial_msgs::FiducialTransformArray::C
         transformStamped.transform.translation.x = msg->transforms[0].transform.translation.x;
         transformStamped.transform.translation.y = msg->transforms[0].transform.translation.y;
         transformStamped.transform.translation.z = msg->transforms[0].transform.translation.z;
-        //Change from transforms[0]?->error without
+        //Change from transforms[0]?
         fid_ids[m_count] = msg->transforms[0].fiducial_id;
         m_count ++;
+
 
         br.sendTransform(transformStamped); //broadcast the transform on /tf Topic
     }
@@ -44,6 +45,7 @@ void ArucoNode::fiducial_callback(const fiducial_msgs::FiducialTransformArray::C
 void ArucoNode::marker_listen(tf2_ros::Buffer& tfBuffer, int count) {
   //for listener
     
+
 
     m_initialize_subscribers();
     geometry_msgs::TransformStamped transformStamped;
@@ -74,11 +76,10 @@ bool ArucoNode::aruco_seen(){
     return marker_seen;
 }
 
-// void ArucoNode::m_initialize_publishers() {//I don't think this is necessary
-//     ROS_INFO("Initializing Publishers");
-//     m_velocity_publisher = m_nh.advertise<geometry_msgs::Twist>("/cmd_vel", 100);
-// }
-
+void ArucoNode::m_initialize_publishers() {
+    ROS_INFO("Initializing Publishers");
+    m_velocity_publisher = m_nh.advertise<geometry_msgs::Twist>("/cmd_vel", 100);
+}
 void ArucoNode::m_check_subscribers() {
     ROS_INFO_STREAM("Initializing Checker.");
     m_check_subscriber = m_nh.subscribe("/fiducial_transforms", 1000, &ArucoNode::aruco_exists, this);

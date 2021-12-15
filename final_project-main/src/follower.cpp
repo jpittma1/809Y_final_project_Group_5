@@ -48,13 +48,13 @@ double Follower::m_normalize_angle(double angle)
 
 void Follower::m_initialize_publishers() {
     ROS_INFO("Initializing Follower Publishers");
-    m_velocity_publisher = m_nh.advertise<geometry_msgs::Twist>("/follower/cmd_vel", 100);
+    m_velocity_publisher = m_nh.advertise<geometry_msgs::Twist>("/cmd_vel", 100);
 }
 
 void Follower::m_initialize_subscribers() {
     ROS_INFO("Initializing Follower Subscribers");
-    m_pose_subscriber = m_nh.subscribe("/follower/odom", 1000, &Follower::m_pose_callback, this);
-    m_scan_subscriber = m_nh.subscribe("/follower/scan", 1000, &Follower::m_scan_callback, this);
+    m_pose_subscriber = m_nh.subscribe("/odom", 1000, &Follower::m_pose_callback, this);
+    m_scan_subscriber = m_nh.subscribe("/scan", 1000, &Follower::m_scan_callback, this);
     m_fiducial_subscriber = m_nh.subscribe("/fiducial_transforms", 1000, &Follower::m_fiducial_callback, this);
    
 }
@@ -93,10 +93,10 @@ void Follower::m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::
         transformStamped.transform.translation.y = msg->transforms[1].transform.translation.y;
         transformStamped.transform.translation.z = msg->transforms[2].transform.translation.z;
         
-        // transformStamped.transform.rotation.x = msg->transforms[0].transform.rotation.x;
-        // transformStamped.transform.rotation.y = msg->transforms[1].transform.rotation.y;
-        // transformStamped.transform.rotation.z = msg->transforms[2].transform.rotation.z;
-        // transformStamped.transform.rotation.w = msg->transforms[3].transform.rotation.w;
+        transformStamped.transform.rotation.x = msg->transforms[0].transform.rotation.x;
+        transformStamped.transform.rotation.y = msg->transforms[1].transform.rotation.y;
+        transformStamped.transform.rotation.z = msg->transforms[2].transform.rotation.z;
+        transformStamped.transform.rotation.w = msg->transforms[3].transform.rotation.w;
 
         fiducial_id= msg->transforms[0].fiducial_id;
 
@@ -105,14 +105,14 @@ void Follower::m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::
             m_fid.at(0)=fiducial_id;
             m_posit.at(0)={transformStamped.transform.translation.x, transformStamped.transform.translation.y};
         } else if(fiducial_id==1) {
-            m_fid.at(1)=fiducial_id;
-            m_posit.at(1)={transformStamped.transform.translation.x, transformStamped.transform.translation.y};
+             m_fid.at(1)=fiducial_id;
+             m_posit.at(1)={transformStamped.transform.translation.x, transformStamped.transform.translation.y};
         } else if (fiducial_id==2) {
             m_fid.at(2)=fiducial_id;
             m_posit.at(2)={transformStamped.transform.translation.x, transformStamped.transform.translation.y};
         } else {
-            m_fid.at(3)=fiducial_id;
-            m_posit.at(3)={transformStamped.transform.translation.x, transformStamped.transform.translation.y};
+             m_fid.at(3)=fiducial_id;
+             m_posit.at(3)={transformStamped.transform.translation.x, transformStamped.transform.translation.y};
         }
         
         ROS_INFO("New Fiducial ID detected and location stored");
