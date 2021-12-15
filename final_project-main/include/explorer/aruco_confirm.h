@@ -44,26 +44,7 @@ class ArucoNode{
          * @param count 
          */
         void marker_listen(tf2_ros::Buffer& tfBuffer, int count);
-        
-        /**
-         * @brief Broadcaster for ArUco markers
-         * 
-         */
-        void marker_broadcast();
-
-        /**
-         * @brief Does arUco marker exist
-         * 
-         * @param msg 
-         */
-        void aruco_exists_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg);
-
-        /**
-         * @brief Is ArUco marker seen?
-         * 
-         */
-        void aruco_seen();
-        
+    
         /**
          * @brief First goal met; initially no
          * 

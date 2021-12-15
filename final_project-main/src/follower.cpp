@@ -94,57 +94,25 @@ void Follower::setup_goals(){
 }
 
 void Follower::m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg) {
-    // if (!msg->transforms.empty() && m_test) {
-    // if (!msg->transforms.empty()) {//check marker is detected
-   
     int fiducial_id;
-    //     //broadcaster object
-    //     tf2_ros::Buffer tfBuffer;
 
-    //     static tf2_ros::TransformBroadcaster br;
-    //     geometry_msgs::TransformStamped transformStamped;
+    fiducial_id= msg->transforms[0].fiducial_id;
+    // ROS_INFO_STREAM("I see a little sillouetto of a marker: " << msg->transforms[0].fiducial_id);
+    // Store location of fiducial IDs based on fiducial_ID detected
+        if (fiducial_id==0){ 
+        m_fid.at(0)=fiducial_id;
+    } else if(fiducial_id==1) {
+        m_fid.at(1)=fiducial_id;
+    } else if (fiducial_id==2) {
+        m_fid.at(2)=fiducial_id;
+    } else {
+        m_fid.at(3)=fiducial_id;}
         
-    //     // ROS_INFO_STREAM("Recording goal location of: " << transformStamped.transform.translation.x << ", " << transformStamped.transform.translation.y);
-
-    //     try {
-    //         transformStamped = tfBuffer.lookupTransform("map","marker_frame",ros::Time(0));
-    //         //broadcast the new frame to /tf Topic
-    //         transformStamped.header.stamp = ros::Time::now();
-    //         transformStamped.header.frame_id = "explorer_tf/camera_rgb_optical_frame";
-    //         transformStamped.child_frame_id = "marker_frame";
-    //         transformStamped.transform.translation.x = msg->transforms[0].transform.translation.x;
-    //         transformStamped.transform.translation.y = msg->transforms[0].transform.translation.y;
+    // ROS_INFO("New Fiducial ID detected and location stored");
+    // std::cout <<"\nNew marker " << fiducial_id << " added is\n";
+    // std::cout <<"New Posit (" <<  m_posit.at(fiducial_id).at(0);
+    // std::cout << ", " << m_posit.at(fiducial_id).at(1)<<")\n";
     
-
-            fiducial_id= msg->transforms[0].fiducial_id;
-            // ROS_INFO_STREAM("I see a little sillouetto of a marker: " << msg->transforms[0].fiducial_id);
-            // Store location of fiducial IDs based on fiducial_ID detected
-             if (fiducial_id==0){ 
-                m_fid.at(0)=fiducial_id;
-        //     m_posit.at(0)={a_node.transformed_locs[0][0], a_node.transformed_locs[0][1]};
-            } else if(fiducial_id==1) {
-                m_fid.at(1)=fiducial_id;
-        //      m_posit.at(1)={a_node.transformed_locs[1][0], a_node.transformed_locs[1][1]};
-            } else if (fiducial_id==2) {
-                m_fid.at(2)=fiducial_id;
-        //     m_posit.at(2)={a_node.transformed_locs[2][0], a_node.transformed_locs[2][1]};
-            } else {
-                m_fid.at(3)=fiducial_id;}
-        //      m_posit.at(3)={a_node.transformed_locs[3][0], a_node.transformed_locs[3][1]};
-             // }
-
-            // ROS_INFO("New Fiducial ID detected and location stored");
-            // std::cout <<"\nNew marker " << fiducial_id << " added is\n";
-            // std::cout <<"New Posit (" <<  m_posit.at(fiducial_id).at(0);
-            // std::cout << ", " << m_posit.at(fiducial_id).at(1)<<")\n";
-        // }
-        // catch (tf2::TransformException& ex) {
-        //     ROS_WARN("%s", ex.what());
-        //     ros::Duration(1.0).sleep();
-        // }
-
-    //     br.sendTransform(transformStamped);
-    // }
     m_test = false;
     ros::spinOnce();
 }
