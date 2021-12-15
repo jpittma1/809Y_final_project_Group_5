@@ -38,12 +38,11 @@ int main(int argc, char** argv) {
   geometry_msgs::TransformStamped transformStamped;
 
   //Initialize Explorer, Follower, and ArucoNode class objects
+  ArucoNode aruco_node(&nh);
+  
   Explorer explorer(&nh, "explorer");
 
   Follower follower(&nh, "follower");
-
-  ArucoNode aruco_node(&nh);
-  
 
   // tell the action client that we want to spin a thread by default
   MoveBaseClient explorer_client("/explorer/move_base", true);
@@ -82,9 +81,7 @@ int main(int argc, char** argv) {
   XmlRpc::XmlRpcValue exp_goal;
   nh.getParam("/aruco_lookup_locations/target_1", exp_goal);
   // ROS_INFO_STREAM("Goal 1: " << nh.getParam("/aruco_lookup_locations/target_1",exp_goal));
-
   ROS_ASSERT(exp_goal.getType() == XmlRpc::XmlRpcValue::TypeArray);
-
   goal_list[0][0] = exp_goal[0];
   goal_list[0][1] = exp_goal[1];
 
@@ -168,7 +165,7 @@ int main(int argc, char** argv) {
     //---SEND Explorer Home---
     goal_x=-4;
     goal_y=2.5;
-    ROS_INFO_STREAM("Returning Explorer Home.")
+    ROS_INFO_STREAM("Returning Explorer Home.");
     explorer_goal.target_pose.pose.position.x = goal_x;
     explorer_goal.target_pose.pose.position.y = goal_y;
 
@@ -191,12 +188,11 @@ int main(int argc, char** argv) {
     delayed_start=true;
 
     follower.setup_goals();
-    ROS_INFO("The first goal is: "<<follower.m_posit[0][0]<<"\t"<<follower.m_post[0][1]);
+    std::cout <<"The first goal is: "<<follower.m_posit[0][0]<<"\t"<<follower.m_posit[0][1]);
 
     //*****FOLLOWER*******//
     //--STEP 01. Let Follower Get home---
     //Wait until explorer "home" = (-4,2.5) before follower leave
-    // if (delayed_start) {
     //---Send Follower to IDs O through 3 ---//
     for (int j=0; j<4 ;j++) {
       //--STEP 02. Set Goal for next ID--//
