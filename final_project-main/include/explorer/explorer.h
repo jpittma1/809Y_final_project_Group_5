@@ -112,8 +112,8 @@ class Explorer{
          */
         void move_next_loc(std::array<double,2> goal_loc){};
 
-        /**
-         * @brief Get the goals object
+       /**
+         * @brief Get the goals object from aruco_lookup.yaml
          * 
          * @return std::array<std::array<double,2>,4> 
          */
@@ -133,8 +133,8 @@ class Explorer{
     private:
         ros::NodeHandle m_nh;
 
-        ros::Subscriber m_pose_subscriber;
-        ros::Subscriber m_scan_subscriber;
+        ros::Subscriber m_e_pose_subscriber;
+        ros::Subscriber m_e_scan_subscriber;
 
         std::string m_robot_name;
 
@@ -175,7 +175,7 @@ class Explorer{
          * 
          */
         void m_initialize_publishers();
-        
+
         /**
          * @brief computes distance between two points
          * 

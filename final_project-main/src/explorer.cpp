@@ -27,8 +27,6 @@ Explorer::Explorer(ros::NodeHandle* nodehandle, const std::string& robot_name) :
     ROS_INFO("Explorer Object Created!");
     m_initialize_publishers();
     m_initialize_subscribers();
-    // start_place = Explorer::get_start_loc();
-    
 }
 double Explorer::m_normalize_angle_positive(double angle)
 {
@@ -36,7 +34,6 @@ double Explorer::m_normalize_angle_positive(double angle)
     if (result < 0) return result + 2.0 * M_PI;
     return result;
 }
-
 
 double Explorer::m_normalize_angle(double angle)
 {
@@ -52,8 +49,8 @@ void Explorer::m_initialize_publishers() {
 
 void Explorer::m_initialize_subscribers() {
     ROS_INFO("Initializing Explorer Subscribers");
-    m_pose_subscriber = m_nh.subscribe("/explorer/odom", 1000, &Explorer::m_pose_callback, this);
-    m_scan_subscriber = m_nh.subscribe("/explorer/scan", 1000, &Explorer::m_scan_callback, this);   
+    m_e_pose_subscriber = m_nh.subscribe("/explorer/odom", 1000, &Explorer::m_pose_callback, this);
+    // m_scan_subscriber = m_nh.subscribe("/explorer/scan", 1000, &Explorer::m_scan_callback, this);   
 }
 
 double Explorer::convert_rad_to_deg(double angle) {
@@ -68,53 +65,12 @@ void Explorer::m_pose_callback(const nav_msgs::Odometry::ConstPtr& odom_msg) {
 }
 
 void Explorer::m_scan_callback(const sensor_msgs::LaserScan::ConstPtr& msg) {
-    // ROS_INFO_STREAM("-------------------------");
-    // ROS_INFO_STREAM("Front: " << msg->ranges[0]);
-    // ROS_INFO_STREAM("Left: " << msg->ranges[90]);
-    // ROS_INFO_STREAM("Right: " << msg->ranges[270]);
+    ROS_INFO_STREAM("----Explorer!!------------------");
+    ROS_INFO_STREAM("Front: " << msg->ranges[0]);
+    ROS_INFO_STREAM("Left: " << msg->ranges[90]);
+    ROS_INFO_STREAM("Right: " << msg->ranges[270]);
 }
 
-/**
- * @brief Get the goals object from aruco_lookup.yaml
- * 
- * @return std::array<std::array<double,2>,4> 
- */
-std::array<std::array<double,2>,4> get_goals() {
-  ROS_INFO("Get_goals() called...");
-  ros::NodeHandle m_nh;
-
-  std::array<std::array<double,2>,4> exp_goal;
-  XmlRpc::XmlRpcValue goal_list;
-  m_nh.getParam("target_1", goal_list);
-  ROS_ASSERT(goal_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
-  
-  exp_goal[0][0] = goal_list[0];
-  exp_goal[0][1] = goal_list[1];
-//   std::cout << "Explorer Goal 1 is: ("<<exp_goal[0][0] << ", " << exp_goal[0][1] <<")\n";
-
-  m_nh.getParam("target_2", goal_list);
-  ROS_ASSERT(goal_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
-  
-  exp_goal[1][0] = goal_list[0];
-  exp_goal[1][1] = goal_list[1];
-//   std::cout << "Explorer Goal 2 is: ("<<exp_goal[1][0] << ", " << exp_goal[1][1] <<")\n";
-
-  m_nh.getParam("target_3", goal_list);
-  ROS_ASSERT(goal_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
-  
-  exp_goal[2][0] = goal_list[0];
-  exp_goal[2][1] = goal_list[1];
-//   std::cout << "Explorer Goal 3 is: ("<<exp_goal[2][0] << ", " << exp_goal[2][1] <<")\n";
-
-  m_nh.getParam("target_4", goal_list);
-  ROS_ASSERT(goal_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
-  
-  exp_goal[3][0] = goal_list[0];
-  exp_goal[3][1] = goal_list[1];
-//   std::cout << "Explorer Goal 4 is: ("<<exp_goal[3][0] << ", " << exp_goal[3][1] <<")\n";
-
-  return exp_goal;
-}
 double Explorer::m_compute_distance(const std::pair<double, double>& a, const std::pair<double, double>& b) {
     return  sqrt(pow(b.first - a.first, 2) + pow(b.second - a.second, 2));
 }
@@ -169,15 +125,11 @@ double Explorer::compute_yaw_rad() {
     return yaw_rad;
 }
 
-
-
 void Explorer::rotate(double angle_to_rotate, bool direction, double final_angle) {
     double current_yaw_deg = compute_yaw_deg();
     ROS_INFO_STREAM("Rotate an angle of [" << angle_to_rotate << " degrees]");
     ROS_INFO_STREAM("Current orientation: " << current_yaw_deg);
     ROS_INFO_STREAM("Final orientation: " << final_angle);
-
-    // m_angular_speed = angle_to_rotate;
 
     if (direction) {
         if (final_angle >= current_yaw_deg) {
