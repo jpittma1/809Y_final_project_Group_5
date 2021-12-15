@@ -16,8 +16,6 @@
 #include <tf/transform_datatypes.h> //to manipulate quaternions
 #include <geometry_msgs/Quaternion.h>
 #include <cmath>
-#include <xmlrpcpp/XmlRpcClient.h>
-#include <xmlrpcpp/XmlRpc.h>
 
 /**
  * @brief A class that detects the Aruco Marker.
