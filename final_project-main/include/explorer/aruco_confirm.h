@@ -28,9 +28,9 @@ class ArucoNode{
         void marker_listen(tf2_ros::Buffer& tfBuffer, int count);
         void marker_broadcast();
         
-        void aruco_exists(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg);
+        void aruco_exists_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg);
 
-        bool aruco_seen();
+        void aruco_seen();
         
 
         std::array<int,4> fid_ids{0,0,0,0};
