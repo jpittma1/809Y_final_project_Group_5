@@ -79,7 +79,7 @@ void Follower::m_scan_callback(const sensor_msgs::LaserScan::ConstPtr& msg) {
 
 void Follower::m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg) {
     if (!msg->transforms.empty()) {//check marker is detected
-        //broadcaster object
+        ROS_INFO("Follower's fiducial_callback has detected ArUco Marker!!")
         static tf2_ros::TransformBroadcaster br;
         geometry_msgs::TransformStamped transformStamped;
 
