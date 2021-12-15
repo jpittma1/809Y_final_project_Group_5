@@ -106,6 +106,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad79fd951057c9a40f34fc159363fbd94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aruco_node.html#ad79fd951057c9a40f34fc159363fbd94">marker_listen</a> (tf2_ros::Buffer &amp;tfBuffer, int count)</td></tr>
 <tr class="memdesc:ad79fd951057c9a40f34fc159363fbd94"><td class="mdescLeft">&#160;</td><td class="mdescRight">listener for arUco markers  <a href="#ad79fd951057c9a40f34fc159363fbd94">More...</a><br /></td></tr>
 <tr class="separator:ad79fd951057c9a40f34fc159363fbd94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb4d7fb3af40cb83ae69be077c589558"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aruco_node.html#adb4d7fb3af40cb83ae69be077c589558">marker_broadcast</a> ()</td></tr>
+<tr class="memdesc:adb4d7fb3af40cb83ae69be077c589558"><td class="mdescLeft">&#160;</td><td class="mdescRight">Broadcaster for ArUco markers.  <a href="#adb4d7fb3af40cb83ae69be077c589558">More...</a><br /></td></tr>
+<tr class="separator:adb4d7fb3af40cb83ae69be077c589558"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38f5977cae0f0cc0d30449db22b2e9d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aruco_node.html#a38f5977cae0f0cc0d30449db22b2e9d6">aruco_exists_callback</a> (const fiducial_msgs::FiducialTransformArray::ConstPtr &amp;msg)</td></tr>
 <tr class="memdesc:a38f5977cae0f0cc0d30449db22b2e9d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does arUco marker exist.  <a href="#a38f5977cae0f0cc0d30449db22b2e9d6">More...</a><br /></td></tr>
 <tr class="separator:a38f5977cae0f0cc0d30449db22b2e9d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -118,6 +121,9 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:a323a2a97fc30a4e6daf59d9577485569"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aruco_node.html#a323a2a97fc30a4e6daf59d9577485569">first_goal</a> = false</td></tr>
+<tr class="memdesc:a323a2a97fc30a4e6daf59d9577485569"><td class="mdescLeft">&#160;</td><td class="mdescRight">First goal met; initially no.  <a href="#a323a2a97fc30a4e6daf59d9577485569">More...</a><br /></td></tr>
+<tr class="separator:a323a2a97fc30a4e6daf59d9577485569"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa64bc8aad47d7569e315f5045ecaa7ac"><td class="memItemLeft" align="right" valign="top">std::array&lt; int, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aruco_node.html#aa64bc8aad47d7569e315f5045ecaa7ac">fid_ids</a> {0,0,0,0}</td></tr>
 <tr class="memdesc:aa64bc8aad47d7569e315f5045ecaa7ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fiducial IDs storage.  <a href="#aa64bc8aad47d7569e315f5045ecaa7ac">More...</a><br /></td></tr>
 <tr class="separator:aa64bc8aad47d7569e315f5045ecaa7ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -128,8 +134,9 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ac9561321e855855ccc8f643cc139a638"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a454cdb8d15fa07e7913887a1b2029600"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aruco_node.html#a454cdb8d15fa07e7913887a1b2029600">m_count</a> {0}</td></tr>
 <tr class="separator:a454cdb8d15fa07e7913887a1b2029600"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21fe489a4ab6a73e807e74a5c1de466d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aruco_node.html#a21fe489a4ab6a73e807e74a5c1de466d">marker_seen</a> {false}</td></tr>
-<tr class="separator:a21fe489a4ab6a73e807e74a5c1de466d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e41167c119527f9fbeb937838fc8909"><td class="memItemLeft" align="right" valign="top">std::array&lt; bool, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_aruco_node.html#a2e41167c119527f9fbeb937838fc8909">marker_seen</a> {false,false,false,false}</td></tr>
+<tr class="memdesc:a2e41167c119527f9fbeb937838fc8909"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if marker seen; 4 IDs to detect.  <a href="#a2e41167c119527f9fbeb937838fc8909">More...</a><br /></td></tr>
+<tr class="separator:a2e41167c119527f9fbeb937838fc8909"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class that detects the Aruco Marker. </p>
@@ -189,7 +196,7 @@ Public Attributes</h2></td></tr>
 
 <p>Destroy the Aruco Node object. </p>
 
-<p class="definition">Definition at line <a class="el" href="aruco__confirm_8h_source.html#l00082">82</a> of file <a class="el" href="aruco__confirm_8h_source.html">aruco_confirm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aruco__confirm_8h_source.html#l00098">98</a> of file <a class="el" href="aruco__confirm_8h_source.html">aruco_confirm.h</a>.</p>
 
 </div>
 </div>
@@ -218,8 +225,6 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="aruco__confirm_8cpp_source.html#l00074">74</a> of file <a class="el" href="aruco__confirm_8cpp_source.html">aruco_confirm.cpp</a>.</p>
-
 </div>
 </div>
 <a id="a21fe5af1a16e884424a4065ca6dd608f"></a>
@@ -238,8 +243,6 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Is ArUco marker seen? </p>
-
-<p class="definition">Definition at line <a class="el" href="aruco__confirm_8cpp_source.html#l00079">79</a> of file <a class="el" href="aruco__confirm_8cpp_source.html">aruco_confirm.cpp</a>.</p>
 
 </div>
 </div>
@@ -267,7 +270,26 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="aruco__confirm_8cpp_source.html#l00020">20</a> of file <a class="el" href="aruco__confirm_8cpp_source.html">aruco_confirm.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aruco__confirm_8cpp_source.html#l00019">19</a> of file <a class="el" href="aruco__confirm_8cpp_source.html">aruco_confirm.cpp</a>.</p>
+
+</div>
+</div>
+<a id="adb4d7fb3af40cb83ae69be077c589558"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb4d7fb3af40cb83ae69be077c589558">&#9670;&nbsp;</a></span>marker_broadcast()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ArucoNode::marker_broadcast </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Broadcaster for ArUco markers. </p>
 
 </div>
 </div>
@@ -306,7 +328,7 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="aruco__confirm_8cpp_source.html#l00049">49</a> of file <a class="el" href="aruco__confirm_8cpp_source.html">aruco_confirm.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aruco__confirm_8cpp_source.html#l00052">52</a> of file <a class="el" href="aruco__confirm_8cpp_source.html">aruco_confirm.cpp</a>.</p>
 
 </div>
 </div>
@@ -325,7 +347,25 @@ Public Attributes</h2></td></tr>
 
 <p>Fiducial IDs storage. </p>
 
-<p class="definition">Definition at line <a class="el" href="aruco__confirm_8h_source.html#l00065">65</a> of file <a class="el" href="aruco__confirm_8h_source.html">aruco_confirm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aruco__confirm_8h_source.html#l00077">77</a> of file <a class="el" href="aruco__confirm_8h_source.html">aruco_confirm.h</a>.</p>
+
+</div>
+</div>
+<a id="a323a2a97fc30a4e6daf59d9577485569"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a323a2a97fc30a4e6daf59d9577485569">&#9670;&nbsp;</a></span>first_goal</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ArucoNode::first_goal = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>First goal met; initially no. </p>
+
+<p class="definition">Definition at line <a class="el" href="aruco__confirm_8h_source.html#l00071">71</a> of file <a class="el" href="aruco__confirm_8h_source.html">aruco_confirm.h</a>.</p>
 
 </div>
 </div>
@@ -341,23 +381,25 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="aruco__confirm_8h_source.html#l00074">74</a> of file <a class="el" href="aruco__confirm_8h_source.html">aruco_confirm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aruco__confirm_8h_source.html#l00086">86</a> of file <a class="el" href="aruco__confirm_8h_source.html">aruco_confirm.h</a>.</p>
 
 </div>
 </div>
-<a id="a21fe489a4ab6a73e807e74a5c1de466d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21fe489a4ab6a73e807e74a5c1de466d">&#9670;&nbsp;</a></span>marker_seen</h2>
+<a id="a2e41167c119527f9fbeb937838fc8909"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e41167c119527f9fbeb937838fc8909">&#9670;&nbsp;</a></span>marker_seen</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool ArucoNode::marker_seen {false}</td>
+          <td class="memname">std::array&lt;bool,4&gt; ArucoNode::marker_seen {false,false,false,false}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="aruco__confirm_8h_source.html#l00076">76</a> of file <a class="el" href="aruco__confirm_8h_source.html">aruco_confirm.h</a>.</p>
+<p>Determines if marker seen; 4 IDs to detect. </p>
+
+<p class="definition">Definition at line <a class="el" href="aruco__confirm_8h_source.html#l00092">92</a> of file <a class="el" href="aruco__confirm_8h_source.html">aruco_confirm.h</a>.</p>
 
 </div>
 </div>
@@ -373,7 +415,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="aruco__confirm_8h_source.html#l00073">73</a> of file <a class="el" href="aruco__confirm_8h_source.html">aruco_confirm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aruco__confirm_8h_source.html#l00085">85</a> of file <a class="el" href="aruco__confirm_8h_source.html">aruco_confirm.h</a>.</p>
 
 </div>
 </div>
@@ -391,7 +433,7 @@ Public Attributes</h2></td></tr>
 
 <p>Transformed locations. </p>
 
-<p class="definition">Definition at line <a class="el" href="aruco__confirm_8h_source.html#l00071">71</a> of file <a class="el" href="aruco__confirm_8h_source.html">aruco_confirm.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aruco__confirm_8h_source.html#l00083">83</a> of file <a class="el" href="aruco__confirm_8h_source.html">aruco_confirm.h</a>.</p>
 
 </div>
 </div>

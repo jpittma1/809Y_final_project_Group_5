@@ -100,6 +100,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6870e654b7cc901944ead12870a6b107"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_follower.html#a6870e654b7cc901944ead12870a6b107">Follower</a> (ros::NodeHandle *nodehandle, const std::string &amp;robot_name)</td></tr>
 <tr class="memdesc:a6870e654b7cc901944ead12870a6b107"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="class_follower.html" title="Follower Class for Follower bot Goal is to have Follower go to ArUco markers in fiducial ID order...">Follower</a> object.  <a href="#a6870e654b7cc901944ead12870a6b107">More...</a><br /></td></tr>
 <tr class="separator:a6870e654b7cc901944ead12870a6b107"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaae1600959a929c269d557d9c09ba777"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_follower.html#aaae1600959a929c269d557d9c09ba777">publish_velocities</a> (const geometry_msgs::Twist &amp;msg)</td></tr>
+<tr class="memdesc:aaae1600959a929c269d557d9c09ba777"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish velocities to odom.  <a href="#aaae1600959a929c269d557d9c09ba777">More...</a><br /></td></tr>
+<tr class="separator:aaae1600959a929c269d557d9c09ba777"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4d1ce6f43ce65c0aa5a560247ca55ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_follower.html#ad4d1ce6f43ce65c0aa5a560247ca55ad">drive_straight</a> (double distance, bool direction)</td></tr>
+<tr class="memdesc:ad4d1ce6f43ce65c0aa5a560247ca55ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">moves robot straight  <a href="#ad4d1ce6f43ce65c0aa5a560247ca55ad">More...</a><br /></td></tr>
+<tr class="separator:ad4d1ce6f43ce65c0aa5a560247ca55ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf8ec0da50295140bf750d30906a726b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_follower.html#abf8ec0da50295140bf750d30906a726b">rotate</a> (double angle_to_rotate, bool direction, double final_angle)</td></tr>
+<tr class="memdesc:abf8ec0da50295140bf750d30906a726b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotates robot.  <a href="#abf8ec0da50295140bf750d30906a726b">More...</a><br /></td></tr>
+<tr class="separator:abf8ec0da50295140bf750d30906a726b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08ab05cb32f0e6653939163dd22f344a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_follower.html#a08ab05cb32f0e6653939163dd22f344a">go_to_goal</a> (double x, double y)</td></tr>
 <tr class="memdesc:a08ab05cb32f0e6653939163dd22f344a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get robot to goal based on x and y coordinates Error Tolerance of 0.05.  <a href="#a08ab05cb32f0e6653939163dd22f344a">More...</a><br /></td></tr>
 <tr class="separator:a08ab05cb32f0e6653939163dd22f344a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,23 +123,31 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:abde593631e6549062d77fb2169a17c66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a670f07466502e1020514d6ba6b928553"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_follower.html#a670f07466502e1020514d6ba6b928553">convert_rad_to_deg</a> (double angle)</td></tr>
 <tr class="separator:a670f07466502e1020514d6ba6b928553"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ff755f0d81808c372bfcaac0a45471c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_follower.html#a9ff755f0d81808c372bfcaac0a45471c">setup_goals</a> ()</td></tr>
+<tr class="memdesc:a9ff755f0d81808c372bfcaac0a45471c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup goals.  <a href="#a9ff755f0d81808c372bfcaac0a45471c">More...</a><br /></td></tr>
+<tr class="separator:a9ff755f0d81808c372bfcaac0a45471c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1dd55289af5ded7a57a2874c5477c33d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_follower.html#a1dd55289af5ded7a57a2874c5477c33d">~Follower</a> ()</td></tr>
 <tr class="memdesc:a1dd55289af5ded7a57a2874c5477c33d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="class_follower.html" title="Follower Class for Follower bot Goal is to have Follower go to ArUco markers in fiducial ID order...">Follower</a> object.  <a href="#a1dd55289af5ded7a57a2874c5477c33d">More...</a><br /></td></tr>
 <tr class="separator:a1dd55289af5ded7a57a2874c5477c33d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:af53c7dcd8b5a99111bdfe0c8dd2015cf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_follower.html#af53c7dcd8b5a99111bdfe0c8dd2015cf">m_goal_count</a> = 0</td></tr>
+<tr class="memdesc:af53c7dcd8b5a99111bdfe0c8dd2015cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count goals.  <a href="#af53c7dcd8b5a99111bdfe0c8dd2015cf">More...</a><br /></td></tr>
+<tr class="separator:af53c7dcd8b5a99111bdfe0c8dd2015cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a350054bbd7659d493cccc4b4ad9bc460"><td class="memItemLeft" align="right" valign="top">std::array&lt; int, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_follower.html#a350054bbd7659d493cccc4b4ad9bc460">m_fid</a> {}</td></tr>
 <tr class="memdesc:a350054bbd7659d493cccc4b4ad9bc460"><td class="mdescLeft">&#160;</td><td class="mdescRight">store fidicual IDs  <a href="#a350054bbd7659d493cccc4b4ad9bc460">More...</a><br /></td></tr>
 <tr class="separator:a350054bbd7659d493cccc4b4ad9bc460"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d4e1ebbe79cc8af601d53cba7aeb30a"><td class="memItemLeft" align="right" valign="top">std::array&lt; std::array&lt; double, 2 &gt;, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_follower.html#a6d4e1ebbe79cc8af601d53cba7aeb30a">m_posit</a> {}</td></tr>
 <tr class="memdesc:a6d4e1ebbe79cc8af601d53cba7aeb30a"><td class="mdescLeft">&#160;</td><td class="mdescRight">store marker positions  <a href="#a6d4e1ebbe79cc8af601d53cba7aeb30a">More...</a><br /></td></tr>
 <tr class="separator:a6d4e1ebbe79cc8af601d53cba7aeb30a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64e365d54197c51a8d1f777900b09647"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_follower.html#a64e365d54197c51a8d1f777900b09647">m_test</a> = true</td></tr>
+<tr class="separator:a64e365d54197c51a8d1f777900b09647"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_follower.html" title="Follower Class for Follower bot Goal is to have Follower go to ArUco markers in fiducial ID order...">Follower</a> Class for <a class="el" href="class_follower.html" title="Follower Class for Follower bot Goal is to have Follower go to ArUco markers in fiducial ID order...">Follower</a> bot Goal is to have <a class="el" href="class_follower.html" title="Follower Class for Follower bot Goal is to have Follower go to ArUco markers in fiducial ID order...">Follower</a> go to ArUco markers in fiducial ID order. </p>
 
-<p class="definition">Definition at line <a class="el" href="follower_8h_source.html#l00031">31</a> of file <a class="el" href="follower_8h_source.html">follower.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="follower_8h_source.html#l00033">33</a> of file <a class="el" href="follower_8h_source.html">follower.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6870e654b7cc901944ead12870a6b107"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6870e654b7cc901944ead12870a6b107">&#9670;&nbsp;</a></span>Follower()</h2>
@@ -167,7 +184,7 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="follower_8cpp_source.html#l00014">14</a> of file <a class="el" href="follower_8cpp_source.html">follower.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="follower_8cpp_source.html#l00013">13</a> of file <a class="el" href="follower_8cpp_source.html">follower.cpp</a>.</p>
 
 </div>
 </div>
@@ -196,7 +213,7 @@ Public Attributes</h2></td></tr>
 
 <p>Destroy the <a class="el" href="class_follower.html" title="Follower Class for Follower bot Goal is to have Follower go to ArUco markers in fiducial ID order...">Follower</a> object. </p>
 
-<p class="definition">Definition at line <a class="el" href="follower_8h_source.html#l00069">69</a> of file <a class="el" href="follower_8h_source.html">follower.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="follower_8h_source.html#l00107">107</a> of file <a class="el" href="follower_8h_source.html">follower.h</a>.</p>
 
 </div>
 </div>
@@ -237,7 +254,7 @@ Public Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="follower_8cpp_source.html#l00153">153</a> of file <a class="el" href="follower_8cpp_source.html">follower.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="follower_8cpp_source.html#l00173">173</a> of file <a class="el" href="follower_8cpp_source.html">follower.cpp</a>.</p>
 
 </div>
 </div>
@@ -256,7 +273,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="follower_8cpp_source.html#l00165">165</a> of file <a class="el" href="follower_8cpp_source.html">follower.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="follower_8cpp_source.html#l00185">185</a> of file <a class="el" href="follower_8cpp_source.html">follower.cpp</a>.</p>
 
 </div>
 </div>
@@ -275,7 +292,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="follower_8cpp_source.html#l00177">177</a> of file <a class="el" href="follower_8cpp_source.html">follower.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="follower_8cpp_source.html#l00197">197</a> of file <a class="el" href="follower_8cpp_source.html">follower.cpp</a>.</p>
 
 </div>
 </div>
@@ -295,7 +312,44 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="follower_8cpp_source.html#l00062">62</a> of file <a class="el" href="follower_8cpp_source.html">follower.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="follower_8cpp_source.html#l00059">59</a> of file <a class="el" href="follower_8cpp_source.html">follower.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad4d1ce6f43ce65c0aa5a560247ca55ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4d1ce6f43ce65c0aa5a560247ca55ad">&#9670;&nbsp;</a></span>drive_straight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Follower::drive_straight </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>distance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>direction</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>moves robot straight </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">distance</td><td></td></tr>
+    <tr><td class="paramname">direction</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -337,7 +391,98 @@ Public Attributes</h2></td></tr>
 <dd>
 false </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="follower_8cpp_source.html#l00188">188</a> of file <a class="el" href="follower_8cpp_source.html">follower.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="follower_8cpp_source.html#l00207">207</a> of file <a class="el" href="follower_8cpp_source.html">follower.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aaae1600959a929c269d557d9c09ba777"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaae1600959a929c269d557d9c09ba777">&#9670;&nbsp;</a></span>publish_velocities()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Follower::publish_velocities </td>
+          <td>(</td>
+          <td class="paramtype">const geometry_msgs::Twist &amp;&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Publish velocities to odom. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abf8ec0da50295140bf750d30906a726b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf8ec0da50295140bf750d30906a726b">&#9670;&nbsp;</a></span>rotate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Follower::rotate </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>angle_to_rotate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>direction</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>final_angle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Rotates robot. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">angle_to_rotate</td><td></td></tr>
+    <tr><td class="paramname">direction</td><td></td></tr>
+    <tr><td class="paramname">final_angle</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9ff755f0d81808c372bfcaac0a45471c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ff755f0d81808c372bfcaac0a45471c">&#9670;&nbsp;</a></span>setup_goals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Follower::setup_goals </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Setup goals. </p>
+
+<p class="definition">Definition at line <a class="el" href="follower_8cpp_source.html#l00077">77</a> of file <a class="el" href="follower_8cpp_source.html">follower.cpp</a>.</p>
 
 </div>
 </div>
@@ -356,7 +501,7 @@ false </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="follower_8cpp_source.html#l00144">144</a> of file <a class="el" href="follower_8cpp_source.html">follower.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="follower_8cpp_source.html#l00164">164</a> of file <a class="el" href="follower_8cpp_source.html">follower.cpp</a>.</p>
 
 </div>
 </div>
@@ -375,7 +520,25 @@ false </dd></dl>
 
 <p>store fidicual IDs </p>
 
-<p class="definition">Definition at line <a class="el" href="follower_8h_source.html#l00075">75</a> of file <a class="el" href="follower_8h_source.html">follower.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="follower_8h_source.html#l00113">113</a> of file <a class="el" href="follower_8h_source.html">follower.h</a>.</p>
+
+</div>
+</div>
+<a id="af53c7dcd8b5a99111bdfe0c8dd2015cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af53c7dcd8b5a99111bdfe0c8dd2015cf">&#9670;&nbsp;</a></span>m_goal_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Follower::m_goal_count = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Count goals. </p>
+
+<p class="definition">Definition at line <a class="el" href="follower_8h_source.html#l00083">83</a> of file <a class="el" href="follower_8h_source.html">follower.h</a>.</p>
 
 </div>
 </div>
@@ -393,7 +556,23 @@ false </dd></dl>
 
 <p>store marker positions </p>
 
-<p class="definition">Definition at line <a class="el" href="follower_8h_source.html#l00081">81</a> of file <a class="el" href="follower_8h_source.html">follower.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="follower_8h_source.html#l00119">119</a> of file <a class="el" href="follower_8h_source.html">follower.h</a>.</p>
+
+</div>
+</div>
+<a id="a64e365d54197c51a8d1f777900b09647"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64e365d54197c51a8d1f777900b09647">&#9670;&nbsp;</a></span>m_test</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Follower::m_test = true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="follower_8h_source.html#l00121">121</a> of file <a class="el" href="follower_8h_source.html">follower.h</a>.</p>
 
 </div>
 </div>

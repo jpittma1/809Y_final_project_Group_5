@@ -188,7 +188,7 @@ int main(int argc, char** argv) {
     delayed_start=true;
 
     follower.setup_goals();
-    std::cout <<"The first goal is: "<<follower.m_posit[0][0]<<"\t"<<follower.m_posit[0][1]);
+    std::cout <<"The first goal is: "<<follower.m_posit[0][0]<<"\t"<<follower.m_posit[0][1];
 
     //*****FOLLOWER*******//
     //--STEP 01. Let Follower Get home---

@@ -31,6 +31,13 @@
             <para>
                 <itemizedlist>
                     <listitem>
+                        <para>int m_goal_count<para><emphasis>Count goals.</emphasis></para></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
                         <para>std::array&lt; int, 4 &gt; m_fid<para><emphasis>store fidicual IDs</emphasis></para></para>
                     </listitem>
                 </itemizedlist>
@@ -39,6 +46,13 @@
                 <itemizedlist>
                     <listitem>
                         <para>std::array&lt; std::array&lt; double, 2 &gt;, 4 &gt; m_posit<para><emphasis>store marker positions</emphasis></para></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>bool m_test</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -179,6 +193,33 @@ ros::NodeHandle * nodehandle, const std::string &amp; robot_name)<para><emphasis
             <para>
                 <itemizedlist>
                     <listitem>
+                        <para>void <link linkend="class_follower_1aaae1600959a929c269d557d9c09ba777">publish_velocities</link> (
+const geometry_msgs::Twist &amp; msg)<para><emphasis>Publish velocities to odom.</emphasis></para>
+</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_follower_1ad4d1ce6f43ce65c0aa5a560247ca55ad">drive_straight</link> (
+double distance, bool direction)<para><emphasis>moves robot straight</emphasis></para>
+</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_follower_1abf8ec0da50295140bf750d30906a726b">rotate</link> (
+double angle_to_rotate, bool direction, double final_angle)<para><emphasis>Rotates robot.</emphasis></para>
+</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
                         <para>bool <link linkend="class_follower_1a08ab05cb32f0e6653939163dd22f344a">go_to_goal</link> (
 double x, double y)<para><emphasis>Get robot to goal based on x and y coordinates
  Error Tolerance of 0.05.</emphasis></para>
@@ -224,6 +265,15 @@ bool direction, double angle_to_rotate)<para><emphasis>Computes expected final y
                     <listitem>
                         <para>double <link linkend="class_follower_1a670f07466502e1020514d6ba6b928553">convert_rad_to_deg</link> (
 double angle)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_follower_1a9ff755f0d81808c372bfcaac0a45471c">setup_goals</link> (
+)<para><emphasis>Setup goals.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -289,7 +339,8 @@ Based on explorer&apos;s camera.</emphasis></para>
                 <itemizedlist>
                     <listitem>
                         <para>double <link linkend="class_follower_1ad1755902377610ec60e73e2a01e4077c">m_compute_distance</link> (
-const std::pair&lt; double, double &gt; &amp; a, const std::pair&lt; double, double &gt; &amp; b)</para>
+const std::pair&lt; double, double &gt; &amp; a, const std::pair&lt; double, double &gt; &amp; b)<para><emphasis>computes distance between two points</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -351,6 +402,99 @@ double angle)<para><emphasis>Normalizes the angle to be -M_PI circle to +M_PI ci
                             </row>
                             <row>
                                 <entry>robot_name</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
+            </section>
+            <section xml:id="class_follower_1aaae1600959a929c269d557d9c09ba777">
+                <title>void Follower::publish_velocities (const geometry_msgs::Twist &amp;msg)</title> <emphasis>Publish velocities to odom.</emphasis>
+                
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>msg</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
+            </section>
+            <section xml:id="class_follower_1ad4d1ce6f43ce65c0aa5a560247ca55ad">
+                <title>void Follower::drive_straight (double distance, bool direction)</title> <emphasis>moves robot straight</emphasis>
+                
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>distance</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>direction</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
+            </section>
+            <section xml:id="class_follower_1abf8ec0da50295140bf750d30906a726b">
+                <title>void Follower::rotate (double angle_to_rotate, bool direction, double final_angle)</title> <emphasis>Rotates robot.</emphasis>
+                
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>angle_to_rotate</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>direction</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>final_angle</entry>
                                 <entry>
 <para></para>
 </entry>
@@ -451,6 +595,10 @@ double angle)<para><emphasis>Normalizes the angle to be -M_PI circle to +M_PI ci
                 <title>double Follower::convert_rad_to_deg (double angle)</title> <emphasis></emphasis>
                 
             </section>
+            <section xml:id="class_follower_1a9ff755f0d81808c372bfcaac0a45471c">
+                <title>void Follower::setup_goals ()</title> <emphasis>Setup goals.</emphasis>
+                
+            </section>
             <section xml:id="class_follower_1a1dd55289af5ded7a57a2874c5477c33d">
                 <title>Follower::~Follower ()</title> <emphasis>Destroy the Follower object.</emphasis>
                 
@@ -540,8 +688,39 @@ Based on explorer&apos;s camera.</emphasis>
                 
             </section>
             <section xml:id="class_follower_1ad1755902377610ec60e73e2a01e4077c">
-                <title>double Follower::m_compute_distance (const std::pair&lt; double, double &gt; &amp;a, const std::pair&lt; double, double &gt; &amp;b)</title> <emphasis></emphasis>
+                <title>double Follower::m_compute_distance (const std::pair&lt; double, double &gt; &amp;a, const std::pair&lt; double, double &gt; &amp;b)</title> <emphasis>computes distance between two points</emphasis>
                 
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>a</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>b</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                <formalpara><title>Returns: </title>
+
+<para>double </para>
+</formalpara>
+</para>
+
             </section>
             <section xml:id="class_follower_1a84aed500287d1ae121471d9bd39521e0">
                 <title>void Follower::m_move (double linear, double angular)</title> <emphasis>Move bot based on given angle and linear distance.</emphasis>

@@ -31,6 +31,13 @@
             <para>
                 <itemizedlist>
                     <listitem>
+                        <para>bool first_goal<para><emphasis>First goal met; initially no.</emphasis></para></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
                         <para>std::array&lt; int, 4 &gt; fid_ids<para><emphasis>Fiducial IDs storage.</emphasis></para></para>
                     </listitem>
                 </itemizedlist>
@@ -59,7 +66,7 @@
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>bool marker_seen</para>
+                        <para>std::array&lt; bool, 4 &gt; marker_seen<para><emphasis>Determines if marker seen; 4 IDs to detect.</emphasis></para></para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -76,28 +83,7 @@
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>ros::Subscriber m_check_subscriber</para>
-                    </listitem>
-                </itemizedlist>
-            </para>
-            <para>
-                <itemizedlist>
-                    <listitem>
-                        <para>ros::Subscriber m_scan_subscriber</para>
-                    </listitem>
-                </itemizedlist>
-            </para>
-            <para>
-                <itemizedlist>
-                    <listitem>
-                        <para>ros::Subscriber m_fiducial_subscriber</para>
-                    </listitem>
-                </itemizedlist>
-            </para>
-            <para>
-                <itemizedlist>
-                    <listitem>
-                        <para>ros::Publisher m_velocity_publisher</para>
+                        <para>ros::Subscriber m_fiducial_a_subscriber<para><emphasis>fiducial subscriber</emphasis></para></para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -134,6 +120,15 @@ tf2_ros::Buffer &amp; tfBuffer, int count)<para><emphasis>listener for arUco mar
             <para>
                 <itemizedlist>
                     <listitem>
+                        <para>void <link linkend="class_aruco_node_1adb4d7fb3af40cb83ae69be077c589558">marker_broadcast</link> (
+)<para><emphasis>Broadcaster for ArUco markers.</emphasis></para>
+</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
                         <para>void <link linkend="class_aruco_node_1a38f5977cae0f0cc0d30449db22b2e9d6">aruco_exists_callback</link> (
 const fiducial_msgs::FiducialTransformArray::ConstPtr &amp; msg)<para><emphasis>Does arUco marker exist.</emphasis></para>
 </para>
@@ -161,14 +156,6 @@ const fiducial_msgs::FiducialTransformArray::ConstPtr &amp; msg)<para><emphasis>
         </section>
         <section>
             <title></title>
-            <para>
-                <itemizedlist>
-                    <listitem>
-                        <para>void <link linkend="class_aruco_node_1acdb358100f7b76fc34baab11f1fd9e19">m_check_subscribers</link> (
-)</para>
-                    </listitem>
-                </itemizedlist>
-            </para>
             <para>
                 <itemizedlist>
                     <listitem>
@@ -269,6 +256,10 @@ const fiducial_msgs::FiducialTransformArray::ConstPtr &amp; msg)<para><emphasis>
                 </para>
 
             </section>
+            <section xml:id="class_aruco_node_1adb4d7fb3af40cb83ae69be077c589558">
+                <title>void ArucoNode::marker_broadcast ()</title> <emphasis>Broadcaster for ArUco markers.</emphasis>
+                
+            </section>
             <section xml:id="class_aruco_node_1a38f5977cae0f0cc0d30449db22b2e9d6">
                 <title>void ArucoNode::aruco_exists_callback (const fiducial_msgs::FiducialTransformArray::ConstPtr &amp;msg)</title> <emphasis>Does arUco marker exist.</emphasis>
                 
@@ -300,10 +291,6 @@ const fiducial_msgs::FiducialTransformArray::ConstPtr &amp; msg)<para><emphasis>
             </section>
             <section xml:id="class_aruco_node_1a134694163a28530a800198e2c039eb25">
                 <title>ArucoNode::~ArucoNode ()</title> <emphasis>Destroy the Aruco Node object.</emphasis>
-                
-            </section>
-            <section xml:id="class_aruco_node_1acdb358100f7b76fc34baab11f1fd9e19">
-                <title>void ArucoNode::m_check_subscribers ()</title> <emphasis></emphasis>
                 
             </section>
             <section xml:id="class_aruco_node_1a3aa9013d9f53f08c7de83be3359f7503">

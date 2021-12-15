@@ -18,6 +18,8 @@ void \hyperlink{class_aruco_node_af68c583d73a36c483d28b96a6fd22713}{fiducial\+\_
 \begin{DoxyCompactList}\small\item\em Broadcaster for ar\+Uco Markers. \end{DoxyCompactList}\item 
 void \hyperlink{class_aruco_node_ad79fd951057c9a40f34fc159363fbd94}{marker\+\_\+listen} (tf2\+\_\+ros\+::\+Buffer \&tf\+Buffer, int count)
 \begin{DoxyCompactList}\small\item\em listener for ar\+Uco markers \end{DoxyCompactList}\item 
+void \hyperlink{class_aruco_node_adb4d7fb3af40cb83ae69be077c589558}{marker\+\_\+broadcast} ()
+\begin{DoxyCompactList}\small\item\em Broadcaster for Ar\+Uco markers. \end{DoxyCompactList}\item 
 void \hyperlink{class_aruco_node_a38f5977cae0f0cc0d30449db22b2e9d6}{aruco\+\_\+exists\+\_\+callback} (const fiducial\+\_\+msgs\+::\+Fiducial\+Transform\+Array\+::\+Const\+Ptr \&msg)
 \begin{DoxyCompactList}\small\item\em Does ar\+Uco marker exist. \end{DoxyCompactList}\item 
 void \hyperlink{class_aruco_node_a21fe5af1a16e884424a4065ca6dd608f}{aruco\+\_\+seen} ()
@@ -27,6 +29,8 @@ void \hyperlink{class_aruco_node_a21fe5af1a16e884424a4065ca6dd608f}{aruco\+\_\+s
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
+bool \hyperlink{class_aruco_node_a323a2a97fc30a4e6daf59d9577485569}{first\+\_\+goal} = false
+\begin{DoxyCompactList}\small\item\em First goal met; initially no. \end{DoxyCompactList}\item 
 std\+::array$<$ int, 4 $>$ \hyperlink{class_aruco_node_aa64bc8aad47d7569e315f5045ecaa7ac}{fid\+\_\+ids} \{0,0,0,0\}
 \begin{DoxyCompactList}\small\item\em Fiducial I\+Ds storage. \end{DoxyCompactList}\item 
 std\+::array$<$ std\+::array$<$ double, 2 $>$, 4 $>$ \hyperlink{class_aruco_node_ab410bc0b655071ee67e7ba63b4edf256}{transformed\+\_\+locs}
@@ -35,8 +39,8 @@ int \hyperlink{class_aruco_node_ac9561321e855855ccc8f643cc139a638}{temp\+\_\+id}
 \item 
 int \hyperlink{class_aruco_node_a454cdb8d15fa07e7913887a1b2029600}{m\+\_\+count} \{0\}
 \item 
-bool \hyperlink{class_aruco_node_a21fe489a4ab6a73e807e74a5c1de466d}{marker\+\_\+seen} \{false\}
-\end{DoxyCompactItemize}
+std\+::array$<$ bool, 4 $>$ \hyperlink{class_aruco_node_a2e41167c119527f9fbeb937838fc8909}{marker\+\_\+seen} \{false,false,false,false\}
+\begin{DoxyCompactList}\small\item\em Determines if marker seen; 4 I\+Ds to detect. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -78,7 +82,7 @@ Destroy the Aruco Node object.
 
 
 
-Definition at line 82 of file aruco\+\_\+confirm.\+h.
+Definition at line 98 of file aruco\+\_\+confirm.\+h.
 
 
 
@@ -98,10 +102,6 @@ Does ar\+Uco marker exist.
 {\em msg} & \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 74 of file aruco\+\_\+confirm.\+cpp.
-
 \mbox{\Hypertarget{class_aruco_node_a21fe5af1a16e884424a4065ca6dd608f}\label{class_aruco_node_a21fe5af1a16e884424a4065ca6dd608f}} 
 \index{Aruco\+Node@{Aruco\+Node}!aruco\+\_\+seen@{aruco\+\_\+seen}}
 \index{aruco\+\_\+seen@{aruco\+\_\+seen}!Aruco\+Node@{Aruco\+Node}}
@@ -111,10 +111,6 @@ Definition at line 74 of file aruco\+\_\+confirm.\+cpp.
 
 
 Is Ar\+Uco marker seen? 
-
-
-
-Definition at line 79 of file aruco\+\_\+confirm.\+cpp.
 
 \mbox{\Hypertarget{class_aruco_node_af68c583d73a36c483d28b96a6fd22713}\label{class_aruco_node_af68c583d73a36c483d28b96a6fd22713}} 
 \index{Aruco\+Node@{Aruco\+Node}!fiducial\+\_\+callback@{fiducial\+\_\+callback}}
@@ -133,7 +129,17 @@ Broadcaster for ar\+Uco Markers.
 \end{DoxyParams}
 
 
-Definition at line 20 of file aruco\+\_\+confirm.\+cpp.
+Definition at line 19 of file aruco\+\_\+confirm.\+cpp.
+
+\mbox{\Hypertarget{class_aruco_node_adb4d7fb3af40cb83ae69be077c589558}\label{class_aruco_node_adb4d7fb3af40cb83ae69be077c589558}} 
+\index{Aruco\+Node@{Aruco\+Node}!marker\+\_\+broadcast@{marker\+\_\+broadcast}}
+\index{marker\+\_\+broadcast@{marker\+\_\+broadcast}!Aruco\+Node@{Aruco\+Node}}
+\subsubsection{\texorpdfstring{marker\+\_\+broadcast()}{marker\_broadcast()}}
+{\footnotesize\ttfamily void Aruco\+Node\+::marker\+\_\+broadcast (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Broadcaster for Ar\+Uco markers. 
 
 \mbox{\Hypertarget{class_aruco_node_ad79fd951057c9a40f34fc159363fbd94}\label{class_aruco_node_ad79fd951057c9a40f34fc159363fbd94}} 
 \index{Aruco\+Node@{Aruco\+Node}!marker\+\_\+listen@{marker\+\_\+listen}}
@@ -154,7 +160,7 @@ listener for ar\+Uco markers
 \end{DoxyParams}
 
 
-Definition at line 49 of file aruco\+\_\+confirm.\+cpp.
+Definition at line 52 of file aruco\+\_\+confirm.\+cpp.
 
 
 
@@ -171,7 +177,21 @@ Fiducial I\+Ds storage.
 
 
 
-Definition at line 65 of file aruco\+\_\+confirm.\+h.
+Definition at line 77 of file aruco\+\_\+confirm.\+h.
+
+\mbox{\Hypertarget{class_aruco_node_a323a2a97fc30a4e6daf59d9577485569}\label{class_aruco_node_a323a2a97fc30a4e6daf59d9577485569}} 
+\index{Aruco\+Node@{Aruco\+Node}!first\+\_\+goal@{first\+\_\+goal}}
+\index{first\+\_\+goal@{first\+\_\+goal}!Aruco\+Node@{Aruco\+Node}}
+\subsubsection{\texorpdfstring{first\+\_\+goal}{first\_goal}}
+{\footnotesize\ttfamily bool Aruco\+Node\+::first\+\_\+goal = false}
+
+
+
+First goal met; initially no. 
+
+
+
+Definition at line 71 of file aruco\+\_\+confirm.\+h.
 
 \mbox{\Hypertarget{class_aruco_node_a454cdb8d15fa07e7913887a1b2029600}\label{class_aruco_node_a454cdb8d15fa07e7913887a1b2029600}} 
 \index{Aruco\+Node@{Aruco\+Node}!m\+\_\+count@{m\+\_\+count}}
@@ -181,17 +201,21 @@ Definition at line 65 of file aruco\+\_\+confirm.\+h.
 
 
 
-Definition at line 74 of file aruco\+\_\+confirm.\+h.
+Definition at line 86 of file aruco\+\_\+confirm.\+h.
 
-\mbox{\Hypertarget{class_aruco_node_a21fe489a4ab6a73e807e74a5c1de466d}\label{class_aruco_node_a21fe489a4ab6a73e807e74a5c1de466d}} 
+\mbox{\Hypertarget{class_aruco_node_a2e41167c119527f9fbeb937838fc8909}\label{class_aruco_node_a2e41167c119527f9fbeb937838fc8909}} 
 \index{Aruco\+Node@{Aruco\+Node}!marker\+\_\+seen@{marker\+\_\+seen}}
 \index{marker\+\_\+seen@{marker\+\_\+seen}!Aruco\+Node@{Aruco\+Node}}
 \subsubsection{\texorpdfstring{marker\+\_\+seen}{marker\_seen}}
-{\footnotesize\ttfamily bool Aruco\+Node\+::marker\+\_\+seen \{false\}}
+{\footnotesize\ttfamily std\+::array$<$bool,4$>$ Aruco\+Node\+::marker\+\_\+seen \{false,false,false,false\}}
 
 
 
-Definition at line 76 of file aruco\+\_\+confirm.\+h.
+Determines if marker seen; 4 I\+Ds to detect. 
+
+
+
+Definition at line 92 of file aruco\+\_\+confirm.\+h.
 
 \mbox{\Hypertarget{class_aruco_node_ac9561321e855855ccc8f643cc139a638}\label{class_aruco_node_ac9561321e855855ccc8f643cc139a638}} 
 \index{Aruco\+Node@{Aruco\+Node}!temp\+\_\+id@{temp\+\_\+id}}
@@ -201,7 +225,7 @@ Definition at line 76 of file aruco\+\_\+confirm.\+h.
 
 
 
-Definition at line 73 of file aruco\+\_\+confirm.\+h.
+Definition at line 85 of file aruco\+\_\+confirm.\+h.
 
 \mbox{\Hypertarget{class_aruco_node_ab410bc0b655071ee67e7ba63b4edf256}\label{class_aruco_node_ab410bc0b655071ee67e7ba63b4edf256}} 
 \index{Aruco\+Node@{Aruco\+Node}!transformed\+\_\+locs@{transformed\+\_\+locs}}
@@ -215,7 +239,7 @@ Transformed locations.
 
 
 
-Definition at line 71 of file aruco\+\_\+confirm.\+h.
+Definition at line 83 of file aruco\+\_\+confirm.\+h.
 
 
 

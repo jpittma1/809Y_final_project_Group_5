@@ -24,18 +24,6 @@
         </mediaobject>
     </figure>
 </para>
-        <section>
-            <title>Functions</title>
-            <para>
-                <itemizedlist>
-                    <listitem>
-                        <para>std::array&lt; std::array&lt; double, 2 &gt;, 4 &gt; <link linkend="explorer_8cpp_1a61450d29adf96573b7eec19cb2fa8156">get_goals</link> (
-)<para><emphasis>Get the goals object from aruco_lookup.yaml.</emphasis></para>
-</para>
-                    </listitem>
-                </itemizedlist>
-            </para>
-        </section>
     <simplesect>
         <title>Detailed Description</title>
 
@@ -49,7 +37,7 @@
 </formalpara>
 <formalpara><title>Version: </title>
 
-<para>0.1 </para>
+<para>1.0 </para>
 </formalpara>
 <formalpara><title>Date: </title>
 

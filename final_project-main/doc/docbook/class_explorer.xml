@@ -62,21 +62,14 @@
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>ros::Subscriber m_pose_subscriber</para>
+                        <para>ros::Subscriber m_e_pose_subscriber</para>
                     </listitem>
                 </itemizedlist>
             </para>
             <para>
                 <itemizedlist>
                     <listitem>
-                        <para>ros::Subscriber m_scan_subscriber</para>
-                    </listitem>
-                </itemizedlist>
-            </para>
-            <para>
-                <itemizedlist>
-                    <listitem>
-                        <para>ros::Subscriber m_fiducial_subscriber</para>
+                        <para>ros::Subscriber m_e_scan_subscriber</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -180,7 +173,8 @@ ros::NodeHandle * nodehandle, const std::string &amp; robot_name)<para><emphasis
                 <itemizedlist>
                     <listitem>
                         <para>void <link linkend="class_explorer_1a8ffef25585ef957b9df4407366723787">publish_velocities</link> (
-const geometry_msgs::Twist &amp; msg)</para>
+const geometry_msgs::Twist &amp; msg)<para><emphasis>Publish velocities to odom.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -188,7 +182,8 @@ const geometry_msgs::Twist &amp; msg)</para>
                 <itemizedlist>
                     <listitem>
                         <para>void <link linkend="class_explorer_1ab4ca9f16c48a60fc4d0e426b6fd9e9a0">drive_straight</link> (
-double distance, bool direction)</para>
+double distance, bool direction)<para><emphasis>moves robot straight</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -196,7 +191,8 @@ double distance, bool direction)</para>
                 <itemizedlist>
                     <listitem>
                         <para>void <link linkend="class_explorer_1ac8e3a980fd3929734fb3a4b0b2e0a7e0">rotate</link> (
-double angle_to_rotate, bool direction, double final_angle)</para>
+double angle_to_rotate, bool direction, double final_angle)<para><emphasis>Rotates robot.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -204,7 +200,8 @@ double angle_to_rotate, bool direction, double final_angle)</para>
                 <itemizedlist>
                     <listitem>
                         <para>bool <link linkend="class_explorer_1aa1e259feaac1114adb0f24588428e8ef">go_to_goal</link> (
-double x, double y)</para>
+double x, double y)<para><emphasis>Moves robot to goal.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -212,7 +209,8 @@ double x, double y)</para>
                 <itemizedlist>
                     <listitem>
                         <para>void <link linkend="class_explorer_1a0e4a623ff30d1886cc9f57ec081c527f">stop</link> (
-)</para>
+)<para><emphasis>Stops robot.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -220,7 +218,8 @@ double x, double y)</para>
                 <itemizedlist>
                     <listitem>
                         <para>double <link linkend="class_explorer_1a02c37b93448ed474f1bf0d03e2758ca2">compute_expected_final_yaw</link> (
-bool direction, double angle_to_rotate)</para>
+bool direction, double angle_to_rotate)<para><emphasis>Compoutes final yaw angle.</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -261,7 +260,8 @@ double angle)</para>
                 <itemizedlist>
                     <listitem>
                         <para>void <link linkend="class_explorer_1a2b0c1e46e1a17e99f4156edf5a93b691">move_next_loc</link> (
-std::array&lt; double, 2 &gt; goal_loc)</para>
+std::array&lt; double, 2 &gt; goal_loc)<para><emphasis>moves robot to next location</emphasis></para>
+</para>
                     </listitem>
                 </itemizedlist>
             </para>
@@ -269,7 +269,7 @@ std::array&lt; double, 2 &gt; goal_loc)</para>
                 <itemizedlist>
                     <listitem>
                         <para>std::array&lt; std::array&lt; double, 2 &gt;, 4 &gt; <link linkend="class_explorer_1a847e3ad2e7233d493a8dcfdd7139cb58">get_goals</link> (
-)<para><emphasis>Get the goals object.</emphasis></para>
+)<para><emphasis>Get the goals object from aruco_lookup.yaml.</emphasis></para>
 </para>
                     </listitem>
                 </itemizedlist>
@@ -392,28 +392,173 @@ double angle)<para><emphasis>Normalizes the angle to be -M_PI circle to +M_PI ci
 
             </section>
             <section xml:id="class_explorer_1a8ffef25585ef957b9df4407366723787">
-                <title>void Explorer::publish_velocities (const geometry_msgs::Twist &amp;msg)</title> <emphasis></emphasis>
+                <title>void Explorer::publish_velocities (const geometry_msgs::Twist &amp;msg)</title> <emphasis>Publish velocities to odom.</emphasis>
                 
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>msg</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
             </section>
             <section xml:id="class_explorer_1ab4ca9f16c48a60fc4d0e426b6fd9e9a0">
-                <title>void Explorer::drive_straight (double distance, bool direction)</title> <emphasis></emphasis>
+                <title>void Explorer::drive_straight (double distance, bool direction)</title> <emphasis>moves robot straight</emphasis>
                 
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>distance</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>direction</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
             </section>
             <section xml:id="class_explorer_1ac8e3a980fd3929734fb3a4b0b2e0a7e0">
-                <title>void Explorer::rotate (double angle_to_rotate, bool direction, double final_angle)</title> <emphasis></emphasis>
+                <title>void Explorer::rotate (double angle_to_rotate, bool direction, double final_angle)</title> <emphasis>Rotates robot.</emphasis>
                 
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>angle_to_rotate</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>direction</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>final_angle</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
             </section>
             <section xml:id="class_explorer_1aa1e259feaac1114adb0f24588428e8ef">
-                <title>bool Explorer::go_to_goal (double x, double y)</title> <emphasis></emphasis>
+                <title>bool Explorer::go_to_goal (double x, double y)</title> <emphasis>Moves robot to goal.</emphasis>
                 
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>x</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>y</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                <formalpara><title>Returns: </title>
+
+<para>true </para>
+<simplesect/>
+<para>false </para>
+</formalpara>
+</para>
+
             </section>
             <section xml:id="class_explorer_1a0e4a623ff30d1886cc9f57ec081c527f">
-                <title>void Explorer::stop ()</title> <emphasis></emphasis>
+                <title>void Explorer::stop ()</title> <emphasis>Stops robot.</emphasis>
                 
             </section>
             <section xml:id="class_explorer_1a02c37b93448ed474f1bf0d03e2758ca2">
-                <title>double Explorer::compute_expected_final_yaw (bool direction, double angle_to_rotate)</title> <emphasis></emphasis>
+                <title>double Explorer::compute_expected_final_yaw (bool direction, double angle_to_rotate)</title> <emphasis>Compoutes final yaw angle.</emphasis>
                 
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>direction</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>angle_to_rotate</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                <formalpara><title>Returns: </title>
+
+<para>double </para>
+</formalpara>
+</para>
+
             </section>
             <section xml:id="class_explorer_1a670cdffdb8c3173c300590cfc45ab6d2">
                 <title>double Explorer::compute_yaw_deg ()</title> <emphasis></emphasis>
@@ -432,7 +577,7 @@ double angle)<para><emphasis>Normalizes the angle to be -M_PI circle to +M_PI ci
                 
             </section>
             <section xml:id="class_explorer_1a2b0c1e46e1a17e99f4156edf5a93b691">
-                <title>void Explorer::move_next_loc (std::array&lt; double, 2 &gt; goal_loc)</title> <emphasis></emphasis>
+                <title>void Explorer::move_next_loc (std::array&lt; double, 2 &gt; goal_loc)</title> <emphasis>moves robot to next location</emphasis>
                 
 <para>
                 <formalpara>
@@ -457,7 +602,7 @@ double angle)<para><emphasis>Normalizes the angle to be -M_PI circle to +M_PI ci
 
             </section>
             <section xml:id="class_explorer_1a847e3ad2e7233d493a8dcfdd7139cb58">
-                <title>std::array&lt;std::array&lt;double,2&gt;,4&gt; Explorer::get_goals ()</title> <emphasis>Get the goals object.</emphasis>
+                <title>std::array&lt;std::array&lt;double,2&gt;,4&gt; Explorer::get_goals ()</title> <emphasis>Get the goals object from aruco_lookup.yaml.</emphasis>
                 
 <para><formalpara><title>Returns: </title>
 

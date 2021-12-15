@@ -20,6 +20,7 @@
     <programlisting>#include &lt;iostream&gt;</programlisting>
     <programlisting>#include &lt;tf/transform_datatypes.h&gt;</programlisting>
     <programlisting>#include &lt;cmath&gt;</programlisting>
+    <programlisting>#include &quot;../include/explorer/aruco_confirm.h&quot;</programlisting>
 <para>Include dependency diagram for follower.h</para>
 <para>
     <figure>
