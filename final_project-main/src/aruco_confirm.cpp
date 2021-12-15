@@ -10,10 +10,10 @@
  */
 #include "../include/explorer/aruco_confirm.h"
 
-ArucoNode::ArucoNode(ros::NodeHandle* nodehandle):
+ArucoNode::ArucoNode(ros::NodeHandle* nodehandle,tf2_ros::Buffer& tfBuffer, int count):
     m_nh{ *nodehandle }
 {
-    m_initialize_subscribers();
+    m_initialize_subscribers(tfBuffer,count);
 };
 
 void ArucoNode::fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg)
@@ -26,21 +26,21 @@ void ArucoNode::fiducial_callback(const fiducial_msgs::FiducialTransformArray::C
         geometry_msgs::TransformStamped transformStamped;
         
         //broadcast the new frame to /tf Topic
-        ROS_INFO_STREAM("I see another sillouetto of a marker: " << msg->transforms[0].fiducial_id);
+        // ROS_INFO_STREAM("I see another sillouetto of a marker: " << msg->transforms[0].fiducial_id);
         transformStamped.header.stamp = ros::Time::now();
         transformStamped.header.frame_id = "explorer_tf/camera_rgb_optical_frame";
         transformStamped.child_frame_id = "marker_frame"; //name of the frame
         transformStamped.transform.translation.x = msg->transforms[0].transform.translation.x;
-        transformStamped.transform.translation.y = msg->transforms[1].transform.translation.y;
-        transformStamped.transform.translation.z = msg->transforms[2].transform.translation.z;
+        transformStamped.transform.translation.y = msg->transforms[0].transform.translation.y;
+        transformStamped.transform.translation.z = msg->transforms[0].transform.translation.z;
         
         transformStamped.transform.rotation.x = msg->transforms[0].transform.rotation.x;
-        transformStamped.transform.rotation.y = msg->transforms[1].transform.rotation.y;
-        transformStamped.transform.rotation.z = msg->transforms[2].transform.rotation.z;
-        transformStamped.transform.rotation.w = msg->transforms[3].transform.rotation.w;
+        transformStamped.transform.rotation.y = msg->transforms[0].transform.rotation.y;
+        transformStamped.transform.rotation.z = msg->transforms[0].transform.rotation.z;
+        transformStamped.transform.rotation.w = msg->transforms[0].transform.rotation.w;
         
         fid_ids[m_count] = msg->transforms[0].fiducial_id;
-        ROS_INFO_STREAM("Now I see x at: " << transformStamped.transform.translation.x);
+        // ROS_INFO_STREAM("Now I see x at: " << transformStamped.transform.translation.x);
         
 
         br.sendTransform(transformStamped); //broadcast the transform on /tf Topic

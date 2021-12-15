@@ -28,7 +28,7 @@ class ArucoNode{
          * 
          * @param nodehandle 
          */
-        ArucoNode(ros::NodeHandle* nodehandle);
+        ArucoNode(ros::NodeHandle* nodehandle,tf2_ros::Buffer& tfBuffer, int count);
 
         /**
          * @brief Broadcaster for arUco Markers

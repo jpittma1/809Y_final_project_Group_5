@@ -37,6 +37,8 @@ int main(int argc, char** argv) {
   
   geometry_msgs::TransformStamped transformStamped;
 
+  tf2_ros::Buffer tfBuffer;
+
   //Initialize Explorer, Follower, and ArucoNode class objects
   ArucoNode aruco_node(&nh);
   
@@ -67,8 +69,7 @@ int main(int argc, char** argv) {
   double goal_x;
   double goal_y;
   bool delayed_start=false;
-
-  tf2_ros::Buffer tfBuffer;
+  
   tf2_ros::TransformListener tfListener(tfBuffer);
   ros::Rate loop_rate(10);
 
@@ -131,7 +132,7 @@ int main(int argc, char** argv) {
       
       if (!explorer_goal_sent){
         ROS_INFO("Sending goal for explorer");
-        explorer_client.sendGoalAndWait(explorer_goal);//this should be sent only once
+        explorer_client.sendGoal(explorer_goal);//this should be sent only once
         explorer_goal_sent = true;
       }
 
@@ -147,7 +148,7 @@ int main(int argc, char** argv) {
     
       if (explorer_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
         ROS_INFO("Hooray, explorer reached goal");
-        explorer_goal_sent = false;
+        // explorer_goal_sent = false;
         follower.m_test=true;
         // aruco_node.marker_listen(tfBuffer, i);
         
