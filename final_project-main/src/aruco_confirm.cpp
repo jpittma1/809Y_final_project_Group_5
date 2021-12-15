@@ -33,13 +33,18 @@ void ArucoNode::fiducial_callback(const fiducial_msgs::FiducialTransformArray::C
         transformStamped.transform.translation.x = msg->transforms[0].transform.translation.x;
         transformStamped.transform.translation.y = msg->transforms[0].transform.translation.y;
         transformStamped.transform.translation.z = msg->transforms[0].transform.translation.z;
+        transformStamped.transform.rotation.x = msg->transforms[0].transform.rotation.x;
+        transformStamped.transform.rotation.y = msg->transforms[0].transform.rotation.y;
+        transformStamped.transform.rotation.z = msg->transforms[0].transform.rotation.z;
+        transformStamped.transform.rotation.w = msg->transforms[0].transform.rotation.w;
         //Change from transforms[0]?
         fid_ids[m_count] = msg->transforms[0].fiducial_id;
         m_count ++;
-
+        marker_seen = true;
 
         br.sendTransform(transformStamped); //broadcast the transform on /tf Topic
     }
+    else{ROS_INFO_STREAM("Empty Transform.");}
 }
 
 void ArucoNode::marker_listen(tf2_ros::Buffer& tfBuffer, int count) {
@@ -63,17 +68,20 @@ void ArucoNode::marker_listen(tf2_ros::Buffer& tfBuffer, int count) {
     catch (tf2::TransformException& ex) {
         ROS_WARN("%s", ex.what());
         ros::Duration(1.0).sleep();
+        
     }
+    ros::spinOnce();
+
 }
 
-void ArucoNode::aruco_exists(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg){
+void ArucoNode::aruco_exists_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg){
     if(!msg->transforms.empty()){marker_seen = true;}
     ROS_INFO_STREAM("Checker callback called!");
 }
 
-bool ArucoNode::aruco_seen(){
+void ArucoNode::aruco_seen(){
     m_check_subscribers();
-    return marker_seen;
+    ros::spinOnce();
 }
 
 void ArucoNode::m_initialize_publishers() {
@@ -82,11 +90,11 @@ void ArucoNode::m_initialize_publishers() {
 }
 void ArucoNode::m_check_subscribers() {
     ROS_INFO_STREAM("Initializing Checker.");
-    m_check_subscriber = m_nh.subscribe("/fiducial_transforms", 1000, &ArucoNode::aruco_exists, this);
+    m_check_subscriber = m_nh.subscribe("/fiducial_transforms", 1000, &ArucoNode::aruco_exists_callback, this);
 
 }
 
 void ArucoNode::m_initialize_subscribers() {
     ROS_INFO_STREAM("Initializing Subscribers\nMessage: "<<this);
-    m_scan_subscriber = m_nh.subscribe("/fiducial_transforms", 1000, &ArucoNode::fiducial_callback, this);   
-}
+    m_scan_subscriber = m_nh.subscribe("/fiducial_transforms", 1000, &ArucoNode::fiducial_callback, this); 
+    }
