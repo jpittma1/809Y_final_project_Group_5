@@ -17,9 +17,8 @@
 
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
-
-// forward declaration
 void print_usage(std::string error = "");
+
 void print_usage(std::string error)
 {
   if (!error.empty())  // if not empty string
@@ -38,13 +37,13 @@ int main(int argc, char** argv) {
   
   geometry_msgs::TransformStamped transformStamped;
 
-  //Initialize Follower and Explorer class objects
+  //Initialize Explorer, Follower, and ArucoNode class objects
   Explorer explorer(&nh, "explorer");
 
   Follower follower(&nh, "follower");
+
   ArucoNode aruco_node(&nh);
   
- 
 
   // tell the action client that we want to spin a thread by default
   MoveBaseClient explorer_client("/explorer/move_base", true);
@@ -118,7 +117,6 @@ int main(int argc, char** argv) {
   while (ros::ok()) {
     //*****EXPLORER*****//
 
-
     for(int i = 0; i < 4; i++){
       goal_x = goal_list[i][0];
       goal_y = goal_list[i][1];
@@ -152,7 +150,6 @@ int main(int argc, char** argv) {
         ROS_INFO("Hooray, explorer reached goal");
         // aruco_node.marker_listen(tfBuffer, i);
         
-        //BRING BACK!!
         while(!aruco_node.marker_seen){
           explorer.m_move(0.0,0.5);
           aruco_node.marker_listen(tfBuffer, i);
@@ -189,36 +186,16 @@ int main(int argc, char** argv) {
     delayed_start=true;
 
     //*****FOLLOWER*******//
-    
+    //--STEP 01. Let Follower Get home---
     //Wait until explorer "home" = (-4,2.5) before follower leave
     if (delayed_start) {
       //---Send Follower to IDs O through 3 ---//
       for (int j=0; j<4 ;j++) {
-        //**--Set Goal for next ID--***//
+        //--STEP 02. Set Goal for next ID--//
         fiducial_id=follower.m_fid.at(j);
         goal_x=follower.m_posit.at(j).at(0);
         goal_y=follower.m_posit.at(j).at(1);
 
-        //--Hardcode testing Follower---///
-        // if (j==0){
-        //   fiducial_id=0;
-        //   goal_x=-1.752882;
-        //   goal_y=3.246192;
-        // } else if (j==1) {
-        //   fiducial_id=1;
-        //   goal_x=-2.510293;
-        //   goal_y=1.125585;
-        // }else if (j==2) {
-        //   fiducial_id=2;
-        //   goal_x=-0.289296;
-        //   goal_y=-1.282680;
-        // } else {
-        //   fiducial_id=3;
-        //   goal_x=7.710214;
-        //   goal_y=-1.716889;
-        // }
-        //--Hardcode testing Follower---///
-        
         //Build goal for follower using Move_base
         follower_goal.target_pose.header.frame_id = "map";
         follower_goal.target_pose.header.stamp = ros::Time::now();
@@ -246,7 +223,7 @@ int main(int argc, char** argv) {
         ROS_INFO("Conducting Triage..");
         ros::Duration(0.5).sleep();
 
-        //---Send Follower to Start Position (-4,3.5) ---//
+        //--STEP 03. Send Follower to Start Position (-4,3.5) --//
         if (j==3) {
           ROS_INFO("\nSending follower to Final Position");
           goal_x=-4;
@@ -255,7 +232,7 @@ int main(int argc, char** argv) {
           follower_goal.target_pose.pose.position.y = goal_y;
 
           if (!follower_goal_sent){
-            ROS_INFO("Sending follower goal");
+            // ROS_INFO("Sending follower goal");
             follower_client.sendGoalAndWait(follower_goal);
             follower_goal_sent = true;
           }

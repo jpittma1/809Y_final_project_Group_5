@@ -2,7 +2,7 @@
  * @file explorer.cpp
  * @author 809Y Final Project Group 5
  * @brief Explorer Robot
- * @version 0.1
+ * @version 1.0
  * @date 2021-12-12
  * 
  * @copyright Copyright (c) 2021

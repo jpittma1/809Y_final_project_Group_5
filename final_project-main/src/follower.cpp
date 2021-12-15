@@ -8,7 +8,6 @@
  * @copyright Copyright (c) 2021
  * 
  */
-
 #include "../include/follower/follower.h"
 
 Follower::Follower(ros::NodeHandle* nodehandle, const std::string& robot_name) :
@@ -196,11 +195,10 @@ bool Follower::go_to_goal(double goal_x, double goal_y) {
     if (distance_to_goal > 0.05) {
         distance_to_goal = m_compute_distance(m_location, goal);
         double angle_to_goal = std::atan2(goal_y - m_location.second, goal_x - m_location.first);
-        // ROS_INFO_STREAM("Distance to goal: " << distance_to_goal << "m");
-        // ROS_INFO_STREAM("Angle to goal: " << angle_to_goal << " rad");
+        
 
         if (angle_to_goal < 0)
-            // angle_to_goal = 2 * M_PI + angle_to_goal;
+            
             angle_to_goal = m_normalize_angle_positive(angle_to_goal);
 
         //angle to rotate to face the goal
@@ -208,7 +206,7 @@ bool Follower::go_to_goal(double goal_x, double goal_y) {
 
         if (w > M_PI) {
             w = w - 2 * M_PI;
-            // w = m_normalize_angle_positive(w);
+            
         }
 
         //proportional control for linear velocity
@@ -227,7 +225,6 @@ bool Follower::go_to_goal(double goal_x, double goal_y) {
     }
     else {
         stop();
-        // ros::shutdown();
         return true;
     }
 }
