@@ -1,2 +1,5 @@
-# 809Y_final_project_Group_5
-UMD PMRO ENPM 809Y (C++ Robotic Programming) Fall AY2021.  Two turtlebots for simplified US&amp;R task. One to find ArUco Markers (explorer) and one to to conduct triage in order of Fiducial IDs (follower)
+# final_project
+Non-complete package for the final project for: ENPM809Y Fall 2021
+
+- The `doc` folder contains the instructions.
+- The `script` folder contains install.bash to install required packages.
