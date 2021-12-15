@@ -29,10 +29,8 @@ class ArucoNode{
         void fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg);
         void marker_listen(tf2_ros::Buffer& tfBuffer, int count);
         void marker_broadcast();
-        void marker_subs();
         void aruco_exists_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg);
 
-        // tf2_ros::Buffer tfBuffer;
         void aruco_seen();
         
         bool first_goal = false;
@@ -49,12 +47,10 @@ class ArucoNode{
         void m_initialize_subscribers();
 
     private:
-        // void m_initialize_publishers();
-        // void m_check_subscribers();
+        
 
 
         ros::NodeHandle m_nh;
-        // ros::Subscriber m_check_subscriber;
         ros::Subscriber m_fiducial_a_subscriber;
         ros::Subscriber m_fiducial_t_subscriber;
 

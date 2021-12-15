@@ -55,7 +55,6 @@ void Follower::m_initialize_subscribers() {
     // ROS_INFO("Initializing Follower Subscribers");
     m_pose_subscriber = m_nh.subscribe("/odom", 1000, &Follower::m_pose_callback, this);
     m_scan_subscriber = m_nh.subscribe("/scan", 1000, &Follower::m_scan_callback, this);
-    // m_fiducial_subscriber = m_nh.subscribe("/fiducial_transforms", 1000, &Follower::m_fiducial_callback, this);
    
 }
 
@@ -98,38 +97,12 @@ void Follower::setup_goals(){
 
 }
 
-void Follower::listen_goals(){
 
-    // tf2_ros::Buffer tfBuffer;
-    // geometry_msgs::TransformStamped transformStamped;
-    // // ROS_INFO_STREAM("Recording goal location of: " << transformStamped.transform.translation.x << ", " << transformStamped.transform.translation.y);
 
-    // try {
-    //     transformStamped = tfBuffer.lookupTransform("marker_frame", "map",
-    //         ros::Time(0));
-    //     // ROS_INFO_STREAM("marker in /map frame: ["
-    //     // << transformStamped.transform.translation.x << ","
-    //     // << transformStamped.transform.translation.y << ","
-    //     // << transformStamped.transform.translation.z << "]"
-    //     // );
-    //     temp_x = transformStamped.transform.translation.x;
-    //     temp_y = transformStamped.transform.translation.y;
-        
-    // }
-    // catch (tf2::TransformException& ex) {
-    //     ROS_WARN("%s", ex.what());
-    //     ros::Duration(1.0).sleep();
-        
-    // }
-
-}
-
-// void Follower::m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg) {
 
  
     
     
-// }
 
 double Follower::m_compute_distance(const std::pair<double, double>& a, const std::pair<double, double>& b) {
     return  sqrt(pow(b.first - a.first, 2) + pow(b.second - a.second, 2));

@@ -15,14 +15,12 @@ ArucoNode::ArucoNode(ros::NodeHandle* nodehandle):
 {
     m_initialize_subscribers();
     
-    // m_check_subscribers();
 };
 
 void ArucoNode::fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg)
 {
     if (!msg->transforms.empty()) {//check marker is detected and not seen yet
-        // Follower follower_a(&m_nh,"temp follower");
-    // Follower follower_a(m_nh,"follwoer_a");
+    
     //broadcaster object
     //Looking for marker_frame before this is called.
         // ROS_INFO_STREAM("Setting up marker broadcaster!");
@@ -47,23 +45,16 @@ void ArucoNode::fiducial_callback(const fiducial_msgs::FiducialTransformArray::C
 
         // ROS_INFO_STREAM("\nQuaternion (Does this add up)?: \n"<<msg->transforms[0].transform.rotation.x<<"\t"<<msg->transforms[0].transform.rotation.y<<"\t"<<msg->transforms[0].transform.rotation.z<<"\t"<<msg->transforms[0].transform.rotation.w<<"\n");
 
-        //Change from transforms[0]?
         fid_ids[m_count] = msg->transforms[0].fiducial_id;
-        // ROS_INFO_STREAM("Now I see x at: " << transformStamped.transform.translation.x);
         
 
         br.sendTransform(transformStamped); //broadcast the transform on /tf Topic
         marker_seen[m_count] = true;
-        // follower_a.listen_goals();
         
     }
     
 }
-void ArucoNode::marker_subs(){
-//     m_initialize_subscribers();
-    
-//     ros::spinOnce();
-}
+
 void ArucoNode::marker_listen(tf2_ros::Buffer& tfBuffer, int count) {
   //for listener
     m_count = count;

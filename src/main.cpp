@@ -172,7 +172,6 @@ int main(int argc, char** argv) {
       if (explorer_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
         ROS_INFO("Hooray, explorer reached goal");
         
-        // follower.m_test = true;
         
         while(!aruco_node.marker_seen[i]){
           explorer.m_move(0.0,0.5);
@@ -187,9 +186,7 @@ int main(int argc, char** argv) {
         //               "\n Last Fid:" <<  );
 
 
-        // aruco_node.m_count ++;
-
-        // explorer.stop();
+        
 
 
       }
@@ -217,7 +214,7 @@ int main(int argc, char** argv) {
     //*****FOLLOWER*******//
     
     //Wait until explorer "home" = (-4,2.5) before follower leave
-    // if (delayed_start){
+    
       //---Send Follower to IDs O through 3 ---//
       std::array<std::array<double,2>,4> follow_list={};
 
@@ -225,23 +222,22 @@ int main(int argc, char** argv) {
         
         if (aruco_node.fid_ids.at(k)==0){ 
             follow_list[0]=goal_list[k];
-        //     m_posit.at(0)={a_node.transformed_locs[0][0], a_node.transformed_locs[0][1]};
+
         } else if(aruco_node.fid_ids.at(k)==1) {
             follow_list[1]=goal_list[k];        
-        //      m_posit.at(1)={a_node.transformed_locs[1][0], a_node.transformed_locs[1][1]};
+
         } else if (aruco_node.fid_ids.at(k)==2) {
             follow_list[2]=goal_list[k];        
-        //     m_posit.at(2)={a_node.transformed_locs[2][0], a_node.transformed_locs[2][1]};
+
         } else if (aruco_node.fid_ids.at(k)==3){
             follow_list[3]=goal_list[k];        
       }}
+      
       for (int j=0; j<4 ;j++) {
         follower_goal_sent = false;
         //--Set Goal for next ID--//
         fiducial_id=follower.m_fid.at(j);
-        // goal_x=follower.m_posit.at(j).at(0);
-        // goal_y=follower.m_posit.at(j).at(1);
-
+        
         goal_x = goal_list[j][0];
         goal_y = goal_list[j][1];
         ROS_INFO_STREAM("The first goal is: "<<goal_x<<"\t"<<goal_y);
@@ -254,7 +250,6 @@ int main(int argc, char** argv) {
         follower_goal.target_pose.pose.position.y = goal_y;
         follower_goal.target_pose.pose.orientation.w = 1.0;
 
-        // follower_client.waitForResult();
 
         if (!follower_goal_sent){
           ROS_INFO("Sending follower goal");
@@ -265,12 +260,12 @@ int main(int argc, char** argv) {
         follower_client.waitForResult();
         
         
-          ROS_INFO("Follower moving to goal");
-          std::cout << "\nFiducial ID: "<< fiducial_id;
-          std::cout << "\nLocated at: ("<< goal_x << ", "<<goal_y<<")";
-          follower.go_to_goal(goal_x, goal_y);
-          ROS_INFO("Hooray, follower reached goal");
-        // }
+        ROS_INFO("Follower moving to goal");
+        std::cout << "\nFiducial ID: "<< fiducial_id;
+        std::cout << "\nLocated at: ("<< goal_x << ", "<<goal_y<<")";
+        follower.go_to_goal(goal_x, goal_y);
+        ROS_INFO("Hooray, follower reached goal");
+        
 
         ros::Duration(0.5).sleep();
         //---Send Follower to Start Position (-4,3.5) ---//
@@ -279,7 +274,6 @@ int main(int argc, char** argv) {
      ROS_INFO("Sending follower to Start Position");
           goal_x=-4;
           goal_y=3.5;
-          //TBD if need for going home
           follower_goal.target_pose.header.frame_id = "map";
           follower_goal.target_pose.header.stamp = ros::Time::now();
           follower_goal.target_pose.pose.position.x = goal_x;
@@ -290,21 +284,6 @@ int main(int argc, char** argv) {
           ROS_INFO("Hooray, follower reached starting position");
           ros::shutdown();
 
-    // //---Send Follower to Start Position (-4,3.5) ---//
-    // ROS_INFO("Sending follower to Start Position");
-    // goal_x=-4;
-    // goal_y=3.5;
-    // //TBD if need for going home
-    // // follower_goal.target_pose.header.frame_id = "map";
-    // // follower_goal.target_pose.header.stamp = ros::Time::now();
-    // // follower_goal.target_pose.pose.position.x = goal_x;
-    // // follower_goal.target_pose.pose.position.y = goal_y;
-    // // follower_goal.target_pose.pose.orientation.w = 1.0;
-    // follower.go_to_goal(goal_x, goal_y);
-    // ROS_INFO("Hooray, follower reached starting position");
-    // ros::shutdown();
-  
-    // }//if loop
     ros::spinOnce();
     loop_rate.sleep();
     

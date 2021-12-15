@@ -38,7 +38,6 @@ class Follower {
         void rotate(double angle_to_rotate, bool direction, double final_angle);
         bool go_to_goal(double x, double y);
         void stop();
-        void listen_goals();
         int m_goal_count = 0;
         double compute_expected_final_yaw(bool direction, double angle_to_rotate);
         double compute_yaw_deg();
@@ -56,19 +55,10 @@ class Follower {
 
         bool m_test = true;
 
-        //Follower accessor
-        // const std::array <int, 4> get_fid() {
-        //     return m_fid;
-        // }
-    
-        // //Follower mutator
-        // void set_fid(int id, int location) {
-        //     m_fid.at(location) = id;
-        // }
+        
 
     private:
-        // std::array <int, 4> m_fid {};
-        // std::array<std::array<double, 2>, 4> m_posit{};
+        
         ros::NodeHandle m_nh;
 
         ros::Subscriber m_pose_subscriber;
