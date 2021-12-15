@@ -75,6 +75,6 @@ void ArucoNode::marker_listen(tf2_ros::Buffer& tfBuffer, int count) {
 }
 
 void ArucoNode::m_initialize_subscribers() {
-    ROS_INFO_STREAM("Initializing Subscribers\nMessage: "<<this);
+    // ROS_INFO_STREAM("Initializing Subscribers\nMessage: "<<this);
     m_fiducial_a_subscriber = m_nh.subscribe("/fiducial_transforms", 1000, &ArucoNode::fiducial_callback, this); 
 }
