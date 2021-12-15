@@ -25,7 +25,7 @@ void ArucoNode::fiducial_callback(const fiducial_msgs::FiducialTransformArray::C
     // Follower follower_a(m_nh,"follwoer_a");
     //broadcaster object
     //Looking for marker_frame before this is called.
-        ROS_INFO_STREAM("Setting up marker broadcaster!");
+        // ROS_INFO_STREAM("Setting up marker broadcaster!");
         static tf2_ros::TransformBroadcaster br;
         geometry_msgs::TransformStamped transformStamped;
         //broadcast the new frame to /tf Topic 
@@ -49,7 +49,7 @@ void ArucoNode::fiducial_callback(const fiducial_msgs::FiducialTransformArray::C
 
         //Change from transforms[0]?
         fid_ids[m_count] = msg->transforms[0].fiducial_id;
-        ROS_INFO_STREAM("Now I see x at: " << transformStamped.transform.translation.x);
+        // ROS_INFO_STREAM("Now I see x at: " << transformStamped.transform.translation.x);
         
 
         br.sendTransform(transformStamped); //broadcast the transform on /tf Topic
@@ -69,27 +69,27 @@ void ArucoNode::marker_listen(tf2_ros::Buffer& tfBuffer, int count) {
     m_count = count;
     m_initialize_subscribers();
 
-    // geometry_msgs::TransformStamped transformStamped;
+    geometry_msgs::TransformStamped transformStamped;
 
-    // try {
-    //     transformStamped = tfBuffer.lookupTransform("map", "marker_frame",
-    //         ros::Time(0));
-    //     ROS_INFO_STREAM("marker in /map frame: ["
-    //     << transformStamped.transform.translation.x << ","
-    //     << transformStamped.transform.translation.y << ","
-    //     << transformStamped.transform.translation.z << "]"
-    //     );
-    //     transformed_locs[count][0] = transformStamped.transform.translation.x;
-    //     transformed_locs[count][1] = transformStamped.transform.translation.y;
-    ROS_INFO_STREAM("Recording goal location o TEST LINE");
+    try {
+        transformStamped = tfBuffer.lookupTransform("map", "marker_frame",
+            ros::Time(0));
+        ROS_INFO_STREAM("marker in /map frame: ["
+        << transformStamped.transform.translation.x << ","
+        << transformStamped.transform.translation.y << ","
+        << transformStamped.transform.translation.z << "]"
+        );
+        transformed_locs[count][0] = transformStamped.transform.translation.x;
+        transformed_locs[count][1] = transformStamped.transform.translation.y;
+        ROS_INFO_STREAM("Recording goal");
 
         
-    // }
-    // catch (tf2::TransformException& ex) {
-    //     ROS_WARN("%s", ex.what());
-    //     ros::Duration(1.0).sleep();
+    }
+    catch (tf2::TransformException& ex) {
+        ROS_WARN("%s", ex.what());
+        ros::Duration(1.0).sleep();
         
-    // }
+    }
 
     ros::spinOnce();
 }
