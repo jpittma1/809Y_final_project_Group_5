@@ -34,11 +34,54 @@ class Explorer{
          * @param robot_name 
          */
         Explorer(ros::NodeHandle *nodehandle, const std::string &robot_name);
+        
+        /**
+         * @brief Publish velocities to odom
+         * 
+         * @param msg 
+         */
         void publish_velocities(const geometry_msgs::Twist &msg);
+        
+        /**
+         * @brief moves robot straight
+         * 
+         * @param distance 
+         * @param direction 
+         */
         void drive_straight(double distance, bool direction);
+        
+        /**
+         * @brief Rotates robot
+         * 
+         * @param angle_to_rotate 
+         * @param direction 
+         * @param final_angle 
+         */
         void rotate(double angle_to_rotate, bool direction, double final_angle);
+        
+        /**
+         * @brief Moves robot to goal
+         * 
+         * @param x 
+         * @param y 
+         * @return true 
+         * @return false 
+         */
         bool go_to_goal(double x, double y);
+        
+        /**
+         * @brief Stops robot
+         * 
+         */
         void stop();
+        
+        /**
+         * @brief Compoutes final yaw angle
+         * 
+         * @param direction 
+         * @param angle_to_rotate 
+         * @return double 
+         */
         double compute_expected_final_yaw(bool direction, double angle_to_rotate);
         double compute_yaw_deg();
         double compute_yaw_rad() ;
@@ -63,7 +106,7 @@ class Explorer{
         std::array<int,3> start_place {};
 
         /**
-         * @brief 
+         * @brief moves robot to next location
          * 
          * @param goal_loc 
          */
@@ -92,7 +135,6 @@ class Explorer{
 
         ros::Subscriber m_pose_subscriber;
         ros::Subscriber m_scan_subscriber;
-        // ros::Subscriber m_fiducial_subscriber;
 
         std::string m_robot_name;
 
