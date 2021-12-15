@@ -1,0 +1,436 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="class_explorer">
+<title>Explorer class Reference</title>
+<para>
+    <programlisting>#include <link linkend="explorer_8h">&lt;explorer.h&gt;</link></programlisting>
+</para>
+<para>Inheritance diagram for Explorer</para>
+<para>
+    <figure>
+        <title>Inheritance graph</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="1" fileref="class_explorer__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </figure>
+</para>
+<para>Collaboration diagram for Explorer</para>
+<para>
+    <figure>
+        <title>Collaboration graph</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="1" fileref="class_explorer__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </figure>
+</para>
+        <section>
+            <title>Public Attributes</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>std::array&lt; std::array&lt; int, 3 &gt;, 4 &gt; goal_list</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>std::array&lt; int, 3 &gt; start_place</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>Private Attributes</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>ros::NodeHandle m_nh</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>ros::Subscriber m_pose_subscriber</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>ros::Subscriber m_scan_subscriber</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>ros::Subscriber m_fiducial_subscriber</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>ros::Publisher m_velocity_publisher</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>std::string m_robot_name</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>double m_kv</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>double m_kh</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>std::string m_parent_frame</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>std::string m_child_frame</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>std::pair&lt; double, double &gt; m_location</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>geometry_msgs::Quaternion m_orientation</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>double m_linear_speed</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>double m_angular_speed</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>double m_roll</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>double m_pitch</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>double m_yaw</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title></title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para> <link linkend="class_explorer_1aafe6b7c3b9c2e24815aa14a731f31890">Explorer</link> (
+ros::NodeHandle * nodehandle, const std::string &amp; robot_name)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_explorer_1a8ffef25585ef957b9df4407366723787">publish_velocities</link> (
+const geometry_msgs::Twist &amp; msg)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_explorer_1ab4ca9f16c48a60fc4d0e426b6fd9e9a0">drive_straight</link> (
+double distance, bool direction)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_explorer_1ac8e3a980fd3929734fb3a4b0b2e0a7e0">rotate</link> (
+double angle_to_rotate, bool direction, double final_angle)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>bool <link linkend="class_explorer_1aa1e259feaac1114adb0f24588428e8ef">go_to_goal</link> (
+double x, double y)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_explorer_1a0e4a623ff30d1886cc9f57ec081c527f">stop</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>double <link linkend="class_explorer_1a02c37b93448ed474f1bf0d03e2758ca2">compute_expected_final_yaw</link> (
+bool direction, double angle_to_rotate)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>double <link linkend="class_explorer_1a670cdffdb8c3173c300590cfc45ab6d2">compute_yaw_deg</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>double <link linkend="class_explorer_1ac5b91cd64189a60ffe62535cb5bc093a">compute_yaw_rad</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>double <link linkend="class_explorer_1ac3a5c9368647dd9d2c36d12497bd889e">convert_rad_to_deg</link> (
+double angle)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para> <link linkend="class_explorer_1aa1b0a71e92e003e9162a5ba99d843392">~Explorer</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_explorer_1a2b0c1e46e1a17e99f4156edf5a93b691">move_next_loc</link> (
+std::array&lt; double, 2 &gt; goal_loc)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>std::array&lt; std::array&lt; double, 2 &gt;, 4 &gt; <link linkend="class_explorer_1a847e3ad2e7233d493a8dcfdd7139cb58">get_goals</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title></title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_explorer_1ac509e6fbb69d3246d7b00f2703f1c316">m_pose_callback</link> (
+const nav_msgs::Odometry::ConstPtr &amp; msg)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_explorer_1a4e059ac936186ab5a1fdfbda4d0b73b2">m_scan_callback</link> (
+const sensor_msgs::LaserScan::ConstPtr &amp; msg)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_explorer_1ac341b7ad68b91b0c71fe0c158f2703ed">m_initialize_subscribers</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_explorer_1ae6ab01ec1fc07201b0fff0297ad72dba">m_initialize_publishers</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>double <link linkend="class_explorer_1a507bd3d14e43f9c465811db56c31a265">m_compute_distance</link> (
+const std::pair&lt; double, double &gt; &amp; a, const std::pair&lt; double, double &gt; &amp; b)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_explorer_1ace304ef65547f4a3ff6458d934c54e87">m_move</link> (
+double linear, double angular)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>double <link linkend="class_explorer_1ace07aad09cc3dc09200d9809df3adcf4">m_normalize_angle_positive</link> (
+double angle)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>double <link linkend="class_explorer_1a6f7794ac0dd79de7cc1fb7fe24c3af15">m_normalize_angle</link> (
+double angle)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+    <simplesect>
+
+<para>A class that inherits from Bot_contreoller to control the explorer and exploration algorithm. </para>
+    </simplesect>
+        <section>
+            <title>Member Data Documentation</title>
+        </section>
+        <section>
+            <title>Member Data Documentation</title>
+        </section>
+            <section xml:id="class_explorer_1aafe6b7c3b9c2e24815aa14a731f31890">
+                <title>Explorer::Explorer (ros::NodeHandle *nodehandle, const std::string &amp;robot_name)</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1a8ffef25585ef957b9df4407366723787">
+                <title>void Explorer::publish_velocities (const geometry_msgs::Twist &amp;msg)</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1ab4ca9f16c48a60fc4d0e426b6fd9e9a0">
+                <title>void Explorer::drive_straight (double distance, bool direction)</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1ac8e3a980fd3929734fb3a4b0b2e0a7e0">
+                <title>void Explorer::rotate (double angle_to_rotate, bool direction, double final_angle)</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1aa1e259feaac1114adb0f24588428e8ef">
+                <title>bool Explorer::go_to_goal (double x, double y)</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1a0e4a623ff30d1886cc9f57ec081c527f">
+                <title>void Explorer::stop ()</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1a02c37b93448ed474f1bf0d03e2758ca2">
+                <title>double Explorer::compute_expected_final_yaw (bool direction, double angle_to_rotate)</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1a670cdffdb8c3173c300590cfc45ab6d2">
+                <title>double Explorer::compute_yaw_deg ()</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1ac5b91cd64189a60ffe62535cb5bc093a">
+                <title>double Explorer::compute_yaw_rad ()</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1ac3a5c9368647dd9d2c36d12497bd889e">
+                <title>double Explorer::convert_rad_to_deg (double angle)</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1aa1b0a71e92e003e9162a5ba99d843392">
+                <title>Explorer::~Explorer ()</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1a2b0c1e46e1a17e99f4156edf5a93b691">
+                <title>void Explorer::move_next_loc (std::array&lt; double, 2 &gt; goal_loc)</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1a847e3ad2e7233d493a8dcfdd7139cb58">
+                <title>std::array&lt;std::array&lt;double,2&gt;,4&gt; Explorer::get_goals ()</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1ac509e6fbb69d3246d7b00f2703f1c316">
+                <title>void Explorer::m_pose_callback (const nav_msgs::Odometry::ConstPtr &amp;msg)</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1a4e059ac936186ab5a1fdfbda4d0b73b2">
+                <title>void Explorer::m_scan_callback (const sensor_msgs::LaserScan::ConstPtr &amp;msg)</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1ac341b7ad68b91b0c71fe0c158f2703ed">
+                <title>void Explorer::m_initialize_subscribers ()</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1ae6ab01ec1fc07201b0fff0297ad72dba">
+                <title>void Explorer::m_initialize_publishers ()</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1a507bd3d14e43f9c465811db56c31a265">
+                <title>double Explorer::m_compute_distance (const std::pair&lt; double, double &gt; &amp;a, const std::pair&lt; double, double &gt; &amp;b)</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1ace304ef65547f4a3ff6458d934c54e87">
+                <title>void Explorer::m_move (double linear, double angular)</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1ace07aad09cc3dc09200d9809df3adcf4">
+                <title>double Explorer::m_normalize_angle_positive (double angle)</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_explorer_1a6f7794ac0dd79de7cc1fb7fe24c3af15">
+                <title>double Explorer::m_normalize_angle (double angle)</title> <emphasis></emphasis>
+                
+            </section>
+</section>

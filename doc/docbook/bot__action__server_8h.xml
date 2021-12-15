@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="bot__action__server_8h">
+    <title>bot_action_server.h File Reference</title>
+    <programlisting>#include &lt;ros/ros.h&gt;</programlisting>
+    <programlisting>#include &lt;actionlib/server/simple_action_server.h&gt;</programlisting>
+    <programlisting>#include &lt;bot_msgs/MoveBotAction.h&gt;</programlisting>
+    <programlisting>#include &lt;string&gt;</programlisting>
+    <programlisting>#include &lt;geometry_msgs/Twist.h&gt;</programlisting>
+    <programlisting>#include &lt;nav_msgs/Odometry.h&gt;</programlisting>
+    <programlisting>#include &lt;sensor_msgs/LaserScan.h&gt;</programlisting>
+    <programlisting>#include &lt;utility&gt;</programlisting>
+    <programlisting>#include &lt;tf/transform_datatypes.h&gt;</programlisting>
+<para>Include dependency diagram for bot_action_server.h</para>
+<para>
+    <figure>
+        <title>Dependency diagram</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="1" fileref="bot__action__server_8h__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </figure>
+</para>
+<para>Included by dependency diagram for bot_action_server.h</para>
+<para>
+    <figure>
+        <title>Dependency diagram</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="1" fileref="bot__action__server_8h__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </figure>
+</para>
+        <section>
+            <title> Classes </title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>struct <link linkend="class_bot_action_server">BotActionServer</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+    <simplesect>
+        <title>Detailed Description</title>
+    <para>Definition in file /home/jerry/catkin_ws/src/809Y_final_project_Group_5/final_project-main/include/bot_controller/bot_action_server.h</para>
+    </simplesect>
+</section>

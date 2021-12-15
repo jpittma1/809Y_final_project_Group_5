@@ -1,0 +1,215 @@
+\hypertarget{class_explorer}{}\section{Explorer Class Reference}
+\label{class_explorer}\index{Explorer@{Explorer}}
+
+
+A class that inherits from Bot\+\_\+contreoller to control the explorer and exploration algorithm.  
+
+
+
+
+{\ttfamily \#include $<$explorer.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_explorer_aafe6b7c3b9c2e24815aa14a731f31890}{Explorer} (ros\+::\+Node\+Handle $\ast$nodehandle, const std\+::string \&robot\+\_\+name)
+\item 
+void \hyperlink{class_explorer_a8ffef25585ef957b9df4407366723787}{publish\+\_\+velocities} (const geometry\+\_\+msgs\+::\+Twist \&msg)
+\item 
+void \hyperlink{class_explorer_ab4ca9f16c48a60fc4d0e426b6fd9e9a0}{drive\+\_\+straight} (double distance, bool direction)
+\item 
+void \hyperlink{class_explorer_ac8e3a980fd3929734fb3a4b0b2e0a7e0}{rotate} (double angle\+\_\+to\+\_\+rotate, bool direction, double final\+\_\+angle)
+\item 
+bool \hyperlink{class_explorer_aa1e259feaac1114adb0f24588428e8ef}{go\+\_\+to\+\_\+goal} (double x, double y)
+\item 
+void \hyperlink{class_explorer_a0e4a623ff30d1886cc9f57ec081c527f}{stop} ()
+\item 
+double \hyperlink{class_explorer_a02c37b93448ed474f1bf0d03e2758ca2}{compute\+\_\+expected\+\_\+final\+\_\+yaw} (bool direction, double angle\+\_\+to\+\_\+rotate)
+\item 
+double \hyperlink{class_explorer_a670cdffdb8c3173c300590cfc45ab6d2}{compute\+\_\+yaw\+\_\+deg} ()
+\item 
+double \hyperlink{class_explorer_ac5b91cd64189a60ffe62535cb5bc093a}{compute\+\_\+yaw\+\_\+rad} ()
+\item 
+double \hyperlink{class_explorer_ac3a5c9368647dd9d2c36d12497bd889e}{convert\+\_\+rad\+\_\+to\+\_\+deg} (double angle)
+\item 
+\hyperlink{class_explorer_aa1b0a71e92e003e9162a5ba99d843392}{$\sim$\+Explorer} ()
+\item 
+void \hyperlink{class_explorer_a2b0c1e46e1a17e99f4156edf5a93b691}{move\+\_\+next\+\_\+loc} (std\+::array$<$ double, 2 $>$ goal\+\_\+loc)
+\item 
+std\+::array$<$ std\+::array$<$ double, 2 $>$, 4 $>$ \hyperlink{class_explorer_a847e3ad2e7233d493a8dcfdd7139cb58}{get\+\_\+goals} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::array$<$ std\+::array$<$ int, 3 $>$, 4 $>$ \hyperlink{class_explorer_acda1856f421dfe836f39de446415b969}{goal\+\_\+list} \{\}
+\item 
+std\+::array$<$ int, 3 $>$ \hyperlink{class_explorer_af1aee46522a58db39d3643f2138c76fa}{start\+\_\+place} \{\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class that inherits from Bot\+\_\+contreoller to control the explorer and exploration algorithm. 
+
+Definition at line 10 of file explorer.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_explorer_aafe6b7c3b9c2e24815aa14a731f31890}\label{class_explorer_aafe6b7c3b9c2e24815aa14a731f31890}} 
+\index{Explorer@{Explorer}!Explorer@{Explorer}}
+\index{Explorer@{Explorer}!Explorer@{Explorer}}
+\subsubsection{\texorpdfstring{Explorer()}{Explorer()}}
+{\footnotesize\ttfamily Explorer\+::\+Explorer (\begin{DoxyParamCaption}\item[{ros\+::\+Node\+Handle $\ast$}]{nodehandle,  }\item[{const std\+::string \&}]{robot\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Definition at line 13 of file explorer.\+cpp.
+
+\mbox{\Hypertarget{class_explorer_aa1b0a71e92e003e9162a5ba99d843392}\label{class_explorer_aa1b0a71e92e003e9162a5ba99d843392}} 
+\index{Explorer@{Explorer}!````~Explorer@{$\sim$\+Explorer}}
+\index{````~Explorer@{$\sim$\+Explorer}!Explorer@{Explorer}}
+\subsubsection{\texorpdfstring{$\sim$\+Explorer()}{~Explorer()}}
+{\footnotesize\ttfamily Explorer\+::$\sim$\+Explorer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 24 of file explorer.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_explorer_a02c37b93448ed474f1bf0d03e2758ca2}\label{class_explorer_a02c37b93448ed474f1bf0d03e2758ca2}} 
+\index{Explorer@{Explorer}!compute\+\_\+expected\+\_\+final\+\_\+yaw@{compute\+\_\+expected\+\_\+final\+\_\+yaw}}
+\index{compute\+\_\+expected\+\_\+final\+\_\+yaw@{compute\+\_\+expected\+\_\+final\+\_\+yaw}!Explorer@{Explorer}}
+\subsubsection{\texorpdfstring{compute\+\_\+expected\+\_\+final\+\_\+yaw()}{compute\_expected\_final\_yaw()}}
+{\footnotesize\ttfamily double Explorer\+::compute\+\_\+expected\+\_\+final\+\_\+yaw (\begin{DoxyParamCaption}\item[{bool}]{direction,  }\item[{double}]{angle\+\_\+to\+\_\+rotate }\end{DoxyParamCaption})}
+
+
+
+Definition at line 132 of file explorer.\+cpp.
+
+\mbox{\Hypertarget{class_explorer_a670cdffdb8c3173c300590cfc45ab6d2}\label{class_explorer_a670cdffdb8c3173c300590cfc45ab6d2}} 
+\index{Explorer@{Explorer}!compute\+\_\+yaw\+\_\+deg@{compute\+\_\+yaw\+\_\+deg}}
+\index{compute\+\_\+yaw\+\_\+deg@{compute\+\_\+yaw\+\_\+deg}!Explorer@{Explorer}}
+\subsubsection{\texorpdfstring{compute\+\_\+yaw\+\_\+deg()}{compute\_yaw\_deg()}}
+{\footnotesize\ttfamily double Explorer\+::compute\+\_\+yaw\+\_\+deg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 144 of file explorer.\+cpp.
+
+\mbox{\Hypertarget{class_explorer_ac5b91cd64189a60ffe62535cb5bc093a}\label{class_explorer_ac5b91cd64189a60ffe62535cb5bc093a}} 
+\index{Explorer@{Explorer}!compute\+\_\+yaw\+\_\+rad@{compute\+\_\+yaw\+\_\+rad}}
+\index{compute\+\_\+yaw\+\_\+rad@{compute\+\_\+yaw\+\_\+rad}!Explorer@{Explorer}}
+\subsubsection{\texorpdfstring{compute\+\_\+yaw\+\_\+rad()}{compute\_yaw\_rad()}}
+{\footnotesize\ttfamily double Explorer\+::compute\+\_\+yaw\+\_\+rad (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 156 of file explorer.\+cpp.
+
+\mbox{\Hypertarget{class_explorer_ac3a5c9368647dd9d2c36d12497bd889e}\label{class_explorer_ac3a5c9368647dd9d2c36d12497bd889e}} 
+\index{Explorer@{Explorer}!convert\+\_\+rad\+\_\+to\+\_\+deg@{convert\+\_\+rad\+\_\+to\+\_\+deg}}
+\index{convert\+\_\+rad\+\_\+to\+\_\+deg@{convert\+\_\+rad\+\_\+to\+\_\+deg}!Explorer@{Explorer}}
+\subsubsection{\texorpdfstring{convert\+\_\+rad\+\_\+to\+\_\+deg()}{convert\_rad\_to\_deg()}}
+{\footnotesize\ttfamily double Explorer\+::convert\+\_\+rad\+\_\+to\+\_\+deg (\begin{DoxyParamCaption}\item[{double}]{angle }\end{DoxyParamCaption})}
+
+
+
+Definition at line 58 of file explorer.\+cpp.
+
+\mbox{\Hypertarget{class_explorer_ab4ca9f16c48a60fc4d0e426b6fd9e9a0}\label{class_explorer_ab4ca9f16c48a60fc4d0e426b6fd9e9a0}} 
+\index{Explorer@{Explorer}!drive\+\_\+straight@{drive\+\_\+straight}}
+\index{drive\+\_\+straight@{drive\+\_\+straight}!Explorer@{Explorer}}
+\subsubsection{\texorpdfstring{drive\+\_\+straight()}{drive\_straight()}}
+{\footnotesize\ttfamily void Explorer\+::drive\+\_\+straight (\begin{DoxyParamCaption}\item[{double}]{distance,  }\item[{bool}]{direction }\end{DoxyParamCaption})}
+
+
+
+Definition at line 195 of file explorer.\+cpp.
+
+\mbox{\Hypertarget{class_explorer_a847e3ad2e7233d493a8dcfdd7139cb58}\label{class_explorer_a847e3ad2e7233d493a8dcfdd7139cb58}} 
+\index{Explorer@{Explorer}!get\+\_\+goals@{get\+\_\+goals}}
+\index{get\+\_\+goals@{get\+\_\+goals}!Explorer@{Explorer}}
+\subsubsection{\texorpdfstring{get\+\_\+goals()}{get\_goals()}}
+{\footnotesize\ttfamily std\+::array$<$std\+::array$<$double,2$>$,4$>$ Explorer\+::get\+\_\+goals (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 33 of file explorer.\+h.
+
+\mbox{\Hypertarget{class_explorer_aa1e259feaac1114adb0f24588428e8ef}\label{class_explorer_aa1e259feaac1114adb0f24588428e8ef}} 
+\index{Explorer@{Explorer}!go\+\_\+to\+\_\+goal@{go\+\_\+to\+\_\+goal}}
+\index{go\+\_\+to\+\_\+goal@{go\+\_\+to\+\_\+goal}!Explorer@{Explorer}}
+\subsubsection{\texorpdfstring{go\+\_\+to\+\_\+goal()}{go\_to\_goal()}}
+{\footnotesize\ttfamily bool Explorer\+::go\+\_\+to\+\_\+goal (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 216 of file explorer.\+cpp.
+
+\mbox{\Hypertarget{class_explorer_a2b0c1e46e1a17e99f4156edf5a93b691}\label{class_explorer_a2b0c1e46e1a17e99f4156edf5a93b691}} 
+\index{Explorer@{Explorer}!move\+\_\+next\+\_\+loc@{move\+\_\+next\+\_\+loc}}
+\index{move\+\_\+next\+\_\+loc@{move\+\_\+next\+\_\+loc}!Explorer@{Explorer}}
+\subsubsection{\texorpdfstring{move\+\_\+next\+\_\+loc()}{move\_next\_loc()}}
+{\footnotesize\ttfamily void Explorer\+::move\+\_\+next\+\_\+loc (\begin{DoxyParamCaption}\item[{std\+::array$<$ double, 2 $>$}]{goal\+\_\+loc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 31 of file explorer.\+h.
+
+\mbox{\Hypertarget{class_explorer_a8ffef25585ef957b9df4407366723787}\label{class_explorer_a8ffef25585ef957b9df4407366723787}} 
+\index{Explorer@{Explorer}!publish\+\_\+velocities@{publish\+\_\+velocities}}
+\index{publish\+\_\+velocities@{publish\+\_\+velocities}!Explorer@{Explorer}}
+\subsubsection{\texorpdfstring{publish\+\_\+velocities()}{publish\_velocities()}}
+{\footnotesize\ttfamily void Explorer\+::publish\+\_\+velocities (\begin{DoxyParamCaption}\item[{const geometry\+\_\+msgs\+::\+Twist \&}]{msg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_explorer_ac8e3a980fd3929734fb3a4b0b2e0a7e0}\label{class_explorer_ac8e3a980fd3929734fb3a4b0b2e0a7e0}} 
+\index{Explorer@{Explorer}!rotate@{rotate}}
+\index{rotate@{rotate}!Explorer@{Explorer}}
+\subsubsection{\texorpdfstring{rotate()}{rotate()}}
+{\footnotesize\ttfamily void Explorer\+::rotate (\begin{DoxyParamCaption}\item[{double}]{angle\+\_\+to\+\_\+rotate,  }\item[{bool}]{direction,  }\item[{double}]{final\+\_\+angle }\end{DoxyParamCaption})}
+
+
+
+Definition at line 168 of file explorer.\+cpp.
+
+\mbox{\Hypertarget{class_explorer_a0e4a623ff30d1886cc9f57ec081c527f}\label{class_explorer_a0e4a623ff30d1886cc9f57ec081c527f}} 
+\index{Explorer@{Explorer}!stop@{stop}}
+\index{stop@{stop}!Explorer@{Explorer}}
+\subsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily void Explorer\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 123 of file explorer.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_explorer_acda1856f421dfe836f39de446415b969}\label{class_explorer_acda1856f421dfe836f39de446415b969}} 
+\index{Explorer@{Explorer}!goal\+\_\+list@{goal\+\_\+list}}
+\index{goal\+\_\+list@{goal\+\_\+list}!Explorer@{Explorer}}
+\subsubsection{\texorpdfstring{goal\+\_\+list}{goal\_list}}
+{\footnotesize\ttfamily std\+::array$<$std\+::array$<$int,3$>$,4$>$ Explorer\+::goal\+\_\+list \{\}}
+
+
+
+Definition at line 27 of file explorer.\+h.
+
+\mbox{\Hypertarget{class_explorer_af1aee46522a58db39d3643f2138c76fa}\label{class_explorer_af1aee46522a58db39d3643f2138c76fa}} 
+\index{Explorer@{Explorer}!start\+\_\+place@{start\+\_\+place}}
+\index{start\+\_\+place@{start\+\_\+place}!Explorer@{Explorer}}
+\subsubsection{\texorpdfstring{start\+\_\+place}{start\_place}}
+{\footnotesize\ttfamily std\+::array$<$int,3$>$ Explorer\+::start\+\_\+place \{\}}
+
+
+
+Definition at line 28 of file explorer.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/explorer/\hyperlink{explorer_8h}{explorer.\+h}\item 
+src/\hyperlink{explorer_8cpp}{explorer.\+cpp}\end{DoxyCompactItemize}

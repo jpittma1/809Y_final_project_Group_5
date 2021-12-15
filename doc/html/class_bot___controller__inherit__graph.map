@@ -1,0 +1,4 @@
+<map id="Bot_Controller" name="Bot_Controller">
+<area shape="rect" id="node2" href="$class_explorer.html" title="A class that inherits from Bot_contreoller to control the explorer and exploration algorithm..." alt="" coords="5,80,76,107"/>
+<area shape="rect" id="node3" href="$class_follower.html" title="Public Inheritance Child class of Bot_controller Class to go to ArUco markers found by Explorer child..." alt="" coords="100,80,171,107"/>
+</map>

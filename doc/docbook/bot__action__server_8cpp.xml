@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="bot__action__server_8cpp">
+    <title>bot_action_server.cpp File Reference</title>
+    <programlisting>#include &quot;../include/bot_controller/bot_action_server.h&quot;</programlisting>
+    <programlisting>#include &lt;bot_msgs/MoveBotActionFeedback.h&gt;</programlisting>
+<para>Include dependency diagram for bot_action_server.cpp</para>
+<para>
+    <figure>
+        <title>Dependency diagram</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="1" fileref="bot__action__server_8cpp__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </figure>
+</para>
+<para>Included by dependency diagram for bot_action_server.cpp</para>
+<para>
+    <figure>
+        <title>Dependency diagram</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="1" fileref="bot__action__server_8cpp__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </figure>
+</para>
+        <section>
+            <title>Functions</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="bot__action__server_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627">main</link> (
+int argc, char ** argv)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+    <simplesect>
+        <title>Detailed Description</title>
+    <para>Definition in file /home/jerry/catkin_ws/src/809Y_final_project_Group_5/final_project-main/src/bot_action_server.cpp</para>
+    </simplesect>
+</section>

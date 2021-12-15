@@ -1,0 +1,118 @@
+\hypertarget{main_8cpp}{}\section{src/main.cpp File Reference}
+\label{main_8cpp}\index{src/main.\+cpp@{src/main.\+cpp}}
+
+
+E\+N\+P\+M809Y Final Project Group 5.  
+
+
+{\ttfamily \#include $<$actionlib/client/simple\+\_\+action\+\_\+client.\+h$>$}\newline
+{\ttfamily \#include $<$fiducial\+\_\+msgs/\+Fiducial\+Transform\+Array.\+h$>$}\newline
+{\ttfamily \#include $<$geometry\+\_\+msgs/\+Twist.\+h$>$}\newline
+{\ttfamily \#include $<$move\+\_\+base\+\_\+msgs/\+Move\+Base\+Action.\+h$>$}\newline
+{\ttfamily \#include $<$tf2/\+Linear\+Math/\+Quaternion.\+h$>$}\newline
+{\ttfamily \#include $<$tf2\+\_\+ros/transform\+\_\+broadcaster.\+h$>$}\newline
+{\ttfamily \#include $<$tf2\+\_\+ros/transform\+\_\+listener.\+h$>$}\newline
+{\ttfamily \#include $<$ros/ros.\+h$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include \char`\"{}../include/follower/follower.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../include/explorer/explorer.\+h\char`\"{}}\newline
+Include dependency graph for main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef actionlib\+::\+Simple\+Action\+Client$<$ move\+\_\+base\+\_\+msgs\+::\+Move\+Base\+Action $>$ \hyperlink{main_8cpp_a21e20cc0b6656ae897b3cbb969b93241}{Move\+Base\+Client}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{main_8cpp_a9c2747abcaef4c03d19858e45f59de80}{print\+\_\+usage} (std\+::string error=\char`\"{}\char`\"{})
+\item 
+void \hyperlink{main_8cpp_a299d89c50484c4d3a597f6b43b65e21c}{broadcast} ()
+\item 
+void \hyperlink{main_8cpp_aa2baabcf8bc6fb2727c0aade0c1b8efe}{listen} (tf2\+\_\+ros\+::\+Buffer \&tf\+Buffer)
+\item 
+int \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+E\+N\+P\+M809Y Final Project Group 5. 
+
+\begin{DoxyAuthor}{Author}
+Jerry Pittman, Jr., Nicholas Novak, Orlandis Smith (\href{mailto:jpittma1@umd.edu}{\tt jpittma1@umd.\+edu}, \href{mailto:nnovak@umd.edu}{\tt nnovak@umd.\+edu}, \href{mailto:osmith15@umd.edu}{\tt osmith15@umd.\+edu}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2021-\/12-\/11
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2021 
+\end{DoxyCopyright}
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{main_8cpp_a21e20cc0b6656ae897b3cbb969b93241}\label{main_8cpp_a21e20cc0b6656ae897b3cbb969b93241}} 
+\index{main.\+cpp@{main.\+cpp}!Move\+Base\+Client@{Move\+Base\+Client}}
+\index{Move\+Base\+Client@{Move\+Base\+Client}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{Move\+Base\+Client}{MoveBaseClient}}
+{\footnotesize\ttfamily typedef actionlib\+::\+Simple\+Action\+Client$<$move\+\_\+base\+\_\+msgs\+::\+Move\+Base\+Action$>$ \hyperlink{main_8cpp_a21e20cc0b6656ae897b3cbb969b93241}{Move\+Base\+Client}}
+
+
+
+Definition at line 29 of file main.\+cpp.
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a299d89c50484c4d3a597f6b43b65e21c}\label{main_8cpp_a299d89c50484c4d3a597f6b43b65e21c}} 
+\index{main.\+cpp@{main.\+cpp}!broadcast@{broadcast}}
+\index{broadcast@{broadcast}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{broadcast()}{broadcast()}}
+{\footnotesize\ttfamily void broadcast (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 41 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_aa2baabcf8bc6fb2727c0aade0c1b8efe}\label{main_8cpp_aa2baabcf8bc6fb2727c0aade0c1b8efe}} 
+\index{main.\+cpp@{main.\+cpp}!listen@{listen}}
+\index{listen@{listen}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{listen()}{listen()}}
+{\footnotesize\ttfamily void listen (\begin{DoxyParamCaption}\item[{tf2\+\_\+ros\+::\+Buffer \&}]{tf\+Buffer }\end{DoxyParamCaption})}
+
+
+
+Definition at line 62 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{main.\+cpp@{main.\+cpp}!main@{main}}
+\index{main@{main}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Definition at line 84 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a9c2747abcaef4c03d19858e45f59de80}\label{main_8cpp_a9c2747abcaef4c03d19858e45f59de80}} 
+\index{main.\+cpp@{main.\+cpp}!print\+\_\+usage@{print\+\_\+usage}}
+\index{print\+\_\+usage@{print\+\_\+usage}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{print\+\_\+usage()}{print\_usage()}}
+{\footnotesize\ttfamily void print\+\_\+usage (\begin{DoxyParamCaption}\item[{std\+::string}]{error = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 34 of file main.\+cpp.
+

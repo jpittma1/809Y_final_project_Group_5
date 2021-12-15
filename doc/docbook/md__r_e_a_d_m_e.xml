@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>final_project</title>
+
+<para>Non-complete package for the final project for: ENPM809Y Fall 2021</para>
+
+<para><itemizedlist>
+<listitem>
+<para>The <computeroutput>doc</computeroutput> folder contains the instructions.</para>
+</listitem><listitem>
+<para>The <computeroutput>script</computeroutput> folder contains install.bash to install required packages. </para>
+</listitem></itemizedlist>
+</para>
+
+</chapter>
