@@ -11,9 +11,6 @@
 #include "../include/explorer/explorer.h"
 #include "../include/explorer/aruco_confirm.h"
 #include "../include/follower/follower.h"
-#include <xmlrpcpp/XmlRpcClient.h>
-#include <xmlrpcpp/XmlRpc.h>
-
 
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
@@ -198,6 +195,7 @@ int main(int argc, char** argv) {
       if (explorer_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
         ROS_INFO("Hooray, explorer reached goal");
         // aruco_node.marker_listen(tfBuffer, i);
+        listen(tfBuffer);
         
         ROS_INFO_STREAM("fiducial id of current and next: " << aruco_node.fid_ids[i] << "\t" << aruco_node.fid_ids[i+1]);
         while(!aruco_node.aruco_seen()){
