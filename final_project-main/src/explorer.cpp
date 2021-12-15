@@ -68,10 +68,10 @@ void Explorer::m_pose_callback(const nav_msgs::Odometry::ConstPtr& odom_msg) {
 }
 
 void Explorer::m_scan_callback(const sensor_msgs::LaserScan::ConstPtr& msg) {
-    ROS_INFO_STREAM("-------------------------");
-    ROS_INFO_STREAM("Front: " << msg->ranges[0]);
-    ROS_INFO_STREAM("Left: " << msg->ranges[90]);
-    ROS_INFO_STREAM("Right: " << msg->ranges[270]);
+    // ROS_INFO_STREAM("-------------------------");
+    // ROS_INFO_STREAM("Front: " << msg->ranges[0]);
+    // ROS_INFO_STREAM("Left: " << msg->ranges[90]);
+    // ROS_INFO_STREAM("Right: " << msg->ranges[270]);
 }
 
 /**

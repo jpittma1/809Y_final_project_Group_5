@@ -13,7 +13,6 @@
 ArucoNode::ArucoNode(ros::NodeHandle* nodehandle):
     m_nh{ *nodehandle }
 {
-    m_initialize_publishers();
     m_initialize_subscribers();    
     m_check_subscribers();
 };

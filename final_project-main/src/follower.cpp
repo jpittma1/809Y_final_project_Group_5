@@ -25,7 +25,7 @@ Follower::Follower(ros::NodeHandle* nodehandle, const std::string& robot_name) :
     m_pitch{ 0 },
     m_yaw{ 0 }
 {
-    ROS_INFO("FOllower Object Created!");
+    ROS_INFO("Follower Object Created!");
     m_initialize_subscribers();
     m_initialize_publishers();
 }
@@ -71,10 +71,10 @@ void Follower::m_pose_callback(const nav_msgs::Odometry::ConstPtr& odom_msg) {
 }
 
 void Follower::m_scan_callback(const sensor_msgs::LaserScan::ConstPtr& msg) {
-    ROS_INFO_STREAM("-------------------------");
-    ROS_INFO_STREAM("Front: " << msg->ranges[0]);
-    ROS_INFO_STREAM("Left: " << msg->ranges[90]);
-    ROS_INFO_STREAM("Right: " << msg->ranges[270]);
+    // ROS_INFO_STREAM("-------------------------");
+    // ROS_INFO_STREAM("Front: " << msg->ranges[0]);
+    // ROS_INFO_STREAM("Left: " << msg->ranges[90]);
+    // ROS_INFO_STREAM("Right: " << msg->ranges[270]);
 }
 
 void Follower::m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg) {
