@@ -194,12 +194,31 @@ int main(int argc, char** argv) {
     //*****FOLLOWER*******//
     //--STEP 01. Let Follower Get home---
     //Wait until explorer "home" = (-4,2.5) before follower leave
-    //---Send Follower to IDs O through 3 ---//
+    
+    //--STEP 02. Sort Posits----
+    std::array<std::array<double,2>,4> follow_list={};
+
+      for (int k=0; k<4;k++){
+        if (follower.m_fid.at(k)==0){ 
+            follow_list[0]=goal_list[k];
+        } else if(follower.m_fid.at(k)==1) {
+            follow_list[1]=goal_list[k];        
+        } else if (follower.m_fid.at(k)==2) {
+            follow_list[2]=goal_list[k];        
+        } else if (follower.m_fid.at(k)==3){
+            follow_list[3]=goal_list[k];        
+      }
+    }//sorting for loop
+    
+    
+    //---STEP 03. Send Follower to IDs O through 3 ---//
     for (int j=0; j<4 ;j++) {
-      //--STEP 02. Set Goal for next ID--//
+      follower_goal_sent = false;
+      
+      //--Set Goal for next ID--//
       fiducial_id=follower.m_fid.at(j);
-      goal_x=follower.m_posit.at(j).at(0);
-      goal_y=follower.m_posit.at(j).at(1);
+      goal_x=follow_list.at(j).at(0);
+      goal_y=follow_list.at(j).at(1);
 
       //Build goal for follower using Move_base
       follower_goal.target_pose.header.frame_id = "map";
@@ -228,7 +247,7 @@ int main(int argc, char** argv) {
       ROS_INFO("Conducting Triage..");
       ros::Duration(0.5).sleep();
 
-      //--STEP 03. Send Follower to Start Position (-4,3.5) --//
+      //--STEP 04. Send Follower to Start Position (-4,3.5) --//
       if (j==3) {
         ROS_INFO("\nSending follower to Final Position");
         goal_x=-4;
