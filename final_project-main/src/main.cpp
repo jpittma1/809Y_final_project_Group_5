@@ -138,22 +138,28 @@ int main(int argc, char** argv) {
         explorer_goal_sent = true;
       }
 
-      ROS_INFO_STREAM("fiducial id of current and last: " << aruco_node.fid_ids[i] << "\t" << aruco_node.fid_ids[i-1]);
+      // ROS_INFO_STREAM("fiducial id of current and last: " << aruco_node.fid_ids[i] << "\t" << aruco_node.fid_ids[i-1]);
      
       explorer_client.waitForResult();
 
+      explorer.go_to_goal(goal_x,goal_y);
+
+      explorer_client.waitForResult();
       ros::Duration(0.5).sleep();
 
     
       if (explorer_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
         ROS_INFO("Hooray, explorer reached goal");
         explorer_goal_sent = false;
+        follower.m_test=true;
         // aruco_node.marker_listen(tfBuffer, i);
         
-        while(!aruco_node.marker_seen){
+        while(!aruco_node.marker_seen[i]){
           explorer.m_move(0.0,0.5);
           aruco_node.marker_listen(tfBuffer, i);
-        } 
+        }
+
+        aruco_node.m_count ++; 
       }    
   
    }//Explorer for loop
@@ -162,6 +168,7 @@ int main(int argc, char** argv) {
     //---SEND Explorer Home---
     goal_x=-4;
     goal_y=2.5;
+    ROS_INFO_STREAM("Returning Explorer Home.")
     explorer_goal.target_pose.pose.position.x = goal_x;
     explorer_goal.target_pose.pose.position.y = goal_y;
 
@@ -183,73 +190,76 @@ int main(int argc, char** argv) {
     ros::Duration(2.0).sleep();
     delayed_start=true;
 
+    follower.setup_goals();
+    ROS_INFO_STREAM("The first goal is: "<<follower.m_posit[0][0]<<"\t"<<follower.m_post[0][1]);
+
     //*****FOLLOWER*******//
     //--STEP 01. Let Follower Get home---
     //Wait until explorer "home" = (-4,2.5) before follower leave
-    if (delayed_start) {
-      //---Send Follower to IDs O through 3 ---//
-      for (int j=0; j<4 ;j++) {
-        //--STEP 02. Set Goal for next ID--//
-        fiducial_id=follower.m_fid.at(j);
-        goal_x=follower.m_posit.at(j).at(0);
-        goal_y=follower.m_posit.at(j).at(1);
+    // if (delayed_start) {
+    //---Send Follower to IDs O through 3 ---//
+    for (int j=0; j<4 ;j++) {
+      //--STEP 02. Set Goal for next ID--//
+      fiducial_id=follower.m_fid.at(j);
+      goal_x=follower.m_posit.at(j).at(0);
+      goal_y=follower.m_posit.at(j).at(1);
 
-        //Build goal for follower using Move_base
-        follower_goal.target_pose.header.frame_id = "map";
-        follower_goal.target_pose.header.stamp = ros::Time::now();
+      //Build goal for follower using Move_base
+      follower_goal.target_pose.header.frame_id = "map";
+      follower_goal.target_pose.header.stamp = ros::Time::now();
+      follower_goal.target_pose.pose.position.x = goal_x;
+      follower_goal.target_pose.pose.position.y = goal_y;
+      follower_goal.target_pose.pose.orientation.w = 1.0;
+
+      ROS_INFO("\nFollower moving to goal for ");
+      std::cout << "Fiducial ID: "<< fiducial_id;
+      std::cout << "\nLocated at: ("<< goal_x << ", "<<goal_y<<")\n";
+
+      if (!follower_goal_sent){
+        // ROS_INFO("Sending follower goal");
+        follower_client.sendGoalAndWait(follower_goal);
+        follower_goal_sent = true;
+      }
+      
+      follower_client.waitForResult();
+      
+      if (follower_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
+        ROS_INFO("Hooray, follower reached goal!!");
+        follower_goal_sent = false;
+      }
+
+      ROS_INFO("Conducting Triage..");
+      ros::Duration(0.5).sleep();
+
+      //--STEP 03. Send Follower to Start Position (-4,3.5) --//
+      if (j==3) {
+        ROS_INFO("\nSending follower to Final Position");
+        goal_x=-4;
+        goal_y=3.5;
         follower_goal.target_pose.pose.position.x = goal_x;
         follower_goal.target_pose.pose.position.y = goal_y;
-        follower_goal.target_pose.pose.orientation.w = 1.0;
-
-        ROS_INFO("\nFollower moving to goal for ");
-        std::cout << "Fiducial ID: "<< fiducial_id;
-        std::cout << "\nLocated at: ("<< goal_x << ", "<<goal_y<<")\n";
 
         if (!follower_goal_sent){
           // ROS_INFO("Sending follower goal");
           follower_client.sendGoalAndWait(follower_goal);
           follower_goal_sent = true;
         }
-        
+
         follower_client.waitForResult();
-        
+
         if (follower_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
-          ROS_INFO("Hooray, follower reached goal!!");
-          follower_goal_sent = false;
+          ROS_INFO("\n\n========================================");
+          ROS_INFO("Hooray, follower reached FINAL position!");
+          ROS_INFO("========================================");
         }
+        ros::shutdown();
 
-        ROS_INFO("Conducting Triage..");
-        ros::Duration(0.5).sleep();
+      } else {
+          ros::spinOnce();
+        }//if j==3 loop
+    } //Follower "j" loop
 
-        //--STEP 03. Send Follower to Start Position (-4,3.5) --//
-        if (j==3) {
-          ROS_INFO("\nSending follower to Final Position");
-          goal_x=-4;
-          goal_y=3.5;
-          follower_goal.target_pose.pose.position.x = goal_x;
-          follower_goal.target_pose.pose.position.y = goal_y;
-
-          if (!follower_goal_sent){
-            // ROS_INFO("Sending follower goal");
-            follower_client.sendGoalAndWait(follower_goal);
-            follower_goal_sent = true;
-          }
-
-          follower_client.waitForResult();
-
-          if (follower_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
-            ROS_INFO("\n\n========================================");
-            ROS_INFO("Hooray, follower reached FINAL position!");
-            ROS_INFO("========================================");
-          }
-          ros::shutdown();
-
-        } else {
-            ros::spinOnce();
-          }//if j==3 loop
-     } //Follower "j" loop
-
-    }//if loop
+    // }//if loop
   
   ros::spinOnce();
   loop_rate.sleep();
