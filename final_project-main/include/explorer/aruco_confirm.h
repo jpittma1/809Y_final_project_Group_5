@@ -58,6 +58,8 @@ class ArucoNode{
          */
         void aruco_seen();
         
+        bool first_goal = false;
+
         /**
          * @brief Fiducial IDs storage
          * 
@@ -73,7 +75,7 @@ class ArucoNode{
         int temp_id;
         int m_count{0};
 
-        bool marker_seen {false};
+       std::array<bool,4> marker_seen {false,false,false,false};
         
         /**
          * @brief Destroy the Aruco Node object
@@ -82,15 +84,15 @@ class ArucoNode{
         ~ArucoNode() {}
         
     private:
-        void m_check_subscribers();
+        // void m_check_subscribers();
         void m_initialize_subscribers();
 
 
         ros::NodeHandle m_nh;
-        ros::Subscriber m_check_subscriber;
-        ros::Subscriber m_scan_subscriber;
+        // ros::Subscriber m_check_subscriber;
+        // ros::Subscriber m_scan_subscriber;
         ros::Subscriber m_fiducial_subscriber;
-        ros::Publisher m_velocity_publisher;
+        // ros::Publisher m_velocity_publisher;
 
     
 };

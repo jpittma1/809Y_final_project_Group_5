@@ -21,6 +21,8 @@
 #include <tf/transform_datatypes.h> //to manipulate quaternions
 #include <cmath>
 
+#include "../include/explorer/aruco_confirm.h"
+
 
 /**
  * @brief Follower Class for Follower bot
@@ -50,6 +52,8 @@ class Follower {
         bool go_to_goal(double x, double y);
         void stop();
 
+        int m_goal_count = 0;
+
         /**
          * @brief Computes expected final yaw
          * 
@@ -61,6 +65,8 @@ class Follower {
         double compute_yaw_deg();
         double compute_yaw_rad();
         double convert_rad_to_deg(double angle);
+
+        void setup_goals();
 
         /**
          * @brief Destroy the Follower object

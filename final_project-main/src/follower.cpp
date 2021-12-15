@@ -76,6 +76,27 @@ void Follower::m_scan_callback(const sensor_msgs::LaserScan::ConstPtr& msg) {
     // ROS_INFO_STREAM("Right: " << msg->ranges[270]);
 }
 
+void Follower::setup_goals(){
+    int fiducial_id;
+    ArucoNode a_node(&m_nh);
+
+    
+    m_fid.at(0)=a_node.fid_ids[0];
+    m_posit.at(0)={a_node.transformed_locs[0][0], a_node.transformed_locs[0][1]};
+
+    m_fid.at(1)=a_node.fid_ids[1];
+    m_posit.at(1)={a_node.transformed_locs[1][0], a_node.transformed_locs[1][1]};
+
+    m_fid.at(2)=a_node.fid_ids[2];
+    m_posit.at(2)={a_node.transformed_locs[2][0], a_node.transformed_locs[2][1]};
+
+    m_fid.at(3)=a_node.fid_ids[3];
+    m_posit.at(3)={a_node.transformed_locs[3][0], a_node.transformed_locs[3][1]};
+
+
+
+}
+
 void Follower::m_fiducial_callback(const fiducial_msgs::FiducialTransformArray::ConstPtr& msg) {
     if (!msg->transforms.empty()) {//check marker is detected
 
