@@ -103,8 +103,12 @@ class ArucoNode{
 
 
         ros::NodeHandle m_nh;
-        
-        ros::Subscriber m_fiducial_subscriber;
+       
+        /**
+         * @brief fiducial subscriber
+         * 
+         */
+        ros::Subscriber m_fiducial_a_subscriber;
 
     
 };
