@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="follower_8cpp">
+    <title>follower.cpp File Reference</title>
+    <programlisting>#include &quot;../include/follower/follower.h&quot;</programlisting>
+<para>Include dependency diagram for follower.cpp</para>
+<para>
+    <figure>
+        <title>Dependency diagram</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="1" fileref="follower_8cpp__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </figure>
+</para>
+<para>Included by dependency diagram for follower.cpp</para>
+<para>
+    <figure>
+        <title>Dependency diagram</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="1" fileref="follower_8cpp__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </figure>
+</para>
+    <simplesect>
+        <title>Detailed Description</title>
+
+<para><link linkend="class_follower">Follower</link> Robot. </para>
+
+<para><formalpara><title>Author: </title>
+
+<para>809Y Final Project Group 5 </para>
+</formalpara>
+<formalpara><title>Version: </title>
+
+<para>0.1 </para>
+</formalpara>
+<formalpara><title>Date: </title>
+
+<para>2021-12-12</para>
+</formalpara>
+<formalpara><title>Copyright: </title>
+
+<para>Copyright (c) 2021 </para>
+</formalpara>
+</para>
+    <para>Definition in file /home/jerry/catkin_ws/src/809Y_final_project_Group_5/src/follower.cpp</para>
+    </simplesect>
+</section>

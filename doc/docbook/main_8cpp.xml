@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="main_8cpp">
+    <title>main.cpp File Reference</title>
+    <programlisting>#include &quot;../include/explorer/explorer.h&quot;</programlisting>
+    <programlisting>#include &quot;../include/explorer/aruco_confirm.h&quot;</programlisting>
+    <programlisting>#include &quot;../include/follower/follower.h&quot;</programlisting>
+    <programlisting>#include &lt;xmlrpcpp/XmlRpcClient.h&gt;</programlisting>
+    <programlisting>#include &lt;xmlrpcpp/XmlRpc.h&gt;</programlisting>
+<para>Include dependency diagram for main.cpp</para>
+<para>
+    <figure>
+        <title>Dependency diagram</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="1" fileref="main_8cpp__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </figure>
+</para>
+<para>Included by dependency diagram for main.cpp</para>
+<para>
+    <figure>
+        <title>Dependency diagram</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="1" fileref="main_8cpp__dep__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </figure>
+</para>
+        <section>
+            <title>Typedefs</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                            <para>typedef actionlib::SimpleActionClient&lt; move_base_msgs::MoveBaseAction &gt;  <link linkend="main_8cpp_1a21e20cc0b6656ae897b3cbb969b93241">MoveBaseClient</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>Functions</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="main_8cpp_1a9c2747abcaef4c03d19858e45f59de80">print_usage</link> (
+std::string error)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int <link linkend="main_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627">main</link> (
+int argc, char ** argv)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+    <simplesect>
+        <title>Detailed Description</title>
+
+<para>809Y Final Project Group 5 </para>
+
+<para><formalpara><title>Author: </title>
+
+<para>Jerry Pittman, Nicholas Novak, Orlandis Smith </para>
+</formalpara>
+<formalpara><title>Version: </title>
+
+<para>1.0 </para>
+</formalpara>
+<formalpara><title>Date: </title>
+
+<para>2021-12-12</para>
+</formalpara>
+<formalpara><title>Copyright: </title>
+
+<para>Copyright (c) 2021 </para>
+</formalpara>
+</para>
+    <para>Definition in file /home/jerry/catkin_ws/src/809Y_final_project_Group_5/src/main.cpp</para>
+    </simplesect>
+</section>

@@ -1,0 +1,303 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="class_aruco_node">
+<title>ArucoNode class Reference</title>
+<para>
+    <programlisting>#include <link linkend="aruco__confirm_8h">&lt;aruco_confirm.h&gt;</link></programlisting>
+</para>
+<para>Inheritance diagram for ArucoNode</para>
+<para>
+    <figure>
+        <title>Inheritance graph</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="1" fileref="class_aruco_node__inherit__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </figure>
+</para>
+<para>Collaboration diagram for ArucoNode</para>
+<para>
+    <figure>
+        <title>Collaboration graph</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="1" fileref="class_aruco_node__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </figure>
+</para>
+        <section>
+            <title>Public Attributes</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>bool first_goal<para><emphasis>First goal met; initially no.</emphasis></para></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>std::array&lt; int, 4 &gt; fid_ids<para><emphasis>Fiducial IDs storage.</emphasis></para></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>std::array&lt; std::array&lt; double, 2 &gt;, 4 &gt; transformed_locs<para><emphasis>Transformed locations.</emphasis></para></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int temp_id</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>int m_count</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>std::array&lt; bool, 4 &gt; marker_seen<para><emphasis>Determines if marker seen; 4 IDs to detect.</emphasis></para></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title>Private Attributes</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>ros::NodeHandle m_nh</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>ros::Subscriber m_fiducial_a_subscriber<para><emphasis>fiducial subscriber</emphasis></para></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>ros::Subscriber m_fiducial_t_subscriber</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+        <section>
+            <title></title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para> <link linkend="class_aruco_node_1ad539e5027a1d41e9e62f354db9ec40aa">ArucoNode</link> (
+ros::NodeHandle * nodehandle)<para><emphasis>Construct a new Aruco Node object.</emphasis></para>
+</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_aruco_node_1af68c583d73a36c483d28b96a6fd22713">fiducial_callback</link> (
+const fiducial_msgs::FiducialTransformArray::ConstPtr &amp; msg)<para><emphasis>Broadcaster for arUco Markers.</emphasis></para>
+</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_aruco_node_1ad79fd951057c9a40f34fc159363fbd94">marker_listen</link> (
+tf2_ros::Buffer &amp; tfBuffer, int count)<para><emphasis>listener for arUco markers</emphasis></para>
+</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_aruco_node_1adb4d7fb3af40cb83ae69be077c589558">marker_broadcast</link> (
+)<para><emphasis>broadcaster</emphasis></para>
+</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_aruco_node_1a38f5977cae0f0cc0d30449db22b2e9d6">aruco_exists_callback</link> (
+const fiducial_msgs::FiducialTransformArray::ConstPtr &amp; msg)<para><emphasis>aruco exists</emphasis></para>
+</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_aruco_node_1a21fe5af1a16e884424a4065ca6dd608f">aruco_seen</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para> <link linkend="class_aruco_node_1a134694163a28530a800198e2c039eb25">~ArucoNode</link> (
+)<para><emphasis>Destroy the Aruco Node object.</emphasis></para>
+</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>void <link linkend="class_aruco_node_1a3aa9013d9f53f08c7de83be3359f7503">m_initialize_subscribers</link> (
+)</para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+    <simplesect>
+
+<para>A class that detects the Aruco Marker. </para>
+    </simplesect>
+        <section>
+            <title>Member Data Documentation</title>
+        </section>
+        <section>
+            <title>Member Data Documentation</title>
+        </section>
+            <section xml:id="class_aruco_node_1ad539e5027a1d41e9e62f354db9ec40aa">
+                <title>ArucoNode::ArucoNode (ros::NodeHandle *nodehandle)</title> <emphasis>Construct a new Aruco Node object.</emphasis>
+                
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>nodehandle</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
+            </section>
+            <section xml:id="class_aruco_node_1af68c583d73a36c483d28b96a6fd22713">
+                <title>void ArucoNode::fiducial_callback (const fiducial_msgs::FiducialTransformArray::ConstPtr &amp;msg)</title> <emphasis>Broadcaster for arUco Markers.</emphasis>
+                
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>msg</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
+            </section>
+            <section xml:id="class_aruco_node_1ad79fd951057c9a40f34fc159363fbd94">
+                <title>void ArucoNode::marker_listen (tf2_ros::Buffer &amp;tfBuffer, int count)</title> <emphasis>listener for arUco markers</emphasis>
+                
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>tfBuffer</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>count</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
+            </section>
+            <section xml:id="class_aruco_node_1adb4d7fb3af40cb83ae69be077c589558">
+                <title>void ArucoNode::marker_broadcast ()</title> <emphasis>broadcaster</emphasis>
+                
+            </section>
+            <section xml:id="class_aruco_node_1a38f5977cae0f0cc0d30449db22b2e9d6">
+                <title>void ArucoNode::aruco_exists_callback (const fiducial_msgs::FiducialTransformArray::ConstPtr &amp;msg)</title> <emphasis>aruco exists</emphasis>
+                
+<para>
+                <formalpara>
+                    <title/>
+                    <table frame="all">
+                        <title>Parameters                        </title>
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>msg</entry>
+                                <entry>
+<para></para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                </formalpara>
+                </para>
+
+            </section>
+            <section xml:id="class_aruco_node_1a21fe5af1a16e884424a4065ca6dd608f">
+                <title>void ArucoNode::aruco_seen ()</title> <emphasis></emphasis>
+                
+            </section>
+            <section xml:id="class_aruco_node_1a134694163a28530a800198e2c039eb25">
+                <title>ArucoNode::~ArucoNode ()</title> <emphasis>Destroy the Aruco Node object.</emphasis>
+                
+            </section>
+            <section xml:id="class_aruco_node_1a3aa9013d9f53f08c7de83be3359f7503">
+                <title>void ArucoNode::m_initialize_subscribers ()</title> <emphasis></emphasis>
+                
+            </section>
+</section>

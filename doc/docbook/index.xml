@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<book xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <info>
+    <title>809Y Final Project (Novak, Pittman, Smith)</title>
+    </info>
+    <chapter>
+        <title>Namespace Documentation</title>
+        <xi:include href="namespace__setup__util.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="namespacegenerate__cached__setup.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="namespaceorder__packages.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="namespacepkg.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    </chapter>
+        <xi:include href="md__r_e_a_d_m_e.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <chapter>
+        <title>Class Documentation</title>
+        <xi:include href="class_aruco_node.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="class_explorer.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="class_follower.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    </chapter>
+    <chapter>
+        <title>File Documentation</title>
+        <xi:include href="atomic__configure_2__setup__util_8py.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="catkin__generated_2installspace_2__setup__util_8py.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="devel_2__setup__util_8py.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="generate__cached__setup_8py.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="order__packages_8py.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="_c_make_c_compiler_id_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="_c_make_c_x_x_compiler_id_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="feature__tests_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="feature__tests_8cxx.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="pkg_8develspace_8context_8pc_8py.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="pkg_8installspace_8context_8pc_8py.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="aruco__confirm_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="explorer_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="follower_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="_r_e_a_d_m_e_8md.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="aruco__confirm_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="explorer_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="follower_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="main_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    </chapter>
+    <chapter>
+        <title>Directory Documentation</title>
+        <xi:include href="dir_7f7e439ba0927089503219129b4cf038.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="dir_738c8aa55f7d1b46d5d705b1c6094172.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="dir_4fef79e7177ba769987a8da36c892c5f.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="dir_a3370ebb1a2f6a1b17d2c2e0b5997f46.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="dir_53c6125ef8c0c1b69795abdae41dd811.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="dir_63772b626f2709090f0bdca0f40827b4.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="dir_cf779efadf30e9c7d82da7dbe2eb33f7.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="dir_5280bb524ed5294135fd93e0b12dbd44.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="dir_ea4018cc52a30014e5a675b21f0525a0.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="dir_3e12035cddfeaa64c71eb203d54d0f88.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="dir_2b99c6e0dbb3febd390594074920b17f.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="dir_8fbd8703e80f231efb1b7b3743506c21.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="dir_d44c64559bbebec7f509842c48db8b23.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="dir_9eca91ca188f7f38e95fe05c42197164.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+        <xi:include href="dir_68267d1309a1af8e8297ef4c3efbcdba.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    </chapter>
+</book>

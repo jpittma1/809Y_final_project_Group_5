@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="namespacepkg">
+<title>pkg</title>
+        <section>
+            <title>Variables</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>string <link linkend="namespacepkg_1ae26c7a5a06b7d738f4d210ca449e6bee">CATKIN_PACKAGE_PREFIX</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>string <link linkend="namespacepkg_1a2760bf8266ff58da440f65ee91b203ab">PROJECT_PKG_CONFIG_INCLUDE_DIRS</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>string <link linkend="namespacepkg_1a17c18447fad253ee1c0d76deec88028c">PROJECT_CATKIN_DEPENDS</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>string <link linkend="namespacepkg_1a433e30cecb4a0123a7c4b384d168e336">PKG_CONFIG_LIBRARIES_WITH_PREFIX</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>string <link linkend="namespacepkg_1a7dfbe99257c26f5e4a3a5483995d9ddc">PROJECT_NAME</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>string <link linkend="namespacepkg_1a3f0f1b4bc03c596525e025539ca4332f">PROJECT_SPACE_DIR</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>string <link linkend="namespacepkg_1ab1037914b9286bb61855131c06149648">PROJECT_VERSION</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+</section>

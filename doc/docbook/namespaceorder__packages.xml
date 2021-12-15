@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="namespaceorder__packages">
+<title>order_packages</title>
+        <section>
+            <title>Variables</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>string <link linkend="namespaceorder__packages_1aff4fd297841de7fbddc2c0c33a6bab21">source_root_dir</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>string <link linkend="namespaceorder__packages_1a84450a73e77dbf3689293b97dcb697a4">whitelisted_packages</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>string <link linkend="namespaceorder__packages_1a29ea913f00c5a0e81d3c7688e7375507">blacklisted_packages</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>string <link linkend="namespaceorder__packages_1a11d102ff09fd2977b9075c4c722015d2">underlay_workspaces</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+</section>

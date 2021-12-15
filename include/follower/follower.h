@@ -26,18 +26,30 @@
 
 
 /**
- * @brief Follower Class
- * Explorer
+ * @brief Follower Class for Follower bot
+ * Goal is to have Follower go to ArUco markers in fiducial ID order
+ *
  * 
  */
 class Follower {
     public:
+         /**
+         * @brief Construct a new Follower object
+         * 
+         * @param nodehandle 
+         * @param robot_name 
+         */
         Follower(ros::NodeHandle *nodehandle, const std::string &robot_name);
         void publish_velocities(const geometry_msgs::Twist &msg);
         void drive_straight(double distance, bool direction);
         void rotate(double angle_to_rotate, bool direction, double final_angle);
         bool go_to_goal(double x, double y);
         void stop();
+
+         /**
+         * @brief Count goals
+         * 
+         */
         int m_goal_count = 0;
         double compute_expected_final_yaw(bool direction, double angle_to_rotate);
         double compute_yaw_deg();
@@ -45,11 +57,23 @@ class Follower {
         double convert_rad_to_deg(double angle);
         double temp_x;
         double temp_y;
+
+        /**
+         * @brief Setup goals
+         * 
+         */
         void setup_goals();
 
-
+        /**
+         * @brief Destroy the Follower object
+         * 
+         */
         ~Follower() {}
 
+        /**
+         * @brief store marker positions
+         * 
+         */
         std::array <int, 4> m_fid {};               //store fidicual IDs
         std::array<std::array<double, 2>, 4> m_posit{};  //store marker positions
 

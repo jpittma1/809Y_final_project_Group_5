@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="namespacegenerate__cached__setup">
+<title>generate_cached_setup</title>
+        <section>
+            <title>Variables</title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para> <link linkend="namespacegenerate__cached__setup_1a72579fd01529a79bab20d99291889d3f">python_path</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para> <link linkend="namespacegenerate__cached__setup_1a52601295006f2366a311c4453d8f2f2e">code</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>string <link linkend="namespacegenerate__cached__setup_1a0265aee5075ee1eb701ff69c98ad6793">output_filename</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para> <link linkend="namespacegenerate__cached__setup_1a10081e5abedae9bd46dd91202096e789">mode</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </section>
+</section>

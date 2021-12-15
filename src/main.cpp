@@ -196,96 +196,117 @@ int main(int argc, char** argv) {
     goal_x=-4;
     goal_y=2.5;
     ROS_INFO_STREAM("Returning Explorer Home.");
-
-    explorer_goal.target_pose.header.frame_id = "map";
-    explorer_goal.target_pose.header.stamp = ros::Time::now();
     explorer_goal.target_pose.pose.position.x = goal_x;
     explorer_goal.target_pose.pose.position.y = goal_y;
-    explorer_goal.target_pose.pose.orientation.w = 1.0;
 
-    explorer_client.sendGoal(explorer_goal);//this should be sent only once
+    if (!explorer_goal_sent){
+        ROS_INFO("Sending goal for explorer");
+        explorer_client.sendGoalAndWait(explorer_goal);//this should be sent only once
+        explorer_goal_sent = true;
+      }
+
+    explorer_client.waitForResult();
+
+    if (explorer_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
+      ROS_INFO("Hooray, explorer reached goal");
+      explorer_goal_sent = false;
+    }
 
     explorer_client.waitForResult();
 
     ros::Duration(2.0).sleep();
     delayed_start=true;
 
-    // follower.setup_goals();
+    follower.setup_goals();
+    std::cout <<"The first goal is: "<<follower.m_posit[0][0]<<"\t"<<follower.m_posit[0][1];
+
     //*****FOLLOWER*******//
-    
+    //--STEP 01. Let Follower Get home---
     //Wait until explorer "home" = (-4,2.5) before follower leave
     
-      //---Send Follower to IDs O through 3 ---//
-      std::array<std::array<double,2>,4> follow_list={};
+    //--STEP 02. Sort Posits----
+    std::array<std::array<double,2>,4> follow_list={};
 
       for (int k=0; k<4;k++){
-        
-        if (aruco_node.fid_ids.at(k)==0){ 
+        if (follower.m_fid.at(k)==0){ 
             follow_list[0]=goal_list[k];
-
-        } else if(aruco_node.fid_ids.at(k)==1) {
+        } else if(follower.m_fid.at(k)==1) {
             follow_list[1]=goal_list[k];        
-
-        } else if (aruco_node.fid_ids.at(k)==2) {
+        } else if (follower.m_fid.at(k)==2) {
             follow_list[2]=goal_list[k];        
-
-        } else if (aruco_node.fid_ids.at(k)==3){
+        } else if (follower.m_fid.at(k)==3){
             follow_list[3]=goal_list[k];        
-      }}
+      }
+    }//sorting for loop
+    
+    
+    //---STEP 03. Send Follower to IDs O through 3 ---//
+    for (int j=0; j<4 ;j++) {
+      follower_goal_sent = false;
       
-      for (int j=0; j<4 ;j++) {
-        follower_goal_sent = false;
-        //--Set Goal for next ID--//
-        fiducial_id=follower.m_fid.at(j);
-        
-        goal_x = goal_list[j][0];
-        goal_y = goal_list[j][1];
-        ROS_INFO_STREAM("The first goal is: "<<goal_x<<"\t"<<goal_y);
+      //--Set Goal for next ID--//
+      fiducial_id=follower.m_fid.at(j);
+      goal_x=follow_list.at(j).at(0);
+      goal_y=follow_list.at(j).at(1);
 
-        
-        //Build goal for follower using Move_base
-        follower_goal.target_pose.header.frame_id = "map";
-        follower_goal.target_pose.header.stamp = ros::Time::now();
+      //Build goal for follower using Move_base
+      follower_goal.target_pose.header.frame_id = "map";
+      follower_goal.target_pose.header.stamp = ros::Time::now();
+      follower_goal.target_pose.pose.position.x = goal_x;
+      follower_goal.target_pose.pose.position.y = goal_y;
+      follower_goal.target_pose.pose.orientation.w = 1.0;
+
+      ROS_INFO("\nFollower moving to goal for ");
+      std::cout << "Fiducial ID: "<< fiducial_id;
+      std::cout << "\nLocated at: ("<< goal_x << ", "<<goal_y<<")\n";
+
+      if (!follower_goal_sent){
+        // ROS_INFO("Sending follower goal");
+        follower_client.sendGoalAndWait(follower_goal);
+        follower_goal_sent = true;
+      }
+      
+      follower_client.waitForResult();
+      
+      if (follower_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
+        ROS_INFO("Hooray, follower reached goal!!");
+        follower_goal_sent = false;
+      }
+
+      ROS_INFO("Conducting Triage..");
+      ros::Duration(0.5).sleep();
+
+      //--STEP 04. Send Follower to Start Position (-4,3.5) --//
+      if (j==3) {
+        ROS_INFO("\nSending follower to Final Position");
+        goal_x=-4;
+        goal_y=3.5;
         follower_goal.target_pose.pose.position.x = goal_x;
         follower_goal.target_pose.pose.position.y = goal_y;
-        follower_goal.target_pose.pose.orientation.w = 1.0;
-
 
         if (!follower_goal_sent){
-          ROS_INFO("Sending follower goal");
+          // ROS_INFO("Sending follower goal");
           follower_client.sendGoalAndWait(follower_goal);
           follower_goal_sent = true;
         }
-        
+
         follower_client.waitForResult();
-        
-        
-        ROS_INFO("Follower moving to goal");
-        std::cout << "\nFiducial ID: "<< fiducial_id;
-        std::cout << "\nLocated at: ("<< goal_x << ", "<<goal_y<<")";
-        follower.go_to_goal(goal_x, goal_y);
-        ROS_INFO("Hooray, follower reached goal");
-        
 
-        ros::Duration(0.5).sleep();
-        //---Send Follower to Start Position (-4,3.5) ---//
-        
-     } //for "j" loop
-     ROS_INFO("Sending follower to Start Position");
-          goal_x=-4;
-          goal_y=3.5;
-          follower_goal.target_pose.header.frame_id = "map";
-          follower_goal.target_pose.header.stamp = ros::Time::now();
-          follower_goal.target_pose.pose.position.x = goal_x;
-          follower_goal.target_pose.pose.position.y = goal_y;
-          follower_goal.target_pose.pose.orientation.w = 1.0;
-          follower_client.sendGoalAndWait(follower_goal);
-          follower.go_to_goal(goal_x, goal_y);
-          ROS_INFO("Hooray, follower reached starting position");
-          ros::shutdown();
+        if (follower_client.getState() == actionlib::SimpleClientGoalState::SUCCEEDED) {
+          ROS_INFO("\n\n========================================");
+          ROS_INFO("Hooray, follower reached FINAL position!");
+          ROS_INFO("========================================");
+        }
+        ros::shutdown();
 
-    ros::spinOnce();
-    loop_rate.sleep();
-    
+      } else {
+          ros::spinOnce();
+        }//if j==3 loop
+    } //Follower "j" loop
+
+    // }//if loop
+  
+  ros::spinOnce();
+  loop_rate.sleep();
   }//while ros OK loop
 }//main

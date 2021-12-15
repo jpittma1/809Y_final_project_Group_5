@@ -27,31 +27,98 @@
  */
 class Explorer{
     public:
-        // main() will need to instantiate a ROS nodehandle, then pass it to the constructor
+       /**
+         * @brief Construct a new Explorer object
+         * 
+         * @param nodehandle 
+         * @param robot_name 
+         */
         Explorer(ros::NodeHandle *nodehandle, const std::string &robot_name);
+        
+         /**
+         * @brief Publish velocities to odom
+         * 
+         * @param msg 
+         */
         void publish_velocities(const geometry_msgs::Twist &msg);
+        
+         /**
+         * @brief moves robot straight
+         * 
+         * @param distance 
+         * @param direction 
+         */
         void drive_straight(double distance, bool direction);
+        
+         /**
+         * @brief Rotates robot
+         * 
+         * @param angle_to_rotate 
+         * @param direction 
+         * @param final_angle 
+         */
         void rotate(double angle_to_rotate, bool direction, double final_angle);
+        
+        /**
+         * @brief Moves robot to goal
+         * 
+         * @param x 
+         * @param y 
+         * @return true 
+         * @return false 
+         */
         bool go_to_goal(double x, double y);
         void stop();
+
+        /**
+         * @brief Compoutes final yaw angle
+         * 
+         * @param direction 
+         * @param angle_to_rotate 
+         * @return double 
+         */
         double compute_expected_final_yaw(bool direction, double angle_to_rotate);
         double compute_yaw_deg();
         double compute_yaw_rad() ;
         double convert_rad_to_deg(double angle);
 
+        /**
+         * @brief Destroy the Explorer object
+         * 
+         */
         ~Explorer() {}
 
         // ros::NodeHandle exp_node;
         std::array<std::array<int,3>,4> goal_list {};
+        
+        /**
+         * @brief Store starting and final position
+         * 
+         */
         std::array<int,3> start_place {};
 
-
+        /**
+         * @brief moves robot to next location
+         * 
+         * @param goal_loc 
+         */
         void move_next_loc(std::array<double,2> goal_loc){};
 
+        /**
+         * @brief Get the goals object from aruco_lookup.yaml
+         * 
+         * @return std::array<std::array<double,2>,4> 
+         */
         std::array<std::array<double,2>,4> get_goals() {};
 
         ros::Publisher m_velocity_publisher;
 
+        /**
+         * @brief Move bot in a linear and angular motion
+         * 
+         * @param linear 
+         * @param angular 
+         */
         void m_move(double linear, double angular);
 
 
@@ -76,7 +143,18 @@ class Explorer{
         double m_pitch;                                                    //rad
         double m_yaw;       //rad
 
+        /**
+         * @brief Odom callback
+         * 
+         * @param msg 
+         */
         void m_pose_callback(const nav_msgs::Odometry::ConstPtr &msg);     // prototype for callback of example subscriber
+        
+        /**
+         * @brief Laser Scan callback
+         * 
+         * @param msg 
+         */
         void m_scan_callback(const sensor_msgs::LaserScan::ConstPtr &msg); // prototype for callback of example subscriber
         
         void m_initialize_subscribers();

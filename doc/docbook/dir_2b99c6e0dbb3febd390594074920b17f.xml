@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="dir_2b99c6e0dbb3febd390594074920b17f">
+    <title>build/final_project-main Directory Reference</title>
+<para>Directory dependency diagram for build/final_project-main</para>
+<para>
+    <figure>
+        <title>Directory Dependency diagram</title>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="1" fileref="dir_2b99c6e0dbb3febd390594074920b17f_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </figure>
+</para>
+        <simplesect>
+            <title> Directories </title>
+            <para>
+                <itemizedlist>
+                    <listitem>
+                        <para>dir <link linkend="dir_a3370ebb1a2f6a1b17d2c2e0b5997f46">build/final_project-main/catkin_generated</link></para>
+                    </listitem>
+                </itemizedlist>
+            </para>
+        </simplesect>
+    <simplesect>
+        <title>Detailed Description</title>
+    <para>Directory location is /home/jerry/catkin_ws/src/809Y_final_project_Group_5/build/final_project-main/</para>
+    </simplesect>
+</section>
