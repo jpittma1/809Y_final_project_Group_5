@@ -1,5 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_bot___controller.html" title="Controller class to drive a turtlebot. " alt="" coords="5,31,111,57"/>
-<area shape="rect" id="node2" href="$class_explorer.html" title="A class that inherits from Bot_contreoller to control the explorer and exploration algorithm..." alt="" coords="159,5,229,32"/>
-<area shape="rect" id="node3" href="$class_follower.html" title="Public Inheritance Child class of Bot_controller Class to go to ArUco markers found by Explorer child..." alt="" coords="159,56,229,83"/>
-</map>
